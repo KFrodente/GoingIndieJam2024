@@ -305,7 +305,8 @@ MonoBehaviour:
   tileCount: 0
   fillPercentage: 0.03
   waitTime: 0.01
-  timesToThicken: 2
+  timesToThicken: 3
+  chanceToThicken: 0.4
 --- !u!4 &143189730
 Transform:
   m_ObjectHideFlags: 0

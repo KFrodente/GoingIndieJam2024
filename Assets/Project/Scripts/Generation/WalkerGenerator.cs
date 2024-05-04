@@ -104,7 +104,7 @@ public class WalkerGenerator : MonoBehaviour
 
     }
 
-    private IEnumerator CreateWalls()
+    /*private IEnumerator CreateWalls()
     {
         for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
         {
@@ -146,8 +146,23 @@ public class WalkerGenerator : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
+    private IEnumerator CreateWalls()
+    {
+        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
+        {
+            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
+            {
+                if (gridHandler[x, y] == Grid.EMPTY)
+                {
+                    tilemap.SetTile(new Vector3Int(x, y), wall);
+                    gridHandler[x, y] = Grid.WALL;
+                }
+            }
+        }
+        yield return null;
+    }
     private void CheckRemove()
     {
         int updatedCount = walkers.Count;

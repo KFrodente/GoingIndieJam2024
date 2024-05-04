@@ -299,11 +299,11 @@ MonoBehaviour:
   tilemap: {fileID: 45705938}
   floor: {fileID: 11400000, guid: 1c1f1ff7585b5ff4e896ec8e8fd6465a, type: 2}
   wall: {fileID: 11400000, guid: d25be3cc7e12f404fa7239cab37d22d0, type: 2}
-  mapWidth: 80
-  mapHeight: 80
+  mapWidth: 50
+  mapHeight: 50
   maxWalkers: 5
   tileCount: 0
-  fillPercentage: 0.3
+  fillPercentage: 0.4
   waitTime: 0
 --- !u!4 &143189730
 Transform:

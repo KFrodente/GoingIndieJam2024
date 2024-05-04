@@ -25,6 +25,9 @@ public class WalkerGenerator : MonoBehaviour
     public float fillPercentage;
     public float waitTime;
 
+    public int timesToThicken;
+    public float chanceToThicken;
+
     private void Start()
     {
         InitializeGrid();
@@ -100,7 +103,11 @@ public class WalkerGenerator : MonoBehaviour
             }
         }
 
-        StartCoroutine(CreateWalls());
+        for (int i = 0; i < timesToThicken; i++)
+        {
+
+            StartCoroutine(CreateWalls());
+        }
 
     }
 
@@ -150,18 +157,69 @@ public class WalkerGenerator : MonoBehaviour
 
     private IEnumerator CreateWalls()
     {
+        //do checks for if there is a floor both above and to the sides, above and below, 
         for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
         {
             for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
             {
+                if (x >= 1 && x < gridHandler.GetLength(0) && y >= 1 && y < gridHandler.GetLength(1))
+                {
+                    //checks left and right
+                    //if (gridHandler[x, y] == Grid.FLOOR && (gridHandler[x+1,y] == Grid.EMPTY || gridHandler[x + 1, y] == Grid.WALL) && (gridHandler[x - 1, y] == Grid.EMPTY || gridHandler[x - 1, y] == Grid.WALL))
+                    //{
+                    //    tilemap.SetTile(new Vector3Int(x, y), wall);
+                    //    gridHandler[x, y] = Grid.WALL;
+                    //}
+                    ////checks up and down
+                    //else if (gridHandler[x, y] == Grid.FLOOR && (gridHandler[x, y + 1] == Grid.EMPTY || gridHandler[x, y + 1] == Grid.WALL) && (gridHandler[x, y - 1] == Grid.EMPTY || gridHandler[x, y - 1] == Grid.WALL))
+                    //{
+                    //    tilemap.SetTile(new Vector3Int(x, y), wall);
+                    //    gridHandler[x, y] = Grid.WALL;
+                    //}
+                    //else if (gridHandler[x, y] == Grid.FLOOR && (gridHandler[x + 1, y + 1] == Grid.EMPTY || gridHandler[x + 1, y + 1] == Grid.WALL) && (gridHandler[x - 1, y - 1] == Grid.EMPTY || gridHandler[x - 1, y - 1] == Grid.WALL))
+                    //{
+                    //    tilemap.SetTile(new Vector3Int(x, y), wall);
+                    //    gridHandler[x, y] = Grid.WALL;
+                    //}
+
+                    if (gridHandler[x+1, y] == Grid.FLOOR && gridHandler[x, y+1] == Grid.FLOOR && Random.Range(0.0f, 1.0f) < chanceToThicken)
+                    {
+                        tilemap.SetTile(new Vector3Int(x, y), floor);
+                        gridHandler[x, y] = Grid.FLOOR;
+                    }
+                    else if (gridHandler[x + 1, y] == Grid.FLOOR && gridHandler[x, y - 1] == Grid.FLOOR && Random.Range(0.0f, 1.0f) < chanceToThicken)
+                    {
+                        tilemap.SetTile(new Vector3Int(x, y), floor);
+                        gridHandler[x, y] = Grid.FLOOR;
+                    }
+                    else if (gridHandler[x - 1, y] == Grid.FLOOR && gridHandler[x, y + 1] == Grid.FLOOR && Random.Range(0.0f, 1.0f) < chanceToThicken)
+                    {
+                        tilemap.SetTile(new Vector3Int(x, y), floor);
+                        gridHandler[x, y] = Grid.FLOOR;
+                    }
+                    //else if (gridHandler[x - 1, y] == Grid.FLOOR && gridHandler[x, y - 1] == Grid.FLOOR)
+                    //{
+                    //    tilemap.SetTile(new Vector3Int(x, y), floor);
+                    //    gridHandler[x, y] = Grid.FLOOR;
+
+                    //}
+
+
+                    else if (gridHandler[x, y] == Grid.EMPTY)
+                    {
+                        tilemap.SetTile(new Vector3Int(x, y), wall);
+                        gridHandler[x, y] = Grid.WALL;
+                    }
+                }
                 if (gridHandler[x, y] == Grid.EMPTY)
                 {
                     tilemap.SetTile(new Vector3Int(x, y), wall);
                     gridHandler[x, y] = Grid.WALL;
+
                 }
             }
         }
-        yield return null;
+                yield return null;
     }
     private void CheckRemove()
     {

@@ -6,8 +6,8 @@ using UnityEngine.Serialization;
 
 public class OribtalMovement : CharacterMovement
 {
-    [SerializeField] private float turnSpeed;
-    [SerializeField] private float speed;
+    [SerializeField] private BaseCharacter character;
+    private bool turnAngle;
     public override void Move(Vector2 direction)
     {
         
@@ -15,13 +15,13 @@ public class OribtalMovement : CharacterMovement
 
     public override void Click(Vector2 position)
     {
-        turnSpeed *= -1;
+        turnAngle = !turnAngle;
     }
 
     private void Update()
     {
-        transform.position += transform.up * (speed * Time.deltaTime);
+        transform.position += transform.up * (character.statHandler.stats.MoveSpeed * Time.deltaTime);
 
-        transform.RotateAround(transform.position, Vector3.forward, turnSpeed * Time.deltaTime);
+        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
     }
 }

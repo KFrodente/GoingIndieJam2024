@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,23 +13,29 @@ public class WalkerGenerator : MonoBehaviour
         EMPTY
     }
 
-    public Grid[,] gridHandler;
-    public List<WalkerObject> walkers;
-    public Tilemap tilemap;
-    public Tile floor;
-    public Tile wall;
-    public int mapWidth;
-    public int mapHeight;
+    [SerializeField] private Grid[,] gridHandler;
+    [SerializeField] private List<WalkerObject> walkers;
+    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private Tile floor;
+    [SerializeField] private RuleTile wall;
+    [SerializeField] private int mapWidth;
+    [SerializeField] private int mapHeight;
 
-    public int maxWalkers;
-    public int tileCount;
-    public float fillPercentage;
-    public float waitTime;
+    [SerializeField] private int maxWalkers;
+    [SerializeField] private int tileCount;
+    [SerializeField, Range(0, 1)] private float fillPercentage = .03f;
 
-    public int timesToThicken;
-    public float chanceToThicken;
+    [SerializeField] private int timesToThicken;
+    [SerializeField, Range(0, 1)] private float chanceToThicken;
 
-    public int maxContinuousLine;
+    [SerializeField] private int maxFailedRedirects;
+    [SerializeField, Range(0, 1)] private float redirectChance;
+    [SerializeField, Range(0, 1)] private float removeChance;
+    [SerializeField, Range(0, 1)] private float createChance;
+
+    //[SerializeField] private int maxContinuousLine;
+
+    private int walkersPlaced;
 
     private void Start()
     {
@@ -52,7 +59,8 @@ public class WalkerGenerator : MonoBehaviour
         Vector3Int tileCenter = new Vector3Int(gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2, 0);
 
         Vector2 pickedDir = GetDirection();
-        WalkerObject currentWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), pickedDir, 0.8f, .99f, 0.6f);
+        WalkerObject currentWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), pickedDir, removeChance, redirectChance, createChance, walkersPlaced);
+        walkersPlaced++;
         currentWalker.prevDirections.Add(pickedDir);
         gridHandler[tileCenter.x, tileCenter.y] = Grid.FLOOR;
         tilemap.SetTile(tileCenter, floor);
@@ -60,7 +68,7 @@ public class WalkerGenerator : MonoBehaviour
 
         tileCount++;
 
-        StartCoroutine(CreateFloors());
+        CreateFloors();
     }
 
     private Vector2 GetDirection()
@@ -77,53 +85,20 @@ public class WalkerGenerator : MonoBehaviour
         }
     }
 
-    private IEnumerator CreateFloors()
+    private void CreateFloors()
     {
-        while ((float)tileCount / (float)gridHandler.Length < fillPercentage)
+        while (tileCount / (float)gridHandler.Length < fillPercentage)
         {
 
-            bool hasCreatedFloor = false;
             foreach (WalkerObject walker in walkers)
             {
                 Vector3Int pos = new Vector3Int((int)walker.position.x, (int)walker.position.y, 0);
-
-                if (walker.prevDirections.Count > 3)
-                {
-
-                    Vector2 checkedDir = Vector2.zero;
-                    Vector2 contDir = Vector2.zero;
-                    for (int i = 0; i < maxContinuousLine; i++)
-                    {
-                        if (i != 0)
-                        {
-                            if (checkedDir != contDir)
-                            {
-                                break;
-                            }
-
-                            if (i == maxContinuousLine - 1 && checkedDir == contDir)
-                            {
-                                Vector2 nextDir = GetDirection();
-                                walker.prevDirections.Add(nextDir);
-                                walker.direction = nextDir;
-                            }
-                        }
-                        if (i == 0)
-                            checkedDir = walker.prevDirections[walker.prevDirections.Count - i - 1];
-                        else
-                        {
-                            contDir = walker.prevDirections[walker.prevDirections.Count - i - 1];
-                        }
-                    }
-                }
 
                 if (gridHandler[pos.x, pos.y] != Grid.FLOOR)
                 {
                     tilemap.SetTile(pos, floor);
                     tileCount++;
                     gridHandler[pos.x, pos.y] = Grid.FLOOR;
-                    walker.placedPieces.Add(new Vector2(pos.x, pos.y));
-                    hasCreatedFloor = true;
                 }
             }
 
@@ -131,32 +106,25 @@ public class WalkerGenerator : MonoBehaviour
             CheckRedirect();
             CheckCreate();
             UpdatePosition();
-
-            if (hasCreatedFloor)
-            {
-                yield return new WaitForSeconds(waitTime);
-            }
         }
 
         for (int i = 0; i < timesToThicken; i++)
         {
 
-            StartCoroutine(CreateWalls());
+            CreateWalls();
         }
+        Bulk();
 
     }
 
-    private IEnumerator CreateWalls()
+    private void CreateWalls()
     {
-        //do checks for if there is a floor both above and to the sides, above and below, 
         for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
         {
             for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
             {
                 if (x >= 1 && x < gridHandler.GetLength(0) && y >= 1 && y < gridHandler.GetLength(1))
                 {
-
-
                     if (gridHandler[x+1, y] == Grid.FLOOR && gridHandler[x, y+1] == Grid.FLOOR && Random.Range(0.0f, 1.0f) < chanceToThicken)
                     {
                         tilemap.SetTile(new Vector3Int(x, y), floor);
@@ -186,7 +154,35 @@ public class WalkerGenerator : MonoBehaviour
                 }
             }
         }
-                yield return null;
+    }
+
+    private void Bulk()
+    {
+        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
+        {
+            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
+            {
+                if (gridHandler[x, y] == Grid.FLOOR)
+                {
+                    if (!GetIsFloor(x, y + 1) && !GetIsFloor(x, y - 1))
+                    {
+                        tilemap.SetTile(new Vector3Int(x, y - 1), floor);
+                        gridHandler[x, y - 1] = Grid.FLOOR;
+                    }
+                    else if (!GetIsFloor(x + 1, y) && !GetIsFloor(x - 1, y))
+                    {
+                        tilemap.SetTile(new Vector3Int(x - 1, y), floor);
+                        gridHandler[x - 1, y] = Grid.FLOOR;
+                    }
+                }
+            }
+        }
+
+    }
+
+    private bool GetIsFloor(int x, int y)
+    {
+        return gridHandler[x, y] == Grid.FLOOR;
     }
 
     private void CheckRemove()
@@ -206,11 +202,15 @@ public class WalkerGenerator : MonoBehaviour
     {
         foreach (WalkerObject walker in walkers)
         {
-            if (Random.Range(0f, 1f) < walker.chanceToRedirect)
+            if (Random.Range(0f, 1f) < walker.chanceToRedirect || walker.failedRedirects >= maxFailedRedirects)
             {
                 Vector2 pickedDir = GetDirection();
                 walker.prevDirections.Add(pickedDir);
                 walker.direction = pickedDir;
+            }
+            else
+            {
+                walker.failedRedirects++;
             }
         }
     }
@@ -225,7 +225,8 @@ public class WalkerGenerator : MonoBehaviour
                 Vector2 newDir = GetDirection();
                 Vector2 newPos = walkers[i].position;
 
-                WalkerObject newWalker = new WalkerObject(newPos, newDir, walkers[i].chanceToRemove, walkers[i].chanceToRedirect, walkers[i].chanceToCreate);
+                WalkerObject newWalker = new WalkerObject(newPos, newDir, walkers[i].chanceToRemove, walkers[i].chanceToRedirect, walkers[i].chanceToCreate, walkersPlaced);
+                walkersPlaced++;
                 walkers.Add(newWalker);
             }
         }

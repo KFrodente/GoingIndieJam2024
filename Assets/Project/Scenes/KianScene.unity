@@ -301,13 +301,15 @@ MonoBehaviour:
   wall: {fileID: 11400000, guid: d25be3cc7e12f404fa7239cab37d22d0, type: 2}
   mapWidth: 200
   mapHeight: 200
-  maxWalkers: 5
+  maxWalkers: 10
   tileCount: 0
-  fillPercentage: 0.03
-  waitTime: 0.01
+  fillPercentage: 0.04
   timesToThicken: 3
-  chanceToThicken: 0.58
-  maxContinuousLine: 3
+  chanceToThicken: 0.286
+  maxFailedRedirects: 2
+  redirectChance: 0.639
+  removeChance: 0.488
+  createChance: 0.483
 --- !u!4 &143189730
 Transform:
   m_ObjectHideFlags: 0

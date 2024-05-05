@@ -19,7 +19,7 @@ namespace Stats
 
         public void Update(float dt)
         {
-            timer.Tick(dt);
+            if(timer != null) timer.Tick(dt);
         }
 
         public abstract void Handle(object sender, Query query);

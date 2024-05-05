@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Stats
 {
-    public class StatManipulator : MonoBehaviour
+    public class AreaStatManipulator : MonoBehaviour
     {
         [SerializeField] private List<StatEffect> effects = new List<StatEffect>();
 
@@ -14,10 +14,19 @@ namespace Stats
         {
             if (other.TryGetComponent(out StatHandler handler))
             {
-                Debug.Log("Added");
                 foreach (var e in effects)
                 {
                     handler.AddStatModifier(e.GetModifier());
+                }
+            }
+        }
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out StatHandler handler))
+            {
+                foreach (var e in effects)
+                {
+                    handler.RemoveStatModifier(e.GetModifier());
                 }
             }
         }
@@ -30,14 +39,18 @@ namespace Stats
         [SerializeField] private OperatorType operation;
         [SerializeField] private int value;
         [SerializeField] private float duration;
+
+        private StatModifier statMod = null;
         public StatModifier GetModifier()
         {
+            if (statMod != null) return statMod;
             StatModifier modifier = operation switch
             {
                 OperatorType.Add => new BasicStatModifier(type, (x) => x + value, duration),
                 OperatorType.Multiply => new BasicStatModifier(type, (x) => x * value, duration),
                 _ => throw new ArgumentOutOfRangeException()
             };
+            statMod = modifier;
             return modifier;
         }
     }

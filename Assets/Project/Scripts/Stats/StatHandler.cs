@@ -18,6 +18,11 @@ public class StatHandler : MonoBehaviour
 
     public void AddStatModifier(StatModifier mod)
     {
+        mod.MarkedForRemoval = false;
         stats.mediator.AddModifier(mod);
+    }
+    public void RemoveStatModifier(StatModifier mod)
+    {
+        mod.MarkedForRemoval = true;
     }
 }

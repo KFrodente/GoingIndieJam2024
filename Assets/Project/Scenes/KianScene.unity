@@ -306,7 +306,8 @@ MonoBehaviour:
   fillPercentage: 0.03
   waitTime: 0.01
   timesToThicken: 3
-  chanceToThicken: 0.4
+  chanceToThicken: 0.58
+  maxContinuousLine: 3
 --- !u!4 &143189730
 Transform:
   m_ObjectHideFlags: 0

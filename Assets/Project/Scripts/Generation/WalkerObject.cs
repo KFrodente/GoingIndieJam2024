@@ -9,6 +9,8 @@ public class WalkerObject
     public float chanceToRemove;
     public float chanceToRedirect;
     public float chanceToCreate;
+    public List<Vector2> prevDirections = new();
+    public List<Vector2> placedPieces = new();
 
     public WalkerObject(Vector2 pos, Vector2 dir, float chanceToRemove, float chanceToRedirect, float chanceToCreate)
     {

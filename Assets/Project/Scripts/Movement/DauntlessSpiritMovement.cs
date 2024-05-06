@@ -18,11 +18,12 @@ public class DauntlessSpiritMovement : CharacterMovement
 
 	public override void LeftClick(Vector2 position)
 	{
+		rb.AddForce(transform.up * 30, ForceMode2D.Impulse);
 	}
 
 	public override void Move(Vector2 direction)
     {
-        rb.AddForce(transform.forward*10, ForceMode2D.Impulse);
+        //rb.AddForce(transform.up*10, ForceMode2D.Impulse);
     }
 
     public override void RightClick(Vector2 position)
@@ -39,6 +40,7 @@ public class DauntlessSpiritMovement : CharacterMovement
 
 	private void FixedUpdate()
 	{
+		rb.velocity *= .95f;
 		//rb.AddForce(transform.up * character.statHandler.stats.MoveSpeed, ForceMode2D.Force);
 		//rb.velocity = Vector2.ClampMagnitude(rb.velocity, character.statHandler.stats.MaxMoveSpeed);
 	}

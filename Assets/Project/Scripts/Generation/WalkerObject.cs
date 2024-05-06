@@ -10,7 +10,6 @@ public class WalkerObject
     public float chanceToRedirect;
     public int failedRedirects;
     public float chanceToCreate;
-    public List<Vector2> prevDirections = new();
 
     public int walkerNum;
 

@@ -71,7 +71,6 @@ public class WalkerGenerator : MonoBehaviour
         Vector2 pickedDir = GetDirection();
         WalkerObject currentWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), pickedDir, removeChance, redirectChance, createChance, walkersPlaced);
         walkersPlaced++;
-        currentWalker.prevDirections.Add(pickedDir);
         gridHandler[tileCenter.x, tileCenter.y] = Grid.FLOOR;
         tilemap.SetTile(new Vector3Int(tileCenter.x + gridXOffset, tileCenter.y + gridYOffset), floor);
         walkers.Add(currentWalker);
@@ -215,7 +214,6 @@ public class WalkerGenerator : MonoBehaviour
             if (Random.Range(0f, 1f) < walker.chanceToRedirect || walker.failedRedirects >= maxFailedRedirects)
             {
                 Vector2 pickedDir = GetDirection();
-                walker.prevDirections.Add(pickedDir);
                 walker.direction = pickedDir;
             }
             else

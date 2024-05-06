@@ -29,11 +29,11 @@ public class DauntlessSpiritMovement : CharacterMovement
     public override void RightClick(Vector2 position)
     {
         turnAngle = !turnAngle;
-    }
+	}
 
     private void Update()
     {
-        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
+        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime );
 
 		transform.position += transform.up * (character.statHandler.stats.MoveSpeed * Time.deltaTime);
 	}

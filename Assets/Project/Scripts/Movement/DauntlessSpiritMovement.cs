@@ -18,7 +18,7 @@ public class DauntlessSpiritMovement : CharacterMovement
 
 	public override void Move(Vector2 direction)
     {
-        
+        rb.AddForce(transform.forward*10, ForceMode2D.Impulse);
     }
 
     public override void Click(Vector2 position)

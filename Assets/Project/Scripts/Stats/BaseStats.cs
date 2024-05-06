@@ -14,9 +14,10 @@ public class BaseStats : ScriptableObject
 
     public int damage;
 
-    public int defence;
+    public int defense;
 
     public int moveSpeed;
+    public int maxMoveSpeed;
     public int turnSpeed;
 
 }
@@ -31,6 +32,7 @@ namespace Stats
         Damage,
         Defence,
         MoveSpeed,
+        MaxMoveSpeed,
         TurnSpeed
     }
 }

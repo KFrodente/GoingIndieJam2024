@@ -25,11 +25,11 @@ namespace Stats
                 return q.value;
             }
         }
-        public int Defence
+        public int Defense
         {
             get
             {
-                var q = new Query(StatType.Defence, baseStats.defence);
+                var q = new Query(StatType.Defence, baseStats.defense);
                 mediator.PerformQuery(this, q);
                 return q.value;
             }
@@ -43,7 +43,16 @@ namespace Stats
                 return q.value;
             }
         }
-        public int TurnSpeed
+		public int MaxMoveSpeed
+		{
+			get
+			{
+				var q = new Query(StatType.MaxMoveSpeed, baseStats.moveSpeed);
+				mediator.PerformQuery(this, q);
+				return q.value;
+			}
+		}
+		public int TurnSpeed
         {
             get
             {

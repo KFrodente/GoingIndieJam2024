@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.Tilemaps;
+using static UnityEditor.PlayerSettings;
 
 public class FloorGenerator : MonoBehaviour
 {
@@ -23,7 +22,7 @@ public class FloorGenerator : MonoBehaviour
     public Tilemap globalTilemap;
 
     [Header("Rooms")]
-    [SerializeField] private List<WalkerGenerator> basicRoomForFloor = new();
+    [SerializeField] private List<GameObject> basicRoomForFloor = new();
     [SerializeField] private GameObject spawnRoom;
     [SerializeField] private GameObject bossRoom;
     [SerializeField] private GameObject treasureRoom;
@@ -43,7 +42,8 @@ public class FloorGenerator : MonoBehaviour
     [SerializeField, Range(0, 100)] private int minBossRoomDistance;
 
     private Dictionary<Vector2, char> rooms = new();
-    private Dictionary<Vector2, Room> roomObjectDictionary = new();
+    private List<RoomPlaceholder> placeholderRooms = new();
+    //private Dictionary<Vector2, Room> roomObjectDictionary = new();
 
     private int totalFloorProcesses = 0;
 
@@ -68,10 +68,14 @@ public class FloorGenerator : MonoBehaviour
     public void generateFloor()
     {
         SetTotalProcesses();
-        SetSpawn();
-        BuildBasicRooms();
-        ConnectBasicRooms();
-        SetBossRoom();
+        CreateSpawn();
+        CreateBasicRooms();
+
+        SpawnAllRooms();
+        //SetSpawn();
+        //BuildBasicRooms();
+        //ConnectBasicRooms();
+        //SetBossRoom();
         //SpawnTreasureRooms();
         //SpawnShopRooms();
     }
@@ -81,182 +85,302 @@ public class FloorGenerator : MonoBehaviour
         totalFloorProcesses += basicRoomAmount * WalkerGenerator.basicRoomProcesses;
     }
 
-    private void SetSpawn()
+    private void CreateSpawn()
     {
-        rooms.Add(new Vector2(0, 0), 's');
-        GameObject spawn = Instantiate(spawnRoom, new Vector3((int)floorStats[floorNum].roomWidth / 2, (int)floorStats[floorNum].roomHeight / 2, 0), transform.rotation);
-        roomObjectDictionary.Add(Vector2.zero, spawn.GetComponent<Spawn>());
+        placeholderRooms.Add(new RoomPlaceholder(new Vector2(0, 0), RoomPlaceholder.RoomType.SPAWN));
     }
 
-    #region Basic Room section
-    private void BuildBasicRooms()
+    private void CreateBasicRooms()
     {
         while (basicRooms < basicRoomAmount)
         {
-            int pickedPos = UnityEngine.Random.Range(0, rooms.Count);
+            int pickedRoom = Random.Range(0, placeholderRooms.Count);
 
-            Vector2 pos = rooms.ElementAt(pickedPos).Key;
+            Vector2 addedPos = placeholderRooms[pickedRoom].GetRandomDirection();
 
-            int pickedDir = UnityEngine.Random.Range(0, 4);
-            switch (pickedDir)
+            if (addedPos == Vector2.zero)
             {
-                case 0:
-                    if (CanUseSelected(pos + Vector2.right))
-                    {
-                        rooms.Add(new Vector2(pos.x + 1, pos.y), 'b');
-                        CreateRoom(pos, Vector2.right);
-
-                        basicRooms++;
-                    }
-                    break;
-                case 1:
-                    if (CanUseSelected(pos + Vector2.up))
-                    {
-                        rooms.Add(new Vector2(pos.x, pos.y + 1), 'b');
-                        CreateRoom(pos, Vector2.up);
-                        basicRooms++;
-                    }
-                    break;
-                case 2:
-
-                    if (CanUseSelected(pos + Vector2.left))
-                    {
-                        rooms.Add(new Vector2(pos.x - 1, pos.y), 'b');
-                        CreateRoom(pos, Vector2.left);
-                        basicRooms++;
-                    }
-                    break;
-                case 3:
-                    if (CanUseSelected(pos + Vector2.down))
-                    {
-                        rooms.Add(new Vector2(pos.x, pos.y - 1), 'b');
-                        CreateRoom(pos, Vector2.down);
-                        basicRooms++;
-                    }
-                    break;
-                default:
-                    Debug.LogWarning("Something went wrong in BuildBasicRooms() in the FloorGenerator class");
-                    break;
+                continue;
             }
+
+            Vector2 pos = placeholderRooms[pickedRoom].roomPosition + addedPos;
+
+
+            RoomPlaceholder rp = new RoomPlaceholder(pos, RoomPlaceholder.RoomType.BASIC);
+
+            if (addedPos == Vector2.up)
+            {
+                rp.connectsDown = true;
+                rp.connectedRooms++;
+            }
+            else if (addedPos == Vector2.down)
+            {
+                rp.connectsUp = true;
+                rp.connectedRooms++;
+            }
+            else if (addedPos == Vector2.right)
+            {
+                rp.connectsLeft = true;
+                rp.connectedRooms++;
+            }
+            else if (addedPos == Vector2.left)
+            {
+                rp.connectsRight = true;
+                rp.connectedRooms++;
+            }
+            placeholderRooms.Add(rp);
+
+            basicRooms++;
         }
     }
 
-    private bool CanUseSelected(Vector2 pos)
+
+
+
+
+    private void SpawnAllRooms()
     {
-        if (rooms.ContainsKey(pos)) return false;
-
-        int neighboringRooms = 0;
-        if (rooms.ContainsKey(pos + Vector2.up)) neighboringRooms++;
-        if (rooms.ContainsKey(pos + Vector2.right)) neighboringRooms++;
-        if (rooms.ContainsKey(pos + Vector2.down)) neighboringRooms++;
-        if (rooms.ContainsKey(pos + Vector2.left)) neighboringRooms++;
-
-        if (neighboringRooms > maxNeighboringRooms) return false;
-
-        return true;
-
-    }
-
-    private void CreateRoom(Vector2 pos, Vector2 direction)
-    {
-        WalkerGenerator newGen = Instantiate(original: basicRoomForFloor[floorNum], transform.position, transform.rotation);
-        newGen.roomOffset = new Vector2(floorStats[floorNum].roomOffset.x * ((int)pos.x + (int)direction.x), floorStats[floorNum].roomOffset.x * ((int)pos.y + (int)direction.y));
-
-        roomObjectDictionary.Add(pos + direction, newGen);
-    }
-
-    private void ConnectBasicRooms()
-    {
-        for (int i = 0; i < roomObjectDictionary.Count; i++)
+        for (int i = 0; i < placeholderRooms.Count; i++)
         {
-            Vector2 currentKey = roomObjectDictionary.ElementAt(i).Key;
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.up))
+            RoomPlaceholder phr = placeholderRooms[i];
+
+            if (phr.roomType == RoomPlaceholder.RoomType.SPAWN)
             {
-                roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
+                GameObject go = Instantiate(spawnRoom, new Vector3((int)floorStats[floorNum].roomWidth / 2, (int)floorStats[floorNum].roomHeight / 2, 0), transform.rotation);
+
             }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.right))
+
+            else if (phr.roomType == RoomPlaceholder.RoomType.BASIC)
             {
-                roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
-            }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.down))
-            {
-                roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
-            }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.left))
-            {
-                roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
+                GameObject go = Instantiate(basicRoomForFloor[floorNum], transform.position, transform.rotation);
+                WalkerGenerator room = go.GetComponent<WalkerGenerator>();
+                room.roomOffset = new Vector2(floorStats[floorNum].roomOffset.x * phr.roomPosition.x, floorStats[floorNum].roomOffset.y * phr.roomPosition.y);
+
+                room.connectsDown = phr.connectsDown;
+                room.connectsUp = phr.connectsUp;
+                room.connectsRight = phr.connectsRight;
+                room.connectsLeft = phr.connectsLeft;
             }
         }
     }
 
-    #endregion
 
-    #region Boss Room Section
 
-    private void SetBossRoom()
-    {
-        List<Vector2> usablePositions = new();
-        for (int i = 0; i < rooms.Count; i++)
-        {
-            Vector2 currentRoom = roomObjectDictionary.ElementAt(i).Key;
-            if ((currentRoom + Vector2.up).y >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.up))
-            {
-                usablePositions.Add(currentRoom + Vector2.up);
-            }
-            if ((currentRoom + Vector2.right).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.down))
-            {
-                usablePositions.Add(currentRoom + Vector2.right);
-            }
-            if ((currentRoom + Vector2.down).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.right))
-            {
-                usablePositions.Add(currentRoom + Vector2.down);
-            }
-            if ((currentRoom + Vector2.left).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.left))
-            {
-                usablePositions.Add(currentRoom + Vector2.left);
-            }
-        }
 
-        Vector2 pickedPos = usablePositions[UnityEngine.Random.Range(0, usablePositions.Count)];
 
-        GameObject br = Instantiate(bossRoom, new Vector3(floorStats[floorNum].roomOffset.x * pickedPos.x + (floorStats[floorNum].roomOffset.x / 2), floorStats[floorNum].roomOffset.y * pickedPos.y + (floorStats[floorNum].roomOffset.y / 2), 0), transform.rotation);
 
-        Room checkedRoom;
 
-        List<Room> possibleRooms = new();
 
-        if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
-        {
-            checkedRoom.connectsDown = true;
-            br.GetComponent<Room>().connectsUp = true;
-        }
-        else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
-        {
-            checkedRoom.connectsUp = true;
-            br.GetComponent<Room>().connectsDown = true;
-        }
-        else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
-        {
-            checkedRoom.connectsLeft = true;
-            br.GetComponent<Room>().connectsRight = true;
-        }
-        else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
-        {
-            checkedRoom.connectsRight = true;
-            br.GetComponent<Room>().connectsLeft = true;
-        }
 
-        rooms.Add(pickedPos, 'B');
-        roomObjectDictionary.Add(pickedPos, br.GetComponent<Room>());
-    }
 
-    #endregion
 
-    #region Treasure Room Section
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //private void SetSpawn()
+    //{
+    //    //rooms.Add(new Vector2(0, 0), 's');
+    //    GameObject spawn = Instantiate(spawnRoom, new Vector3((int)floorStats[floorNum].roomWidth / 2, (int)floorStats[floorNum].roomHeight / 2, 0), transform.rotation);
+    //    roomObjectDictionary.Add(Vector2.zero, spawn.GetComponent<Spawn>());
+    //}
+
+    //#region Basic Room section
+    //private void BuildBasicRooms()
+    //{
+    //    while (basicRooms < basicRoomAmount)
+    //    {
+    //        int pickedPos = UnityEngine.Random.Range(0, rooms.Count);
+
+    //        Vector2 pos = rooms.ElementAt(pickedPos).Key;
+
+    //        int pickedDir = UnityEngine.Random.Range(0, 4);
+    //        switch (pickedDir)
+    //        {
+    //            case 0:
+    //                if (CanUseSelected(pos + Vector2.right))
+    //                {
+    //                    rooms.Add(new Vector2(pos.x + 1, pos.y), 'b');
+    //                    CreateRoom(pos, Vector2.right);
+
+    //                    basicRooms++;
+    //                }
+    //                break;
+    //            case 1:
+    //                if (CanUseSelected(pos + Vector2.up))
+    //                {
+    //                    rooms.Add(new Vector2(pos.x, pos.y + 1), 'b');
+    //                    CreateRoom(pos, Vector2.up);
+    //                    basicRooms++;
+    //                }
+    //                break;
+    //            case 2:
+
+    //                if (CanUseSelected(pos + Vector2.left))
+    //                {
+    //                    rooms.Add(new Vector2(pos.x - 1, pos.y), 'b');
+    //                    CreateRoom(pos, Vector2.left);
+    //                    basicRooms++;
+    //                }
+    //                break;
+    //            case 3:
+    //                if (CanUseSelected(pos + Vector2.down))
+    //                {
+    //                    rooms.Add(new Vector2(pos.x, pos.y - 1), 'b');
+    //                    CreateRoom(pos, Vector2.down);
+    //                    basicRooms++;
+    //                }
+    //                break;
+    //            default:
+    //                Debug.LogWarning("Something went wrong in BuildBasicRooms() in the FloorGenerator class");
+    //                break;
+    //        }
+    //    }
+    //}
+
+    //private bool CanUseSelected(Vector2 pos)
+    //{
+    //    if (rooms.ContainsKey(pos)) return false;
+
+    //    int neighboringRooms = 0;
+    //    if (rooms.ContainsKey(pos + Vector2.up)) neighboringRooms++;
+    //    if (rooms.ContainsKey(pos + Vector2.right)) neighboringRooms++;
+    //    if (rooms.ContainsKey(pos + Vector2.down)) neighboringRooms++;
+    //    if (rooms.ContainsKey(pos + Vector2.left)) neighboringRooms++;
+
+    //    if (neighboringRooms > maxNeighboringRooms) return false;
+
+    //    return true;
+
+    //}
+
+    //private void CreateRoom(Vector2 pos, Vector2 direction)
+    //{
+    //    WalkerGenerator newGen = Instantiate(original: basicRoomForFloor[floorNum], transform.position, transform.rotation);
+    //    newGen.roomOffset = new Vector2(floorStats[floorNum].roomOffset.x * ((int)pos.x + (int)direction.x), floorStats[floorNum].roomOffset.x * ((int)pos.y + (int)direction.y));
+
+    //    roomObjectDictionary.Add(pos + direction, newGen);
+    //}
+
+    //private void ConnectBasicRooms()
+    //{
+    //    for (int i = 0; i < roomObjectDictionary.Count; i++)
+    //    {
+    //        Vector2 currentKey = roomObjectDictionary.ElementAt(i).Key;
+    //        if (roomObjectDictionary.ContainsKey(currentKey + Vector2.up))
+    //        {
+    //            roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
+    //        }
+    //        if (roomObjectDictionary.ContainsKey(currentKey + Vector2.right))
+    //        {
+    //            roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
+    //        }
+    //        if (roomObjectDictionary.ContainsKey(currentKey + Vector2.down))
+    //        {
+    //            roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
+    //        }
+    //        if (roomObjectDictionary.ContainsKey(currentKey + Vector2.left))
+    //        {
+    //            roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
+    //        }
+    //    }
+    //}
+
+    //#endregion
+
+    //#region Boss Room Section
+
+    //private void SetBossRoom()
+    //{
+    //    List<Vector2> usablePositions = new();
+    //    for (int i = 0; i < rooms.Count; i++)
+    //    {
+    //        Vector2 currentRoom = roomObjectDictionary.ElementAt(i).Key;
+    //        if ((currentRoom + Vector2.up).y >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.up))
+    //        {
+    //            usablePositions.Add(currentRoom + Vector2.up);
+    //        }
+    //        if ((currentRoom + Vector2.right).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.down))
+    //        {
+    //            usablePositions.Add(currentRoom + Vector2.right);
+    //        }
+    //        if ((currentRoom + Vector2.down).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.right))
+    //        {
+    //            usablePositions.Add(currentRoom + Vector2.down);
+    //        }
+    //        if ((currentRoom + Vector2.left).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.left))
+    //        {
+    //            usablePositions.Add(currentRoom + Vector2.left);
+    //        }
+    //    }
+
+    //    Vector2 pickedPos = usablePositions[UnityEngine.Random.Range(0, usablePositions.Count)];
+
+    //    GameObject br = Instantiate(bossRoom, new Vector3(floorStats[floorNum].roomOffset.x * pickedPos.x + (floorStats[floorNum].roomOffset.x / 2), floorStats[floorNum].roomOffset.y * pickedPos.y + (floorStats[floorNum].roomOffset.y / 2), 0), transform.rotation);
+
+    //    Room checkedRoom;
+
+    //    List<Room> possibleRooms = new();
+
+    //    if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
+    //    {
+    //        checkedRoom.connectsDown = true;
+    //        br.GetComponent<Room>().connectsUp = true;
+    //    }
+    //    else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
+    //    {
+    //        checkedRoom.connectsUp = true;
+    //        br.GetComponent<Room>().connectsDown = true;
+    //    }
+    //    else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
+    //    {
+    //        checkedRoom.connectsLeft = true;
+    //        br.GetComponent<Room>().connectsRight = true;
+    //    }
+    //    else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
+    //    {
+    //        checkedRoom.connectsRight = true;
+    //        br.GetComponent<Room>().connectsLeft = true;
+    //    }
+
+    //    rooms.Add(pickedPos, 'B');
+    //    roomObjectDictionary.Add(pickedPos, br.GetComponent<Room>());
+    //}
+
+    //#endregion
+
+    //#region Treasure Room Section
     //private void SpawnTreasureRooms()
     //{
     //    int tRoomsToSpawn = treasureRoomAmount;
-    //    List<Vector2> pos = new(); 
+    //    List<Vector2> pos = new();
     //    List<Vector2> dir = new();
 
     //    GetPosAndDirs();
@@ -272,7 +396,7 @@ public class FloorGenerator : MonoBehaviour
     //        if (posAndDir.ElementAt(index).Value == Vector2.up)
     //        {
     //            tRoom.GetComponent<Room>().connectsDown = true;
-    //            roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room );
+    //            roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room);
     //            room.connectsUp = true;
     //        }
     //        else if (posAndDir.ElementAt(index).Value == Vector2.right)
@@ -325,5 +449,5 @@ public class FloorGenerator : MonoBehaviour
     //    return returnDict;
 
     //}
-    #endregion
+    //#endregion
 }

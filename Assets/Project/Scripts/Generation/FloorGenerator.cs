@@ -72,7 +72,7 @@ public class FloorGenerator : MonoBehaviour
         BuildBasicRooms();
         ConnectBasicRooms();
         SetBossRoom();
-        SpawnTreasureRooms();
+        //SpawnTreasureRooms();
         //SpawnShopRooms();
     }
 
@@ -196,7 +196,7 @@ public class FloorGenerator : MonoBehaviour
     private void SetBossRoom()
     {
         List<Vector2> usablePositions = new();
-        for (int i = 0; i < roomObjectDictionary.Count; i++)
+        for (int i = 0; i < rooms.Count; i++)
         {
             Vector2 currentRoom = roomObjectDictionary.ElementAt(i).Key;
             if ((currentRoom + Vector2.up).y >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.up))
@@ -253,72 +253,77 @@ public class FloorGenerator : MonoBehaviour
     #endregion
 
     #region Treasure Room Section
-    private void SpawnTreasureRooms()
-    {
-        int tRoomsToSpawn = treasureRoomAmount;
-        Dictionary<Vector2, Vector2> posAndDir = GetPosAndDirs();
-        while (tRoomsToSpawn > 0)
-        {
-            int index = UnityEngine.Random.Range(0, posAndDir.Count);
+    //private void SpawnTreasureRooms()
+    //{
+    //    int tRoomsToSpawn = treasureRoomAmount;
+    //    List<Vector2> pos = new(); 
+    //    List<Vector2> dir = new();
 
-            GameObject tRoom = Instantiate(bossRoom, new Vector3(floorStats[floorNum].roomOffset.x * posAndDir.ElementAt(index).Key.x + (floorStats[floorNum].roomOffset.x / 2), floorStats[floorNum].roomOffset.y * posAndDir.ElementAt(index).Key.y + (floorStats[floorNum].roomOffset.y / 2), 0), transform.rotation);
+    //    GetPosAndDirs();
 
-            Room room;
+    //    while (tRoomsToSpawn > 0)
+    //    {
+    //        int index = UnityEngine.Random.Range(0, posAndDir.Count);
 
-            if (posAndDir.ElementAt(index).Value == Vector2.up)
-            {
-                tRoom.GetComponent<Room>().connectsDown = true;
-                roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room );
-                room.connectsUp = true;
-            }
-            else if (posAndDir.ElementAt(index).Value == Vector2.right)
-            {
-                tRoom.GetComponent<Room>().connectsLeft = true;
-                roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room);
-                room.connectsRight = true;
-            }
-            else if (posAndDir.ElementAt(index).Value == Vector2.left)
-            {
-                tRoom.GetComponent<Room>().connectsRight = true;
-                roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room);
-                room.connectsLeft = true;
-            }
-            else if (posAndDir.ElementAt(index).Value == Vector2.down)
-            {
-                tRoom.GetComponent<Room>().connectsUp = true;
-                roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room);
-                room.connectsDown = true;
-            }
-            tRoomsToSpawn--;
-        }
-    }
+    //        GameObject tRoom = Instantiate(treasureRoom, new Vector3(floorStats[floorNum].roomOffset.x * (posAndDir.ElementAt(index).Key.x + posAndDir.ElementAt(index).Value.x) + (floorStats[floorNum].roomOffset.x / 2), floorStats[floorNum].roomOffset.y * (posAndDir.ElementAt(index).Key.y + posAndDir.ElementAt(index).Value.y) + (floorStats[floorNum].roomOffset.y / 2), 0), transform.rotation);
+
+    //        Room room;
+
+    //        if (posAndDir.ElementAt(index).Value == Vector2.up)
+    //        {
+    //            tRoom.GetComponent<Room>().connectsDown = true;
+    //            roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room );
+    //            room.connectsUp = true;
+    //        }
+    //        else if (posAndDir.ElementAt(index).Value == Vector2.right)
+    //        {
+    //            tRoom.GetComponent<Room>().connectsLeft = true;
+    //            roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room);
+    //            room.connectsRight = true;
+    //        }
+    //        else if (posAndDir.ElementAt(index).Value == Vector2.left)
+    //        {
+    //            tRoom.GetComponent<Room>().connectsRight = true;
+    //            roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room);
+    //            room.connectsLeft = true;
+    //        }
+    //        else if (posAndDir.ElementAt(index).Value == Vector2.down)
+    //        {
+    //            tRoom.GetComponent<Room>().connectsUp = true;
+    //            roomObjectDictionary.TryGetValue(posAndDir.ElementAt(index).Key, out room);
+    //            tRoom.transform.position = new Vector3(floorStats[floorNum].roomOffset.x * posAndDir.ElementAt(index).Key.x + (floorStats[floorNum].roomOffset.x / 2), floorStats[floorNum].roomOffset.y * posAndDir.ElementAt(index).Key.y + (floorStats[floorNum].roomOffset.y / 2), 0);
+    //            room.connectsDown = true;
+    //        }
+    //        tRoomsToSpawn--;
+    //    }
+    //}
 
 
-    private Dictionary<Vector2, Vector2> GetPosAndDirs()
-    {
-        Dictionary<Vector2, Vector2> returnDict = new();
-        for (int i = 0; i < roomObjectDictionary.Count; i++)
-        {
-            Vector2 currentRoom = roomObjectDictionary.ElementAt(i).Key;
-            if (!roomObjectDictionary.ContainsKey(currentRoom + Vector2.up))
-            {
-                returnDict.TryAdd(currentRoom, Vector2.up);
-            }
-            if (!roomObjectDictionary.ContainsKey(currentRoom + Vector2.down))
-            {
-                returnDict.TryAdd(currentRoom, Vector2.down);
-            }
-            if (!roomObjectDictionary.ContainsKey(currentRoom + Vector2.right))
-            {
-                returnDict.TryAdd(currentRoom, Vector2.right);
-            }
-            if (!roomObjectDictionary.ContainsKey(currentRoom + Vector2.left))
-            {
-                returnDict.TryAdd(currentRoom, Vector2.left);
-            }
-        }
-        return returnDict;
+    //private Dictionary<Vector2, Vector2> GetPosAndDirs()
+    //{
+    //    Dictionary<Vector2, Vector2> returnDict = new();
+    //    for (int i = 0; i < rooms.Count; i++)
+    //    {
+    //        Vector2 currentRoom = roomObjectDictionary.ElementAt(i).Key;
+    //        if (!roomObjectDictionary.ContainsKey(currentRoom + Vector2.up))
+    //        {
+    //            returnDict.TryAdd(currentRoom, Vector2.up);
+    //        }
+    //        if (!roomObjectDictionary.ContainsKey(currentRoom + Vector2.down))
+    //        {
+    //            returnDict.TryAdd(currentRoom, Vector2.down);
+    //        }
+    //        if (!roomObjectDictionary.ContainsKey(currentRoom + Vector2.right))
+    //        {
+    //            returnDict.TryAdd(currentRoom, Vector2.right);
+    //        }
+    //        if (!roomObjectDictionary.ContainsKey(currentRoom + Vector2.left))
+    //        {
+    //            returnDict.TryAdd(currentRoom, Vector2.left);
+    //        }
+    //    }
+    //    return returnDict;
 
-    }
+    //}
     #endregion
 }

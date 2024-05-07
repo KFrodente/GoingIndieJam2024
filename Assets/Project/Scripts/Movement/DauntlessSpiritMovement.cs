@@ -16,7 +16,7 @@ public class DauntlessSpiritMovement : CharacterMovement
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	public override void LeftClick(Vector2 position)
+	public override void LeftClickDown(Vector2 position)
 	{
 		rb.AddForce(transform.up * 30, ForceMode2D.Impulse);
 	}
@@ -26,16 +26,16 @@ public class DauntlessSpiritMovement : CharacterMovement
         //rb.AddForce(transform.up*10, ForceMode2D.Impulse);
     }
 
-    public override void RightClick(Vector2 position)
+    public override void RightClickDown(Vector2 position)
     {
         turnAngle = !turnAngle;
 	}
 
     private void Update()
     {
-        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime );
+        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
 
-		transform.position += transform.up * (character.statHandler.stats.MoveSpeed * Time.deltaTime);
+        transform.position += transform.up * (character.statHandler.stats.MoveSpeed * Time.deltaTime);
 	}
 
 	private void FixedUpdate()

@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Possessor : Possessable
 {
+    [SerializeField] private Soul soul;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Material canBePossessedMaterial;
     [SerializeField] private Material defaultMaterial;
@@ -38,7 +39,7 @@ public class Possessor : Possessable
         if (possessableObjects.Count > 0)
         {
             Debug.Log("Possessed " + possessableObjects[0]);
-            possessableObjects[Random.Range(0, possessableObjects.Count)].Possess(transform);
+            possessableObjects[Random.Range(0, possessableObjects.Count)].Possess(soul);
             possessableObjects.Clear();
             UnPossess(transform);
             

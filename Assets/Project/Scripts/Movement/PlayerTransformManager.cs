@@ -10,7 +10,7 @@ public class PlayerTransformManager : MonoBehaviour
     {
         instance = this;
     }
-    public Transform playerTransform;
+    public Transform playerTransform { get; set; }
 
     private void OnDestroy()
     {

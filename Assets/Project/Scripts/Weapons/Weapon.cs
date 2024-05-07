@@ -8,6 +8,15 @@ public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected WeaponObject weapon;
     protected int index = 0;
+    [SerializeField] protected CharacterType owner;
+    
+    public void SetOwner(int i)
+    {
+        owner = (CharacterType)i;
+    }
+    
+    
+
     protected bool delayOver => Time.time - lastFireTime > weapon.fireDelay;
 
     protected float lastFireTime = 0;
@@ -21,12 +30,12 @@ public abstract class Weapon : MonoBehaviour
     {
     }
 
-    protected void Fire(Vector2 target)
+    protected void Fire(Vector2 target, CharacterType owner)
     {
         ProjectileObject po = GetProjectile();
         if(po)
         {
-            Instantiate(po.projectileObject, transform.position, Quaternion.Euler(0, 0, GetAngle(target))).GetComponent<Projectile>().SetProjectile(po);
+            Instantiate(po.projectileObject, transform.position, Quaternion.Euler(0, 0, GetAngle(target))).GetComponent<Projectile>().SetProjectile(po, owner);
         }
 
         lastFireTime = Time.time;

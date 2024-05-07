@@ -19,7 +19,7 @@ public class BurstWeapon : Weapon
         {
             if (delayOver)
             {
-                Fire(GetMousePosition());
+                Fire(GetMousePosition(), owner);
                 lastFireTime = Time.time;
             }
         }

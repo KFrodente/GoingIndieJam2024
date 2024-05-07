@@ -16,12 +16,26 @@ public class DauntlessSpiritMovement : CharacterMovement
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	public override void LeftClickDown(Vector2 position)
-	{
-		rb.AddForce(transform.up * 30, ForceMode2D.Impulse);
+    private void Update()
+    {
+        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
+
+        //transform.position += transform.up * (character.statHandler.stats.MoveSpeed * Time.deltaTime);
 	}
 
-	public override void Move(Vector2 direction)
+	private void FixedUpdate()
+	{
+		rb.velocity *= .95f;
+		rb.AddForce(transform.up * character.statHandler.stats.MoveSpeed, ForceMode2D.Force);
+		//rb.velocity = Vector2.ClampMagnitude(rb.velocity, character.statHandler.stats.MaxMoveSpeed);
+	}
+
+    public override void LeftClickDown(Vector2 position)
+    {
+        rb.AddForce(transform.up * 30, ForceMode2D.Impulse);
+    }
+
+    public override void Move(Vector2 direction)
     {
         //rb.AddForce(transform.up*10, ForceMode2D.Impulse);
     }
@@ -29,21 +43,7 @@ public class DauntlessSpiritMovement : CharacterMovement
     public override void RightClickDown(Vector2 position)
     {
         turnAngle = !turnAngle;
-	}
-
-    private void Update()
-    {
-        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
-
-        transform.position += transform.up * (character.statHandler.stats.MoveSpeed * Time.deltaTime);
-	}
-
-	private void FixedUpdate()
-	{
-		rb.velocity *= .95f;
-		//rb.AddForce(transform.up * character.statHandler.stats.MoveSpeed, ForceMode2D.Force);
-		//rb.velocity = Vector2.ClampMagnitude(rb.velocity, character.statHandler.stats.MaxMoveSpeed);
-	}
+    }
 
 
 }

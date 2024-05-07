@@ -1254,7 +1254,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1989702762}
         m_TargetAssemblyTypeName: DauntlessSpiritMovement, Assembly-CSharp
-        m_MethodName: LeftClick
+        m_MethodName: LeftClickDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1272,7 +1272,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1989702762}
         m_TargetAssemblyTypeName: DauntlessSpiritMovement, Assembly-CSharp
-        m_MethodName: RightClick
+        m_MethodName: RightClickDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

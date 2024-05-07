@@ -37,6 +37,12 @@ public class FloorGenerator : MonoBehaviour
 
     private Dictionary<Vector2, char> rooms = new();
 
+    private List<WalkerGenerator> roomObejcts = new();
+
+    private int totalFloorProcesses = 0;
+
+    public int roomProcessesFinished = 0;
+
     public int floorNum = 0;
 
     private void Awake()
@@ -55,6 +61,7 @@ public class FloorGenerator : MonoBehaviour
 
     public void generateFloor()
     {
+        SetTotalProcesses();
         SetSpawn();
         BuildBasicRooms();
         //SetBossRoom();
@@ -63,6 +70,11 @@ public class FloorGenerator : MonoBehaviour
         {
             Debug.Log($"{rooms.ElementAt(i).Key}: {rooms.ElementAt(i).Value}");
         }
+    }
+
+    private void SetTotalProcesses()
+    {
+        totalFloorProcesses += basicRoomAmount * WalkerGenerator.basicRoomProcesses;
     }
 
     private void SetSpawn()
@@ -132,7 +144,7 @@ public class FloorGenerator : MonoBehaviour
         if (rooms.ContainsKey(pos + Vector2.down)) neighboringRooms++;
         if (rooms.ContainsKey(pos + Vector2.left)) neighboringRooms++;
 
-        if (neighboringRooms >= maxNeighboringRooms && Random.Range(0f, 1f) > ruleBreakChance) return false;
+        if (neighboringRooms > maxNeighboringRooms/* && Random.Range(0f, 1f) > ruleBreakChance*/) return false;
 
         return true;
 
@@ -142,6 +154,8 @@ public class FloorGenerator : MonoBehaviour
     {
         WalkerGenerator newGen = Instantiate(original: basicRoomForFloor[floorNum], transform.position, transform.rotation);
         newGen.roomOffset = new Vector2(floorStats[floorNum].roomOffset.x * ((int)pos.x + (int)direction.x), floorStats[floorNum].roomOffset.x * ((int)pos.y + (int)direction.y));
+
+        roomObejcts.Add(newGen);
 
         if (direction == Vector2.up) newGen.connectsDown = true;
         if (direction == Vector2.right) newGen.connectsLeft = true;

@@ -20,4 +20,4 @@ MonoBehaviour:
   defense: 0
   moveSpeed: 30
   maxMoveSpeed: 5
-  turnSpeed: 100
+  turnSpeed: 6

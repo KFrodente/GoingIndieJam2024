@@ -6,10 +6,16 @@ using UnityEngine.Events;
 
 public class Damagable : MonoBehaviour
 {
+    private int startingHealth;
     [SerializeField] private int health = 3;
     [SerializeField] private UnityEvent OnDeath;
     [SerializeField] private CharacterType immunities;
-    
+
+    private void Awake()
+    {
+        startingHealth = health;
+    }
+
     public void SetImmunities(int i)
     {
         immunities = (CharacterType)i;
@@ -36,6 +42,12 @@ public class Damagable : MonoBehaviour
 
     private void Update()
     {
+        
+    }
+
+    public void RefillHealth()
+    {
+        health = startingHealth;
         
     }
 }

@@ -6,17 +6,20 @@ using UnityEngine.Events;
 
 public class Possessable : MonoBehaviour
 {
-    [SerializeField] protected UnityEvent<Transform> OnStartPossess;
+    [SerializeField] protected UnityEvent<Soul> OnStartPossess;
     [SerializeField] protected UnityEvent<Transform> OnEndPossess;
+    protected Soul possessingSoul;
 
-    public void Possess(Transform t)
+    public void Possess(Soul t)
     {
         OnStartPossess?.Invoke(t);
+        possessingSoul = t;
     }
     
     public void UnPossess(Transform t)
     {
         OnEndPossess?.Invoke(t);
+        possessingSoul?.Reanimate(transform);
     }
     
 }

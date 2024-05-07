@@ -13,6 +13,7 @@ public class ProjectileObject : ScriptableObject
     public int pierceCount;
     public int speed;
     public int damage;
+    public int lifetime;
 
 
 }

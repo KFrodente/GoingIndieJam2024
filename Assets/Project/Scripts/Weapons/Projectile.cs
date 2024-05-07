@@ -25,10 +25,18 @@ public class Projectile : MonoBehaviour
         this.po = po;
         owner = _owner;
     }
-    
+
+    private float SpawnTime;
+
+    private void Awake()
+    {
+        SpawnTime = Time.time;
+    }
+
 
     protected void Update()
     {
         transform.position += transform.up * (Time.deltaTime * po.speed);
+        if(po.lifetime > 0 && SpawnTime + po.lifetime > Time.time) Destroy(this.gameObject);
     }
 }

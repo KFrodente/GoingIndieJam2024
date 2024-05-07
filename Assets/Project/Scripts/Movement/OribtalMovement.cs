@@ -9,7 +9,7 @@ public class OribtalMovement : CharacterMovement
     [SerializeField] private BaseCharacter character;
     private bool turnAngle;
 
-	public override void LeftClick(Vector2 position)
+	public override void LeftClickDown(Vector2 position)
 	{
 
 	}
@@ -19,7 +19,7 @@ public class OribtalMovement : CharacterMovement
         
     }
 
-    public override void RightClick(Vector2 position)
+    public override void RightClickDown(Vector2 position)
     {
         turnAngle = !turnAngle;
     }

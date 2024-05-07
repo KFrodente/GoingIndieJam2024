@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: DauntlessSpiritAttack
   chargeSound: {fileID: 0}
-  chargeTime: 0
+  chargeTime: 1
   fireDelay: 0
   attackSound: {fileID: 0}
   projectileObject: []

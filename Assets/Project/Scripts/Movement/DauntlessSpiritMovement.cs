@@ -13,6 +13,8 @@ public class DauntlessSpiritMovement : CharacterMovement
     private float transitionTime = 0.3f;
     private float transitionTimer;
 
+    public bool overrideRotation = false;
+
     private void Update()
     {
         TransitionTiming();
@@ -23,7 +25,7 @@ public class DauntlessSpiritMovement : CharacterMovement
         float turnMultiplier = 1;
         if(transitionTimer > 0) turnMultiplier = 3;
         // Turning
-        transform.RotateAround(transform.position, Vector3.forward, turnMultiplier * character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
+        if(!overrideRotation) transform.RotateAround(transform.position, Vector3.forward, turnMultiplier * character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
 
         // Dampening
         character.rb.velocity *= .95f;

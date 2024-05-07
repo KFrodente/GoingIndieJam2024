@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1831479857}
+  m_Follow: {fileID: 1989702756}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 10
@@ -1726,7 +1726,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMoveUpdate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1989702762}
+        m_TargetAssemblyTypeName: DauntlessSpiritMovement, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnMoveFixed:
     m_PersistentCalls:
       m_Calls: []

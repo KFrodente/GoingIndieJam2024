@@ -510,6 +510,7 @@ MonoBehaviour:
   movement: {fileID: 15408427}
   statHandler: {fileID: 0}
   attackRange: 12
+  rb: {fileID: 0}
 --- !u!4 &15408429
 Transform:
   m_ObjectHideFlags: 0
@@ -518,8 +519,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15408417}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.28, y: 2.11, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 301.97, y: 300.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2424,6 +2425,7 @@ GameObject:
   - component: {fileID: 661458961}
   - component: {fileID: 661458960}
   - component: {fileID: 661458959}
+  - component: {fileID: 661458962}
   - component: {fileID: 661458958}
   - component: {fileID: 661458957}
   - component: {fileID: 661458956}
@@ -2434,7 +2436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &661458955
 Rigidbody2D:
   serializedVersion: 4
@@ -2526,6 +2528,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   statHandler: {fileID: 661458956}
   attackRange: 0
+  rb: {fileID: 661458955}
 --- !u!114 &661458959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2572,9 +2575,9 @@ MonoBehaviour:
   OnLeftClickDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661458959}
-        m_TargetAssemblyTypeName: TetheredSpiritMovement, Assembly-CSharp
-        m_MethodName: LeftClickDown
+      - m_Target: {fileID: 661458962}
+        m_TargetAssemblyTypeName: TetheredSpiritWeapon, Assembly-CSharp
+        m_MethodName: StartAttack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2621,6 +2624,21 @@ Transform:
   - {fileID: 197145392}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661458962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661458954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05f67c6325a1d84a934ec35bdb50413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 062537f56fe13f743b4ec14654ef313e, type: 2}
+  owner: 1
+  character: {fileID: 661458958}
 --- !u!1 &888228622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,7 +3025,7 @@ Transform:
   m_GameObject: {fileID: 1012754267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 307.46, y: 300.91, z: -10}
+  m_LocalPosition: {x: 305.1, y: 300.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4558,13 +4576,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1542633463}
   - component: {fileID: 1542633462}
+  - component: {fileID: 1542633464}
   m_Layer: 0
   m_Name: level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1542633462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4572,7 +4591,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542633461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 575f2c2d3f2889748b07cb376d792f67, type: 3}
   m_Name: 
@@ -4580,6 +4599,9 @@ MonoBehaviour:
   globalTilemap: {fileID: 1986093668}
   basicRoomForFloor:
   - {fileID: 7709466060717740089, guid: fc951dda8a23b2f43a92aa0b4ee3a2c1, type: 3}
+  spawnRoom: {fileID: 0}
+  bossRoom: {fileID: 0}
+  treasureRoom: {fileID: 0}
   floorStats:
   - {fileID: 11400000, guid: 9c7ca70cc1d856f419ec08cc4c9d72c8, type: 2}
   maxNeighboringRooms: 0
@@ -4605,6 +4627,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1542633464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542633461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff50bc1c8b19c74a8f3c40ef7115948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1656096929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,7 +4675,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 661458961}
+  m_Follow: {fileID: 1989702756}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 10
@@ -4670,7 +4704,7 @@ Transform:
   m_GameObject: {fileID: 1656096929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 307.46, y: 300.91, z: -10}
+  m_LocalPosition: {x: 305.1, y: 300.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4886,6 +4920,7 @@ GameObject:
   - component: {fileID: 1831479857}
   - component: {fileID: 1831479856}
   - component: {fileID: 1831479858}
+  - component: {fileID: 1831479859}
   - component: {fileID: 1831479854}
   - component: {fileID: 1831479853}
   - component: {fileID: 1831479852}
@@ -4988,6 +5023,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   statHandler: {fileID: 1831479852}
   attackRange: 0
+  rb: {fileID: 1831479851}
 --- !u!114 &1831479856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5021,9 +5057,9 @@ MonoBehaviour:
   OnLeftClickDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1831479858}
-        m_TargetAssemblyTypeName: CorvidSpiritMovement, Assembly-CSharp
-        m_MethodName: LeftClickDown
+      - m_Target: {fileID: 1831479859}
+        m_TargetAssemblyTypeName: CorvidSpiritWeapon, Assembly-CSharp
+        m_MethodName: StartAttack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5063,7 +5099,7 @@ Transform:
   m_GameObject: {fileID: 1831479850}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 305.1, y: 300.3, z: 0}
+  m_LocalPosition: {x: 305.92, y: 300.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5082,6 +5118,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed049cf49de15af44b2dcde9b3a90d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 1831479854}
+--- !u!114 &1831479859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831479850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1f1c941a074244eab9fd97df2e10ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 07dc10d2066df0647b5990f01e062fbf, type: 2}
+  owner: 1
   character: {fileID: 1831479854}
 --- !u!1 &1986093665
 GameObject:
@@ -5242,6 +5293,7 @@ GameObject:
   - component: {fileID: 1989702756}
   - component: {fileID: 1989702755}
   - component: {fileID: 1989702762}
+  - component: {fileID: 1989702763}
   - component: {fileID: 1989702760}
   - component: {fileID: 1989702759}
   - component: {fileID: 1989702758}
@@ -5252,7 +5304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1989702755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5286,9 +5338,9 @@ MonoBehaviour:
   OnLeftClickDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1989702762}
-        m_TargetAssemblyTypeName: DauntlessSpiritMovement, Assembly-CSharp
-        m_MethodName: LeftClickDown
+      - m_Target: {fileID: 1989702763}
+        m_TargetAssemblyTypeName: DauntlessSpiritWeapon, Assembly-CSharp
+        m_MethodName: StartAttack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5399,6 +5451,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   statHandler: {fileID: 1989702758}
   attackRange: 0
+  rb: {fileID: 1989702761}
 --- !u!50 &1989702761
 Rigidbody2D:
   serializedVersion: 4
@@ -5438,6 +5491,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c03c406e333ec645880da3acee9b1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 1989702760}
+--- !u!114 &1989702763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989702753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3507fdae74df93d41b0bc9b31a1a5c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 7a975a2fbf48e7d40baa21bd3c5a68d5, type: 2}
+  owner: 1
   character: {fileID: 1989702760}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -1044,12 +1044,14 @@ MonoBehaviour:
   globalTilemap: {fileID: 1986093668}
   basicRoomForFloor:
   - {fileID: 7709466060717740089, guid: fc951dda8a23b2f43a92aa0b4ee3a2c1, type: 3}
+  floorStats: []
   maxNeighboringRooms: 0
   ruleBreakChance: 0
   basicRoomAmount: 0
   treasureRoomAmount: 0
   shopRoomAmount: 0
   minBossRoomDistance: 0
+  floorNum: 0
 --- !u!4 &1542633463
 Transform:
   m_ObjectHideFlags: 0
@@ -1457,7 +1459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4ed85cf14ce1f4ead1ecdb628a4994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnMove:
+  OnMoveUpdate:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1831479858}
@@ -1472,6 +1474,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnMoveFixed:
+    m_PersistentCalls:
+      m_Calls: []
   OnLeftClickDown:
     m_PersistentCalls:
       m_Calls:
@@ -1719,21 +1724,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4ed85cf14ce1f4ead1ecdb628a4994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnMove:
+  OnMoveUpdate:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1989702762}
-        m_TargetAssemblyTypeName: DauntlessSpiritMovement, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  OnMoveFixed:
+    m_PersistentCalls:
+      m_Calls: []
   OnLeftClickDown:
     m_PersistentCalls:
       m_Calls:

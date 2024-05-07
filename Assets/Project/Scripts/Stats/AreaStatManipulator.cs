@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Stats;
@@ -32,27 +31,5 @@ namespace Stats
         }
     }
 
-    [System.Serializable]
-    public class StatEffect
-    {
-        [SerializeField] private StatType type;
-        [SerializeField] private OperatorType operation;
-        [SerializeField] private int value;
-        [SerializeField] private float duration;
-
-        private StatModifier statMod = null;
-        public StatModifier GetModifier()
-        {
-            if (statMod != null) return statMod;
-            StatModifier modifier = operation switch
-            {
-                OperatorType.Add => new BasicStatModifier(type, (x) => x + value, duration),
-                OperatorType.Multiply => new BasicStatModifier(type, (x) => x * value, duration),
-                _ => throw new ArgumentOutOfRangeException()
-            };
-            statMod = modifier;
-            return modifier;
-        }
-    }
-    public enum OperatorType {Add, Multiply}
+    
 }

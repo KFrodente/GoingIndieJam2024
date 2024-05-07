@@ -16,4 +16,5 @@ public class RangedEnemy : BaseCharacter
         else if(distance < attackRange * 0.5f) movement.Move((Vector2)transform.position - target);
     }
     
+    
 }

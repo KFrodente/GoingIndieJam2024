@@ -12,7 +12,6 @@ public class Possessable : MonoBehaviour
     public void Possess(Transform t)
     {
         OnStartPossess?.Invoke(t);
-        Debug.Log("ACTUALLY POSSESSED ");
     }
     
     public void UnPossess(Transform t)

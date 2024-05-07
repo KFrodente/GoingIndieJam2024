@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class RangedEnemyMovement : CharacterMovement
+public class EnemyMovement : CharacterMovement
 {
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody2D rb;
@@ -11,4 +11,5 @@ public class RangedEnemyMovement : CharacterMovement
     {
         rb.AddForce(speed * direction.normalized);
     }
+    
 }

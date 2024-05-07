@@ -5,14 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Floor___Stats", menuName = "Generation/Floor")]
 public class FloorStatsSO : ScriptableObject
 {
-    int roomWidth;
-    int roomHeight;
-    Vector2 roomOffset;
-    float fillPercentage;
-    int timesToThicken;
-    float chanceToThicken;
-
-    float redirectChance;
-    float removeChance;
-    float createChance;
+    public int roomWidth;
+    public int roomHeight;
+    public Vector2 roomOffset;
+    public float fillPercentage;
+    public int timesToThicken;
+    public float chanceToThicken;
+    public float redirectChance;
+    public float removeChance;
+    public float createChance;
 }

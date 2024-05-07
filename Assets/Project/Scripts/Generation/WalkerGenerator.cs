@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Tilemaps;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class WalkerGenerator : MonoBehaviour
 {
-    public enum Grid
+    private enum Grid
     {
         FLOOR,
         WALL,
@@ -14,65 +15,57 @@ public class WalkerGenerator : MonoBehaviour
     }
 
     [SerializeField] private Grid[,] gridHandler;
+    private List<Vector2Int> grounds = new();
     [SerializeField] private List<WalkerObject> walkers;
     public Tilemap tilemap;
-    [SerializeField] private Tile floor;
+    [SerializeField] private Tile ground;
     [SerializeField] private RuleTile wall;
-    [SerializeField] private int mapWidth;
-    [SerializeField] private int mapHeight;
-
-    public int gridXOffset;
-    public int gridYOffset;
 
     [SerializeField] private int maxWalkers;
-    [SerializeField] private int tileCount;
-    [SerializeField, Range(0, 1)] private float fillPercentage = .03f;
+    private int tileCount;
 
-    [SerializeField] private int timesToThicken;
-    [SerializeField, Range(0, 1)] private float chanceToThicken;
-
-    [SerializeField] private int maxFailedRedirects;
-    [SerializeField, Range(0, 1)] private float redirectChance;
-    [SerializeField, Range(0, 1)] private float removeChance;
-    [SerializeField, Range(0, 1)] private float createChance;
-
+    public Vector2 roomOffset;
 
     public bool connectsUp = false;
     public bool connectsRight = false;
     public bool connectsDown = false;
     public bool connectsLeft = false;
 
-    //[SerializeField] private int maxContinuousLine;
-
-    private int walkersPlaced;
-
+    private FloorStatsSO floorStats;
     private void Start()
     {
         tilemap = FloorGenerator.instance.globalTilemap;
+        floorStats = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum];
+
+        Debug.Log($"redirect chance: {floorStats.redirectChance}\n remove chance: {floorStats.removeChance}\n create chance: {floorStats.createChance}");
+
         InitializeGrid();
     }
 
     void InitializeGrid()
     {
-        gridHandler = new Grid[mapWidth, mapHeight];
+        gridHandler = new Grid[floorStats.roomWidth, floorStats.roomHeight];
 
         for (int x = 0; x < gridHandler.GetLength(0); x++)
         {
             for (int y = 0; y < gridHandler.GetLength(1); y++)
             {
-                gridHandler[x, y] = Grid.EMPTY;
+                gridHandler[x, y] = Grid.WALL;
+                tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), wall);
             }
         }
 
         walkers = new List<WalkerObject>();
 
-        Vector3Int tileCenter = new Vector3Int(gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2, 0);
+        Vector2Int tileCenter = new Vector2Int(gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2);
 
         Vector2 pickedDir = GetDirection();
-        WalkerObject currentWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), pickedDir, removeChance, redirectChance, createChance, walkersPlaced);
-        walkersPlaced++;
+        WalkerObject currentWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), pickedDir);
+
         gridHandler[tileCenter.x, tileCenter.y] = Grid.FLOOR;
-        tilemap.SetTile(new Vector3Int(tileCenter.x + gridXOffset, tileCenter.y + gridYOffset), floor);
+        tilemap.SetTile(new Vector3Int(tileCenter.x + (int)roomOffset.x, tileCenter.y + (int)roomOffset.y), ground);
+
+        grounds.Add(tileCenter);
         walkers.Add(currentWalker);
 
         tileCount++;
@@ -96,18 +89,19 @@ public class WalkerGenerator : MonoBehaviour
 
     private void CreateFloors()
     {
-        while (tileCount / (float)gridHandler.Length < fillPercentage)
+        while (tileCount / (float)gridHandler.Length < floorStats.fillPercentage)
         {
 
             foreach (WalkerObject walker in walkers)
             {
-                Vector3Int pos = new Vector3Int((int)walker.position.x, (int)walker.position.y, 0);
+                Vector2Int pos = new Vector2Int((int)walker.position.x, (int)walker.position.y);
 
                 if (gridHandler[pos.x, pos.y] != Grid.FLOOR)
                 {
-                    tilemap.SetTile(new Vector3Int(pos.x + gridXOffset, pos.y + gridYOffset), floor);
+                    tilemap.SetTile(new Vector3Int(pos.x + (int)roomOffset.x, pos.y + (int)roomOffset.y), ground);
                     tileCount++;
                     gridHandler[pos.x, pos.y] = Grid.FLOOR;
+                    grounds.Add(pos);
                 }
             }
 
@@ -117,72 +111,75 @@ public class WalkerGenerator : MonoBehaviour
             UpdatePosition();
         }
 
-        for (int i = 0; i < timesToThicken; i++)
-        {
+        Debug.Log(grounds[10]);
 
-            CreateWalls();
+        //CreateWalls();
+        for (int i = 0; i < floorStats.timesToThicken; i++)
+        {
+            Thicken();
         }
         Bulk();
 
     }
 
-    private void CreateWalls()
+    private void Thicken()
     {
-        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
+        for (int i = 0; i < grounds.Count; i++)
         {
-            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
+            int x = grounds[i].x;
+            int y = grounds[i].y;
+            if (gridHandler[x + 1, y] == Grid.WALL && gridHandler[x, y + 1] == Grid.WALL && Random.Range(0.0f, 1.0f) < floorStats.chanceToThicken)
             {
-                if (x >= 1 && x < gridHandler.GetLength(0) && y >= 1 && y < gridHandler.GetLength(1))
-                {
-                    if (gridHandler[x + 1, y] == Grid.FLOOR && gridHandler[x, y+1] == Grid.FLOOR && Random.Range(0.0f, 1.0f) < chanceToThicken)
-                    {
-                        tilemap.SetTile(new Vector3Int(x + gridXOffset, y + gridYOffset), floor);
-                        gridHandler[x, y] = Grid.FLOOR;
-                    }
-                    else if (gridHandler[x + 1, y] == Grid.FLOOR && gridHandler[x, y - 1] == Grid.FLOOR && Random.Range(0.0f, 1.0f) < chanceToThicken)
-                    {
-                        tilemap.SetTile(new Vector3Int(x + gridXOffset, y + gridYOffset), floor);
-                        gridHandler[x, y] = Grid.FLOOR;
-                    }
-                    else if (gridHandler[x - 1, y] == Grid.FLOOR && gridHandler[x, y + 1] == Grid.FLOOR && Random.Range(0.0f, 1.0f) < chanceToThicken)
-                    {
-                        tilemap.SetTile(new Vector3Int(x + gridXOffset, y + gridYOffset), floor);
-                        gridHandler[x, y] = Grid.FLOOR;
-                    }
-                    else if (gridHandler[x, y] == Grid.EMPTY)
-                    {
-                        tilemap.SetTile(new Vector3Int(x + gridXOffset, y + gridYOffset), wall);
-                        gridHandler[x, y] = Grid.WALL;
-                    }
-                }
-                if (gridHandler[x, y] == Grid.EMPTY)
-                {
-                    tilemap.SetTile(new Vector3Int(x + gridXOffset, y + gridYOffset), wall);
-                    gridHandler[x, y] = Grid.WALL;
-
-                }
+                tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), ground);
+                gridHandler[x + 1, y + 1] = Grid.FLOOR;
+                //grounds.Add(new Vector2Int(x, y));
+            }
+            if (gridHandler[x + 1, y] == Grid.WALL && gridHandler[x, y - 1] == Grid.WALL && Random.Range(0.0f, 1.0f) < floorStats.chanceToThicken)
+            {
+                tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), ground);
+                gridHandler[x + 1, y - 1] = Grid.FLOOR;
+                //grounds.Add(new Vector2Int(x, y));
+            }
+            if (gridHandler[x - 1, y] == Grid.WALL && gridHandler[x, y + 1] == Grid.WALL && Random.Range(0.0f, 1.0f) < floorStats.chanceToThicken)
+            {
+                tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), ground);
+                gridHandler[x - 1, y + 1] = Grid.FLOOR;
+                //grounds.Add(new Vector2Int(x, y));
             }
         }
     }
 
     private void Bulk()
     {
-        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
+        for (int i = 0; i < grounds.Count; i++)
         {
-            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
+            int x = grounds[i].x;
+            int y = grounds[i].y;
+            if (x > 1 && y > 1)
             {
-                if (gridHandler[x, y] == Grid.FLOOR)
+                if (!GetIsFloor(x, y + 1) && !GetIsFloor(x, y - 1))
                 {
-                    if (!GetIsFloor(x, y + 1) && !GetIsFloor(x, y - 1))
-                    {
-                        tilemap.SetTile(new Vector3Int(x + gridXOffset, y - 1 + gridYOffset), floor);
-                        gridHandler[x, y - 1] = Grid.FLOOR;
-                    }
-                    else if (!GetIsFloor(x + 1, y) && !GetIsFloor(x - 1, y))
-                    {
-                        tilemap.SetTile(new Vector3Int(x - 1 + gridXOffset, y + gridYOffset), floor);
-                        gridHandler[x - 1, y] = Grid.FLOOR;
-                    }
+                    tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y - 1 + (int)roomOffset.y), ground);
+                    gridHandler[x, y - 1] = Grid.FLOOR;
+                    //grounds.Add(new Vector2Int(x, y - 1));
+                }
+                if (!GetIsFloor(x + 1, y) && !GetIsFloor(x - 1, y))
+                {
+                    tilemap.SetTile(new Vector3Int(x + 1 + (int)roomOffset.x, y + (int)roomOffset.y), ground);
+                    gridHandler[x + 1, y] = Grid.FLOOR;
+                    //grounds.Add(new Vector2Int(x + 1, y));
+                }
+
+                if (!GetIsFloor(x + 1, y + 1) && !GetIsFloor(x - 1, y - 1))
+                {
+                    tilemap.SetTile(new Vector3Int(x - 1 + (int)roomOffset.x, y - 1 + (int)roomOffset.y), ground);
+                    gridHandler[x - 1, y - 1] = Grid.FLOOR;
+                }
+
+                if (!GetIsFloor(x - 1, y + 1) && !GetIsFloor(x + 1, y - 1))
+                {
+                    tilemap.SetTile(new Vector3Int(x + 1 + (int)roomOffset.x, y - 1 + (int)roomOffset.y), ground);
+                    gridHandler[x + 1, y - 1] = Grid.FLOOR;
                 }
             }
         }
@@ -199,7 +196,7 @@ public class WalkerGenerator : MonoBehaviour
         int updatedCount = walkers.Count;
         for (int i = 0; i < updatedCount; i++)
         {
-            if (Random.Range(0f, 1f) < walkers[i].chanceToRemove && walkers.Count > 1)
+            if (Random.Range(0f, 1f) < floorStats.removeChance && walkers.Count > 1)
             {
                 walkers.RemoveAt(i);
                 break;
@@ -211,14 +208,10 @@ public class WalkerGenerator : MonoBehaviour
     {
         foreach (WalkerObject walker in walkers)
         {
-            if (Random.Range(0f, 1f) < walker.chanceToRedirect || walker.failedRedirects >= maxFailedRedirects)
+            if (Random.Range(0f, 1f) < floorStats.redirectChance)
             {
                 Vector2 pickedDir = GetDirection();
                 walker.direction = pickedDir;
-            }
-            else
-            {
-                walker.failedRedirects++;
             }
         }
     }
@@ -228,13 +221,12 @@ public class WalkerGenerator : MonoBehaviour
         int originalCount = walkers.Count;
         for (int i = 0; i < originalCount; i++)
         {
-            if (Random.Range(0f, 1f) < walkers[i].chanceToCreate && walkers.Count < maxWalkers)
+            if (Random.Range(0f, 1f) < floorStats.createChance && walkers.Count < maxWalkers)
             {
                 Vector2 newDir = GetDirection();
                 Vector2 newPos = walkers[i].position;
 
-                WalkerObject newWalker = new WalkerObject(newPos, newDir, walkers[i].chanceToRemove, walkers[i].chanceToRedirect, walkers[i].chanceToCreate, walkersPlaced);
-                walkersPlaced++;
+                WalkerObject newWalker = new WalkerObject(newPos, newDir);
                 walkers.Add(newWalker);
             }
         }

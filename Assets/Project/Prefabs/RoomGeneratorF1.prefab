@@ -45,21 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
-  floor: {fileID: 11400000, guid: 1c1f1ff7585b5ff4e896ec8e8fd6465a, type: 2}
+  ground: {fileID: 11400000, guid: 1c1f1ff7585b5ff4e896ec8e8fd6465a, type: 2}
   wall: {fileID: 11400000, guid: bde205004636a8f4e978a03e81d98d70, type: 2}
-  mapWidth: 200
-  mapHeight: 200
-  gridXOffset: 200
-  gridYOffset: 200
   maxWalkers: 10
-  tileCount: 0
-  fillPercentage: 0.04
-  timesToThicken: 3
-  chanceToThicken: 0.286
-  maxFailedRedirects: 2
-  redirectChance: 0.639
-  removeChance: 0.488
-  createChance: 0.483
+  roomOffset: {x: 0, y: 0}
   connectsUp: 0
   connectsRight: 0
   connectsDown: 0

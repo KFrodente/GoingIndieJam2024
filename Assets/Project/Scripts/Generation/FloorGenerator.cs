@@ -21,6 +21,7 @@ public class FloorGenerator : MonoBehaviour
     public Tilemap globalTilemap;
 
     [SerializeField] private List<WalkerGenerator> basicRoomForFloor = new();
+    public List<FloorStatsSO> floorStats = new();
 
     [SerializeField, Range(0, 4)] private int maxNeighboringRooms;
     [SerializeField, Range(0, 1)] private float ruleBreakChance;
@@ -36,7 +37,7 @@ public class FloorGenerator : MonoBehaviour
 
     private Dictionary<Vector2, char> rooms = new();
 
-    private int floorNum = 0;
+    public int floorNum = 0;
 
     private void Awake()
     {
@@ -62,8 +63,6 @@ public class FloorGenerator : MonoBehaviour
         {
             Debug.Log($"{rooms.ElementAt(i).Key}: {rooms.ElementAt(i).Value}");
         }
-
-        floorNum++;
     }
 
     private void SetSpawn()
@@ -141,9 +140,8 @@ public class FloorGenerator : MonoBehaviour
 
     private void CreateRoom(Vector2 pos, Vector2 direction)
     {
-        WalkerGenerator newGen = Instantiate(basicRoomForFloor[floorNum], transform.position, transform.rotation);
-        newGen.gridXOffset *= (int)pos.x + (int)direction.x;
-        newGen.gridYOffset *= (int)pos.y + (int)direction.y;
+        WalkerGenerator newGen = Instantiate(original: basicRoomForFloor[floorNum], transform.position, transform.rotation);
+        newGen.roomOffset = new Vector2(floorStats[floorNum].roomOffset.x * ((int)pos.x + (int)direction.x), floorStats[floorNum].roomOffset.x * ((int)pos.y + (int)direction.y));
 
         if (direction == Vector2.up) newGen.connectsDown = true;
         if (direction == Vector2.right) newGen.connectsLeft = true;
@@ -156,10 +154,31 @@ public class FloorGenerator : MonoBehaviour
 
     private void SetBossRoom()
     {
+        List<Vector2> usablePositions = new();
         for (int i = 0; i < rooms.Count; i++)
         {
-            //Vector2 currentPos = 
+            Vector2 currentRoom = rooms.ElementAt(i).Key;
+            if ((currentRoom + Vector2.up).y >= minBossRoomDistance)
+            {
+                usablePositions.Add(currentRoom + Vector2.up);
+            }
+            if ((currentRoom + Vector2.right).x >= minBossRoomDistance)
+            {
+                usablePositions.Add(currentRoom + Vector2.right);
+            }
+            if ((currentRoom + Vector2.down).x >= minBossRoomDistance)
+            {
+                usablePositions.Add(currentRoom + Vector2.down);
+            }
+            if ((currentRoom + Vector2.left).x >= minBossRoomDistance)
+            {
+                usablePositions.Add(currentRoom + Vector2.left);
+            }
         }
+
+        int pickedPos = Random.Range(0, usablePositions.Count);
+
+
     }
 
     #endregion

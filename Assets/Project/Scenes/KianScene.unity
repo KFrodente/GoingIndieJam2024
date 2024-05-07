@@ -227,6 +227,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
@@ -250,23 +256,23 @@ Tilemap:
     m_Data:
       e00: 0
       e01: 0
-      e02: -2.98156e-19
-      e03: -2.98156e-19
+      e02: 5.5000076
+      e03: 5.5000076
       e10: 0
       e11: 0
-      e12: 6.46e-43
-      e13: 6.46e-43
+      e12: 8.65e-43
+      e13: 8.65e-43
       e20: 3.4827545e+24
-      e21: 1.9623433e-19
-      e22: 4.8878144e-19
-      e23: -3.689778e+19
+      e21: -1.3595283e-33
+      e22: -7.415182e-29
+      e23: 2.0093803
       e30: 4.5904e-41
-      e31: 6.5e-43
-      e32: 6.47e-43
-      e33: 6.49e-43
+      e31: 8.67e-43
+      e32: 8.65e-43
+      e33: 8.67e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 3.9724e-41, g: 3.9724e-41, b: 3.9724e-41, a: 3.9724e-41}
+    m_Data: {r: 4.0315e-41, g: 4.0315e-41, b: 4.0315e-41, a: 4.0315e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -475,12 +481,15 @@ MonoBehaviour:
   globalTilemap: {fileID: 45705938}
   basicRoomForFloor:
   - {fileID: 7709466060717740089, guid: fc951dda8a23b2f43a92aa0b4ee3a2c1, type: 3}
+  floorStats:
+  - {fileID: 11400000, guid: 9c7ca70cc1d856f419ec08cc4c9d72c8, type: 2}
   maxNeighboringRooms: 1
   ruleBreakChance: 0.196
-  basicRoomAmount: 8
+  basicRoomAmount: 5
   treasureRoomAmount: 0
   shopRoomAmount: 0
   minBossRoomDistance: 0
+  floorNum: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

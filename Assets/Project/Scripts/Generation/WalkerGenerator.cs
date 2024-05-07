@@ -3,21 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class WalkerGenerator : MonoBehaviour
+public class WalkerGenerator : Room
 {
-    private enum Grid
-    {
-        FLOOR,
-        WALL,
-        EMPTY
-    }
+    
 
     public static int basicRoomProcesses = 5;
 
     [SerializeField] private Grid[,] gridHandler;
     private List<Vector2Int> grounds = new();
     [SerializeField] private List<WalkerObject> walkers;
-    public Tilemap tilemap;
     [SerializeField] private Tile ground;
     [SerializeField] private RuleTile wall;
 
@@ -26,18 +20,12 @@ public class WalkerGenerator : MonoBehaviour
 
     public Vector2 roomOffset;
 
-    public bool connectsUp;
-    public bool connectsRight;
-    public bool connectsDown;
-    public bool connectsLeft;
-
     private FloorStatsSO floorStats;
     private void Start()
     {
-        tilemap = FloorGenerator.instance.globalTilemap;
+       
+            tilemap = FloorGenerator.instance.globalTilemap;
         floorStats = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum];
-
-
         StartCoroutine(InitializeGrid());
     }
 

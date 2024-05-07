@@ -481,14 +481,17 @@ MonoBehaviour:
   globalTilemap: {fileID: 45705938}
   basicRoomForFloor:
   - {fileID: 7709466060717740089, guid: fc951dda8a23b2f43a92aa0b4ee3a2c1, type: 3}
+  spawnRoom: {fileID: 203953037707084924, guid: 95a17403833bbbf46b17bf7fc77bd9fe, type: 3}
+  bossRoom: {fileID: 308381870437847890, guid: e13f8fe8a5c9d2647ba7075456e1e61e, type: 3}
+  treasureRoom: {fileID: 6733746826131674145, guid: ac702201c46ec444281ca9b31a65c9f8, type: 3}
   floorStats:
   - {fileID: 11400000, guid: 9c7ca70cc1d856f419ec08cc4c9d72c8, type: 2}
   maxNeighboringRooms: 1
-  ruleBreakChance: 0.046
-  basicRoomAmount: 10
-  treasureRoomAmount: 0
+  ruleBreakChance: 0
+  basicRoomAmount: 5
+  treasureRoomAmount: 1
   shopRoomAmount: 0
-  minBossRoomDistance: 0
+  minBossRoomDistance: 1
   roomProcessesFinished: 0
   floorNum: 0
 --- !u!1660057539 &9223372036854775807

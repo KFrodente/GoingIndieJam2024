@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +37,7 @@ public class FloorGenerator : MonoBehaviour
     [SerializeField, Range(0, 100)] private int minBossRoomDistance;
 
     private Dictionary<Vector2, char> rooms = new();
-
-    private List<WalkerGenerator> roomObejcts = new();
+    private Dictionary<Vector2, WalkerGenerator> basicRoomsDictionary = new();
 
     private int totalFloorProcesses = 0;
 
@@ -61,14 +61,17 @@ public class FloorGenerator : MonoBehaviour
 
     public void generateFloor()
     {
+        basicRoomsDictionary.Add(Vector2.zero, null);
         SetTotalProcesses();
         SetSpawn();
         BuildBasicRooms();
+        ConnectBasicRooms();
         //SetBossRoom();
         
         for (int i = 0; i < rooms.Count; i++)
         {
             Debug.Log($"{rooms.ElementAt(i).Key}: {rooms.ElementAt(i).Value}");
+            Debug.Log($"{basicRoomsDictionary.ElementAt(i).Key}");
         }
     }
 
@@ -87,11 +90,11 @@ public class FloorGenerator : MonoBehaviour
     {
         while(basicRooms < basicRoomAmount)
         {
-            int pickedPos = Random.Range(0, rooms.Count);
+            int pickedPos = UnityEngine.Random.Range(0, rooms.Count);
 
             Vector2 pos = rooms.ElementAt(pickedPos).Key;
 
-            int pickedDir = Random.Range(0, 4);
+            int pickedDir = UnityEngine.Random.Range(0, 4);
             switch (pickedDir)
             { 
                 case 0:
@@ -129,6 +132,7 @@ public class FloorGenerator : MonoBehaviour
                     }
                     break;
                 default:
+                    Debug.LogWarning("Something went wrong in BuildBasicRooms() in the FloorGenerator class");
                     break;
             }
         }
@@ -144,7 +148,7 @@ public class FloorGenerator : MonoBehaviour
         if (rooms.ContainsKey(pos + Vector2.down)) neighboringRooms++;
         if (rooms.ContainsKey(pos + Vector2.left)) neighboringRooms++;
 
-        if (neighboringRooms > maxNeighboringRooms/* && Random.Range(0f, 1f) > ruleBreakChance*/) return false;
+        if (neighboringRooms > maxNeighboringRooms) return false;
 
         return true;
 
@@ -155,13 +159,33 @@ public class FloorGenerator : MonoBehaviour
         WalkerGenerator newGen = Instantiate(original: basicRoomForFloor[floorNum], transform.position, transform.rotation);
         newGen.roomOffset = new Vector2(floorStats[floorNum].roomOffset.x * ((int)pos.x + (int)direction.x), floorStats[floorNum].roomOffset.x * ((int)pos.y + (int)direction.y));
 
-        roomObejcts.Add(newGen);
-
-        if (direction == Vector2.up) newGen.connectsDown = true;
-        if (direction == Vector2.right) newGen.connectsLeft = true;
-        if (direction == Vector2.down) newGen.connectsUp = true;
-        if (direction == Vector2.left) newGen.connectsRight = true;
+        basicRoomsDictionary.Add(pos + direction, newGen);
     }
+
+    private void ConnectBasicRooms()
+    {
+        for (int i = 1; i < basicRoomsDictionary.Count; i++)
+        {
+            Vector2 currentKey = basicRoomsDictionary.ElementAt(i).Key;
+            if (basicRoomsDictionary.ContainsKey(currentKey + Vector2.up))
+            {
+                basicRoomsDictionary.ElementAt(i).Value.connectsUp = true;
+            }
+            if (basicRoomsDictionary.ContainsKey(currentKey + Vector2.right))
+            {
+                basicRoomsDictionary.ElementAt(i).Value.connectsRight = true;
+            }
+            if (basicRoomsDictionary.ContainsKey(currentKey + Vector2.down))
+            {
+                basicRoomsDictionary.ElementAt(i).Value.connectsDown = true;
+            }
+            if (basicRoomsDictionary.ContainsKey(currentKey + Vector2.left))
+            {
+                basicRoomsDictionary.ElementAt(i).Value.connectsLeft = true;
+            }
+        }
+    }
+
     #endregion
 
     #region Boss Room Section
@@ -190,7 +214,7 @@ public class FloorGenerator : MonoBehaviour
             }
         }
 
-        int pickedPos = Random.Range(0, usablePositions.Count);
+        int pickedPos = UnityEngine.Random.Range(0, usablePositions.Count);
 
 
     }

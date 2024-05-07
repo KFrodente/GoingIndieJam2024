@@ -485,7 +485,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9c7ca70cc1d856f419ec08cc4c9d72c8, type: 2}
   maxNeighboringRooms: 1
   ruleBreakChance: 0.046
-  basicRoomAmount: 91
+  basicRoomAmount: 10
   treasureRoomAmount: 0
   shopRoomAmount: 0
   minBossRoomDistance: 0

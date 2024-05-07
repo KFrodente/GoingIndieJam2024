@@ -26,10 +26,10 @@ public class WalkerGenerator : MonoBehaviour
 
     public Vector2 roomOffset;
 
-    public bool connectsUp = false;
-    public bool connectsRight = false;
-    public bool connectsDown = false;
-    public bool connectsLeft = false;
+    public bool connectsUp;
+    public bool connectsRight;
+    public bool connectsDown;
+    public bool connectsLeft;
 
     private FloorStatsSO floorStats;
     private void Start()

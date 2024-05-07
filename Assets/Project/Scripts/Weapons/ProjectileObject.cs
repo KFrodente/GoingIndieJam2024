@@ -7,10 +7,12 @@ using UnityEngine;
 public class ProjectileObject : ScriptableObject
 {
     public string projectileName;
-    public GameObject projectileObject;
+    public Projectile projectileObject;
     public GameObject hitParticle;
     public AudioClip hitSound;
     public int pierceCount;
+    public int speed;
+    public int damage;
 
 
 }

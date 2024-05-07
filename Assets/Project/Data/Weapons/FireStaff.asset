@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FireStaff
   m_EditorClassIdentifier: 
   weaponName: FireStaff
-  type: 1
   chargeSound: {fileID: 0}
-  chargeTime: 0.5
+  chargeTime: 0
+  fireDelay: 0.5
   attackSound: {fileID: 0}
   projectileObject:
   - {fileID: 11400000, guid: e301593591cf817488a91cce30f4683b, type: 2}

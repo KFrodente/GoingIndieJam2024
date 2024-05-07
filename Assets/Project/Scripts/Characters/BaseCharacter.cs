@@ -5,6 +5,19 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
+    [SerializeField] protected Weapon weapon;
+    [SerializeField] protected CharacterMovement movement;
     public StatHandler statHandler;
+    [SerializeField] protected float attackRange;
 
+    
+    public virtual void Attack(Vector2 target)
+    {
+        
+    }
+
+    public virtual void Reposition(Vector2 target)
+    {
+        
+    }
 }

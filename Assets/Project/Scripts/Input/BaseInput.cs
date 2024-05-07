@@ -41,7 +41,11 @@ public abstract class BaseInput : MonoBehaviour
 		OnMoveFixed?.Invoke(GetMoveDirection());
 	}
 
-	protected abstract Vector2 GetMoveDirection();
+	protected virtual Vector2 GetMoveDirection()
+	{
+		return Vector2.zero;
+		
+	}
 
     private Vector2 GetMousePosition()
     {

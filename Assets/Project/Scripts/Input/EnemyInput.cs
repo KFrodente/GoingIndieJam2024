@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class EnemyInput : BaseInput
 {
-    private Transform playerCharacter;
-    protected override Vector2 GetMoveDirection()
-    {
-        return (playerCharacter.position - transform.position).normalized;
-    }
+    
     
     protected void Update()
     {
-        base.Update();
-        if ((playerCharacter.position - transform.position).magnitude > 0)
-        {
-            
-        }
+        Vector3 position = PlayerTransformManager.instance.playerTransform.position;
+        
+        OnMoveUpdate?.Invoke(position);
+        OnLeftClickDown?.Invoke(position);
+    }
+
+    protected void FixedUpdate()
+    {
+        base.FixedUpdate();
+        OnMoveFixed?.Invoke(PlayerTransformManager.instance.playerTransform.position);
     }
 }

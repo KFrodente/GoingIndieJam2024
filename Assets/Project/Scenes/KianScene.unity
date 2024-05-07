@@ -484,7 +484,7 @@ MonoBehaviour:
   floorStats:
   - {fileID: 11400000, guid: 9c7ca70cc1d856f419ec08cc4c9d72c8, type: 2}
   maxNeighboringRooms: 1
-  ruleBreakChance: 0.196
+  ruleBreakChance: 0.046
   basicRoomAmount: 91
   treasureRoomAmount: 0
   shopRoomAmount: 0

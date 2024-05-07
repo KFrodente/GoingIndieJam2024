@@ -144,7 +144,7 @@ public class FloorGenerator : MonoBehaviour
         if (rooms.ContainsKey(pos + Vector2.down)) neighboringRooms++;
         if (rooms.ContainsKey(pos + Vector2.left)) neighboringRooms++;
 
-        if (neighboringRooms >= maxNeighboringRooms && Random.Range(0f, 1f) > ruleBreakChance) return false;
+        if (neighboringRooms > maxNeighboringRooms/* && Random.Range(0f, 1f) > ruleBreakChance*/) return false;
 
         return true;
 

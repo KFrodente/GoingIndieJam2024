@@ -6,15 +6,16 @@ using UnityEngine.Events;
 
 public abstract class BaseInput : MonoBehaviour
 {
-    public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
+    public UnityEvent<Vector2> OnMoveUpdate = new UnityEvent<Vector2>();
+    public UnityEvent<Vector2> OnMoveFixed = new UnityEvent<Vector2>();
     public UnityEvent<Vector2> OnLeftClickDown = new UnityEvent<Vector2>();
     public UnityEvent<Vector2> OnLeftClickUp = new UnityEvent<Vector2>();
 	public UnityEvent<Vector2> OnRightClickDown = new UnityEvent<Vector2>();
 	public UnityEvent<Vector2> OnRightClickUp = new UnityEvent<Vector2>();
 
-	private void Update()
+	protected void Update()
     {
-        OnMove?.Invoke(GetMoveDirection());
+        OnMoveUpdate?.Invoke(GetMoveDirection());
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -35,7 +36,12 @@ public abstract class BaseInput : MonoBehaviour
 		}
 	}
 
-    protected abstract Vector2 GetMoveDirection();
+	protected void FixedUpdate()
+	{
+		OnMoveFixed?.Invoke(GetMoveDirection());
+	}
+
+	protected abstract Vector2 GetMoveDirection();
 
     private Vector2 GetMousePosition()
     {

@@ -11,6 +11,9 @@ public class DauntlessSpiritMovement : CharacterMovement
     private Rigidbody2D rb;
     private bool turnAngle;
 
+    private float transitionTime = 0.3f;
+    private float transitionTimer;
+
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -18,31 +21,48 @@ public class DauntlessSpiritMovement : CharacterMovement
 
     private void Update()
     {
-        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
-
+        TransitionTiming();
         //transform.position += transform.up * (character.statHandler.stats.MoveSpeed * Time.deltaTime);
 	}
 
 	private void FixedUpdate()
 	{
-		rb.velocity *= .95f;
+        float turnMultiplier = 1;
+        if(transitionTimer > 0) turnMultiplier = 3;
+        // Turning
+        transform.RotateAround(transform.position, Vector3.forward, turnMultiplier * character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
+
+        // Dampening
+        rb.velocity *= .95f;
+
+        // Forward Movement
 		rb.AddForce(transform.up * character.statHandler.stats.MoveSpeed, ForceMode2D.Force);
+
+
 		//rb.velocity = Vector2.ClampMagnitude(rb.velocity, character.statHandler.stats.MaxMoveSpeed);
 	}
 
     public override void LeftClickDown(Vector2 position)
     {
-        rb.AddForce(transform.up * 30, ForceMode2D.Impulse);
+
     }
 
     public override void Move(Vector2 direction)
     {
-        //rb.AddForce(transform.up*10, ForceMode2D.Impulse);
     }
 
     public override void RightClickDown(Vector2 position)
     {
         turnAngle = !turnAngle;
+        transitionTimer = transitionTime;
+    }
+
+    private void TransitionTiming()
+    {
+        if (transitionTimer > 0)
+        {
+            transitionTimer -= Time.deltaTime;
+        }
     }
 
 

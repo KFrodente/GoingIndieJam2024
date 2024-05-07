@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc1c66acee1bc6040aea9f9948ed9802, type: 3}
-  m_Name: DauntlessSpiritStats
+  m_Name: TetheredSpiritStats
   m_EditorClassIdentifier: 
   maxHealth: 0
   health: 0

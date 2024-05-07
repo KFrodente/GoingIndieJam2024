@@ -1044,7 +1044,8 @@ MonoBehaviour:
   globalTilemap: {fileID: 1986093668}
   basicRoomForFloor:
   - {fileID: 7709466060717740089, guid: fc951dda8a23b2f43a92aa0b4ee3a2c1, type: 3}
-  floorStats: []
+  floorStats:
+  - {fileID: 11400000, guid: 9c7ca70cc1d856f419ec08cc4c9d72c8, type: 2}
   maxNeighboringRooms: 0
   ruleBreakChance: 0
   basicRoomAmount: 0
@@ -1103,7 +1104,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1989702756}
+  m_Follow: {fileID: 1831479857}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 10

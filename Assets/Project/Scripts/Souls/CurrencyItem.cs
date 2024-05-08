@@ -7,9 +7,36 @@ using Random = UnityEngine.Random;
 public class CurrencyItem : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float maxAttractionForce = 100;
+    [SerializeField] private float maxAttractionDistance = 30;
+
+    private GameObject player;
 
     private void Awake()
     {
         rb.AddForce(Random.insideUnitCircle.normalized * 10, ForceMode2D.Force);
+        player = FindObjectOfType<SpiritSoul>().gameObject;
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 direction = player.transform.position - transform.position;
+        float distance = (direction).magnitude;
+        float force = maxAttractionForce / distance;
+        if(distance < maxAttractionDistance)
+        {
+            rb.AddForce(direction.normalized * force, ForceMode2D.Force);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.TryGetComponent(out SpiritSoul player))
+        {
+            // add currency based on a local value?
+
+            // remove from world
+            Destroy(gameObject);
+        }
     }
 }

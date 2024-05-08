@@ -13,6 +13,14 @@ public class Room : MonoBehaviour
         EMPTY
     }
 
+    public enum Type
+    {
+        BASIC,
+        TREASURE,
+        SHOP,
+        BOSS
+    }
+
     public Tilemap tilemap = null;
 
     public bool connectsUp;
@@ -23,6 +31,8 @@ public class Room : MonoBehaviour
     public Room roomConnectedDown = null;
     public bool connectsLeft;
     public Room roomConnectedLeft = null;
+
+    public Type roomType;
 
     public bool activeRoom = false;
 }

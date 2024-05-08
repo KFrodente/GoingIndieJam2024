@@ -73,16 +73,16 @@ public class FloorGenerator : MonoBehaviour
         BuildBasicRooms();
         ConnectBasicRooms();
 
-        CreateSpecialRooms(bossRooms[Random.Range(0, bossRooms.Count)], 'B', floorStats[floorNum].minBossDistance);
+        CreateSpecialRooms(bossRooms[Random.Range(0, bossRooms.Count)], 'B', floorStats[floorNum].minBossDistance, Room.Type.BOSS);
 
         for (int i = 0; i < floorStats[floorNum].treasureRoomAmount; i++)
         {
-            CreateSpecialRooms(treasureRooms[Random.Range(0, treasureRooms.Count)], 't', floorStats[floorNum].minTreasureDistance);
+            CreateSpecialRooms(treasureRooms[Random.Range(0, treasureRooms.Count)], 't', floorStats[floorNum].minTreasureDistance, Room.Type.TREASURE);
         }
 
         for (int i = 0; i < floorStats[floorNum].shopRoomAmount; i++)
         {
-            CreateSpecialRooms(shopRooms[Random.Range(0, shopRooms.Count)], 'S', floorStats[floorNum].minShopDistance);
+            CreateSpecialRooms(shopRooms[Random.Range(0, shopRooms.Count)], 'S', floorStats[floorNum].minShopDistance, Room.Type.SHOP);
         }
     }
 
@@ -188,45 +188,33 @@ public class FloorGenerator : MonoBehaviour
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.up, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
+                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedUp = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.right, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
+                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedRight = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.down, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
+                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedDown = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.left, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
+                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedLeft = rm;
             }
-            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.up))
-            //{
-            //    roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
-            //}
-            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.right))
-            //{
-            //    roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
-            //}
-            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.down))
-            //{
-            //    roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
-            //}
-            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.left))
-            //{
-            //    roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
-            //}
         }
     }
 
     #endregion
 
-    private void CreateSpecialRooms(GameObject room, char letter, int minPlaceDistance)
+    private void CreateSpecialRooms(GameObject room, char letter, int minPlaceDistance, Room.Type type)
     {
         List<Vector2> usablePositions = new();
         for (int i = 0; i < rooms.Count; i++)
@@ -256,6 +244,8 @@ public class FloorGenerator : MonoBehaviour
         Vector2 pickedPos = usablePositions[Random.Range(0, usablePositions.Count)];
 
         GameObject br = Instantiate(room, new Vector3(floorStats[floorNum].roomOffset.x * pickedPos.x + (floorStats[floorNum].roomOffset.x / 2), floorStats[floorNum].roomOffset.y * pickedPos.y + (floorStats[floorNum].roomOffset.y / 2), 0), transform.rotation);
+
+        br.GetComponent<Room>().roomType = type;
 
         Room checkedRoom;
 

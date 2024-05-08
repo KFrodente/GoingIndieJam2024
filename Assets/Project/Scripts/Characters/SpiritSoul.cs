@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Soul : MonoBehaviour
+public class SpiritSoul : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnReanimate;
     public void Reanimate(Transform character)

@@ -6,20 +6,41 @@ using UnityEngine.Events;
 
 public class Possessable : MonoBehaviour
 {
-    [SerializeField] protected UnityEvent<Soul> OnStartPossess;
+    [SerializeField] protected UnityEvent<SpiritSoul> OnStartPossess;
     [SerializeField] protected UnityEvent<Transform> OnEndPossess;
-    protected Soul possessingSoul;
+    protected SpiritSoul PossessingSpiritSoul;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Material canBePossessedMaterial;
+    private Material defaultMaterial;
+    
 
-    public void Possess(Soul t)
+    public void Possess(SpiritSoul t)
     {
         OnStartPossess?.Invoke(t);
-        possessingSoul = t;
+        PossessingSpiritSoul = t;
     }
     
     public void UnPossess(Transform t)
     {
         OnEndPossess?.Invoke(t);
-        possessingSoul?.Reanimate(transform);
+        if (PossessingSpiritSoul != null)
+        {
+            PossessingSpiritSoul?.Reanimate(transform);
+            
+        }
     }
-    
+    private void Awake()
+    {
+        if(spriteRenderer) defaultMaterial = spriteRenderer.material;
+    }
+
+    public void ChangeToPossessSprite()
+    {
+        if(spriteRenderer) spriteRenderer.material = canBePossessedMaterial;
+    }
+    public void ChangeToUnpossessSprite()
+    {
+        if(spriteRenderer) spriteRenderer.material = defaultMaterial;
+    }
+
 }

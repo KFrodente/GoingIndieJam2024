@@ -233,17 +233,91 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
       e00: 0
       e01: 0
       e02: 0
-      e03: -2.4049368e+32
+      e03: 4.8189445e+28
       e10: 0
       e11: 0
       e12: 0
-      e13: 1.98e-43
+      e13: 9.1e-44
       e20: 0
       e21: 0
       e22: 0
@@ -256,28 +330,28 @@ Tilemap:
     m_Data:
       e00: 0
       e01: 0
-      e02: 5.5000076
-      e03: 5.5000076
+      e02: -5.5012436
+      e03: -5.5012436
       e10: 0
       e11: 0
-      e12: 8.65e-43
-      e13: 8.65e-43
-      e20: 3.4827545e+24
-      e21: -1.3595283e-33
-      e22: -7.415182e-29
-      e23: 2.0093803
+      e12: 5.4e-43
+      e13: 5.4e-43
+      e20: -2.3306216e+18
+      e21: 1.3364171e-24
+      e22: 4.7582944e-19
+      e23: -9.09969e+9
       e30: 4.5904e-41
-      e31: 8.67e-43
-      e32: 8.65e-43
-      e33: 8.67e-43
+      e31: 5.44e-43
+      e32: 5.41e-43
+      e33: 5.42e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 4.0315e-41, g: 4.0315e-41, b: 4.0315e-41, a: 4.0315e-41}
+    m_Data: {r: 4.0758e-41, g: 4.0758e-41, b: 4.0758e-41, a: 4.0758e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -4, y: -1, z: 0}
-  m_Size: {x: 118, y: 121, z: 1}
+  m_Origin: {x: -16, y: -12, z: 0}
+  m_Size: {x: 130, y: 132, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -484,14 +558,15 @@ MonoBehaviour:
   spawnRoom: {fileID: 203953037707084924, guid: 95a17403833bbbf46b17bf7fc77bd9fe, type: 3}
   bossRoom: {fileID: 308381870437847890, guid: e13f8fe8a5c9d2647ba7075456e1e61e, type: 3}
   treasureRoom: {fileID: 6733746826131674145, guid: ac702201c46ec444281ca9b31a65c9f8, type: 3}
+  shopRoom: {fileID: 0}
   floorStats:
   - {fileID: 11400000, guid: 9c7ca70cc1d856f419ec08cc4c9d72c8, type: 2}
   maxNeighboringRooms: 1
   ruleBreakChance: 0
-  basicRoomAmount: 8
-  treasureRoomAmount: 0
+  basicRoomAmount: 13
+  treasureRoomAmount: 2
   shopRoomAmount: 0
-  minBossRoomDistance: 0
+  minBossRoomDistance: 1
   roomProcessesFinished: 0
   floorNum: 0
 --- !u!1660057539 &9223372036854775807

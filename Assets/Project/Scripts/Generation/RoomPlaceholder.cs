@@ -33,7 +33,7 @@ public class RoomPlaceholder
     //returns selected position
     public Vector2 GetRandomDirection()
     {
-        if (connectedRooms > 1) return Vector2.zero;
+        if (connectedRooms > 2) return Vector2.zero;
         List<int> directions = new();
 
 

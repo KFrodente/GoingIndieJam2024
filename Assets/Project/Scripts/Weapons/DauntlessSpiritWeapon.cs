@@ -10,31 +10,21 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 	private bool doDamage = false;
 	private float damageTimer;
 
-	private float hitCount = 0;
 	[SerializeField]private float attackCooldownTimer;
 	[SerializeField] private float attackCooldownTime = 4f;
 
-	private void Update()
-	{
-		base.Update();
-		if(doDamage)
-		{
-			if(damageTimer > 0)
-			{
-				damageTimer -= Time.deltaTime;
-			}
-			else
-			{
-				doDamage = false;
-			}
-		}
-		if(attackCooldownTimer > 0)
-		{
-			attackCooldownTimer -= Time.deltaTime;
-		}
-	}
+    private void Update()
+    {
+        base.Update();
+        if (doDamage)
+        {
+            if (damageTimer > 0) damageTimer -= Time.deltaTime;
+            else doDamage = false;
+        }
+        if (attackCooldownTimer > 0) attackCooldownTimer -= Time.deltaTime;
+    }
 
-	private void FixedUpdate()
+    private void FixedUpdate()
 	{
 		if(charging)
 		{

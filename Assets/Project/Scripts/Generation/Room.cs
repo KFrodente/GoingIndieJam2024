@@ -13,14 +13,16 @@ public class Room : MonoBehaviour
         EMPTY
     }
 
-
-
     public Tilemap tilemap = null;
 
     public bool connectsUp;
+    public Room roomConnectedUp = null;
     public bool connectsRight;
+    public Room roomConnectedRight = null;
     public bool connectsDown;
+    public Room roomConnectedDown = null;
     public bool connectsLeft;
+    public Room roomConnectedLeft = null;
 
     public bool activeRoom = false;
 }

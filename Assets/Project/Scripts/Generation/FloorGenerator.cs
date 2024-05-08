@@ -21,29 +21,28 @@ public class FloorGenerator : MonoBehaviour
 
     public Tilemap globalTilemap;
 
-    [Header("Rooms")]
+    [Header("Spawnable Rooms")]
     [SerializeField] private List<GameObject> basicRoomForFloor = new();
-    [SerializeField] private GameObject spawnRoom;
-    [SerializeField] private GameObject bossRoom;
-    [SerializeField] private GameObject treasureRoom;
-    [SerializeField] private GameObject shopRoom;
+    [SerializeField] private List<GameObject> spawnRooms = new();
+    [SerializeField] private List<GameObject> bossRooms = new();
+    [SerializeField] private List<GameObject> treasureRooms = new();
+    [SerializeField] private List<GameObject> shopRooms = new();
 
+    [Header("Floor Stats")]
     public List<FloorStatsSO> floorStats = new();
 
     [SerializeField, Range(0, 4)] private int maxNeighboringRooms;
-    [SerializeField, Range(0, 1)] private float ruleBreakChance;
 
-    private int basicRooms;
-    private int treasureRooms;
-    private int shopRooms;
+    private int placedBasicRooms;
+    private int placedTreasureRooms;
+    private int placedShopRooms;
 
-    [SerializeField, Range(0, 1000)] private int basicRoomAmount;
-    [SerializeField, Range(0, 100)] private int treasureRoomAmount;
-    [SerializeField, Range(0, 100)] private int shopRoomAmount;
-    [SerializeField, Range(0, 100)] private int minBossRoomDistance;
+    //[SerializeField, Range(0, 1000)] private int basicRoomAmount;
+    //[SerializeField, Range(0, 100)] private int treasureRoomAmount;
+    //[SerializeField, Range(0, 100)] private int shopRoomAmount;
+    //[SerializeField, Range(0, 100)] private int minBossRoomDistance;
 
     private Dictionary<Vector2, char> rooms = new();
-    private List<RoomPlaceholder> placeholderRooms = new();
     private Dictionary<Vector2, Room> roomObjectDictionary = new();
 
     private int totalFloorProcesses = 0;
@@ -74,35 +73,36 @@ public class FloorGenerator : MonoBehaviour
         BuildBasicRooms();
         ConnectBasicRooms();
 
-        CreateSpecialRooms(bossRoom, 'B');
-        for (int i = 0; i < treasureRoomAmount; i++)
+        CreateSpecialRooms(bossRooms[Random.Range(0, bossRooms.Count)], 'B', floorStats[floorNum].minBossDistance);
+
+        for (int i = 0; i < floorStats[floorNum].treasureRoomAmount; i++)
         {
-            CreateSpecialRooms(treasureRoom, 't');
+            CreateSpecialRooms(treasureRooms[Random.Range(0, treasureRooms.Count)], 't', floorStats[floorNum].minTreasureDistance);
         }
 
-        for (int i = 0; i < treasureRoomAmount; i++)
+        for (int i = 0; i < floorStats[floorNum].shopRoomAmount; i++)
         {
-            CreateSpecialRooms(shopRoom, 'S');
+            CreateSpecialRooms(shopRooms[Random.Range(0, shopRooms.Count)], 'S', floorStats[floorNum].minShopDistance);
         }
     }
 
     private void SetTotalProcesses()
     {
-        totalFloorProcesses += basicRoomAmount * WalkerGenerator.basicRoomProcesses;
+        totalFloorProcesses += floorStats[floorNum].basicRoomAmount * WalkerGenerator.basicRoomProcesses;
     }
 
     
     private void SetSpawn()
     {
         rooms.Add(new Vector2(0, 0), 's');
-        GameObject spawn = Instantiate(spawnRoom, new Vector3((int)floorStats[floorNum].roomWidth / 2, (int)floorStats[floorNum].roomHeight / 2, 0), transform.rotation);
+        GameObject spawn = Instantiate(spawnRooms[Random.Range(0, spawnRooms.Count)], new Vector3((int)floorStats[floorNum].roomWidth / 2, (int)floorStats[floorNum].roomHeight / 2, 0), transform.rotation);
         roomObjectDictionary.Add(Vector2.zero, spawn.GetComponent<Spawn>());
     }
 
     #region Basic Room section
     private void BuildBasicRooms()
     {
-        while (basicRooms < basicRoomAmount)
+        while (placedBasicRooms < floorStats[floorNum].basicRoomAmount)
         {
             int pickedPos = Random.Range(0, rooms.Count);
 
@@ -117,7 +117,7 @@ public class FloorGenerator : MonoBehaviour
                         rooms.Add(new Vector2(pos.x + 1, pos.y), 'b');
                         CreateRoom(pos, Vector2.right);
 
-                        basicRooms++;
+                        placedBasicRooms++;
                     }
                     break;
                 case 1:
@@ -125,7 +125,7 @@ public class FloorGenerator : MonoBehaviour
                     {
                         rooms.Add(new Vector2(pos.x, pos.y + 1), 'b');
                         CreateRoom(pos, Vector2.up);
-                        basicRooms++;
+                        placedBasicRooms++;
                     }
                     break;
                 case 2:
@@ -134,7 +134,7 @@ public class FloorGenerator : MonoBehaviour
                     {
                         rooms.Add(new Vector2(pos.x - 1, pos.y), 'b');
                         CreateRoom(pos, Vector2.left);
-                        basicRooms++;
+                        placedBasicRooms++;
                     }
                     break;
                 case 3:
@@ -142,7 +142,7 @@ public class FloorGenerator : MonoBehaviour
                     {
                         rooms.Add(new Vector2(pos.x, pos.y - 1), 'b');
                         CreateRoom(pos, Vector2.down);
-                        basicRooms++;
+                        placedBasicRooms++;
                     }
                     break;
                 default:
@@ -182,28 +182,51 @@ public class FloorGenerator : MonoBehaviour
         for (int i = 0; i < roomObjectDictionary.Count; i++)
         {
             Vector2 currentKey = roomObjectDictionary.ElementAt(i).Key;
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.up))
+
+            Room rm;
+
+            if (roomObjectDictionary.TryGetValue(currentKey + Vector2.up, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
+                roomObjectDictionary.ElementAt(i).Value.roomConnectedUp = rm;
             }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.right))
+            if (roomObjectDictionary.TryGetValue(currentKey + Vector2.right, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
+                roomObjectDictionary.ElementAt(i).Value.roomConnectedRight = rm;
             }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.down))
+            if (roomObjectDictionary.TryGetValue(currentKey + Vector2.down, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
+                roomObjectDictionary.ElementAt(i).Value.roomConnectedDown = rm;
             }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.left))
+            if (roomObjectDictionary.TryGetValue(currentKey + Vector2.left, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
+                roomObjectDictionary.ElementAt(i).Value.roomConnectedLeft = rm;
             }
+            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.up))
+            //{
+            //    roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
+            //}
+            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.right))
+            //{
+            //    roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
+            //}
+            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.down))
+            //{
+            //    roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
+            //}
+            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.left))
+            //{
+            //    roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
+            //}
         }
     }
 
     #endregion
 
-    private void CreateSpecialRooms(GameObject room, char letter)
+    private void CreateSpecialRooms(GameObject room, char letter, int minPlaceDistance)
     {
         List<Vector2> usablePositions = new();
         for (int i = 0; i < rooms.Count; i++)
@@ -211,19 +234,19 @@ public class FloorGenerator : MonoBehaviour
             if (rooms.ElementAt(i).Value == 'b')
             {
                 Vector2 currentRoom = roomObjectDictionary.ElementAt(i).Key;
-                if ((currentRoom + Vector2.up).y >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.up))
+                if ((currentRoom + Vector2.up).y >= minPlaceDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.up))
                 {
                     usablePositions.Add(currentRoom + Vector2.up);
                 }
-                if ((currentRoom + Vector2.right).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.right))
+                if ((currentRoom + Vector2.right).x >= minPlaceDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.right))
                 {
                     usablePositions.Add(currentRoom + Vector2.right);
                 }
-                if ((currentRoom + Vector2.down).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.down))
+                if ((currentRoom + Vector2.down).x >= minPlaceDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.down))
                 {
                     usablePositions.Add(currentRoom + Vector2.down);
                 }
-                if ((currentRoom + Vector2.left).x >= minBossRoomDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.left))
+                if ((currentRoom + Vector2.left).x >= minPlaceDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.left))
                 {
                     usablePositions.Add(currentRoom + Vector2.left);
                 }
@@ -240,22 +263,30 @@ public class FloorGenerator : MonoBehaviour
         if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
         {
             checkedRoom.connectsDown = true;
+            checkedRoom.roomConnectedDown = br.GetComponent<Room>();
             br.GetComponent<Room>().connectsUp = true;
+            br.GetComponent<Room>().roomConnectedUp = checkedRoom;
         }
         else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
         {
             checkedRoom.connectsUp = true;
+            checkedRoom.roomConnectedUp = br.GetComponent<Room>();
             br.GetComponent<Room>().connectsDown = true;
+            br.GetComponent<Room>().roomConnectedDown = checkedRoom;
         }
         else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
         {
             checkedRoom.connectsLeft = true;
+            checkedRoom.roomConnectedLeft = br.GetComponent<Room>();
             br.GetComponent<Room>().connectsRight = true;
+            br.GetComponent<Room>().roomConnectedRight = checkedRoom;
         }
         else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
         {
             checkedRoom.connectsRight = true;
+            checkedRoom.roomConnectedRight = br.GetComponent<Room>();
             br.GetComponent<Room>().connectsLeft = true;
+            br.GetComponent<Room>().roomConnectedLeft = checkedRoom;
         }
 
         rooms.Add(pickedPos, letter);

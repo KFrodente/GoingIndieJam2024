@@ -8,6 +8,7 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected Weapon weapon;
     [SerializeField] protected CharacterMovement movement;
     public StatHandler statHandler;
+    [SerializeField] public float attackRange;
     [SerializeField] public Rigidbody2D rb;
 
     

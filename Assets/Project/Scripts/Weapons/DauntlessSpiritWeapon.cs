@@ -8,8 +8,11 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 	[SerializeField] private DauntlessSpiritMovement movement;
 
 	private bool doDamage = false;
-
 	private float damageTimer;
+
+	private float hitCount = 0;
+	[SerializeField]private float attackCooldownTimer;
+	[SerializeField] private float attackCooldownTime = 4f;
 
 	private void Update()
 	{
@@ -23,8 +26,11 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 			else
 			{
 				doDamage = false;
-				Debug.Log("no mo damage");
 			}
+		}
+		if(attackCooldownTimer > 0)
+		{
+			attackCooldownTimer -= Time.deltaTime;
 		}
 	}
 
@@ -47,18 +53,24 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 		if (doDamage && other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
 		{
 			d.TakeDamage(character.statHandler.stats.Damage);
+			attackCooldownTime = 0;
 		}
 	}
 
 	public override void StartAttack(Vector2 target)
 	{
-		base.StartAttack(target);
+		if (attackCooldownTimer <= 0)
+		{
+			base.StartAttack(target);
+			attackCooldownTimer = attackCooldownTime;
+		}
 	}
 
 	public override void EndAttack(Vector2 target)
 	{
 		base.EndAttack(target);
 		movement.overrideRotation = false;
+		//hitCount = 0;
 	}
 
 	public override void DoChargeAttack()

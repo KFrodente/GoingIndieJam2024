@@ -53,7 +53,7 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 		if (doDamage && other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
 		{
 			d.TakeDamage(character.statHandler.stats.Damage);
-			attackCooldownTime = 0;
+			attackCooldownTimer = 0;
 		}
 	}
 

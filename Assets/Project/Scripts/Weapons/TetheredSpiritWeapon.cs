@@ -6,8 +6,42 @@ public class TetheredSpiritWeapon : Weapon
 {
 	[SerializeField] private BaseCharacter character;
 
-	public override void StartAttack(Vector2 target)
+    [SerializeField] private float attackCooldownTimer;
+    [SerializeField] private float attackCooldownTime = 4f;
+
+    [SerializeField] private float launchForce = 5f;
+    public LayerMask enemyLayer;
+
+    private void Update()
+    {
+        if (attackCooldownTimer > 0) attackCooldownTimer -= Time.deltaTime;
+    }
+
+    public override void StartAttack(Vector2 target)
 	{
-		base.StartAttack(target);
-	}
+        if (attackCooldownTimer <= 0)
+        {
+            Debug.Log("starting attack");
+            base.StartAttack(target);
+            attackCooldownTimer = attackCooldownTime;
+            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(transform.position, character.attackRange, enemyLayer);
+            foreach (Collider2D enemy in enemiesInRange)
+            {
+                Debug.Log("enemy detected");
+                // Damage
+                if (enemy.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
+                {
+                    d.TakeDamage(character.statHandler.stats.Damage);
+                }
+
+                // Knockback
+                Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
+                if (enemyRigidbody != null)
+                {
+                    Vector2 direction = (enemy.transform.position - transform.position).normalized;
+                    enemyRigidbody.AddForce(direction * launchForce, ForceMode2D.Impulse);
+                }
+            }
+        }
+    }
 }

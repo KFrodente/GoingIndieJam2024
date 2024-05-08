@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 15408420}
   - component: {fileID: 15408419}
   - component: {fileID: 15408418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 30
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -713,7 +713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62834743}
   - component: {fileID: 62834744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1415,7 +1415,7 @@ GameObject:
   - component: {fileID: 214827925}
   - component: {fileID: 214827924}
   - component: {fileID: 214827923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangedEnemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 30
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -1811,7 +1811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336341065}
   - component: {fileID: 336341066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1905,7 +1905,7 @@ GameObject:
   - component: {fileID: 365602281}
   - component: {fileID: 365602280}
   - component: {fileID: 365602279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangedEnemy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2107,7 +2107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 30
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -3418,7 +3418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &661458955
 Rigidbody2D:
   serializedVersion: 4
@@ -3509,7 +3509,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   movement: {fileID: 0}
   statHandler: {fileID: 661458956}
-  attackRange: 0
+  attackRange: 5
   rb: {fileID: 661458955}
 --- !u!114 &661458959
 MonoBehaviour:
@@ -3621,6 +3621,12 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 062537f56fe13f743b4ec14654ef313e, type: 2}
   owner: 1
   character: {fileID: 661458958}
+  attackCooldownTimer: 0
+  attackCooldownTime: 4
+  launchForce: 40
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &888228622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5026,7 +5032,7 @@ GameObject:
   - component: {fileID: 1335364842}
   - component: {fileID: 1335364841}
   - component: {fileID: 1335364840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangedEnemy (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5228,7 +5234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 30
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -5622,7 +5628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437148994}
   - component: {fileID: 1437148995}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6245,7 +6251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1831479851
 Rigidbody2D:
   serializedVersion: 4
@@ -6750,7 +6756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2037724204}
   - component: {fileID: 2037724205}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4598,7 +4598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalTilemap: {fileID: 1986093668}
   basicRoomForFloor:
-  - {fileID: 7709466060717740089, guid: fc951dda8a23b2f43a92aa0b4ee3a2c1, type: 3}
+  - {fileID: 0}
   spawnRoom: {fileID: 0}
   bossRoom: {fileID: 0}
   treasureRoom: {fileID: 0}

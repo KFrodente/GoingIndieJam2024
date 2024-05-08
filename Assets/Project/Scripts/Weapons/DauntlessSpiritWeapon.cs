@@ -7,6 +7,27 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 	[SerializeField] private BaseCharacter character;
 	[SerializeField] private DauntlessSpiritMovement movement;
 
+	private bool doDamage = false;
+
+	private float damageTimer;
+
+	private void Update()
+	{
+		base.Update();
+		if(doDamage)
+		{
+			if(damageTimer > 0)
+			{
+				damageTimer -= Time.deltaTime;
+			}
+			else
+			{
+				doDamage = false;
+				Debug.Log("no mo damage");
+			}
+		}
+	}
+
 	private void FixedUpdate()
 	{
 		if(charging)
@@ -23,7 +44,7 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
+		if (doDamage && other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
 		{
 			d.TakeDamage(character.statHandler.stats.Damage);
 		}
@@ -47,6 +68,8 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 		Vector2 dir = GetMousePosition() - (Vector2)transform.position;
 		// Charging force
 		character.rb.AddForce(dir.normalized * 30, ForceMode2D.Impulse);
+		damageTimer = 0.3f;
+		doDamage = true;
 
 		EndAttack(dir); // needs something? so im just passing dir
 	}

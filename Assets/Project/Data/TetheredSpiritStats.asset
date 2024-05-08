@@ -21,3 +21,4 @@ MonoBehaviour:
   moveSpeed: 30
   maxMoveSpeed: 5
   turnSpeed: 6
+  range: 3

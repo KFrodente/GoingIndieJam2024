@@ -18,6 +18,6 @@ MonoBehaviour:
   stamina: 0
   damage: 100
   defense: 0
-  moveSpeed: 30
+  moveSpeed: 20
   maxMoveSpeed: 5
   turnSpeed: 100

@@ -16,7 +16,7 @@ MonoBehaviour:
   health: 0
   maxStamina: 0
   stamina: 0
-  damage: 0
+  damage: 100
   defense: 0
   moveSpeed: 30
   maxMoveSpeed: 5

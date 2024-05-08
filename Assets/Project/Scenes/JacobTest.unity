@@ -241,6 +241,8 @@ MonoBehaviour:
   OnEndPossess:
     m_PersistentCalls:
       m_Calls: []
+  spriteRenderer: {fileID: 0}
+  canBePossessedMaterial: {fileID: 0}
 --- !u!58 &15408420
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1511,6 +1513,8 @@ MonoBehaviour:
   OnEndPossess:
     m_PersistentCalls:
       m_Calls: []
+  spriteRenderer: {fileID: 0}
+  canBePossessedMaterial: {fileID: 0}
 --- !u!58 &214827925
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1999,6 +2003,8 @@ MonoBehaviour:
   OnEndPossess:
     m_PersistentCalls:
       m_Calls: []
+  spriteRenderer: {fileID: 0}
+  canBePossessedMaterial: {fileID: 0}
 --- !u!58 &365602281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4001,7 +4007,7 @@ Transform:
   m_GameObject: {fileID: 1012754267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 305.1, y: 300.3, z: -10}
+  m_LocalPosition: {x: 305.92, y: 300.84, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5118,6 +5124,8 @@ MonoBehaviour:
   OnEndPossess:
     m_PersistentCalls:
       m_Calls: []
+  spriteRenderer: {fileID: 0}
+  canBePossessedMaterial: {fileID: 0}
 --- !u!58 &1335364842
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5981,7 +5989,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1989702756}
+  m_Follow: {fileID: 1831479857}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 10
@@ -6010,7 +6018,7 @@ Transform:
   m_GameObject: {fileID: 1656096929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 305.1, y: 300.3, z: -10}
+  m_LocalPosition: {x: 305.92, y: 300.84, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6237,7 +6245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1831479851
 Rigidbody2D:
   serializedVersion: 4
@@ -6440,6 +6448,8 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 07dc10d2066df0647b5990f01e062fbf, type: 2}
   owner: 1
   character: {fileID: 1831479854}
+  attackCooldownTimer: 0
+  attackCooldownTime: 3
 --- !u!1001 &1924440080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6523,7 +6533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1989702755
 MonoBehaviour:
   m_ObjectHideFlags: 0

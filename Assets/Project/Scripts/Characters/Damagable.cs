@@ -7,9 +7,12 @@ using UnityEngine.Events;
 public class Damagable : MonoBehaviour
 {
     private int startingHealth;
+    [SerializeField] private CharacterType immunities;
+    [SerializeField] private bool isHitCounter;
+    [SerializeField] private bool immuneToDamage;
     [SerializeField] private int health = 3;
     [SerializeField] private UnityEvent OnDeath;
-    [SerializeField] private CharacterType immunities;
+    [SerializeField] private UnityEvent OnHit;
 
     private void Awake()
     {
@@ -27,11 +30,14 @@ public class Damagable : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (immuneToDamage) return;
+        if(isHitCounter) damage = 1;
         health -= damage;
         if (health <= 0)
         {
             OnDeath?.Invoke();
         }
+        else OnHit?.Invoke();
     }
 
     public void SetHealth(int hp)

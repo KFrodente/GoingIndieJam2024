@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChargeWeapon : Weapon
 {
+	[SerializeField] protected float chargeSpeedMult;
 	protected float chargeTimer;
 	protected bool charging;
 

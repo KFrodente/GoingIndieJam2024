@@ -9,6 +9,7 @@ public class TransformSetter : MonoBehaviour
 
     private void Start()
     {
+        if (!starterCharacter) return;
         SetAsMainTransform(this.transform);
     }
 

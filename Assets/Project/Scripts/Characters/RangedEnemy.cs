@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RangedEnemy : BaseCharacter
 {
+    [SerializeField] protected float attackRange;
     public override void Attack(Vector2 target)
     {
         if(Vector2.Distance(target, transform.position) < attackRange) weapon.StartAttack(target);

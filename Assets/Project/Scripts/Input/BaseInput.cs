@@ -15,7 +15,7 @@ public abstract class BaseInput : MonoBehaviour
 
 	protected void Update()
     {
-        OnMoveUpdate?.Invoke(GetMoveDirection());
+        OnMoveUpdate?.Invoke(GetMoveDirection().normalized);
 
         if (Input.GetMouseButtonDown(0))
         {

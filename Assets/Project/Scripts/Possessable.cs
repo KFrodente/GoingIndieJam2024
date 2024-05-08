@@ -8,7 +8,7 @@ public class Possessable : MonoBehaviour
 {
     [SerializeField] protected UnityEvent<SpiritSoul> OnStartPossess;
     [SerializeField] protected UnityEvent<Transform> OnEndPossess;
-    protected SpiritSoul PossessingSpiritSoul;
+    [SerializeField] protected SpiritSoul PossessingSpiritSoul;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Material canBePossessedMaterial;
     private Material defaultMaterial;

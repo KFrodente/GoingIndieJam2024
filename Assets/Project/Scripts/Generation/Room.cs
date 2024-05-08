@@ -13,8 +13,6 @@ public class Room : MonoBehaviour
         EMPTY
     }
 
-
-
     public Tilemap tilemap = null;
 
     public bool connectsUp;

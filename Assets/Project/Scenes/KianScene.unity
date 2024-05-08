@@ -267,6 +267,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: shopRoomAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: basicRoomAmount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: treasureRoomAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: minBossRoomDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: bossRooms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: shopRooms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: spawnRooms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: bossRooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 308381870437847890, guid: e13f8fe8a5c9d2647ba7075456e1e61e, type: 3}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: shopRooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 2490637421124816389, guid: 0e0c4e88c07546942811c8f7ee3d01ce, type: 3}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: spawnRooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 866921574774628508, guid: 264019a2ffee73e41b2ce4f7d2ee8b34, type: 3}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: spawnRooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 9153805286516903091, guid: adccbb0007e32bf43bd86b7d6fb27b08, type: 3}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: treasureRooms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: treasureRooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 6733746826131674145, guid: ac702201c46ec444281ca9b31a65c9f8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f9ede18dd62b44baef1a369d011636, type: 3}
   m_Name: Floor1Stats
   m_EditorClassIdentifier: 
+  basicRoomAmount: 14
+  treasureRoomAmount: 2
+  shopRoomAmount: 1
+  minBossDistance: 2
+  minTreasureDistance: 1
+  minShopDistance: 0
   roomWidth: 200
   roomHeight: 200
   roomOffset: {x: 200, y: 200}

@@ -182,22 +182,45 @@ public class FloorGenerator : MonoBehaviour
         for (int i = 0; i < roomObjectDictionary.Count; i++)
         {
             Vector2 currentKey = roomObjectDictionary.ElementAt(i).Key;
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.up))
+
+            Room rm;
+
+            if (roomObjectDictionary.TryGetValue(currentKey + Vector2.up, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
+                roomObjectDictionary.ElementAt(i).Value.roomConnectedUp = rm;
             }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.right))
+            if (roomObjectDictionary.TryGetValue(currentKey + Vector2.right, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
+                roomObjectDictionary.ElementAt(i).Value.roomConnectedRight = rm;
             }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.down))
+            if (roomObjectDictionary.TryGetValue(currentKey + Vector2.down, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
+                roomObjectDictionary.ElementAt(i).Value.roomConnectedDown = rm;
             }
-            if (roomObjectDictionary.ContainsKey(currentKey + Vector2.left))
+            if (roomObjectDictionary.TryGetValue(currentKey + Vector2.left, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
+                roomObjectDictionary.ElementAt(i).Value.roomConnectedLeft = rm;
             }
+            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.up))
+            //{
+            //    roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
+            //}
+            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.right))
+            //{
+            //    roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
+            //}
+            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.down))
+            //{
+            //    roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
+            //}
+            //if (roomObjectDictionary.ContainsKey(currentKey + Vector2.left))
+            //{
+            //    roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
+            //}
         }
     }
 
@@ -240,22 +263,30 @@ public class FloorGenerator : MonoBehaviour
         if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
         {
             checkedRoom.connectsDown = true;
+            checkedRoom.roomConnectedDown = br.GetComponent<Room>();
             br.GetComponent<Room>().connectsUp = true;
+            br.GetComponent<Room>().roomConnectedUp = checkedRoom;
         }
         else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
         {
             checkedRoom.connectsUp = true;
+            checkedRoom.roomConnectedUp = br.GetComponent<Room>();
             br.GetComponent<Room>().connectsDown = true;
+            br.GetComponent<Room>().roomConnectedDown = checkedRoom;
         }
         else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
         {
             checkedRoom.connectsLeft = true;
+            checkedRoom.roomConnectedLeft = br.GetComponent<Room>();
             br.GetComponent<Room>().connectsRight = true;
+            br.GetComponent<Room>().roomConnectedRight = checkedRoom;
         }
         else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
         {
             checkedRoom.connectsRight = true;
+            checkedRoom.roomConnectedRight = br.GetComponent<Room>();
             br.GetComponent<Room>().connectsLeft = true;
+            br.GetComponent<Room>().roomConnectedLeft = checkedRoom;
         }
 
         rooms.Add(pickedPos, letter);

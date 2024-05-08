@@ -9,7 +9,7 @@ public class TetheredSpiritWeapon : Weapon
     [SerializeField] private float attackCooldownTimer;
     [SerializeField] private float attackCooldownTime = 4f;
 
-    [SerializeField] private float launchForce = 5f;
+    [SerializeField] private float knockback = 5f;
     public LayerMask enemyLayer;
 
     private void Update()
@@ -39,7 +39,7 @@ public class TetheredSpiritWeapon : Weapon
                 if (enemyRigidbody != null)
                 {
                     Vector2 direction = (enemy.transform.position - transform.position).normalized;
-                    enemyRigidbody.AddForce(direction * launchForce, ForceMode2D.Impulse);
+                    enemyRigidbody.AddForce(direction * knockback, ForceMode2D.Impulse);
                 }
             }
         }

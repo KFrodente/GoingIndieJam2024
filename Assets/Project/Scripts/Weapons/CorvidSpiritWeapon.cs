@@ -29,7 +29,7 @@ public class CorvidSpiritWeapon : Weapon
         if (attackCooldownTimer <= 0)
         {
             base.StartAttack(target);
-            character.rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
+            character.rb.AddForce(transform.up * character.statHandler.stats.Range, ForceMode2D.Impulse);
             damageTimer = 0.15f;
             doDamage = true;
             attackCooldownTimer = attackCooldownTime;

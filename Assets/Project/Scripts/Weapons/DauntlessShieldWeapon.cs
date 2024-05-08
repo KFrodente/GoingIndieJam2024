@@ -14,7 +14,9 @@ public class DauntlessShieldWeapon : ChargeWeapon
 	private float hitCount = 0;
 	private float attackCooldownTimer;
 
-	private void Update()
+    [SerializeField] private float knockback = 100f;
+
+    private void Update()
 	{
 		base.Update();
 		if(doDamage)
@@ -50,9 +52,23 @@ public class DauntlessShieldWeapon : ChargeWeapon
 	{
 		if (doDamage && other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
 		{
+			// damage
 			d.TakeDamage(statHandler.stats.Damage);
+
+			// cd reset on hit
 			attackCooldownTimer = 0;
-		}
+
+			// Enemy knockback
+            Rigidbody2D enemyRigidbody = other.GetComponent<Rigidbody2D>();
+            if (enemyRigidbody != null)
+            {
+                Vector2 direction = (other.transform.position - transform.position).normalized;
+                enemyRigidbody.AddForce(direction * knockback, ForceMode2D.Impulse);
+            }
+
+			// Rebound off enemy
+            movement.Move(-transform.up * 5, ForceMode2D.Impulse);
+        }
 	}
 
 	public override void StartAttack(Vector2 target)

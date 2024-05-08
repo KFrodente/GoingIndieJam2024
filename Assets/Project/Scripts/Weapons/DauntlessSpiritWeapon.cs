@@ -10,8 +10,9 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 	private bool doDamage = false;
 	private float damageTimer;
 
-	[SerializeField]private float attackCooldownTimer;
+	[SerializeField] private float attackCooldownTimer;
 	[SerializeField] private float attackCooldownTime = 4f;
+    [SerializeField] private float knockback = 10f;
 
     private void Update()
     {
@@ -44,7 +45,14 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 		{
 			d.TakeDamage(character.statHandler.stats.Damage);
 			attackCooldownTimer = 0;
-		}
+
+            Rigidbody2D enemyRigidbody = other.GetComponent<Rigidbody2D>();
+            if (enemyRigidbody != null)
+            {
+                Vector2 direction = (other.transform.position - transform.position).normalized;
+                enemyRigidbody.AddForce(direction * knockback, ForceMode2D.Impulse);
+            }
+        }
 	}
 
 	public override void StartAttack(Vector2 target)
@@ -69,7 +77,7 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 
 		Vector2 dir = GetMousePosition() - (Vector2)transform.position;
 		// Charging force
-		character.rb.AddForce(dir.normalized * 30, ForceMode2D.Impulse);
+		character.rb.AddForce(dir.normalized * character.statHandler.stats.Range, ForceMode2D.Impulse);
 		damageTimer = 0.3f;
 		doDamage = true;
 

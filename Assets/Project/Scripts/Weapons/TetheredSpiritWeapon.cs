@@ -24,7 +24,7 @@ public class TetheredSpiritWeapon : Weapon
             Debug.Log("starting attack");
             base.StartAttack(target);
             attackCooldownTimer = attackCooldownTime;
-            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(transform.position, character.attackRange, enemyLayer);
+            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(transform.position, character.statHandler.stats.Range, enemyLayer);
             foreach (Collider2D enemy in enemiesInRange)
             {
                 Debug.Log("enemy detected");

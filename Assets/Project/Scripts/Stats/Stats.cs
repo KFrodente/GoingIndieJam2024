@@ -16,6 +16,15 @@ namespace Stats
                 return q.value;
             }
         }
+        public int Range
+        {
+            get
+            {
+                var q = new Query(StatType.Range, baseStats.range);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
         public int Health
         {
             get

@@ -20,6 +20,8 @@ public class BaseStats : ScriptableObject
     public int maxMoveSpeed;
     public int turnSpeed;
 
+    public int range;
+
 }
 
 
@@ -33,6 +35,7 @@ namespace Stats
         Defence,
         MoveSpeed,
         MaxMoveSpeed,
-        TurnSpeed
+        TurnSpeed,
+        Range
     }
 }

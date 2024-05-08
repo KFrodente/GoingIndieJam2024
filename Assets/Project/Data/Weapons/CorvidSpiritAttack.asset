@@ -9,15 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc1c66acee1bc6040aea9f9948ed9802, type: 3}
-  m_Name: CorvidSpiritStats
+  m_Script: {fileID: 11500000, guid: b41ccf60e5ba7f14d949520e50de4e1c, type: 3}
+  m_Name: CorvidSpiritAttack
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  health: 0
-  maxStamina: 0
-  stamina: 0
-  damage: 10
-  defense: 0
-  moveSpeed: 40
-  maxMoveSpeed: 5
-  turnSpeed: 295
+  weaponName: CorvidSpiritAttack
+  chargeSound: {fileID: 0}
+  chargeTime: 0
+  fireDelay: 0
+  attackSound: {fileID: 0}
+  projectileObject: []
+  pattern: 0

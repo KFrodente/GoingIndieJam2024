@@ -9,6 +9,7 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected CharacterMovement movement;
     public StatHandler statHandler;
     [SerializeField] protected float attackRange;
+    [SerializeField] public Rigidbody2D rb;
 
     
     public virtual void Attack(Vector2 target)

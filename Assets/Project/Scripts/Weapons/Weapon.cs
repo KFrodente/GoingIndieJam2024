@@ -75,7 +75,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        lastFireTime = weaponData.fireDelay + 1;
+        lastFireTime = Time.time + weaponData.fireDelay + 1;
     }
 }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class OribtalMovement : CharacterMovement
+public class OribtalMovement : BaseMovement
 {
     [SerializeField] private BaseCharacter character;
     private bool turnAngle;

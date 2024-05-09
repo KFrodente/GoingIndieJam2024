@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 public class ArcRotationMovement : ContinuousForwardMovement
 { 
 	protected bool turnIndicator;
+	protected float turnAngle;
 
 	protected void Update()
 	{
@@ -21,7 +22,7 @@ public class ArcRotationMovement : ContinuousForwardMovement
 	// {
 	// }
 
-	public void ChangeAngle()
+	public override void ChangeAngle(Vector2 direction)
 	{
 		turnIndicator = !turnIndicator;
 	}

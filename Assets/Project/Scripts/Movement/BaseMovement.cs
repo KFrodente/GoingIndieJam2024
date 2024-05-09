@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CharacterMovement : MonoBehaviour
+public class BaseMovement : MonoBehaviour
 {
+    
     protected float targetAngle;
     protected bool movementFrozen;
     protected bool rotationFrozen;
@@ -43,6 +44,11 @@ public abstract class CharacterMovement : MonoBehaviour
         }
     }
 
+    public virtual void ExplodeAway(Vector2 center, float power)
+    {
+        Move(((Vector2)transform.position - center).normalized, power, ForceMode2D.Impulse, savedCharacter, true); // Explosion Always Forced
+    }
+
     public virtual void UnFreeze(bool movement = true, bool rotation = true)
     {
         if (movement) movementFrozen = false;
@@ -61,6 +67,11 @@ public abstract class CharacterMovement : MonoBehaviour
     public virtual void AngleTowardTargetAngle(float speed, BaseCharacter c)
     {
         transform.rotation = Quaternion.Euler(0, 0,Mathf.LerpAngle(transform.rotation.z, targetAngle, Time.deltaTime * speed));
+    }
+
+    public virtual void ChangeAngle(Vector2 direction)
+    {
+        
     }
     protected BaseCharacter savedCharacter;
 

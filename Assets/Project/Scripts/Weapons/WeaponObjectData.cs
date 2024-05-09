@@ -12,6 +12,8 @@ public class WeaponObjectData : ScriptableObject
     public float fireDelay;
     public float burstSeparationDelay;
     public int burstAmount;
+    public float attackDuration;
+    public float knockback;
     public AudioClip attackSound;
     public List<ProjectileObject> projectileObject;
     public ProjectilePattern pattern;

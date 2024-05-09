@@ -16,6 +16,9 @@ public class Weapon : MonoBehaviour
     
     public virtual void StartAttack(Target target, BaseCharacter c)
     {
+        if (!delayOver) return;
+        bc = c;
+        savedTarget = target;
         Fire(target.GetDirection(), (target.playerTargeting));
     }
 

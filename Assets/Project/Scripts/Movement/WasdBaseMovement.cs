@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WASDCharacterMovement : CharacterMovement
+public class WasdBaseMovement : BaseMovement
 {
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected StatHandler statHandler;

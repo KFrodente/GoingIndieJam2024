@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class TetheredSpiritMovement : CharacterMovement
+public class TetheredSpiritMovement : BaseMovement
 {
     [SerializeField] private BaseCharacter character;
     private Rigidbody2D rb;

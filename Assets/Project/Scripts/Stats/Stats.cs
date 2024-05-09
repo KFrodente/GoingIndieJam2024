@@ -71,7 +71,7 @@ namespace Stats
             }
         }
         
-
+        
         public Stats(StatMediator _mediator, BaseStats _baseStats)
         {
             mediator = _mediator;

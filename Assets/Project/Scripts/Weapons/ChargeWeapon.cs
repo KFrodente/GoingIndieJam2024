@@ -9,6 +9,7 @@ public class ChargeWeapon : Weapon
 	protected float startChargeTime = 0;
 	public override void StartAttack(Target target, BaseCharacter c)
 	{
+		if (!delayOver) return;
 		bc = c;
 		savedTarget = target;
 		startChargeTime = Time.time;

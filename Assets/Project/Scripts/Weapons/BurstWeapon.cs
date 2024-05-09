@@ -5,12 +5,10 @@ public class BurstWeapon : AutoFireWeapon
     protected int shotCount = 0;
     public override void StartAttack(Target target, BaseCharacter c)
     {
+        if (!delayOver) return;
         bc = c;
-        if (delayOver)
-        {
-            shotCount = weaponData.burstAmount;
-            attacking = true;
-        }
+        shotCount = weaponData.burstAmount;
+        attacking = true;
     }
     protected void Update()
     {

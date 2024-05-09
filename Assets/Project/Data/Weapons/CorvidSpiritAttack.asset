@@ -15,7 +15,10 @@ MonoBehaviour:
   weaponName: CorvidSpiritAttack
   chargeSound: {fileID: 0}
   chargeTime: 0
-  fireDelay: 0
+  fireDelay: 0.5
+  burstSeparationDelay: 0
+  burstAmount: 0
+  attackDuration: 0.15
   attackSound: {fileID: 0}
   projectileObject: []
   pattern: 0

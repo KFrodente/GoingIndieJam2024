@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class ContinuousForwardMovement : CharacterMovement
+public class ContinuousForwardMovement : BaseMovement
 {
 	protected void FixedUpdate()
 	{

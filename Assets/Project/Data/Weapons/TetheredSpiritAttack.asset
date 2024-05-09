@@ -16,6 +16,10 @@ MonoBehaviour:
   chargeSound: {fileID: 0}
   chargeTime: 0
   fireDelay: 0
+  burstSeparationDelay: 0
+  burstAmount: 0
+  attackDuration: 0
+  knockback: 5
   attackSound: {fileID: 0}
   projectileObject: []
   pattern: 0

@@ -18,6 +18,7 @@ MonoBehaviour:
   fireDelay: 0.5
   burstSeparationDelay: 0
   burstAmount: 0
+  attackDuration: 2
   attackSound: {fileID: 0}
   projectileObject: []
   pattern: 0

@@ -6,7 +6,7 @@ using UnityEngine;
 public class BaseCharacter : MonoBehaviour
 {
     public BaseInput input;
-    public CharacterMovement movement;
+    public BaseMovement movement;
     public Weapon weapon;
     public StatHandler characterStats;
     public Rigidbody2D rb;

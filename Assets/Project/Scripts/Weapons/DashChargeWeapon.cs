@@ -6,7 +6,7 @@ public class DashChargeWeapon : ChargeWeapon
 {
 
 	
-	private void FixedUpdate()
+	protected void FixedUpdate()
 	{
 		if(charging)
 		{
@@ -16,9 +16,10 @@ public class DashChargeWeapon : ChargeWeapon
 		}
 	}
 
+	protected bool inDash => Time.time - lastFireTime < weaponData.attackDuration;
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (charging && other.TryGetComponent(out Damagable d))
+		if (other.TryGetComponent(out Damagable d) && inDash)
 		{
 			d.TakeDamage((int)bc.characterStats.stats.Damage);
 		}
@@ -26,6 +27,7 @@ public class DashChargeWeapon : ChargeWeapon
 
 	public override void StartAttack(Target target, BaseCharacter c)
 	{
+		if (!delayOver) return;
 		base.StartAttack(target, c);
 		float rotationFreezeMultiplier = 2; // Find proper value
 		bc.movement.Freeze(weaponData.chargeTime, weaponData.chargeTime * rotationFreezeMultiplier);
@@ -48,7 +50,7 @@ public class DashChargeWeapon : ChargeWeapon
 		bc.movement.Move(transform.up, bc.characterStats.stats.ChargeSpeed, ForceMode2D.Impulse, bc, true);
 		lastFireTime = Time.time;
 	}
-
+	
 
 	
 }

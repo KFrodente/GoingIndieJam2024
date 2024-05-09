@@ -9,14 +9,16 @@ public class Possessable : Interactable
     [SerializeField] protected BaseInput playerInput;
     [SerializeField] protected BaseCharacter unitBase;
     [SerializeField] protected Interactor interactor;
-    //[SerializeField] protected Transform spiritStorage;
     public override void OnInteract(BaseCharacter character)
     {
-        SwapInputs();
-        SetPossession(character);
+        if (character is SpiritCharacter)
+        {
+            SwapInputs();
+            SetPossession(character as SpiritCharacter);
+        }
     }
 
-    protected void SetPossession(BaseCharacter c)
+    protected void SetPossession(SpiritCharacter c)
     {
         c.transform.SetParent(transform);
         c.transform.localPosition = Vector3.zero;

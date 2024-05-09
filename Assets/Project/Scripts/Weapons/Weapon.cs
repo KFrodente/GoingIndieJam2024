@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] protected WeaponObjectData weaponData;
     protected int index = 0;
-    protected bool delayOver => Time.time - lastFireTime > weaponData.fireDelay;
+    protected bool delayOver => Time.time - lastFireTime > weaponData.fireDelay * bc.GetStats().AttackSpeed;
     protected float lastFireTime = 0;
     protected Target savedTarget;
     protected BaseCharacter bc;

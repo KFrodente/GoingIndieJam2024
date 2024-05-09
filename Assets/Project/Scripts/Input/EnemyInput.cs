@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class EnemyInput : BaseInput
 {
-    
-    
-    // protected void Update()
-    // {
-    //     if(PlayerTransformManager.instance.playerTransform == null) return;
-    //     Vector3 position = PlayerTransformManager.instance.playerTransform.position;
-    //     
-    //     OnMoveUpdate?.Invoke(position);
-    //     OnLeftClickDown?.Invoke(position);
-    // }
-    //
-    // protected void FixedUpdate()
-    // {
-    //     base.FixedUpdate();
-    //     if(PlayerTransformManager.instance.playerTransform == null) return;
-    //     OnMoveFixed?.Invoke(PlayerTransformManager.instance.playerTransform.position);
-    // }
+    public static Transform playerCharacter;
+    public override Vector2 GetNormalizedMoveDirection()
+    {
+        return (playerCharacter.position - transform.position).normalized;
+    }
+    public override MouseInputData GetMouseInput()
+    {
+        return new MouseInputData
+        {
+            leftDown = true, // Attack If Player In Some sort of range | Might need to have access to the baseCharacter to get stats
+            leftUp = false,
+            rightDown = false,
+            rightUp = false,
+            middleDown = false,
+            middleUp = false
+        };
+    }
 }

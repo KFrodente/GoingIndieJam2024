@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statVariables: {fileID: 11400000, guid: 427325f97f08e534bbd5f74b7965a10e, type: 2}
+  spiritStatModifiers: {fileID: 0}
 --- !u!58 &4134685308740849308
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -275,9 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHitCounter: 1
+  isHitCounter: 0
   immuneToDamage: 0
-  health: 324
+  health: 100
   OnDeath:
     m_PersistentCalls:
       m_Calls:

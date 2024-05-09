@@ -12,7 +12,7 @@ public class BaseCharacter : MonoBehaviour
     public Rigidbody2D rb;
     public Damagable damageable;
     public EffectPlayer effector;
-    [HideInInspector] public BaseCharacter possessingSpirit;
+    public SpiritCharacter possessingSpirit;
 
     public virtual Stats.Stats GetStats()
     {

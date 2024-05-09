@@ -10,10 +10,19 @@ namespace Stats
 
         public Stats MultiplyModifier(Stats other)
         {
-            return new Stats(this.Damage * other.Mult_Damage, this.Defense * other.Mult_Defence, this.MoveSpeed * other.Mult_MoveSpeed, this.ChargeSpeed * other.Mult_ChargeSpeed, this.MaxMoveSpeed * other.Mult_MaxMoveSpeed, this.TurnSpeed * other.Mult_TurnSpeed, this.Range * other.Mult_Range);
+            return new Stats(this.Damage * other.Mult_Damage, this.Defense * other.Mult_Defence, this.MoveSpeed * other.Mult_MoveSpeed, this.ChargeSpeed * other.Mult_ChargeSpeed, this.MaxMoveSpeed * other.Mult_MaxMoveSpeed, this.TurnSpeed * other.Mult_TurnSpeed, this.Range * other.Mult_Range, this.AttackSpeed * other.Mult_AttackSpeed);
         }
 
         public float Damage
+        {
+            get
+            {
+                var q = new Query(StatType.Damage, baseStats.damage);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+        public float AttackSpeed
         {
             get
             {
@@ -140,6 +149,15 @@ namespace Stats
                 return q.value;
             }
         }
+        public float Mult_AttackSpeed
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_AttackSpeed, baseStats.attackSpeedMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
 
         public Stats(StatMediator _mediator, BaseStats _baseStats)
         {
@@ -147,15 +165,17 @@ namespace Stats
             baseStats = _baseStats;
         }
 
-        public Stats(float v1, float v2, float v3, float v4, float v5, float v6, float v7)
+        public Stats(float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8)
         {
+            baseStats = new BaseStats();
             baseStats.damage = v1;
-            baseStats.chargeSpeed = v2;
-            baseStats.range = v3;
-            baseStats.defense = v4;
-            baseStats.moveSpeed = v5;
-            baseStats.maxMoveSpeed = v6;
-            baseStats.turnSpeed = v7;
+            baseStats.defense = v2;
+            baseStats.moveSpeed = v3;
+            baseStats.chargeSpeed = v4;
+            baseStats.maxMoveSpeed = v5;
+            baseStats.turnSpeed = v6;
+            baseStats.range = v7;
+            baseStats.attackSpeed = v8;
         }
     }
     

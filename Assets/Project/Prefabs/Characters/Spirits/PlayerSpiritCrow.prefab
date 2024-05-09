@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statVariables: {fileID: 11400000, guid: 517a5c9417a1f0944a39593663fe7398, type: 2}
+  spiritStatModifiers: {fileID: 11400000, guid: df85f7ee2b177744c8d3d546fa1993a9, type: 2}
 --- !u!58 &1083614385343506093
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -592,7 +593,7 @@ MonoBehaviour:
         m_MethodName: Interact
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 6353325505182375790}
           m_ObjectArgumentAssemblyTypeName: BaseCharacter, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

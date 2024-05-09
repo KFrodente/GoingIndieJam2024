@@ -10,14 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc1c66acee1bc6040aea9f9948ed9802, type: 3}
-  m_Name: OrbitStats
+  m_Name: WolfSpiritModStats
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  health: 0
-  maxStamina: 0
-  stamina: 0
   damage: 0
   defense: 0
-  moveSpeed: 4
+  moveSpeed: 0
+  chargeSpeed: 0
   maxMoveSpeed: 0
-  turnSpeed: 100
+  turnSpeed: 0
+  range: 0
+  damageMult: 1
+  defenceMult: 1
+  moveSpeedMult: 1
+  chargeSpeedMult: 1
+  maxMoveSpeedMult: 1
+  turnSpeedMult: 1
+  rangeMult: 1

@@ -72,6 +72,11 @@ public class Weapon : MonoBehaviour
         return po;
 
     }
+
+    private void Start()
+    {
+        lastFireTime = weaponData.fireDelay + 1;
+    }
 }
 
 public class Target
@@ -94,4 +99,5 @@ public class Target
         if (isMouse) return (InputUtils.GetMousePosition() - fireLocation).normalized;
         return (target.Value - fireLocation).normalized;
     }
+    
 }

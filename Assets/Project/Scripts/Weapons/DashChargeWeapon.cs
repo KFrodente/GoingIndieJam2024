@@ -42,6 +42,7 @@ public class DashChargeWeapon : ChargeWeapon
 	{
 		bc.movement.UnFreeze();
 		charging = false;
+		lastFireTime = Time.time + weaponData.cancelDelay;
 		
 	}
 

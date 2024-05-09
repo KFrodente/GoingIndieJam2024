@@ -9,6 +9,7 @@ public class WeaponObjectData : ScriptableObject
     public string weaponName;
     public AudioClip chargeSound;
     public float chargeTime;
+    public float cancelDelay;
     public float fireDelay;
     public float burstSeparationDelay;
     public int burstAmount;

@@ -11,7 +11,7 @@ public class ForwardTankMovement : ArcRotationMovement
 	{
 		UpdateTimers();
 		if (rotationFrozen) return;
-		transform.RotateAround(transform.position, Vector3.forward, savedCharacter.characterStats.stats.TurnSpeed * Time.deltaTime * turnAngle);
+		transform.RotateAround(transform.position, Vector3.forward, savedCharacter.GetStats().TurnSpeed * Time.deltaTime * turnAngle);
 	}
 
 	public override void ChangeAngle(Vector2 direction)

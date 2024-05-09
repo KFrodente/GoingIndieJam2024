@@ -1,11 +1,17 @@
 using System;
+using Unity.VisualScripting;
 
 namespace Stats
 {
     public class Stats
     {
         public readonly StatMediator mediator = new StatMediator();
-        readonly BaseStats baseStats;
+        public BaseStats baseStats;
+
+        public Stats MultiplyModifier(Stats other)
+        {
+            return new Stats(this.Damage * other.Mult_Damage, this.Defense * other.Mult_Defence, this.MoveSpeed * other.Mult_MoveSpeed, this.ChargeSpeed * other.Mult_ChargeSpeed, this.MaxMoveSpeed * other.Mult_MaxMoveSpeed, this.TurnSpeed * other.Mult_TurnSpeed, this.Range * other.Mult_Range);
+        }
 
         public float Damage
         {
@@ -70,14 +76,87 @@ namespace Stats
                 return q.value;
             }
         }
-        
-        
+        public float Mult_Damage
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_Damage, baseStats.damageMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+        public float Mult_Defence
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_Defence, baseStats.defenceMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+        public float Mult_MoveSpeed
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_MoveSpeed, baseStats.moveSpeedMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+        public float Mult_ChargeSpeed
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_ChargeSpeed, baseStats.chargeSpeedMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+        public float Mult_MaxMoveSpeed
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_MaxMoveSpeed, baseStats.maxMoveSpeedMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+        public float Mult_TurnSpeed
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_TurnSpeed, baseStats.turnSpeedMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+
+        public float Mult_Range
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_Range, baseStats.rangeMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+
         public Stats(StatMediator _mediator, BaseStats _baseStats)
         {
             mediator = _mediator;
             baseStats = _baseStats;
         }
-        
+
+        public Stats(float v1, float v2, float v3, float v4, float v5, float v6, float v7)
+        {
+            baseStats.damage = v1;
+            baseStats.chargeSpeed = v2;
+            baseStats.range = v3;
+            baseStats.defense = v4;
+            baseStats.moveSpeed = v5;
+            baseStats.maxMoveSpeed = v6;
+            baseStats.turnSpeed = v7;
+        }
     }
     
     

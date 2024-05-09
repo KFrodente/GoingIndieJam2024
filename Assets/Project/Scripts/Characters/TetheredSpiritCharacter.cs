@@ -8,6 +8,6 @@ public class TetheredSpiritCharacter : SpiritCharacter
     {
         if(input.GetMouseInput().leftDown) Attack(new Target(true, null, transform.position, true));
         if(input.GetNormalizedMoveDirection() != Vector2.zero) movement.SetTargetAngle(input.GetNormalizedMoveDirection(), true);
-        movement.AngleTowardTargetAngle(characterStats.stats.MoveSpeed, this);
+        movement.AngleTowardTargetAngle(GetStats().MoveSpeed, this);
     }
 }

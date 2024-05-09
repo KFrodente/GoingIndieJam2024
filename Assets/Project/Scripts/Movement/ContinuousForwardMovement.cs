@@ -9,6 +9,6 @@ public class ContinuousForwardMovement : BaseMovement
 	protected void FixedUpdate()
 	{
         // Forward Movement
-		Move(transform.up, savedCharacter.characterStats.stats.MoveSpeed, ForceMode2D.Force, savedCharacter);
+		Move(transform.up, savedCharacter.GetStats().MoveSpeed, ForceMode2D.Force, savedCharacter);
 	}
 }

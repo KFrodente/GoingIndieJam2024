@@ -4,25 +4,31 @@ using UnityEngine;
 public class StatHandler : MonoBehaviour
 {
     [SerializeField] private BaseStats statVariables;
-    public Stats.Stats stats { get; private set; }
+    [SerializeField] private BaseStats spiritStatModifiers;
+    public Stats.Stats baseStats { get; private set; }
+    public Stats.Stats modifierStats { get; private set; }
 
     private void Awake()
     {
-        stats = new Stats.Stats(new StatMediator(), statVariables);
+        baseStats = new Stats.Stats(new StatMediator(), statVariables);
+        modifierStats = new Stats.Stats(new StatMediator(), spiritStatModifiers);
     }
 
     private void Update()
     {
-        stats.mediator.Update(Time.deltaTime);
+        baseStats.mediator.Update(Time.deltaTime);
+        modifierStats.mediator.Update(Time.deltaTime);
     }
 
     public void AddStatModifier(StatModifier mod)
     {
         mod.MarkedForRemoval = false;
-        stats.mediator.AddModifier(mod);
+        baseStats.mediator.AddModifier(mod);
+        modifierStats.mediator.AddModifier(mod);
     }
     public void RemoveStatModifier(StatModifier mod)
     {
         mod.MarkedForRemoval = true;
     }
+    
 }

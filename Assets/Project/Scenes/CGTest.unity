@@ -1724,63 +1724,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7135173902582483345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1925615607643577268
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450295702786225556, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8676406625441387375, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_Name
-      value: Dauntless
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
 --- !u!1 &1984720401476919472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1805,7 @@ PrefabInstance:
     - target: {fileID: 500108666454609594, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
       propertyPath: OnKeyPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2533797088374655354}
+      objectReference: {fileID: 8574781969057683115}
     - target: {fileID: 2663779370665698757, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
       propertyPath: OnKeyPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -1916,17 +1859,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
---- !u!114 &2533797088374655354 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7802090480162868511, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-  m_PrefabInstance: {fileID: 1925615607643577268}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea31574145fd4d61b1438e2279d15fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2779853188655226023
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,6 +2287,63 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   unitBase: {fileID: 0}
   interactor: {fileID: 0}
+--- !u!1001 &4292030998948081715
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2794633283095092903, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_Name
+      value: Dauntless
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
 --- !u!212 &4495367158192042446
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2497,7 +2486,7 @@ PrefabInstance:
     - target: {fileID: 7022190918880041649, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
       propertyPath: OnKeyPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2533797088374655354}
+      objectReference: {fileID: 8574781969057683115}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2813,7 +2802,7 @@ PrefabInstance:
     - target: {fileID: 5026644158619177980, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
       propertyPath: OnKeyPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2533797088374655354}
+      objectReference: {fileID: 8574781969057683115}
     - target: {fileID: 6937392172735549017, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
       propertyPath: OnKeyPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -2925,6 +2914,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8574781969057683115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6140970955457626448, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+  m_PrefabInstance: {fileID: 4292030998948081715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea31574145fd4d61b1438e2279d15fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8678838950338343941
 Rigidbody2D:
   serializedVersion: 4
@@ -3037,4 +3037,4 @@ SceneRoots:
   - {fileID: 7463463453149759864}
   - {fileID: 2292704902762248369}
   - {fileID: 4756584928182590151}
-  - {fileID: 1925615607643577268}
+  - {fileID: 4292030998948081715}

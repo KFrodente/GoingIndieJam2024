@@ -9,14 +9,14 @@ public class AreaKnockbackWeapon : Weapon
     protected override void Fire(Vector2 normalizedDirection, bool shotByPlayer)
     {
         Debug.Log("FIRED");
-        Collider2D[] characterInRange = Physics2D.OverlapCircleAll(transform.position, bc.characterStats.stats.Range, LayerMask.GetMask("Character"));
+        Collider2D[] characterInRange = Physics2D.OverlapCircleAll(transform.position, bc.GetStats().Range, LayerMask.GetMask("Character"));
         foreach (Collider2D character in characterInRange)
         {
             Debug.Log("Character: " + character.name);
             if(character.transform.Equals(transform)) continue;
             if (character.TryGetComponent(out Damagable d))
             {
-                d.TakeDamage((int)bc.characterStats.stats.Damage);
+                d.TakeDamage((int)bc.GetStats().Damage);
             }
             if (character.TryGetComponent(out BaseMovement movement))
             {

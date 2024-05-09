@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BaseStats", menuName = "Stats/BaseStats")]
 public class BaseStats : ScriptableObject
 {
-
+    [Header("Base Stats")]
     public float damage;
 
     public float defense;
@@ -18,8 +18,17 @@ public class BaseStats : ScriptableObject
 
     public float range;
 
-}
+    [Header("Modifier Stats")]
+    public float damageMult;
+    public float defenceMult;
+    public float moveSpeedMult;
+    public float chargeSpeedMult;
+    public float maxMoveSpeedMult;
+    public float turnSpeedMult;
+    public float rangeMult;
 
+    
+}
 
 namespace Stats
 {
@@ -32,6 +41,14 @@ namespace Stats
         ChargeSpeed,
         MaxMoveSpeed,
         TurnSpeed,
-        Range
+        Range,
+        
+        Mult_Damage,
+        Mult_Defence,
+        Mult_MoveSpeed,
+        Mult_ChargeSpeed,
+        Mult_MaxMoveSpeed,
+        Mult_TurnSpeed,
+        Mult_Range
     }
 }

@@ -27,15 +27,7 @@ public class Damagable : MonoBehaviour
         CountDownImmunity();
     }
 
-    public void SetImmunities(int i)
-    {
-        immunities = (CharacterType)i;
-    }
-    public CharacterType GetImmunities()
-    {
-        return immunities;
-    }
-
+    
     public void StartImmunity(float time)
     {
         SetDamagable(false);

@@ -31,12 +31,12 @@ public class CorvidSpiritWeapon : Weapon
     }
 
 
-    public override void StartAttack(Vector2 target, BaseCharacter c)
+    public override void StartAttack(Target target, BaseCharacter c)
     {
         if (attackCooldownTimer <= 0)
         {
-            base.StartAttack(target);
-            character.rb.AddForce(transform.up * character.statHandler.stats.Range, ForceMode2D.Impulse);
+            //base.StartAttack(target);
+            //character.rb.AddForce(transform.up * character.statHandler.stats.Range, ForceMode2D.Impulse);
             damageTimer = 0.15f;
             doDamage = true;
             damagable.StartImmunity(damageTimer);

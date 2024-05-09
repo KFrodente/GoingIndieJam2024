@@ -23,6 +23,7 @@ public class WalkerGenerator : Room
 
     private FloorStatsSO floorStats;
 
+    private bool previouslyActivated = false;
 
     private Vector2Int highestPos;
     private Vector2Int rightmostPos;
@@ -47,11 +48,54 @@ public class WalkerGenerator : Room
         }
     }
 
-    public void SetTilesInactive()
+    public IEnumerator SetRoomActive(BaseCharacter character, Portal connectedPortal, Room currentRoom)
     {
-        for (int i = 0; i < grounds.Count; i++)
+        previouslyActivated = true;
+        int x = 0;
+        int y = 0;
+
+        StartCoroutine(TransitionManager.instance.FadeToBlack());
+
+        yield return new WaitUntil(() => TransitionManager.instance.blackScreen.color.a >= 1);
+
+        while (x < gridHandler.GetLength(0))
         {
-            tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), wall);
+            while (y < gridHandler.GetLength(1))
+            {
+                if (gridHandler[x, y] == Grid.WALL)
+                    tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), wall);
+                y++;
+            }
+            y = 0;
+            x++;
+        }
+
+
+        character.transform.position = connectedPortal.transform.position;
+
+        if (currentRoom.roomType == Type.BASIC)
+            currentRoom.GetComponent<WalkerGenerator>().SetRoomInactive();
+
+        yield return new WaitForSecondsRealtime(.4f);
+        if (!previouslyActivated)
+        {
+            //TODO: spawn enemies
+            //set portals inactive
+        }
+        StartCoroutine(TransitionManager.instance.FadeOutOfBlack());
+
+        yield return null;
+    }
+
+    public void SetRoomInactive()
+    {
+        for (int x = 0; x < gridHandler.GetLength(0); x++)
+        {
+            for (int y = 0; y < gridHandler.GetLength(1); y++)
+            {
+                if (gridHandler[x, y] == Grid.WALL)
+                    tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), null);
+            }
         }
     }
 

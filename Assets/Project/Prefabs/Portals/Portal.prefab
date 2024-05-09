@@ -135,6 +135,7 @@ MonoBehaviour:
   costToEnter: 0
   paidPrice: 0
   active: 0
+  blackScreen: {fileID: 0}
 --- !u!58 &3188647402631998667
 CircleCollider2D:
   m_ObjectHideFlags: 0

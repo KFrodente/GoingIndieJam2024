@@ -73,18 +73,18 @@ public class Room : MonoBehaviour
         {
             case Type.BASIC:
             case Type.SPAWN:
-                go = Instantiate(basicPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation);
+                go = Instantiate(basicPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation, transform);
                 return go;
             case Type.TREASURE:
-                go = Instantiate(treasurePortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation);
+                go = Instantiate(treasurePortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation, transform);
                 Vector2Int costToEnter = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum].costToEnter;
                 go.GetComponent<Portal>().costToEnter = Random.Range(costToEnter.x, costToEnter.y);
                 return go;
             case Type.SHOP:
-                go = Instantiate(shopPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation);
+                go = Instantiate(shopPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation, transform);
                 return go;
             case Type.BOSS:
-                go = Instantiate(bossPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation);
+                go = Instantiate(bossPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation, transform);
                 return go;
         }
         return null;

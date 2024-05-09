@@ -27,7 +27,7 @@ public class DashChargeWeapon : ChargeWeapon
 
 	public override void StartAttack(Target target, BaseCharacter c)
 	{
-		if (!delayOver) return;
+		if (!delayOver || !isCancelOver) return;
 		base.StartAttack(target, c);
 		float rotationFreezeMultiplier = 2; // Find proper value
 		bc.movement.Freeze(weaponData.chargeTime, weaponData.chargeTime * rotationFreezeMultiplier);
@@ -35,15 +35,15 @@ public class DashChargeWeapon : ChargeWeapon
 
 	public override void EndAttack()
 	{
-		if (charging) CancelAttack();
+		if (charging && isCancelOver) CancelAttack();
 	}
 
 	protected void CancelAttack()
 	{
 		bc.movement.UnFreeze();
 		charging = false;
-		lastFireTime = Time.time + weaponData.cancelDelay;
-		
+		startCancelTime = Time.time;
+
 	}
 
 	protected override void Fire(Vector2 normalizedDirection, bool shotByPlayer)

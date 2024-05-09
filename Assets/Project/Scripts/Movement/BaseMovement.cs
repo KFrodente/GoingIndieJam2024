@@ -8,35 +8,29 @@ public class BaseMovement : MonoBehaviour
     protected float targetAngle;
     protected bool movementFrozen;
     protected bool rotationFrozen;
-    protected List<Timer> timers = new List<Timer>();
+    protected Timer moveTimer;
+    protected Timer rotationTimer;
 
     public virtual void Freeze(float movementDuration, float rotationDuration)
     {
         if (movementDuration > 0)
         {
             movementFrozen = true;
-            Timer timer = new CountdownTimer(movementDuration);
-            timer.OnTimerStop += () => EndTimer(true, false, ref timer);
-            timer.Start();
-            timers.Add(timer);
+            moveTimer = new CountdownTimer(movementDuration);
+            moveTimer.OnTimerStop += () => UnFreeze(true, false);
+            moveTimer.Start();
         }
 
         if (rotationDuration > 0)
         {
             rotationFrozen = true;
-            Timer timer = new CountdownTimer(rotationDuration);
-            timer.OnTimerStop += () => EndTimer(false, true, ref timer);
-            timer.Start();
-            timers.Add(timer);
+            rotationTimer = new CountdownTimer(rotationDuration);
+            rotationTimer.OnTimerStop += () => UnFreeze(false, true);
+            rotationTimer.Start();
         }
         
     }
-
-    protected void EndTimer(bool m, bool r, ref Timer t)
-    {
-        timers.Remove(t);
-        UnFreeze(m, r);
-    }
+    
 
     protected virtual void Update()
     {
@@ -44,10 +38,9 @@ public class BaseMovement : MonoBehaviour
     }
     protected virtual void UpdateTimers()
     {
-        foreach (Timer t in timers)
-        {
-            t.Tick(Time.deltaTime);
-        }
+        
+        moveTimer.Tick(Time.deltaTime);
+        rotationTimer.Tick(Time.deltaTime);
     }
 
     public virtual void ExplodeAway(Vector2 center, float power)

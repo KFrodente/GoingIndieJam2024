@@ -14,16 +14,16 @@ public class CorvidSpiritMovement : CharacterMovement
 	private void FixedUpdate()
 	{
         // Turning
-        transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime * angleMult);
-
-        // Dampening
-        character.rb.velocity *= .95f;
-
-        // Forward Movement
-		character.rb.AddForce(transform.up * character.statHandler.stats.MoveSpeed, ForceMode2D.Force);
+  //       transform.RotateAround(transform.position, Vector3.forward, character.statHandler.stats.TurnSpeed * Time.deltaTime * angleMult);
+  //
+  //       // Dampening
+  //       character.rb.velocity *= .95f;
+  //
+  //       // Forward Movement
+		// character.rb.AddForce(transform.up * character.statHandler.stats.MoveSpeed, ForceMode2D.Force);
 	}
 
-    public override void Move(Vector2 direction)
+    public override void Move(Vector2 direction, float speed, ForceMode2D forceMode, BaseCharacter c, bool forcedAction = false)
     {
         angleMult = -direction.x;
     }

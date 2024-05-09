@@ -5,28 +5,23 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    private List<Interactable> interactables = new List<Interactable>();
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.TryGetComponent(out Interactable i))
-        {
-            interactables.Add(i);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.TryGetComponent(out Interactable i))
-        {
-            interactables.Remove(i);
-        }
-    }
+    protected List<Interactable> interactables = new List<Interactable>();
 
-    public void Interact(BaseCharacter character)
+    public virtual void Interact(BaseCharacter character)
     {
         if(interactables.Count > 0) GetClosest().OnInteract(character);
     }
 
-    private Interactable GetClosest()
+    public void Add(Interactable i)
+    {
+        interactables.Add(i);
+    }
+    public void Remove(Interactable i)
+    {
+        interactables.Remove(i);
+    }
+
+    protected Interactable GetClosest()
     {
         Interactable closest = null;
         float closestDist = float.MaxValue;

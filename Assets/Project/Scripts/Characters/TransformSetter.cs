@@ -15,7 +15,7 @@ public class TransformSetter : MonoBehaviour
 
     public void SetAsMainTransform(Transform t)
     {
-        PlayerTransformManager.instance.playerTransform = t;
+        //PlayerTransformManager.instance.playerTransform = t;
     }
     
 }

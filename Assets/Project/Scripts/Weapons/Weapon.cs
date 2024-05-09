@@ -4,76 +4,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public abstract class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-    [SerializeField] protected WeaponObject weapon;
+    [SerializeField] protected WeaponObjectData weaponData;
     protected int index = 0;
-    [SerializeField] protected CharacterType owner;
-    
-    public void SetOwner(int i)
-    {
-        owner = (CharacterType)i;
-    }
-    
-    
-
-    protected bool delayOver => Time.time - lastFireTime > weapon.fireDelay;
-
+    protected bool delayOver => Time.time - lastFireTime > weaponData.fireDelay;
     protected float lastFireTime = 0;
-    protected float startAttackTime;
-    public virtual void StartAttack(Vector2 target)
+    protected Target savedTarget;
+    protected BaseCharacter bc;
+
+    
+    public virtual void StartAttack(Target target, BaseCharacter c)
     {
-        startAttackTime = Time.time;
+        Fire(target.GetDirection(), (target.playerTargeting));
     }
 
-    public virtual void EndAttack(Vector2 target)
+    public virtual void EndAttack()
     {
     }
 
-    protected void Fire(Vector2 target, CharacterType owner)
+    protected virtual void Fire(Vector2 normalizedDirection, bool shotByPlayer)
     {
+        float angle = InputUtils.GetAngle(normalizedDirection);
         ProjectileObject po = GetProjectile();
         if(po)
         {
-            Instantiate(po.projectileObject, transform.position, Quaternion.Euler(0, 0, GetAngle(target))).GetComponent<Projectile>().SetProjectile(po, owner);
+            Instantiate(po.projectileObject, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(po, shotByPlayer);
         }
-
+        
         lastFireTime = Time.time;
     }
 
-    protected float GetAngle(Vector2 target)
-    {
-        Vector2 direction = (target - (Vector2)transform.position).normalized;
-        return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-    }
-    
 
-
-    protected Vector2 GetMousePosition()
-    {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
+   
     
     protected ProjectileObject GetProjectile()
     {
         ProjectileObject po = null;
-        switch (weapon.pattern)
+        switch (weaponData.pattern)
         {
             case ProjectilePattern.Ordered:
             {
-                po = weapon.projectileObject[index];
+                po = weaponData.projectileObject[index];
                 index++;
-                if (index == weapon.projectileObject.Count) index = 0;
+                if (index == weaponData.projectileObject.Count) index = 0;
                 break;
             }
             case ProjectilePattern.Random:
             {
-                po = weapon.projectileObject[Random.Range(0, weapon.projectileObject.Count - 1)];
+                po = weaponData.projectileObject[Random.Range(0, weaponData.projectileObject.Count - 1)];
                 break;
             }
             case ProjectilePattern.Single:
             {
-                po = weapon.projectileObject[0];
+                po = weaponData.projectileObject[0];
                 break;
             }
             default:
@@ -84,5 +68,27 @@ public abstract class Weapon : MonoBehaviour
 
         return po;
 
+    }
+}
+
+public class Target
+{
+    public bool isMouse;
+    public Vector2? target;
+    public Vector2 fireLocation;
+    public bool playerTargeting;
+
+    public Target(bool isMouse, Vector2? target, Vector2 fireSpot, bool playerTargeting)
+    {
+        this.isMouse = isMouse;
+        this.target = target;
+        this.fireLocation = fireSpot;
+        this.playerTargeting = playerTargeting;
+    }
+
+    public Vector2 GetDirection()
+    {
+        if (isMouse) return (InputUtils.GetMousePosition() - fireLocation).normalized;
+        return (target.Value - fireLocation).normalized;
     }
 }

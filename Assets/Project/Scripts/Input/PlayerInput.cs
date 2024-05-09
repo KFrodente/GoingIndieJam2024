@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class PlayerInput : BaseInput
 {
-    protected override Vector2 GetMoveDirection()
+    public override Vector2 GetNormalizedMoveDirection()
     {
-        return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+    }
+    public override MouseInputData GetMouseInput()
+    {
+        return new MouseInputData
+        {
+            leftDown = Input.GetMouseButtonDown(0),
+            leftUp = Input.GetMouseButtonUp(0),
+            rightDown = Input.GetMouseButtonDown(1),
+            rightUp = Input.GetMouseButtonUp(1),
+            middleDown = Input.GetMouseButtonDown(2),
+            middleUp = Input.GetMouseButtonUp(2)
+        };
     }
 }

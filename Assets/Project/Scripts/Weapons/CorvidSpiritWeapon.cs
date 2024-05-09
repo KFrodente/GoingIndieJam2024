@@ -24,12 +24,12 @@ public class CorvidSpiritWeapon : Weapon
     }
 
 
-    public override void StartAttack(Vector2 target)
+    public override void StartAttack(Target target, BaseCharacter c)
     {
         if (attackCooldownTimer <= 0)
         {
-            base.StartAttack(target);
-            character.rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
+            base.StartAttack(target, c);
+            //character.rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
             damageTimer = 0.15f;
             doDamage = true;
             attackCooldownTimer = attackCooldownTime;
@@ -38,10 +38,10 @@ public class CorvidSpiritWeapon : Weapon
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (doDamage && other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
-        {
-            d.TakeDamage(character.statHandler.stats.Damage);
-            attackCooldownTimer = 0;
-        }
+        // if (doDamage && other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
+        // {
+        //     // d.TakeDamage(character.statHandler.stats.Damage);
+        //     // attackCooldownTimer = 0;
+        // }
     }
 }

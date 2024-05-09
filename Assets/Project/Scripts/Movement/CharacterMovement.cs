@@ -4,29 +4,68 @@ using UnityEngine;
 
 public abstract class CharacterMovement : MonoBehaviour
 {
-    protected bool canMove = true;
-    public abstract void Move(Vector2 direction);
+    protected float targetAngle;
+    protected bool movementFrozen;
+    protected bool rotationFrozen;
+    protected List<Timer> timers = new List<Timer>();
 
-    public virtual void Move(Vector2 direction, ForceMode2D forceMode, bool force = false)
+    public virtual void Freeze(float movementDuration, float rotationDuration)
     {
+        if (movementDuration > 0)
+        {
+            movementFrozen = true;
+            Timer timer = new CountdownTimer(movementDuration);
+            timer.OnTimerStop += () => UnFreeze(true, false);
+            timer.Start();
+            timers.Add(timer);
+        }
+
+        if (rotationDuration > 0)
+        {
+            rotationFrozen = true;
+            Timer timer = new CountdownTimer(rotationDuration);
+            timer.OnTimerStop += () => UnFreeze(false, true);
+            timer.Start();
+            timers.Add(timer);
+        }
+        
     }
 
-    public virtual void LeftClickDown(Vector2 position)
+    protected virtual void Update()
     {
+        UpdateTimers();
+    }
+    protected virtual void UpdateTimers()
+    {
+        foreach (Timer t in timers)
+        {
+            t.Tick(Time.deltaTime);
+        }
     }
 
-    public virtual void RightClickDown(Vector2 position)
+    public virtual void UnFreeze(bool movement = true, bool rotation = true)
     {
+        if (movement) movementFrozen = false;
+        if (rotation) rotationFrozen = false;
     }
-    public virtual void SetTargetAngle(Vector2 direction)
+    public virtual void Move(Vector2 direction, float speed, ForceMode2D forceMode, BaseCharacter c, bool forcedAction = false)
     {
+        if (movementFrozen && !forcedAction) return;
+        c.rb.AddForce(direction * speed, forceMode);
     }
-    public virtual void AngleTowardTargetAngle()
+    public virtual void SetTargetAngle(Vector2 direction, bool forcedAction = false)
     {
+        if (rotationFrozen && !forcedAction) return;
+        targetAngle = InputUtils.GetAngle(direction);
     }
-    public void SetMovement(bool canMove)
+    public virtual void AngleTowardTargetAngle(float speed, BaseCharacter c)
     {
-        this.canMove = canMove;
+        transform.rotation = Quaternion.Euler(0, 0,Mathf.LerpAngle(transform.rotation.z, targetAngle, Time.deltaTime * speed));
     }
+    protected BaseCharacter savedCharacter;
 
+    public void SetCharacter(BaseCharacter c)
+    {
+        savedCharacter = c;
+    }
 }

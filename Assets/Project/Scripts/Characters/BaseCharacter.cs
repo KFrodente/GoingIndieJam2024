@@ -5,19 +5,36 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
-    [SerializeField] protected Weapon weapon;
-    [SerializeField] protected CharacterMovement movement;
-    public StatHandler statHandler;
-    [SerializeField] public Rigidbody2D rb;
+    public BaseInput input;
+    public CharacterMovement movement;
+    public Weapon weapon;
+    public StatHandler characterStats;
+    public Rigidbody2D rb;
+    [HideInInspector] public BaseCharacter possessingSpirit;
 
-    
-    public virtual void Attack(Vector2 target)
+    protected virtual void Awake()
     {
-        
+        movement.SetCharacter(this);
     }
 
-    public virtual void Reposition(Vector2 target)
+    protected virtual void Attack(Target target)
     {
-        
+        weapon.StartAttack(target, this);
+    }
+
+    protected virtual void Reposition(Vector2 normalizedDirection)
+    {
+        movement.Move(normalizedDirection, characterStats.stats.MoveSpeed, ForceMode2D.Force, this);
+    }
+
+    protected virtual void Update()
+    {
+        if(input.GetMouseInput().leftDown) Attack(new Target(true, null, transform.position, true));
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        Vector2 moveDirection = input.GetNormalizedMoveDirection();
+        if(moveDirection != Vector2.zero) Reposition(moveDirection);
     }
 }

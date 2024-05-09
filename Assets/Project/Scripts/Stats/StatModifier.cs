@@ -32,9 +32,9 @@ namespace Stats
     public class BasicStatModifier : StatModifier
     {
         readonly StatType type;
-        readonly Func<int, int> operation;
+        readonly Func<float, float> operation;
 
-        public BasicStatModifier(StatType _type, Func<int, int> _operation, float _duration) : base(_duration)
+        public BasicStatModifier(StatType _type, Func<float, float> _operation, float _duration) : base(_duration)
         {
             type = _type;
             operation = _operation;

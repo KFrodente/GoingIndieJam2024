@@ -50,9 +50,9 @@ namespace Stats
     public class Query
     {
         public readonly StatType type;
-        public int value;
+        public float value;
 
-        public Query(StatType _type, int _value)
+        public Query(StatType _type, float _value)
         {
             type = _type;
             value = _value;

@@ -1,28 +1,36 @@
 using UnityEngine;
 
-public class BurstWeapon : Weapon
+public class BurstWeapon : AutoFireWeapon
 {
-    protected bool attacking;
-    public override void StartAttack(Vector2 target)
+    protected int shotCount = 0;
+    public override void StartAttack(Target target, BaseCharacter c)
     {
-        attacking = true;
+        bc = c;
+        if (delayOver)
+        {
+            shotCount = weaponData.burstAmount;
+            attacking = true;
+        }
     }
-    public override void EndAttack(Vector2 target)
-    {
-        base.EndAttack(target);
-        attacking = false;
-    }
-
     protected void Update()
     {
-        if (attacking)
+        if (shotCount > 0)
         {
-            if (delayOver)
+            if (IsAutoFireDelayOver())
             {
-                Fire(GetMousePosition(), owner);
-                lastFireTime = Time.time;
+                shotCount--;
+                Fire(savedTarget.GetDirection(), savedTarget.playerTargeting);
             }
         }
+        else
+        {
+            if(attacking) StartAttack(savedTarget, bc);
+        }
+    }
+    protected override bool IsAutoFireDelayOver()
+    {
+        return Time.time - lastAutoFireTime > weaponData.burstSeparationDelay;
+        
     }
     
 }

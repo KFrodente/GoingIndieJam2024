@@ -5,38 +5,38 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private int hits;
+    protected int hits;
+    protected ProjectileObject po;
+    protected bool shotByPlayer;
+    [SerializeField] protected Rigidbody2D rb;
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("COLLISION");
-        if (other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
-        {
-            Debug.Log("DAMAGED");
-            d.TakeDamage(po.damage);
-            hits++;
-            if(hits > po.pierceCount) Destroy(this.gameObject);
-        }
-    }
-    private ProjectileObject po;
-
-    private CharacterType owner;
-    public void SetProjectile(ProjectileObject po, CharacterType _owner)
-    {
-        this.po = po;
-        owner = _owner;
+        // if (other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
+        // {
+        //     Debug.Log("DAMAGED");
+        //     d.TakeDamage(po.damage);
+        //     hits++;
+        //     if(hits > po.pierceCount) Destroy(this.gameObject);
+        // }
     }
 
-    private float SpawnTime;
+    
+     public void Initialize(ProjectileObject po, bool playerShot)
+     {
+         shotByPlayer = playerShot;
+         this.po = po;
+         spawnTime = Time.time;
+         rb.velocity = transform.up * po.speed;
+     }
 
-    private void Awake()
-    {
-        SpawnTime = Time.time;
-    }
+    protected float spawnTime;
 
+    
 
     protected void Update()
     {
         transform.position += transform.up * (Time.deltaTime * po.speed);
-        if(po.lifetime > 0 && SpawnTime + po.lifetime > Time.time) Destroy(this.gameObject);
+        if(po.lifetime > 0 && spawnTime + po.lifetime > Time.time) Destroy(this.gameObject);
     }
 }

@@ -7,13 +7,12 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Rigidbody2D))]
 public class DauntlessSpiritMovement : CharacterMovement
 {
-    [SerializeField] private BaseCharacter character;
     private bool turnAngle;
 
     private float transitionTime = 0.3f;
     private float transitionTimer;
 
-    public bool overrideRotation = false;
+    private bool overrideRotation = false;
 
     private void Update()
     {
@@ -22,23 +21,23 @@ public class DauntlessSpiritMovement : CharacterMovement
 
 	private void FixedUpdate()
 	{
-        float turnMultiplier = 1;
-        if(transitionTimer > 0) turnMultiplier = 3;
-        // Turning
-        if(!overrideRotation) transform.RotateAround(transform.position, Vector3.forward, turnMultiplier * character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
-
-        // Dampening
-        character.rb.velocity *= .95f;
-
-        // Forward Movement
-		character.rb.AddForce(transform.up * character.statHandler.stats.MoveSpeed, ForceMode2D.Force);
+  //       float turnMultiplier = 1;
+  //       if(transitionTimer > 0) turnMultiplier = 3;
+  //       // Turning
+  //       if(!overrideRotation) transform.RotateAround(transform.position, Vector3.forward, turnMultiplier * character.statHandler.stats.TurnSpeed * Time.deltaTime * (turnAngle ? 1 : -1));
+  //
+  //       // Dampening
+  //       character.rb.velocity *= .95f;
+  //
+  //       // Forward Movement
+		// character.rb.AddForce(transform.up * character.statHandler.stats.MoveSpeed, ForceMode2D.Force);
 	}
 
-    public override void RightClickDown(Vector2 position)
-    {
-        turnAngle = !turnAngle;
-        transitionTimer = transitionTime;
-    }
+    // public override void RightClickDown(Vector2 position)
+    // {
+    //     turnAngle = !turnAngle;
+    //     transitionTimer = transitionTime;
+    // }
 
     private void TransitionTiming()
     {
@@ -48,8 +47,8 @@ public class DauntlessSpiritMovement : CharacterMovement
         }
     }
 
-	public override void Move(Vector2 direction)
-	{
-		
-	}
+	// public override void Move(Vector2 direction)
+	// {
+	// 	
+	// }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DauntlessCharacter : BaseCharacter
+public class DauntlessSpiritCharacter : SpiritCharacter
 {
     protected override void Update()
     {
@@ -11,5 +11,9 @@ public class DauntlessCharacter : BaseCharacter
         if(input.GetMouseInput().leftUp) weapon.EndAttack();
     }
 
+    protected override void FixedUpdate()
+    {
+        
+    }
     
 }

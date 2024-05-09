@@ -4,31 +4,24 @@ using UnityEngine;
 
 public class ChargeWeapon : Weapon
 {
-	[SerializeField] protected float chargeSpeedMult;
-	protected float chargeTimer;
 	protected bool charging;
-
-	protected void Update()
+	protected bool isChargingOver => Time.time - startChargeTime > weaponData.chargeTime;
+	protected float startChargeTime = 0;
+	public override void StartAttack(Target target, BaseCharacter c)
 	{
-		if(charging)
-		{
-			chargeTimer -= Time.deltaTime;
-			if(chargeTimer <= 0)
-			{
-				charging = false;
-				DoChargeAttack();
-			}
-		}
-	}
-
-	public override void StartAttack(Vector2 target)
-	{
-		base.StartAttack(target);
-		chargeTimer = weapon.chargeTime;
+		bc = c;
+		savedTarget = target;
+		startChargeTime = Time.time;
 		charging = true;
 	}
 
-	public virtual void DoChargeAttack()
+	protected virtual void Update()
 	{
+		if(charging && isChargingOver)
+		{
+			charging = false;
+			Fire(savedTarget.GetDirection(), savedTarget.playerTargeting);
+		}
 	}
+	
 }

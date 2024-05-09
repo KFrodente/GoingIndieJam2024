@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class Damagable : MonoBehaviour
 {
     private int startingHealth;
-    [SerializeField] private CharacterType immunities;
     [SerializeField] private bool isHitCounter;
     [SerializeField] private bool immuneToDamage;
     [SerializeField] private int health = 3;
@@ -19,15 +18,7 @@ public class Damagable : MonoBehaviour
         startingHealth = health;
     }
 
-    public void SetImmunities(int i)
-    {
-        immunities = (CharacterType)i;
-    }
-    public CharacterType GetImmunities()
-    {
-        return immunities;
-    }
-
+    
     public void TakeDamage(int damage)
     {
         if (immuneToDamage) return;
@@ -53,14 +44,7 @@ public class Damagable : MonoBehaviour
 
     public void RefillHealth()
     {
-        health = startingHealth;
+        SetHealth(startingHealth);
         
     }
-}
-
-public enum CharacterType
-{
-    None = 0,
-    Player = 1,
-    Enemy = 2
 }

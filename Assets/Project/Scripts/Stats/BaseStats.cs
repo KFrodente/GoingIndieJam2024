@@ -6,21 +6,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BaseStats", menuName = "Stats/BaseStats")]
 public class BaseStats : ScriptableObject
 {
-    public int maxHealth;
-    public int health;
-    
-    public int maxStamina;
-    public int stamina;
 
-    public int damage;
+    public float damage;
 
-    public int defense;
+    public float defense;
 
-    public int moveSpeed;
-    public int maxMoveSpeed;
-    public int turnSpeed;
+    public float moveSpeed;
+    public float chargeSpeed;
+    public float maxMoveSpeed;
+    public float turnSpeed;
 
-    public int range;
+    public float range;
 
 }
 
@@ -30,10 +26,10 @@ namespace Stats
     
     public enum StatType
     {
-        Health,
         Damage,
         Defence,
         MoveSpeed,
+        ChargeSpeed,
         MaxMoveSpeed,
         TurnSpeed,
         Range

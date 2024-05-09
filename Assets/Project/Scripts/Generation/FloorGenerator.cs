@@ -84,6 +84,22 @@ public class FloorGenerator : MonoBehaviour
         {
             CreateSpecialRooms(shopRooms[Random.Range(0, shopRooms.Count)], 'S', floorStats[floorNum].minShopDistance, Room.Type.SHOP);
         }
+
+        
+
+        StartCoroutine(DoPortals());
+    }
+
+    private IEnumerator DoPortals()
+    {
+        yield return new WaitForSeconds(.1f);
+        GeneratePortals();
+        yield return new WaitForSeconds(.1f);
+
+        for (int i = 0; i < roomObjectDictionary.Count; i++)
+        {
+            roomObjectDictionary.ElementAt(i).Value.ConnectPortals();
+        }
     }
 
     private void SetTotalProcesses()
@@ -188,25 +204,21 @@ public class FloorGenerator : MonoBehaviour
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.up, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
-                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedUp = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.right, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
-                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedRight = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.down, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
-                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedDown = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.left, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
-                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedLeft = rm;
             }
         }
@@ -283,5 +295,16 @@ public class FloorGenerator : MonoBehaviour
         roomObjectDictionary.Add(pickedPos, br.GetComponent<Room>());
     }
 
-    
+
+    private void GeneratePortals()
+    {
+        for (int i = 0; i < roomObjectDictionary.Count; i++)
+        {
+            if (roomObjectDictionary.ElementAt(i).Value.roomType != Room.Type.BASIC)
+            {
+                roomObjectDictionary.ElementAt(i).Value.GeneratePortals();
+
+            }
+        }
+    }
 }

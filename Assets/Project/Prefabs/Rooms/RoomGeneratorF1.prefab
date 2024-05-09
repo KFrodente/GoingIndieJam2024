@@ -45,11 +45,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
+  basicPortal: {fileID: 3449573642077812805, guid: c290587b91451a64db390380b4be8634, type: 3}
+  shopPortal: {fileID: 3449573642077812805, guid: c290587b91451a64db390380b4be8634, type: 3}
+  treasurePortal: {fileID: 6474578518641867457, guid: c568aa9f1ed72ac4b95d0bbdc5cd7637, type: 3}
+  bossPortal: {fileID: 3449573642077812805, guid: c290587b91451a64db390380b4be8634, type: 3}
+  connectsUp: 0
+  roomConnectedUp: {fileID: 0}
+  topPortal: {fileID: 0}
+  connectsRight: 0
+  roomConnectedRight: {fileID: 0}
+  rightPortal: {fileID: 0}
+  connectsDown: 0
+  roomConnectedDown: {fileID: 0}
+  bottomPortal: {fileID: 0}
+  connectsLeft: 0
+  roomConnectedLeft: {fileID: 0}
+  leftPortal: {fileID: 0}
+  roomType: 0
+  activeRoom: 0
   ground: {fileID: 11400000, guid: 1c1f1ff7585b5ff4e896ec8e8fd6465a, type: 2}
+  portalGround: {fileID: 11400000, guid: e5971cb0bfd278b4a8dd5442e0e3493c, type: 2}
   wall: {fileID: 11400000, guid: bde205004636a8f4e978a03e81d98d70, type: 2}
   maxWalkers: 10
   roomOffset: {x: 0, y: 0}
-  connectsUp: 0
-  connectsRight: 0
-  connectsDown: 0
-  connectsLeft: 0
+  highestPos: {x: 0, y: 0}
+  rightmostPos: {x: 0, y: 0}
+  lowestPos: {x: 0, y: 0}
+  leftmostPos: {x: 0, y: 0}

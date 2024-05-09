@@ -20,4 +20,5 @@ MonoBehaviour:
   defense: 0
   moveSpeed: 40
   maxMoveSpeed: 5
-  turnSpeed: 295
+  turnSpeed: 270
+  range: 0

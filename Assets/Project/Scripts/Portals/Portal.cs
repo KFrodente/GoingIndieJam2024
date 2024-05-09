@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Portal : Interactable
 {
-    public Transform connectedTransform;
+    public Portal connectedPortal;
     public int costToEnter;
-    public bool paidPrice;
+    public bool paidPrice = false;
 
-    public Portal(Transform connectedRoom)
-    {
-        connectedTransform = connectedRoom;
-    }
+    public bool active;
+
+    //Connect ALL portals after creating the portals
 
     public override void OnInteract(BaseCharacter character)
     {
         base.OnInteract(character);
+        character.transform.position = connectedPortal.transform.position;
     }
 }

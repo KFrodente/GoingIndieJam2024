@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f9ede18dd62b44baef1a369d011636, type: 3}
   m_Name: Floor1Stats
   m_EditorClassIdentifier: 
-  basicRoomAmount: 14
   treasureRoomAmount: 2
-  shopRoomAmount: 1
-  minBossDistance: 2
   minTreasureDistance: 1
+  costToEnter: {x: 0, y: 0}
+  shopRoomAmount: 1
   minShopDistance: 0
+  minBossDistance: 2
+  basicRoomAmount: 50
   roomWidth: 200
   roomHeight: 200
-  roomOffset: {x: 200, y: 200}
   fillPercentage: 0.04
   timesToThicken: 3
-  chanceToThicken: 0.6
+  chanceToThicken: 0.354
   redirectChance: 0.8
   removeChance: 0.49
   createChance: 0.48
+  roomOffset: {x: 200, y: 200}

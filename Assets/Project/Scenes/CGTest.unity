@@ -1363,6 +1363,7 @@ MonoBehaviour:
   weapon: {fileID: 1040225147}
   characterStats: {fileID: 1040225135}
   rb: {fileID: 1040225138}
+  vulnerabler: {fileID: 0}
   effector: {fileID: 1098950610}
   possessingSpirit: {fileID: 0}
 --- !u!114 &1040225147
@@ -1902,6 +1903,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   characterStats: {fileID: 0}
   rb: {fileID: 0}
+  vulnerabler: {fileID: 0}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
 --- !u!114 &1216081039
@@ -1994,6 +1996,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   characterStats: {fileID: 0}
   rb: {fileID: 0}
+  vulnerabler: {fileID: 0}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
 --- !u!1 &1406138779
@@ -2217,6 +2220,7 @@ MonoBehaviour:
   weapon: {fileID: 1406138792}
   characterStats: {fileID: 1406138783}
   rb: {fileID: 1406138785}
+  vulnerabler: {fileID: 0}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
 --- !u!114 &1406138792
@@ -2524,6 +2528,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   characterStats: {fileID: 0}
   rb: {fileID: 0}
+  vulnerabler: {fileID: 0}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
 --- !u!50 &1989702761
@@ -2578,7 +2583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2047441977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,8 +2780,11 @@ MonoBehaviour:
   weapon: {fileID: 2047441983}
   characterStats: {fileID: 2047441982}
   rb: {fileID: 2047441985}
+  vulnerabler: {fileID: 0}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  turnSpeedUpMultiplier: 2
+  turnSpeedUpDuration: 2.13
 --- !u!114 &2047441989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3730,8 +3738,11 @@ MonoBehaviour:
   weapon: {fileID: 883759036077487465}
   characterStats: {fileID: 0}
   rb: {fileID: 8678838950338343941}
+  vulnerabler: {fileID: 0}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  turnSpeedUpMultiplier: 2
+  turnSpeedUpDuration: 0.2
 --- !u!4 &6561274378576811451
 Transform:
   m_ObjectHideFlags: 0
@@ -3806,8 +3817,11 @@ MonoBehaviour:
   weapon: {fileID: 0}
   characterStats: {fileID: 0}
   rb: {fileID: 0}
+  vulnerabler: {fileID: 0}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  turnSpeedUpMultiplier: 2
+  turnSpeedUpDuration: 0.2
 --- !u!114 &7159799342003110337
 MonoBehaviour:
   m_ObjectHideFlags: 0

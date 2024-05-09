@@ -17,5 +17,5 @@ MonoBehaviour:
   moveSpeed: 20
   chargeSpeed: 20
   maxMoveSpeed: 5
-  turnSpeed: 100
+  turnSpeed: 50
   range: 30

@@ -16,6 +16,7 @@ public class ArcRotationMovement : ContinuousForwardMovement
 		//SetTargetAngle(transform.up);
 		//AngleTowardTargetAngle(savedCharacter.characterStats.stats.TurnSpeed, savedCharacter);
 		transform.RotateAround(transform.position, Vector3.forward, savedCharacter.characterStats.stats.TurnSpeed * Time.deltaTime * (turnIndicator ? 1 : -1));
+		savedCharacter.movement.SetTargetAngle(transform.up + transform.right * -(turnIndicator ? 1 : -1));
 	}
 
 	// protected void FixedUpdate()

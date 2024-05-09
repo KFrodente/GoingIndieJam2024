@@ -16,7 +16,7 @@ public class BaseMovement : MonoBehaviour
         {
             movementFrozen = true;
             Timer timer = new CountdownTimer(movementDuration);
-            timer.OnTimerStop += () => UnFreeze(true, false);
+            timer.OnTimerStop += () => EndTimer(true, false, ref timer);
             timer.Start();
             timers.Add(timer);
         }
@@ -25,11 +25,17 @@ public class BaseMovement : MonoBehaviour
         {
             rotationFrozen = true;
             Timer timer = new CountdownTimer(rotationDuration);
-            timer.OnTimerStop += () => UnFreeze(false, true);
+            timer.OnTimerStop += () => EndTimer(false, true, ref timer);
             timer.Start();
             timers.Add(timer);
         }
         
+    }
+
+    protected void EndTimer(bool m, bool r, ref Timer t)
+    {
+        timers.Remove(t);
+        UnFreeze(m, r);
     }
 
     protected virtual void Update()

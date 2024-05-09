@@ -39,8 +39,8 @@ public class BaseMovement : MonoBehaviour
     protected virtual void UpdateTimers()
     {
         
-        moveTimer.Tick(Time.deltaTime);
-        rotationTimer.Tick(Time.deltaTime);
+        moveTimer?.Tick(Time.deltaTime);
+        rotationTimer?.Tick(Time.deltaTime);
     }
 
     public virtual void ExplodeAway(Vector2 center, float power)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectPlayer : MonoBehaviour
 {
-    public virtual void Play()
+    public virtual void Play(Vector2 position)
     {
         
     }

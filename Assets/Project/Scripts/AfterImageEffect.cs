@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AfterImageEffect : EffectPlayer
 {
-    [SerializeField] protected SpriteRenderer baseImage;
     [SerializeField] protected float activeTime = 0.1f;
     [SerializeField] protected float alphaSet = 0.8f;
     [SerializeField] protected float alphaMultipler = 0.85f;
@@ -10,10 +9,11 @@ public class AfterImageEffect : EffectPlayer
     protected float timeActivated;
     protected float alpha;
     
-    public override void Play()
+    public override void Play(Vector2 position)
     {
         timeActivated = Time.time;
         alpha = alphaSet;
+        transform.position = position;
         afterImage.enabled = true;
     }
 
@@ -31,5 +31,10 @@ public class AfterImageEffect : EffectPlayer
     protected override void Quit()
     {
         afterImage.enabled = false;
+    }
+
+    protected void Start()
+    {
+        transform.SetParent(null);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,9 +15,16 @@ public class Damagable : MonoBehaviour
     [SerializeField] private UnityEvent OnDeath;
     [SerializeField] private UnityEvent OnHit;
 
+    private float immunityTimer = 0;
+
     private void Awake()
     {
         startingHealth = health;
+    }
+
+    private void Update()
+    {
+        CountDownImmunity();
     }
 
     public void SetImmunities(int i)
@@ -26,6 +34,20 @@ public class Damagable : MonoBehaviour
     public CharacterType GetImmunities()
     {
         return immunities;
+    }
+
+    public void StartImmunity(float time)
+    {
+        SetDamagable(false);
+        immunityTimer = time;
+    }
+    private void CountDownImmunity()
+    {
+        if (immunityTimer > 0)
+        {
+            immunityTimer -= Time.deltaTime;
+            if (immunityTimer <= 0)SetDamagable(true);
+        }
     }
 
     public void TakeDamage(int damage)
@@ -43,12 +65,11 @@ public class Damagable : MonoBehaviour
     public void SetHealth(int hp)
     {
         health = hp;
-        
     }
 
-    private void Update()
+    public void SetDamagable(bool isDamagable)
     {
-        
+        immuneToDamage = isDamagable;
     }
 
     public void RefillHealth()

@@ -1483,6 +1483,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8038292766156915005, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
+      propertyPath: damagable
+      value: 
+      objectReference: {fileID: 1520249866}
+    - target: {fileID: 8038292766156915005, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
       propertyPath: knockback
       value: 30
       objectReference: {fileID: 0}
@@ -1600,6 +1604,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1990699370108524493, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
   m_PrefabInstance: {fileID: 1235103348}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1520249866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8794969512013766073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
+  m_PrefabInstance: {fileID: 1235103348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541961640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5059954505263065129, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
@@ -2178,6 +2193,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 07dc10d2066df0647b5990f01e062fbf, type: 2}
   owner: 1
   character: {fileID: 1831479854}
+  damagable: {fileID: 0}
   attackCooldownTimer: 0
   attackCooldownTime: 3
 --- !u!1001 &1924440080
@@ -2194,7 +2210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2687831855714239100, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6583156644185208503, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2255,11 +2271,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 435740948300161144, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 305.28665
+      value: 269.28
       objectReference: {fileID: 0}
     - target: {fileID: 435740948300161144, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 305.9472
+      value: 300.8
       objectReference: {fileID: 0}
     - target: {fileID: 435740948300161144, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2529,6 +2545,7 @@ MonoBehaviour:
   chargeSpeedMult: 0
   character: {fileID: 1989702760}
   movement: {fileID: 1989702762}
+  damagable: {fileID: 0}
   attackCooldownTimer: 0
   attackCooldownTime: 4
   knockback: 10

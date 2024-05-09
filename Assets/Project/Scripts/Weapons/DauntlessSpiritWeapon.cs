@@ -6,6 +6,7 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 {
 	[SerializeField] private BaseCharacter character;
 	[SerializeField] private DauntlessSpiritMovement movement;
+	[SerializeField] private Damagable damagable;
 
 	private bool doDamage = false;
 	private float damageTimer;
@@ -78,8 +79,11 @@ public class DauntlessSpiritWeapon : ChargeWeapon
 		Vector2 dir = GetMousePosition() - (Vector2)transform.position;
 		// Charging force
 		character.rb.AddForce(dir.normalized * character.statHandler.stats.Range, ForceMode2D.Impulse);
+
 		damageTimer = 0.3f;
 		doDamage = true;
+
+		damagable.StartImmunity(damageTimer);
 
 		EndAttack(dir); // needs something? so im just passing dir
 	}

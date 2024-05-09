@@ -5,6 +5,7 @@ using UnityEngine;
 public class CorvidSpiritWeapon : Weapon
 {
 	[SerializeField] private BaseCharacter character;
+    [SerializeField] private Damagable damagable;
 
     private bool doDamage = false;
     private float damageTimer;
@@ -32,6 +33,7 @@ public class CorvidSpiritWeapon : Weapon
             character.rb.AddForce(transform.up * character.statHandler.stats.Range, ForceMode2D.Impulse);
             damageTimer = 0.15f;
             doDamage = true;
+            damagable.StartImmunity(damageTimer);
             attackCooldownTimer = attackCooldownTime;
         }
     }

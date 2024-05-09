@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1c66acee1bc6040aea9f9948ed9802, type: 3}
   m_Name: TetheredSpiritStats
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  health: 0
-  maxStamina: 0
-  stamina: 0
   damage: 10
   defense: 0
   moveSpeed: 30
+  chargeSpeed: 0
   maxMoveSpeed: 5
-  turnSpeed: 6
+  turnSpeed: 0.1
   range: 3

@@ -6,14 +6,15 @@ using UnityEngine.Tilemaps;
 public class WalkerGenerator : Room
 {
     
+    [SerializeField] private Tile ground;
+    [SerializeField] private Tile portalGround;
+    [SerializeField] private RuleTile wall;
 
     public static int basicRoomProcesses = 5;
 
     [SerializeField] private Grid[,] gridHandler;
     private List<Vector2Int> grounds = new();
     [SerializeField] private List<WalkerObject> walkers;
-    [SerializeField] private Tile ground;
-    [SerializeField] private RuleTile wall;
 
     [SerializeField] private int maxWalkers;
     private int tileCount;
@@ -21,10 +22,17 @@ public class WalkerGenerator : Room
     public Vector2 roomOffset;
 
     private FloorStatsSO floorStats;
+
+
+    public Vector2Int highestPos;
+    public Vector2Int rightmostPos;
+    public Vector2Int lowestPos;
+    public Vector2Int leftmostPos;
+
     private void Start()
     {
        
-            tilemap = FloorGenerator.instance.globalTilemap;
+        tilemap = FloorGenerator.instance.globalTilemap;
         floorStats = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum];
         StartCoroutine(InitializeGrid());
     }
@@ -33,7 +41,10 @@ public class WalkerGenerator : Room
     {
         for (int i = 0; i < grounds.Count; i++)
         {
-            tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), ground);
+            if (gridHandler[grounds[i].x, grounds[i].y] == Grid.FLOOR)
+                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), ground);
+            if (gridHandler[grounds[i].x, grounds[i].y] == Grid.PFLOOR)
+                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), portalGround);
         }
     }
 
@@ -73,6 +84,12 @@ public class WalkerGenerator : Room
 
         tileCount++;
 
+        rightmostPos = tileCenter;
+        highestPos = tileCenter;
+        leftmostPos = tileCenter;
+        lowestPos = tileCenter;
+
+
         FloorGenerator.instance.roomProcessesFinished++;
 
         StartCoroutine(CreateFloors());
@@ -106,6 +123,11 @@ public class WalkerGenerator : Room
                 {
                     //tilemap.SetTile(new Vector3Int(pos.x + (int)roomOffset.x, pos.y + (int)roomOffset.y), ground);
                     tileCount++;
+                    if (pos.x > rightmostPos.x) rightmostPos = pos;
+                    if (pos.x < leftmostPos.x) leftmostPos = pos;
+                    if (pos.y > highestPos.y) highestPos = pos;
+                    if (pos.y < lowestPos.y) lowestPos = pos;
+
                     gridHandler[pos.x, pos.y] = Grid.FLOOR;
                     grounds.Add(pos);
                 }
@@ -129,14 +151,13 @@ public class WalkerGenerator : Room
         StartCoroutine(SimpleBulk());
         StartCoroutine(SimpleBulk());
 
-        //if (Random.Range(0f, 1f) < .5f)
-        //{
-            SetTilesActive();
-        //}
-        //else
-        //{
-        //    SetTilesInactive();
-        //}
+        SetPortalPos();
+
+
+
+
+        SetTilesActive();
+
 
         yield return null;
     }
@@ -290,5 +311,88 @@ public class WalkerGenerator : Room
             walker.position.x = Mathf.Clamp(walker.position.x, 1, gridHandler.GetLength(0) - 2);
             walker.position.y = Mathf.Clamp(walker.position.y, 1, gridHandler.GetLength(1) - 2);
         }
+    }
+
+    private void SetPortalPos()
+    {
+        if (Vector2.Distance(highestPos, rightmostPos) <= 2)
+        {
+            highestPos += Vector2Int.left;
+            rightmostPos += Vector2Int.down;
+        }
+        if (Vector2.Distance(rightmostPos, lowestPos) <= 2)
+        {
+            rightmostPos += Vector2Int.up;
+            lowestPos += Vector2Int.left;
+        }
+        if (Vector2.Distance(lowestPos, leftmostPos) <= 2)
+        {
+            leftmostPos += Vector2Int.up;
+            lowestPos += Vector2Int.right;
+        }
+        if (Vector2.Distance(leftmostPos, highestPos) <= 2)
+        {
+            leftmostPos += Vector2Int.down;
+            highestPos += Vector2Int.right;
+        }
+
+        OpenAreas();
+    }
+
+    private void OpenAreas()
+    {
+        Clear3By3(highestPos);
+        Clear3By3(rightmostPos);
+        Clear3By3(lowestPos);
+        Clear3By3(leftmostPos);
+    }
+
+    private void Clear3By3(Vector2Int center)
+    {
+        int x = center.x;
+        int y = center.y;
+        //main 3x3
+        MakePortalTile(x, y);
+        MakePortalTile(x - 1, y + 1);
+        MakePortalTile(x, y + 1);
+        MakePortalTile(x + 1, y + 1);
+        MakePortalTile(x - 1, y);
+        MakePortalTile(x + 1, y);
+        MakePortalTile(x - 1, y - 1);
+        MakePortalTile(x, y - 1);
+        MakePortalTile(x + 1, y - 1);
+
+
+        //outside bits
+        //top 3
+        MakePortalTile(x - 1, y + 2);
+        MakePortalTile(x, y + 2);
+        MakePortalTile(x + 1, y + 2);
+        //right 3
+        MakePortalTile(x + 2, y + 1);
+        MakePortalTile(x + 2, y);
+        MakePortalTile(x + 2, y - 1);
+        //left 3
+        MakePortalTile(x - 2, y - 1);
+        MakePortalTile(x - 2, y);
+        MakePortalTile(x - 2, y + 1);
+        //bottom 3
+        MakePortalTile(x - 1, y - 2);
+        MakePortalTile(x, y - 2);
+        MakePortalTile(x + 1, y - 2);
+        
+        
+        //MakePortalTile(x + 3, y);
+        //MakePortalTile(x - 3, y);
+        //MakePortalTile(x, y + 3);
+        //MakePortalTile(x, y - 3);
+
+
+    }
+
+    private void MakePortalTile(int x, int y)
+    {
+        gridHandler[x, y] = Grid.PFLOOR;
+        grounds.Add(new Vector2Int(x, y));
     }
 }

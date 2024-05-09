@@ -188,25 +188,21 @@ public class FloorGenerator : MonoBehaviour
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.up, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsUp = true;
-                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedUp = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.right, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsRight = true;
-                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedRight = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.down, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsDown = true;
-                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedDown = rm;
             }
             if (roomObjectDictionary.TryGetValue(currentKey + Vector2.left, out rm))
             {
                 roomObjectDictionary.ElementAt(i).Value.connectsLeft = true;
-                roomObjectDictionary.ElementAt(i).Value.roomType = rm.roomType;
                 roomObjectDictionary.ElementAt(i).Value.roomConnectedLeft = rm;
             }
         }

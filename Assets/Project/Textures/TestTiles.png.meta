@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bebf3dc39456de6479fd62e03615dc24
-      internalID: 978096070
+      spriteID: 5af56ccdcc5cf4c4985c253bafecfa86
+      internalID: 283761338
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -158,8 +158,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45c3989f24e910c47b6e53daa8a028e8
-      internalID: 1523631
+      spriteID: 8e662bf2f962f244593b6a0af764c7c1
+      internalID: 504684313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTiles_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775eeeaff2dcd034d968d110092c2f2d
+      internalID: 1868572965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTiles_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b77ab267b8623f74786af318cd64b680
+      internalID: 425488795
       vertices: []
       indices: 
       edges: []
@@ -175,8 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TestTiles_0: 978096070
-      TestTiles_1: 1523631
+      TestTiles_0: 283761338
+      TestTiles_1: 504684313
+      TestTiles_2: 1868572965
+      TestTiles_3: 425488795
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,7 +10,7 @@ public class FloorStatsSO : ScriptableObject
     [Header("Treasure Room")]
     [Range(0, 50)]public int treasureRoomAmount;
     [Range(0, 10)]public int minTreasureDistance;
-    [MinMaxSlider(0, 100)]public Vector2Int costToEnterRange;
+    [MinMaxSlider(0, 100)]public Vector2Int costToEnter;
 
     [Header("Shop Room")]
     [Range(0, 50)]public int shopRoomAmount;

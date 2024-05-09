@@ -84,6 +84,82 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3314629528074901846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3865868593030430528}
+  - component: {fileID: 1812817453409253316}
+  - component: {fileID: 445657029829440975}
+  m_Layer: 9
+  m_Name: Interactor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3865868593030430528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314629528074901846}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7450295702786225556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812817453409253316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314629528074901846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f4db8c9de84182b49c3441b2e39163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 101
+  OnKeyPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 445657029829440975}
+        m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7802090480162868511}
+          m_ObjectArgumentAssemblyTypeName: BaseCharacter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnKeyReleased:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &445657029829440975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314629528074901846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4510b0c1c07e694fb6ae67586bc3c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6569064077847152111
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 6532786648923316745}
   unitBase: {fileID: 7802090480162868511}
+  interactor: {fileID: 445657029829440975}
 --- !u!1 &8676406625441387375
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,8 +261,6 @@ GameObject:
   - component: {fileID: 3455228388830906713}
   - component: {fileID: 538861608923478988}
   - component: {fileID: 739179528144683405}
-  - component: {fileID: 305818236894675840}
-  - component: {fileID: 8437385448945723418}
   m_Layer: 9
   m_Name: Dauntless
   m_TagString: Untagged
@@ -208,6 +283,7 @@ Transform:
   m_Children:
   - {fileID: 605296593379999333}
   - {fileID: 6426906194753842992}
+  - {fileID: 3865868593030430528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6532786648923316745
@@ -246,11 +322,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea31574145fd4d61b1438e2279d15fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 6532786648923316745}
+  input: {fileID: 1439765731570551091}
   movement: {fileID: 7097554706541843779}
   weapon: {fileID: 8775284726831321373}
   characterStats: {fileID: 3455228388830906713}
   rb: {fileID: 2070140545780305390}
+  damageable: {fileID: 739179528144683405}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
 --- !u!50 &2070140545780305390
@@ -384,48 +461,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnHit:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &305818236894675840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676406625441387375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4510b0c1c07e694fb6ae67586bc3c3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8437385448945723418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676406625441387375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f4db8c9de84182b49c3441b2e39163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: 101
-  OnKeyPressed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 305818236894675840}
-        m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
-        m_MethodName: Interact
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7802090480162868511}
-          m_ObjectArgumentAssemblyTypeName: BaseCharacter, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnKeyReleased:
     m_PersistentCalls:
       m_Calls: []

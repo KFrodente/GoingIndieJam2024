@@ -10,7 +10,7 @@ public class BaseCharacter : MonoBehaviour
     public Weapon weapon;
     public StatHandler characterStats;
     public Rigidbody2D rb;
-    public InvulnerabilityHandler vulnerabler;
+    public Damagable damageable;
     public EffectPlayer effector;
     [HideInInspector] public BaseCharacter possessingSpirit;
 

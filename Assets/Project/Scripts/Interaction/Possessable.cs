@@ -8,6 +8,7 @@ public class Possessable : Interactable
 {
     [SerializeField] protected BaseInput playerInput;
     [SerializeField] protected BaseCharacter unitBase;
+    [SerializeField] protected Interactor interactor;
     //[SerializeField] protected Transform spiritStorage;
     public override void OnInteract(BaseCharacter character)
     {
@@ -25,5 +26,6 @@ public class Possessable : Interactable
     protected void SwapInputs()
     {
         unitBase.input = playerInput;
+        interactor.gameObject.SetActive(true);
     }
 }

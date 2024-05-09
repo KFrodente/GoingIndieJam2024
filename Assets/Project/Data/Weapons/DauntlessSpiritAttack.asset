@@ -15,10 +15,12 @@ MonoBehaviour:
   weaponName: DauntlessSpiritAttack
   chargeSound: {fileID: 0}
   chargeTime: 1
+  cancelDelay: 0
   fireDelay: 0.5
   burstSeparationDelay: 0
   burstAmount: 0
-  attackDuration: 2
+  attackDuration: 1.5
+  knockback: 0
   attackSound: {fileID: 0}
   projectileObject: []
   pattern: 0

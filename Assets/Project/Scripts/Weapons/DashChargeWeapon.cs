@@ -49,6 +49,7 @@ public class DashChargeWeapon : ChargeWeapon
 	protected override void Fire(Vector2 normalizedDirection, bool shotByPlayer)
 	{
 		bc.movement.Move(transform.up, bc.characterStats.stats.ChargeSpeed, ForceMode2D.Impulse, bc, true);
+		bc.damageable.StartImmunity(weaponData.attackDuration);
 		lastFireTime = Time.time;
 	}
 	

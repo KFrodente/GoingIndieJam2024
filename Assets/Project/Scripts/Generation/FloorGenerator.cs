@@ -84,6 +84,22 @@ public class FloorGenerator : MonoBehaviour
         {
             CreateSpecialRooms(shopRooms[Random.Range(0, shopRooms.Count)], 'S', floorStats[floorNum].minShopDistance, Room.Type.SHOP);
         }
+
+        
+
+        StartCoroutine(DoPortals());
+    }
+
+    private IEnumerator DoPortals()
+    {
+        yield return new WaitForSeconds(.1f);
+        GeneratePortals();
+        yield return new WaitForSeconds(.1f);
+
+        for (int i = 0; i < roomObjectDictionary.Count; i++)
+        {
+            roomObjectDictionary.ElementAt(i).Value.ConnectPortals();
+        }
     }
 
     private void SetTotalProcesses()
@@ -279,5 +295,16 @@ public class FloorGenerator : MonoBehaviour
         roomObjectDictionary.Add(pickedPos, br.GetComponent<Room>());
     }
 
-    
+
+    private void GeneratePortals()
+    {
+        for (int i = 0; i < roomObjectDictionary.Count; i++)
+        {
+            if (roomObjectDictionary.ElementAt(i).Value.roomType != Room.Type.BASIC)
+            {
+                roomObjectDictionary.ElementAt(i).Value.GeneratePortals();
+
+            }
+        }
+    }
 }

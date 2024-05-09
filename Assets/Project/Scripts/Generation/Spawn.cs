@@ -17,21 +17,19 @@ public class Spawn : Room
 
         if (connectsUp)
         {
-            topPortal = GenerateRespectivePortal(roomConnectedUp, upTelePos).GetComponent<Portal>();
+            topPortal = GenerateRespectivePortal(roomConnectedUp, upTelePos.position).GetComponent<Portal>();
         }
         if (connectsRight)
         {
-            rightPortal = GenerateRespectivePortal(roomConnectedRight, rightTelePos).GetComponent<Portal>();
+            rightPortal = GenerateRespectivePortal(roomConnectedRight, rightTelePos.position).GetComponent<Portal>();
         }
         if (connectsDown)
         {
-            bottomPortal = GenerateRespectivePortal(roomConnectedDown, downTelePos).GetComponent<Portal>();
+            bottomPortal = GenerateRespectivePortal(roomConnectedDown, downTelePos.position).GetComponent<Portal>();
         }
         if (connectsLeft)
         {
-            leftPortal = GenerateRespectivePortal(roomConnectedLeft, leftTelePos).GetComponent<Portal>();
+            leftPortal = GenerateRespectivePortal(roomConnectedLeft, leftTelePos.position).GetComponent<Portal>();
         }
     }
-
-
 }

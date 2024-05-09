@@ -4,7 +4,4 @@ using UnityEngine;
 
 public class TreasurePortal : Portal
 {
-    public TreasurePortal(Room connectedRoom) : base(connectedRoom)
-    {
-    }
 }

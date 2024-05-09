@@ -56,30 +56,35 @@ public class Room : MonoBehaviour
 
     }
 
+    public void ConnectPortals()
+    {
+        if (connectsUp) topPortal.connectedPortal = roomConnectedUp.bottomPortal;
+        if (connectsRight) rightPortal.connectedPortal = roomConnectedRight.leftPortal;
+        if (connectsLeft) leftPortal.connectedPortal = roomConnectedLeft.rightPortal;
+        if (connectsDown) bottomPortal.connectedPortal = roomConnectedDown.topPortal;
+    }
+
     //Returns spawned portal
-    protected GameObject GenerateRespectivePortal(Room connectedRoom, Transform portalPos)
+    protected GameObject GenerateRespectivePortal(Room connectedRoom, Vector2 portalPos)
     {
         GameObject go;
+        Debug.Log("made portal");
         switch (connectedRoom.roomType)
         {
             case Type.BASIC:
             case Type.SPAWN:
-                go = Instantiate(basicPortal, portalPos.position, portalPos.rotation);
-                go.GetComponent<Portal>().connectedRoom = connectedRoom;
+                go = Instantiate(basicPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation);
                 return go;
             case Type.TREASURE:
-                go = Instantiate(treasurePortal, portalPos.position, portalPos.rotation);
+                go = Instantiate(treasurePortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation);
                 Vector2Int costToEnter = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum].costToEnter;
                 go.GetComponent<Portal>().costToEnter = Random.Range(costToEnter.x, costToEnter.y);
-                go.GetComponent<Portal>().connectedRoom = connectedRoom;
                 return go;
             case Type.SHOP:
-                go = Instantiate(shopPortal, portalPos.position, portalPos.rotation);
-                go.GetComponent<Portal>().connectedRoom = connectedRoom;
+                go = Instantiate(shopPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation);
                 return go;
             case Type.BOSS:
-                go = Instantiate(bossPortal, portalPos.position, portalPos.rotation);
-                go.GetComponent<Portal>().connectedRoom = connectedRoom;
+                go = Instantiate(bossPortal, new Vector3(portalPos.x, portalPos.y, 0), transform.rotation);
                 return go;
         }
         return null;

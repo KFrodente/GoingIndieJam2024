@@ -632,6 +632,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: treasureRooms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119799322399010429, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
+      propertyPath: treasureRooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 6733746826131674145, guid: c8a593a0f3d4d6a44bd6ba2f3e65d0be, type: 3}
     - target: {fileID: 8919060804303554574, guid: 7b5e5a83a2d8c3b4c884802e8688747c, type: 3}
       propertyPath: m_SortingOrder
       value: -20

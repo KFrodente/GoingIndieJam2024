@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Portal : Interactable
 {
-    public Room connectedRoom;
+    public Portal connectedPortal;
     public int costToEnter;
     public bool paidPrice = false;
 
@@ -12,13 +12,9 @@ public class Portal : Interactable
 
     //Connect ALL portals after creating the portals
 
-    public Portal(Room connectedRoom)
-    {
-        this.connectedRoom = connectedRoom;
-    }
-
     public override void OnInteract(BaseCharacter character)
     {
         base.OnInteract(character);
+        character.transform.position = connectedPortal.transform.position;
     }
 }

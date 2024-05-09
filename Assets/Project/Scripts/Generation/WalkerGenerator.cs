@@ -5,12 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class WalkerGenerator : Room
 {
+    public static int basicRoomProcesses = 6;
     
     [SerializeField] private Tile ground;
     [SerializeField] private Tile portalGround;
     [SerializeField] private RuleTile wall;
 
-    public static int basicRoomProcesses = 5;
 
     [SerializeField] private Grid[,] gridHandler;
     private List<Vector2Int> grounds = new();
@@ -24,14 +24,13 @@ public class WalkerGenerator : Room
     private FloorStatsSO floorStats;
 
 
-    public Vector2Int highestPos;
-    public Vector2Int rightmostPos;
-    public Vector2Int lowestPos;
-    public Vector2Int leftmostPos;
+    private Vector2Int highestPos;
+    private Vector2Int rightmostPos;
+    private Vector2Int lowestPos;
+    private Vector2Int leftmostPos;
 
     private void Start()
     {
-       
         tilemap = FloorGenerator.instance.globalTilemap;
         floorStats = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum];
         StartCoroutine(InitializeGrid());
@@ -154,7 +153,7 @@ public class WalkerGenerator : Room
         SetPortalPos();
 
 
-
+        GeneratePortals();
 
         SetTilesActive();
 
@@ -171,21 +170,15 @@ public class WalkerGenerator : Room
             int y = grounds[i].y;
             if (gridHandler[x + 1, y] == Grid.WALL && gridHandler[x, y + 1] == Grid.WALL && Random.Range(0.0f, 1.0f) <= floorStats.chanceToThicken)
             {
-                //tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), ground);
-                gridHandler[x + 1, y + 1] = Grid.FLOOR;
-                grounds.Add(new Vector2Int(x, y));
+                MakeNormalTile(x + 1, y + 1);
             }
             if (gridHandler[x + 1, y] == Grid.WALL && gridHandler[x, y - 1] == Grid.WALL && Random.Range(0.0f, 1.0f) <= floorStats.chanceToThicken)
             {
-                //tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), ground);
-                gridHandler[x + 1, y - 1] = Grid.FLOOR;
-                grounds.Add(new Vector2Int(x, y));
+                MakeNormalTile(x + 1, y - 1);
             }
             if (gridHandler[x - 1, y] == Grid.WALL && gridHandler[x, y + 1] == Grid.WALL && Random.Range(0.0f, 1.0f) <= floorStats.chanceToThicken)
             {
-                //tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), ground);
-                gridHandler[x - 1, y + 1] = Grid.FLOOR;
-                grounds.Add(new Vector2Int(x, y));
+                MakeNormalTile(x - 1, y + 1);
             }
         }
         yield return null;
@@ -201,13 +194,11 @@ public class WalkerGenerator : Room
 
             if (!GetIsFloor(x - 1, y))
             {
-                gridHandler[x - 1, y] = Grid.FLOOR;
-                grounds.Add(new Vector2Int(x - 1, y));
+                MakeNormalTile(x - 1, y);
             }
             if (!GetIsFloor(x, y - 1))
             {
-                gridHandler[x, y - 1] = Grid.FLOOR;
-                grounds.Add(new Vector2Int(x, y - 1));
+                MakeNormalTile(x, y - 1);
             }
         }
         yield return null;
@@ -225,29 +216,21 @@ public class WalkerGenerator : Room
             {
                 if (!GetIsFloor(x, y + 1) && !GetIsFloor(x, y - 1))
                 {
-                    //tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y - 1 + (int)roomOffset.y), ground);
-                    gridHandler[x, y - 1] = Grid.FLOOR;
-                    grounds.Add(new Vector2Int(x, y - 1));
+                    MakeNormalTile(x, y - 1);
                 }
                 if (!GetIsFloor(x + 1, y) && !GetIsFloor(x - 1, y))
                 {
-                    //tilemap.SetTile(new Vector3Int(x + 1 + (int)roomOffset.x, y + (int)roomOffset.y), ground);
-                    gridHandler[x + 1, y] = Grid.FLOOR;
-                    grounds.Add(new Vector2Int(x + 1, y));
+                    MakeNormalTile(x + 1, y);
                 }
 
                 if (!GetIsFloor(x + 1, y + 1) && !GetIsFloor(x - 1, y - 1))
                 {
-                    //tilemap.SetTile(new Vector3Int(x - 1 + (int)roomOffset.x, y - 1 + (int)roomOffset.y), ground);
-                    gridHandler[x - 1, y - 1] = Grid.FLOOR;
-                    grounds.Add(new Vector2Int(x - 1, y - 1));
+                    MakeNormalTile(x - 1, y - 1);
                 }
 
                 if (!GetIsFloor(x - 1, y + 1) && !GetIsFloor(x + 1, y - 1))
                 {
-                    //tilemap.SetTile(new Vector3Int(x + 1 + (int)roomOffset.x, y - 1 + (int)roomOffset.y), ground);
-                    gridHandler[x + 1, y - 1] = Grid.FLOOR;
-                    grounds.Add(new Vector2Int(x + 1, y - 1));
+                    MakeNormalTile(x + 1, y - 1);
                 }
             }
         }
@@ -341,10 +324,10 @@ public class WalkerGenerator : Room
 
     private void OpenAreas()
     {
-        Clear3By3(highestPos);
-        Clear3By3(rightmostPos);
-        Clear3By3(lowestPos);
-        Clear3By3(leftmostPos);
+        if (connectsUp) Clear3By3(highestPos);
+        if (connectsRight) Clear3By3(rightmostPos);
+        if (connectsDown) Clear3By3(lowestPos);
+        if (connectsLeft) Clear3By3(leftmostPos);
     }
 
     private void Clear3By3(Vector2Int center)
@@ -380,19 +363,27 @@ public class WalkerGenerator : Room
         MakePortalTile(x - 1, y - 2);
         MakePortalTile(x, y - 2);
         MakePortalTile(x + 1, y - 2);
-        
-        
-        //MakePortalTile(x + 3, y);
-        //MakePortalTile(x - 3, y);
-        //MakePortalTile(x, y + 3);
-        //MakePortalTile(x, y - 3);
+    }
 
-
+    private void MakeNormalTile(int x, int y)
+    {
+        gridHandler[x, y] = Grid.FLOOR;
+        grounds.Add(new Vector2Int(x, y));
     }
 
     private void MakePortalTile(int x, int y)
     {
         gridHandler[x, y] = Grid.PFLOOR;
         grounds.Add(new Vector2Int(x, y));
+    }
+
+    public override void GeneratePortals()
+    {
+        if (connectsUp) topPortal = GenerateRespectivePortal(roomConnectedUp, new Vector2(highestPos.x + roomOffset.x + .5f, highestPos.y + roomOffset.y + .5f)).GetComponent<Portal>();
+        if (connectsRight) rightPortal = GenerateRespectivePortal(roomConnectedRight, new Vector2(rightmostPos.x + roomOffset.x + .5f, rightmostPos.y + roomOffset.y + .5f)).GetComponent<Portal>();
+        if (connectsDown) bottomPortal = GenerateRespectivePortal(roomConnectedDown, new Vector2(lowestPos.x + roomOffset.x + .5f, lowestPos.y + roomOffset.y + .5f)).GetComponent<Portal>();
+        if (connectsLeft) leftPortal = GenerateRespectivePortal(roomConnectedLeft, new Vector2(leftmostPos.x + roomOffset.x + .5f, leftmostPos.y + roomOffset.y + .5f)).GetComponent<Portal>();
+        
+        FloorGenerator.instance.roomProcessesFinished++;
     }
 }

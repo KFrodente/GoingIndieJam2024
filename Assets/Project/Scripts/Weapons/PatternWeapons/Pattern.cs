@@ -11,5 +11,5 @@ public abstract class Pattern : ScriptableObject
 	[SerializeField] public float totalSpawnTime = 1.0f;
 	[SerializeField] public float shootDelay = 0.5f;
 
-	public abstract Vector3[] SpawnBullets(Vector3 direction, Vector3 spawnPlacement);
+	public abstract Vector3[] SpawnBullets(Vector3 direction);
 }

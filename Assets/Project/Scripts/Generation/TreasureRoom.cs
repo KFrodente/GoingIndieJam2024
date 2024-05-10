@@ -9,6 +9,9 @@ public class TreasureRoom : Room
     public Transform downTelePos;
     public Transform leftTelePos;
 
+    [Tooltip("list of locations where Spirit Essence can spawn")]
+    public List<Transform> SELocations = new();
+
     public override void GeneratePortals()
     {
         base.GeneratePortals();
@@ -29,5 +32,12 @@ public class TreasureRoom : Room
         {
             leftPortal = GenerateRespectivePortal(roomConnectedLeft, leftTelePos.position).GetComponent<Portal>();
         }
+
+        GenerateSpiritEssence();
+    }
+
+    private void GenerateSpiritEssence()
+    {
+       
     }
 }

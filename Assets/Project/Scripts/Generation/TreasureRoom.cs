@@ -45,7 +45,14 @@ public class TreasureRoom : Room
 
     private GameObject GetSpiritEssence(int roomCost)
     {
-        float addedChance = roomCost / (float)100;
+        float addedChance = roomCost / (float)10;
+        float chance = Random.Range(0.0f, 100.0f);
 
+        if (chance < 1 + addedChance) return SpiritEssenceHolder.instance.GetSSRankEssence();
+        else if (chance < 5 + addedChance) return SpiritEssenceHolder.instance.GetSRankEssence();
+        else if (chance < 15 + addedChance) return SpiritEssenceHolder.instance.GetARankEssence();
+        else if (chance < 30 + addedChance) return SpiritEssenceHolder.instance.GetBRankEssence();
+        else if (chance < 49 + addedChance) return SpiritEssenceHolder.instance.GetCRankEssence();
+        return null;
     }
 }

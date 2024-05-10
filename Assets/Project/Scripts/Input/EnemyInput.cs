@@ -7,6 +7,7 @@ public class EnemyInput : BaseInput
     public static Transform playerCharacter;
     public override Vector2 GetNormalizedMoveDirection()
     {
+        if (playerCharacter == null) return Vector2.zero;
         return (playerCharacter.position - transform.position).normalized;
     }
     public override MouseInputData GetMouseInput()

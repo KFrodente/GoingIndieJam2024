@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
   bulletAmount: 120
-  totalSpawnTime: 5
+  totalSpawnTime: 1
   shootDelay: 0.1
-  circleRadius: 5
+  circleRadius: 20
+  arcSpawnedOn: 45

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 462895853540489524}
   - component: {fileID: 7709466060717740089}
+  - component: {fileID: 3669719565392114946}
   m_Layer: 0
   m_Name: RoomGeneratorF1
   m_TagString: Untagged
@@ -65,10 +66,20 @@ MonoBehaviour:
   activeRoom: 0
   ground: {fileID: 11400000, guid: 1c1f1ff7585b5ff4e896ec8e8fd6465a, type: 2}
   portalGround: {fileID: 11400000, guid: e5971cb0bfd278b4a8dd5442e0e3493c, type: 2}
-  wall: {fileID: 11400000, guid: bde205004636a8f4e978a03e81d98d70, type: 2}
+  wall: {fileID: 11400000, guid: acaba0d42c56fe24db69b0890ce6e9ab, type: 2}
   maxWalkers: 10
   roomOffset: {x: 0, y: 0}
-  highestPos: {x: 0, y: 0}
-  rightmostPos: {x: 0, y: 0}
-  lowestPos: {x: 0, y: 0}
-  leftmostPos: {x: 0, y: 0}
+--- !u!114 &3669719565392114946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2875941998679612308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e7807e1b023674e871014cf85b3647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesCleared: 0
+  spawnedEnemies: []

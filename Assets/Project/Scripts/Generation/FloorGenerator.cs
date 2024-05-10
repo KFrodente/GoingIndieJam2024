@@ -34,19 +34,11 @@ public class FloorGenerator : MonoBehaviour
     [SerializeField, Range(0, 4)] private int maxNeighboringRooms;
 
     private int placedBasicRooms;
-    private int placedTreasureRooms;
-    private int placedShopRooms;
-
-    //[SerializeField, Range(0, 1000)] private int basicRoomAmount;
-    //[SerializeField, Range(0, 100)] private int treasureRoomAmount;
-    //[SerializeField, Range(0, 100)] private int shopRoomAmount;
-    //[SerializeField, Range(0, 100)] private int minBossRoomDistance;
 
     private Dictionary<Vector2, char> rooms = new();
     private Dictionary<Vector2, Room> roomObjectDictionary = new();
 
     private int totalFloorProcesses = 0;
-
     public int roomProcessesFinished = 0;
 
     public int floorNum = 0;

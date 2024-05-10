@@ -27,4 +27,5 @@ MonoBehaviour:
   redirectChance: 0.8
   removeChance: 0.49
   createChance: 0.48
+  roomPoints: {x: 0, y: 10}
   roomOffset: {x: 200, y: 200}

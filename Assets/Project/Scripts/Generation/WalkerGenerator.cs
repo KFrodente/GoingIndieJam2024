@@ -58,6 +58,8 @@ public class WalkerGenerator : Room
 
         yield return new WaitUntil(() => TransitionManager.instance.blackScreen.color.a >= 1);
 
+        character.transform.position = connectedPortal.transform.position;
+
         while (x < gridHandler.GetLength(0))
         {
             while (y < gridHandler.GetLength(1))
@@ -70,18 +72,14 @@ public class WalkerGenerator : Room
             x++;
         }
 
-
-        character.transform.position = connectedPortal.transform.position;
-
         if (currentRoom.roomType == Type.BASIC)
             currentRoom.GetComponent<WalkerGenerator>().SetRoomInactive();
 
         yield return new WaitForSecondsRealtime(.4f);
-        if (!previouslyActivated)
-        {
-            //TODO: spawn enemies
-            //set portals inactive
-        }
+
+
+        GetComponent<EnemySpawner>().SpawnEnemies(grounds, roomOffset);
+
         StartCoroutine(TransitionManager.instance.FadeOutOfBlack());
 
         yield return null;

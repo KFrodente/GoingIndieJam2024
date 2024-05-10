@@ -9,7 +9,6 @@ public class TreasurePortal : Portal
         Vector2Int costToEnter = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum].costToEnter;
         this.costToEnter = Random.Range(costToEnter.x, costToEnter.y);
 
-        connectedPortal.transform.parent.GetComponent<TreasureRoom>().GenerateSpiritEssence(this.costToEnter);
     }
 
     public override void OnInteract(BaseCharacter character)
@@ -20,6 +19,8 @@ public class TreasurePortal : Portal
             {
                 SpiritCharacter.souls -= this.costToEnter;
                 paidPrice = true;
+                connectedPortal.GetComponentInParent<TreasureRoom>().GenerateSpiritEssence(this.costToEnter);
+
             }
         }
 

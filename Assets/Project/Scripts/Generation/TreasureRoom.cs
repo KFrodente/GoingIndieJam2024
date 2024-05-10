@@ -39,7 +39,7 @@ public class TreasureRoom : Room
     {
         for (int i = 0; i < SELocations.Count; i++)
         {
-            GetSpiritEssence(roomCost);
+            Instantiate(GetSpiritEssence(roomCost), SELocations[i].position, transform.rotation);
         }
     }
 
@@ -48,11 +48,10 @@ public class TreasureRoom : Room
         float addedChance = roomCost / (float)10;
         float chance = Random.Range(0.0f, 100.0f);
 
-        if (chance < 1 + addedChance) return SpiritEssenceHolder.instance.GetSSRankEssence();
-        else if (chance < 5 + addedChance) return SpiritEssenceHolder.instance.GetSRankEssence();
-        else if (chance < 15 + addedChance) return SpiritEssenceHolder.instance.GetARankEssence();
-        else if (chance < 30 + addedChance) return SpiritEssenceHolder.instance.GetBRankEssence();
-        else if (chance < 49 + addedChance) return SpiritEssenceHolder.instance.GetCRankEssence();
-        return null;
+        if (chance <= 1 + addedChance) return SpiritEssenceHolder.instance.GetSSRankEssence();
+        else if (chance <= 5 + addedChance) return SpiritEssenceHolder.instance.GetSRankEssence();
+        else if (chance <= 15 + addedChance) return SpiritEssenceHolder.instance.GetARankEssence();
+        else if (chance <= 30 + addedChance) return SpiritEssenceHolder.instance.GetBRankEssence();
+        else return SpiritEssenceHolder.instance.GetCRankEssence();
     }
 }

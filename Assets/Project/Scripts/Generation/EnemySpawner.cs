@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
                 Vector2 pickedPos = usableSpawnPositions[index];
 
 
-                GameObject enemy = Instantiate(GetEnemy(allocatedPoints), pickedPos + roomOffset, transform.rotation);
+                GameObject enemy = Instantiate(GetEnemy(allocatedPoints), pickedPos + roomOffset + (Vector2.one / 2), transform.rotation);
                 usableSpawnPositions.RemoveAt(index);
                 spawnedEnemies.Add(enemy);
             }

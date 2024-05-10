@@ -174,8 +174,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSpiritRam
       objectReference: {fileID: 0}
+    - target: {fileID: 4864429675843094036, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121520541262551380, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121520541262551380, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5995301527982937983, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}

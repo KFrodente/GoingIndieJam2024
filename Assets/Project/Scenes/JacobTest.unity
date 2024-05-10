@@ -452,6 +452,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &518594404
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8276534
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1901496
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217628741758482957, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070855396274030882, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
+      propertyPath: m_Name
+      value: PlayerSpiritWolf
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de500b0aac83b9c4e802c2c3cc9b7a81, type: 3}
 --- !u!1 &648448044
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statVariables: {fileID: 11400000, guid: 63604502b850c1547a84621eac9f8a4c, type: 2}
+  spiritStatModifiers: {fileID: 0}
 --- !u!58 &661458957
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -607,10 +665,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec9729e6db352440a06cfac4e17db29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
+  input: {fileID: 0}
   movement: {fileID: 0}
-  statHandler: {fileID: 661458956}
+  weapon: {fileID: 0}
+  characterStats: {fileID: 0}
   rb: {fileID: 661458955}
+  damageable: {fileID: 0}
+  effector: {fileID: 0}
+  possessingSpirit: {fileID: 0}
 --- !u!114 &661458959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,7 +685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e927a977d7f1b348be104044c65872b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 661458958}
 --- !u!114 &661458960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,60 +697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4ed85cf14ce1f4ead1ecdb628a4994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnMoveUpdate:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 661458959}
-        m_TargetAssemblyTypeName: TetheredSpiritMovement, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnMoveFixed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnLeftClickDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 661458962}
-        m_TargetAssemblyTypeName: TetheredSpiritWeapon, Assembly-CSharp
-        m_MethodName: StartAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnLeftClickUp:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRightClickDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 661458959}
-        m_TargetAssemblyTypeName: TetheredSpiritMovement, Assembly-CSharp
-        m_MethodName: RightClickDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnRightClickUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &661458961
 Transform:
   m_ObjectHideFlags: 0
@@ -718,15 +725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05f67c6325a1d84a934ec35bdb50413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 062537f56fe13f743b4ec14654ef313e, type: 2}
-  owner: 1
-  character: {fileID: 661458958}
-  attackCooldownTimer: 0
-  attackCooldownTime: 4
-  knockback: 5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &1012754267
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +813,7 @@ Transform:
   m_GameObject: {fileID: 1012754267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 309.94757, y: 300.91684, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1447,112 +1445,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1235103348
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1166560040211324097, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1358453469683818890, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831938261696002735, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: health
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 309.94757
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 300.91684
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059954505263065129, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5377185142879625555, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 5377185142879625555, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 5377185142879625555, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6800216067392950676, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: knockback
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8038292766156915005, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: damagable
-      value: 
-      objectReference: {fileID: 1520249866}
-    - target: {fileID: 8038292766156915005, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: knockback
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9013046556570640743, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_Name
-      value: Dauntless
-      objectReference: {fileID: 0}
-    - target: {fileID: 9013046556570640743, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3179764041660157272, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-    - {fileID: 5797710720698429196, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5059954505263065129, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1541961653}
-  m_SourcePrefab: {fileID: 100100000, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
 --- !u!1 &1318376163
 GameObject:
   m_ObjectHideFlags: 3
@@ -1648,62 +1540,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1520249864 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1990699370108524493, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-  m_PrefabInstance: {fileID: 1235103348}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1520249866 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8794969512013766073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-  m_PrefabInstance: {fileID: 1235103348}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1541961640 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5059954505263065129, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
-  m_PrefabInstance: {fileID: 1235103348}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1541961653
-CircleCollider2D:
+--- !u!1001 &1478455075
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541961640}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0065612793}
   serializedVersion: 2
-  m_Radius: 0.66000366
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4583509
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0072063804
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510060166066361751, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864429675843094036, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
+      propertyPath: m_Name
+      value: PlayerSpiritRam
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 70a6664b98a82fe43a74b4793d3978ad, type: 3}
 --- !u!1 &1542633461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1677,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1520249864}
+  m_Follow: {fileID: 5347044454354921849}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 10
@@ -1813,7 +1706,7 @@ Transform:
   m_GameObject: {fileID: 1656096929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 309.94757, y: 300.91684, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2040,7 +1933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1831479851
 Rigidbody2D:
   serializedVersion: 4
@@ -2081,6 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statVariables: {fileID: 11400000, guid: 517a5c9417a1f0944a39593663fe7398, type: 2}
+  spiritStatModifiers: {fileID: 0}
 --- !u!58 &1831479853
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2128,10 +2022,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec9729e6db352440a06cfac4e17db29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
+  input: {fileID: 0}
   movement: {fileID: 0}
-  statHandler: {fileID: 1831479852}
+  weapon: {fileID: 0}
+  characterStats: {fileID: 0}
   rb: {fileID: 1831479851}
+  damageable: {fileID: 0}
+  effector: {fileID: 0}
+  possessingSpirit: {fileID: 0}
 --- !u!114 &1831479856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2144,60 +2042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4ed85cf14ce1f4ead1ecdb628a4994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnMoveUpdate:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1831479858}
-        m_TargetAssemblyTypeName: CorvidSpiritMovement, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnMoveFixed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnLeftClickDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1831479859}
-        m_TargetAssemblyTypeName: CorvidSpiritWeapon, Assembly-CSharp
-        m_MethodName: StartAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnLeftClickUp:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRightClickDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1831479858}
-        m_TargetAssemblyTypeName: CorvidSpiritMovement, Assembly-CSharp
-        m_MethodName: RightClickDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnRightClickUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1831479857
 Transform:
   m_ObjectHideFlags: 0
@@ -2226,7 +2070,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed049cf49de15af44b2dcde9b3a90d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1831479854}
 --- !u!114 &1831479859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,12 +2082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1f1c941a074244eab9fd97df2e10ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 07dc10d2066df0647b5990f01e062fbf, type: 2}
-  owner: 1
-  character: {fileID: 1831479854}
-  damagable: {fileID: 0}
-  attackCooldownTimer: 0
-  attackCooldownTime: 3
 --- !u!1001 &1924440080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2402,60 +2239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4ed85cf14ce1f4ead1ecdb628a4994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnMoveUpdate:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1989702762}
-        m_TargetAssemblyTypeName: DauntlessSpiritMovement, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnMoveFixed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnLeftClickDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1989702763}
-        m_TargetAssemblyTypeName: DauntlessSpiritWeapon, Assembly-CSharp
-        m_MethodName: StartAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnLeftClickUp:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRightClickDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1989702762}
-        m_TargetAssemblyTypeName: DauntlessSpiritMovement, Assembly-CSharp
-        m_MethodName: RightClickDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnRightClickUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1989702756
 Transform:
   m_ObjectHideFlags: 0
@@ -2485,6 +2268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statVariables: {fileID: 11400000, guid: 772b973d56f3b4842aabb3f4b9024bd9, type: 2}
+  spiritStatModifiers: {fileID: 0}
 --- !u!58 &1989702759
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2532,10 +2316,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec9729e6db352440a06cfac4e17db29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
+  input: {fileID: 0}
   movement: {fileID: 0}
-  statHandler: {fileID: 1989702758}
+  weapon: {fileID: 0}
+  characterStats: {fileID: 0}
   rb: {fileID: 1989702761}
+  damageable: {fileID: 0}
+  effector: {fileID: 0}
+  possessingSpirit: {fileID: 0}
 --- !u!50 &1989702761
 Rigidbody2D:
   serializedVersion: 4
@@ -2575,8 +2363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c03c406e333ec645880da3acee9b1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1989702760}
-  overrideRotation: 0
 --- !u!114 &1989702763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,15 +2375,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3507fdae74df93d41b0bc9b31a1a5c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 7a975a2fbf48e7d40baa21bd3c5a68d5, type: 2}
-  owner: 1
-  chargeSpeedMult: 0
-  character: {fileID: 1989702760}
-  movement: {fileID: 1989702762}
-  damagable: {fileID: 0}
-  attackCooldownTimer: 0
-  attackCooldownTime: 4
-  knockback: 10
+--- !u!1001 &5347044454354921848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2875245903044552693, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_Name
+      value: PlayerSpiritCrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353325505182375790, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: effector
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+--- !u!4 &5347044454354921849 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+  m_PrefabInstance: {fileID: 5347044454354921848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2610,7 +2453,9 @@ SceneRoots:
   - {fileID: 1656096931}
   - {fileID: 1542633463}
   - {fileID: 1924440080}
-  - {fileID: 1235103348}
   - {fileID: 141923685}
   - {fileID: 1971851001}
   - {fileID: 648448046}
+  - {fileID: 5347044454354921848}
+  - {fileID: 1478455075}
+  - {fileID: 518594404}

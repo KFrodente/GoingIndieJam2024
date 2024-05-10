@@ -959,6 +959,7 @@ MonoBehaviour:
   playerInput: {fileID: 4722190043284422819}
   unitBase: {fileID: 6140970955457626448}
   interactor: {fileID: 9183719020522926096}
+  damagable: {fileID: 7225132558245157515}
 --- !u!1 &7986263515144964238
 GameObject:
   m_ObjectHideFlags: 0

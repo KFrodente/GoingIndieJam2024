@@ -34,7 +34,6 @@ public class CurrencyItem : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Damagable damageable) && !damageable.IsEnemy)
         {
-            Debug.Log("player found?");
             // add currency based on a local value?
             SpiritCharacter.souls += soulValue;
             // remove from world

@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class CurrencyItem : MonoBehaviour
 {
+    [SerializeField] private int soulValue = 1;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float maxAttractionForce = 100;
     [SerializeField] private float maxAttractionDistance = 30;
@@ -31,12 +32,12 @@ public class CurrencyItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // if(collision.TryGetComponent(out SpiritSoul player))
-        // {
-        //     // add currency based on a local value?
-        //
-        //     // remove from world
-        //     Destroy(gameObject);
-        // }
+        if (collision.TryGetComponent(out SpiritCharacter player))
+        {
+            // add currency based on a local value?
+            SpiritCharacter.souls += soulValue;
+            // remove from world
+            Destroy(gameObject);
+        }
     }
 }

@@ -68,7 +68,6 @@ public class Room : MonoBehaviour
     protected GameObject GenerateRespectivePortal(Room connectedRoom, Vector2 portalPos)
     {
         GameObject go;
-        Debug.Log("made portal");
         switch (connectedRoom.roomType)
         {
             case Type.BASIC:

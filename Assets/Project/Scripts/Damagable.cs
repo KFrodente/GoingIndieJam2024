@@ -18,11 +18,18 @@ public class Damagable : MonoBehaviour
     private float immunityTimer = 0;
 
     // UI
-    [SerializeField] Slider healthBar;
+    [SerializeField] Slider healthOverBar;
+    [SerializeField] Slider healthUnderBar;
 
     // Health private vars
     [SerializeField] private int health = 3;
     private int startingHealth;
+
+    private float lerpedHealth;
+    private float lerpedHealthTarget;
+    [SerializeField] private float healthLerpSpeed = 5f;
+
+
 
     // Health Properties
     public int StartingHealth
@@ -36,7 +43,8 @@ public class Damagable : MonoBehaviour
         get { return health; }
         set
         {
-            healthBar.value = health / (float)StartingHealth;
+            health = value;
+            healthOverBar.value = health / (float)StartingHealth;
         }
     }
 
@@ -44,12 +52,40 @@ public class Damagable : MonoBehaviour
     private void Awake()
     {
         StartingHealth = Health;
+        lerpedHealth = Health;
+        lerpedHealthTarget = Health;
     }
 
     
     private void Update()
     {
         CountDownImmunity();
+        if(applyDamage)
+        {
+            TakeDamage(damageToTake);
+            applyDamage = false;
+        }
+
+        HealthBarLerping();
+        
+    }
+
+    private void HealthBarLerping()
+    {
+        Debug.Log("Lerped Health: " + lerpedHealth);
+        Debug.Log("Lerped Health Target: " + lerpedHealthTarget);
+        if(lerpedHealthTarget != lerpedHealth)
+        {
+            // when difference is greater, lerp slower, meaning lerp is more even
+            float lerpTimeScalar = Mathf.Abs(lerpedHealth - lerpedHealthTarget);
+            lerpedHealth = Mathf.Lerp(lerpedHealth, lerpedHealthTarget, (healthLerpSpeed / lerpTimeScalar) * Time.deltaTime);
+            healthUnderBar.value = lerpedHealth / (float)StartingHealth;
+
+            if (Mathf.Abs(lerpedHealth - lerpedHealthTarget) < 0.3)
+            {
+                lerpedHealth = lerpedHealthTarget;
+            }
+        }
     }
 
     
@@ -72,6 +108,7 @@ public class Damagable : MonoBehaviour
         if (immuneToDamage) return;
         if(isHitCounter) damage = 1;
         Health -= damage;
+        lerpedHealthTarget = Health;
         if (Health <= 0)
         {
             OnDeath?.Invoke();
@@ -94,4 +131,8 @@ public class Damagable : MonoBehaviour
         SetHealth(startingHealth);
         
     }
+
+    [Header("Damage Testing")]
+    [SerializeField,Tooltip("Apply X damage")] int damageToTake = 0;
+    [SerializeField,Tooltip("Toggle to inflict damage based on value above")] bool applyDamage = false;
 }

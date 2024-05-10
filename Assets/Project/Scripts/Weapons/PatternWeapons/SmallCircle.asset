@@ -17,3 +17,4 @@ MonoBehaviour:
   totalSpawnTime: 2
   shootDelay: 0.5
   circleRadius: 1
+  arcSpawnedOn: 180

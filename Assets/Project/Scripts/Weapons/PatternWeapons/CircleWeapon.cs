@@ -38,11 +38,26 @@ public class CircleWeapon : MonoBehaviour
 		/// </summary>
 		public Transform spawnPlacement;
 		/// <summary>
-		/// If the bullet should shoot away from spawnPlacement<br/>
+		/// Point in space that the projectiles shoot away from
+		/// </summary>
+		public Transform positionShootAwayFrom;
+		/// <summary>
+		/// If the spawned projectiles should be parented to the placements
+		/// </summary>
+		public bool dontParentToSpawner;
+		/// <summary>
+		/// If the bullet should shoot away from transform.position<br/>
 		///		Overrides:<br/>
 		///		sameDirection
 		/// </summary>
-		public bool shootAwayFromSelf;
+		public bool shootAwayFromSpawner;
+		/// <summary>
+		/// If the bullet should shoot away from positionShootAwayFrom. If null, uses spawnplacement<br/>
+		///		Overrides:<br/>
+		///		sameDirection<br/>
+		///		shootAwayFromSpawner
+		/// </summary>
+		public bool shootAwayFromPosition;
 		/// <summary>
 		/// If all the bullets should fire in the same direction using pointDirection
 		/// </summary>
@@ -62,10 +77,14 @@ public class CircleWeapon : MonoBehaviour
 	}
 
 	[SerializeField] Transform bulletPrefab;
-	//[SerializeField] float totalShootingTime = 0.5f;
+
 	[SerializeField] Transform target;
 
-	[SerializeField] bool shoot = false; // This is for debugging the shooting
+	/// <summary>
+	/// When set to true, will initiate the shoot functions
+	/// </summary>
+	[SerializeField] bool shoot = false;
+
 
 	[SerializeField] ShootPattern[] patterns;
 
@@ -77,7 +96,13 @@ public class CircleWeapon : MonoBehaviour
 			{
 				patterns[i].spawnPlacement = transform;
 			}
+			patterns[i].pointDirection = patterns[i].pointDirection.normalized;
 		}
+	}
+
+	public void Shoot()
+	{
+		shoot = true;
 	}
 
 	private void Update()
@@ -102,30 +127,42 @@ public class CircleWeapon : MonoBehaviour
 				spawnwithnext = true;
 			}
 
-			int amountofbullets = patterns[i].pattern.bulletAmount;
-			Vector3[] positions = patterns[i].pattern.SpawnBullets(patterns[i].pointDirection, patterns[i].spawnPlacement.position);
+			//int amountofbullets = patterns[i].pattern.bulletAmount;
+			Vector3[] positions = patterns[i].pattern.SpawnBullets(patterns[i].pointDirection);
 			for (int o = 0; o < positions.Length; o++)
 			{
-				var newproj = Instantiate((patterns[i].pattern.bulletPrefab == null) ? bulletPrefab : patterns[i].pattern.bulletPrefab, positions[o], Quaternion.identity);
+				var newproj = Instantiate((patterns[i].pattern.bulletPrefab == null) ? bulletPrefab : patterns[i].pattern.bulletPrefab);
 
-				if (patterns[i].shootAwayFromSelf)
+				if (!patterns[i].dontParentToSpawner)
 				{
-					newproj.transform.rotation = Quaternion.Euler(0, 0, (360 / amountofbullets) * o);
-				} 
+					newproj.SetParent(patterns[i].spawnPlacement);
+				}
+
+				newproj.localPosition = positions[o];
+
+				Vector3 direction;
+				if (patterns[i].shootAwayFromPosition)
+				{
+					direction = (newproj.position - ((patterns[i].positionShootAwayFrom == null) ? patterns[i].spawnPlacement.position : patterns[i].positionShootAwayFrom.position));
+				}
+				else if(patterns[i].shootAwayFromSpawner)
+				{
+					direction = (newproj.position - transform.position);
+				}
 				else
 				{
-					Vector3 direction;
 					if (patterns[i].sameDirection)
 					{
-						direction = (target.position - (patterns[i].spawnPlacement.position + (Vector3)patterns[i].pointDirection));
+						direction = (Vector3)patterns[i].pointDirection;
 					}
 					else
 					{
 						direction = (target.position - newproj.position);
+						Debug.Log(direction);
 					}
-					float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-					newproj.transform.rotation = Quaternion.Euler(0,0, angle);
 				}
+				float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+				newproj.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0,0, angle);
 
 				patterns[i].projectiles.Add(newproj);
 
@@ -134,9 +171,9 @@ public class CircleWeapon : MonoBehaviour
 					StartCoroutine(ShootBullets(i, patterns[i].pattern.shootDelay));
 				}
 
-				if (patterns[i].pattern.totalSpawnTime > 0 || i < amountofbullets - 1)
+				if (patterns[i].pattern.totalSpawnTime > 0 || i < positions.Length - 1)
 				{
-					yield return new WaitForSeconds(patterns[i].pattern.totalSpawnTime / amountofbullets);
+					yield return new WaitForSeconds(patterns[i].pattern.totalSpawnTime / positions.Length);
 				}
 			}
 
@@ -172,21 +209,31 @@ public class CircleWeapon : MonoBehaviour
 
 	private IEnumerator ShootBullets(int patternnumber, float additionaldelay)
 	{
+		List<Transform> toshootprojs = new List<Transform>();
+		foreach (var proj in patterns[patternnumber].projectiles)
+		{
+			toshootprojs.Add(proj.transform);
+		}
+		patterns[patternnumber].projectiles.Clear();
+
 		yield return new WaitForSeconds(additionaldelay);
 
-		for (int i = 0; i < patterns[patternnumber].projectiles.Count; i++)
+		for (int i = 0; i < toshootprojs.Count; i++)
 		{
-			if (patterns[patternnumber].projectiles != null)
+			if (toshootprojs[i] != null)
 			{
-				if (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN || patterns[patternnumber].howshoot == ShootType.ONEBYONEDURINGSPAWN)
+				if (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN)
 				{
 					yield return new WaitForSeconds(patterns[patternnumber].pattern.shootDelay);
 				}
 				// this is the place where the projectiles will actually be shot
-				Destroy(patterns[patternnumber].projectiles[i].gameObject);
+
+				toshootprojs[i].SetParent(null);
+				//Vector2 direction = (target.position - patterns[patternnumber].projectiles[i].position);
+				//float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+				//patterns[patternnumber].projectiles[i].transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0, 0, angle);
+				//Destroy(patterns[patternnumber].projectiles[i].gameObject);
 			}
 		}
-
-		patterns[patternnumber].projectiles.Clear();
 	}
 }

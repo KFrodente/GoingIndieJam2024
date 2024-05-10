@@ -101,11 +101,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7225132558245157515, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225132558245157515, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 876691175127694581}
+    - target: {fileID: 7225132558245157515, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: applyDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437821764294054227, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437821764294054227, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+--- !u!114 &876691175127694581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 565769821018024379, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}
+  m_PrefabInstance: {fileID: 860369347701298510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2765150791709558275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3291969302707819341, guid: 918a8f8e25e34c746bde48c1aa3993ed, type: 3}

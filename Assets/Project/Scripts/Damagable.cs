@@ -36,6 +36,7 @@ public class Damagable : MonoBehaviour
         get { return health; }
         set
         {
+            health = value;
             healthBar.value = health / (float)StartingHealth;
         }
     }
@@ -50,6 +51,11 @@ public class Damagable : MonoBehaviour
     private void Update()
     {
         CountDownImmunity();
+        if(applyDamage)
+        {
+            TakeDamage(damageToTake);
+            applyDamage = false;
+        }
     }
 
     
@@ -94,4 +100,8 @@ public class Damagable : MonoBehaviour
         SetHealth(startingHealth);
         
     }
+
+    [Header("Damage Testing")]
+    [SerializeField,Tooltip("Apply X damage")] int damageToTake = 0;
+    [SerializeField,Tooltip("Toggle to inflict damage based on value above")] bool applyDamage = false;
 }

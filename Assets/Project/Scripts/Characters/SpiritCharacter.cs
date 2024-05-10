@@ -5,4 +5,5 @@ using UnityEngine.Events;
 
 public class SpiritCharacter : BaseCharacter
 {
+    public static int souls = 0;
 }

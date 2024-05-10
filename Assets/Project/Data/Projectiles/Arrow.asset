@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 3
-  lifetime: 4
+  lifetime: 2
   pierceCount: 0
   hitParticle: {fileID: 0}
   hitSound: {fileID: 0}

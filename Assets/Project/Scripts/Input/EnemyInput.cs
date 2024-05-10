@@ -14,12 +14,18 @@ public class EnemyInput : BaseInput
     {
         return new MouseInputData
         {
-            leftDown = true, // Attack If Player In Some sort of range | Might need to have access to the baseCharacter to get stats
+            leftDown = true, // Spamming??
             leftUp = false,
             rightDown = false,
             rightUp = false,
             middleDown = false,
             middleUp = false
         };
+    }
+
+    public override Transform GetInputTarget()
+    {
+        if (playerCharacter != null) return playerCharacter;
+        return null;
     }
 }

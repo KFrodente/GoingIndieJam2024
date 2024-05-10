@@ -56,11 +56,11 @@ public class Weapon : MonoBehaviour
 public class Target
 {
     public bool isMouse;
-    public Vector2? target;
+    public Transform? target;
     public Vector2 fireLocation;
     public bool playerTargeting;
 
-    public Target(bool isMouse, Vector2? target, Vector2 fireSpot, bool playerTargeting)
+    public Target(bool isMouse, Transform? target, Vector2 fireSpot, bool playerTargeting)
     {
         this.isMouse = isMouse;
         this.target = target;
@@ -71,7 +71,7 @@ public class Target
     public Vector2 GetDirection()
     {
         if (isMouse) return (InputUtils.GetMousePosition() - fireLocation).normalized;
-        return (target.Value - fireLocation).normalized;
+        return ((Vector2)target.position - fireLocation).normalized;
     }
     
 }

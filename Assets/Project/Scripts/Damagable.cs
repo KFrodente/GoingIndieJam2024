@@ -18,11 +18,18 @@ public class Damagable : MonoBehaviour
     private float immunityTimer = 0;
 
     // UI
-    [SerializeField] Slider healthBar;
+    [SerializeField] Slider healthOverBar;
+    [SerializeField] Slider healthUnderBar;
 
     // Health private vars
     [SerializeField] private int health = 3;
     private int startingHealth;
+
+    private float lerpedHealth;
+    private float lerpedHealthTarget;
+    [SerializeField] private float healthLerpSpeed = 5f;
+
+
 
     // Health Properties
     public int StartingHealth
@@ -37,7 +44,7 @@ public class Damagable : MonoBehaviour
         set
         {
             health = value;
-            healthBar.value = health / (float)StartingHealth;
+            healthOverBar.value = health / (float)StartingHealth;
         }
     }
 
@@ -45,6 +52,8 @@ public class Damagable : MonoBehaviour
     private void Awake()
     {
         StartingHealth = Health;
+        lerpedHealth = Health;
+        lerpedHealthTarget = Health;
     }
 
     
@@ -55,6 +64,25 @@ public class Damagable : MonoBehaviour
         {
             TakeDamage(damageToTake);
             applyDamage = false;
+        }
+
+        HealthBarLerping();
+        
+    }
+
+    private void HealthBarLerping()
+    {
+        Debug.Log("Lerped Health: " + lerpedHealth);
+        Debug.Log("Lerped Health Target: " + lerpedHealthTarget);
+        if(lerpedHealthTarget != lerpedHealth)
+        {
+            lerpedHealth = Mathf.Lerp(lerpedHealth, lerpedHealthTarget, healthLerpSpeed * Time.deltaTime);
+            healthUnderBar.value = lerpedHealth / (float)StartingHealth;
+
+            if (Mathf.Abs(lerpedHealth - lerpedHealthTarget) < 0.3)
+            {
+                lerpedHealth = lerpedHealthTarget;
+            }
         }
     }
 
@@ -78,6 +106,7 @@ public class Damagable : MonoBehaviour
         if (immuneToDamage) return;
         if(isHitCounter) damage = 1;
         Health -= damage;
+        lerpedHealthTarget = Health;
         if (Health <= 0)
         {
             OnDeath?.Invoke();

@@ -45,4 +45,11 @@ public class BaseCharacter : MonoBehaviour
         Vector2 moveDirection = input.GetNormalizedMoveDirection();
         if(moveDirection != Vector2.zero) Reposition(moveDirection);
     }
+
+    public virtual void BecomeUnpossessed()
+    {
+        if (possessingSpirit == null) return;
+        possessingSpirit.transform.SetParent(null);
+        possessingSpirit.gameObject.SetActive(true);
+    }
 }

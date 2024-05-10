@@ -13,7 +13,6 @@ public class Projectile : MonoBehaviour
     protected float spawnTime;
      public void Initialize(bool playerShot, float damageMultiplier)
      {
-         Debug.Log("INITIALIZED PROJECTILES");
          dMult = damageMultiplier;
          shotByPlayer = playerShot;
          spawnTime = Time.time;
@@ -23,9 +22,8 @@ public class Projectile : MonoBehaviour
      
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out Damagable d) && TryGetComponent(out BaseCharacter bc) && bc.input is PlayerInput != shotByPlayer) // Need more efficient way to calculate controlling entity
+        if (other.TryGetComponent(out Damagable d) && d.IsEnemy == shotByPlayer)
         {
-            Debug.Log("HIT");
             d.TakeDamage((int)(projectileData.damage * dMult));
             hits++;
             if(hits > projectileData.pierceCount) Destroy(this.gameObject);

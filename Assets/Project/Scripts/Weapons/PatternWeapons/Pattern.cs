@@ -12,4 +12,17 @@ public abstract class Pattern : ScriptableObject
 	[SerializeField] public float shootDelay = 0.5f;
 
 	public abstract Vector3[] SpawnBullets(Vector3 direction);
+
+	public Vector3[] Randomize(Vector3[] list)
+	{
+		for (int i = 0; i < list.Length; i++)
+		{
+			Vector3 temp = list[i];
+			int random = UnityEngine.Random.Range(0, list.Length);
+			list[i] = list[random];
+			list[random] = temp;
+		}
+
+		return list;
+	}
 }

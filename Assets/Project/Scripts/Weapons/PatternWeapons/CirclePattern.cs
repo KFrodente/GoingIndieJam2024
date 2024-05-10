@@ -8,6 +8,7 @@ public class CirclePattern : Pattern
 	[Header("Circle")]
 	[SerializeField] float circleRadius;
 	[SerializeField] float arcSpawnedOn = 360;
+	[SerializeField] bool randomize;
 
 	public override Vector3[] SpawnBullets(Vector3 direction)
 	{
@@ -16,8 +17,17 @@ public class CirclePattern : Pattern
 		for (int i = 0; i < bulletAmount; i++)
 		{
 			float spawnAngle = (arcSpawnedOn / bulletAmount) * i;
+			if (arcSpawnedOn != 360)
+			{
+				spawnAngle += (arcSpawnedOn/bulletAmount) * 0.5f;
+			}
 			positions[i] = ((Quaternion.Euler(0, 0, spawnAngle) * direction * circleRadius));
 			//positions.Add(Instantiate((bulletPrefab == null) ? prefab : bulletPrefab, spawnPlacement + position, Quaternion.Euler(0, 0, spawnAngle)));
+		}
+
+		if (randomize)
+		{
+			positions = Randomize(positions);
 		}
 
 		return positions;

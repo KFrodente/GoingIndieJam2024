@@ -209,26 +209,31 @@ public class CircleWeapon : MonoBehaviour
 
 	private IEnumerator ShootBullets(int patternnumber, float additionaldelay)
 	{
+		List<Transform> toshootprojs = new List<Transform>();
+		foreach (var proj in patterns[patternnumber].projectiles)
+		{
+			toshootprojs.Add(proj.transform);
+		}
+		patterns[patternnumber].projectiles.Clear();
+
 		yield return new WaitForSeconds(additionaldelay);
 
-		for (int i = 0; i < patterns[patternnumber].projectiles.Count; i++)
+		for (int i = 0; i < toshootprojs.Count; i++)
 		{
-			if (patterns[patternnumber].projectiles != null)
+			if (toshootprojs[i] != null)
 			{
-				if (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN || patterns[patternnumber].howshoot == ShootType.ONEBYONEDURINGSPAWN)
+				if (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN)
 				{
 					yield return new WaitForSeconds(patterns[patternnumber].pattern.shootDelay);
 				}
 				// this is the place where the projectiles will actually be shot
 
-				patterns[patternnumber].projectiles[i].SetParent(null);
+				toshootprojs[i].SetParent(null);
 				//Vector2 direction = (target.position - patterns[patternnumber].projectiles[i].position);
 				//float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 				//patterns[patternnumber].projectiles[i].transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0, 0, angle);
 				//Destroy(patterns[patternnumber].projectiles[i].gameObject);
 			}
 		}
-
-		patterns[patternnumber].projectiles.Clear();
 	}
 }

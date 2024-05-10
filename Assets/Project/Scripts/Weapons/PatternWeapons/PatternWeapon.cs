@@ -154,9 +154,7 @@ public class PatternWeapon : MonoBehaviour
 				if (patterns[i].shootAwayFromPosition)
 				{
 					direction = (newproj.position - ((patterns[i].positionShootAwayFrom == null) ? 
-						((patterns[i].spawnPlacement.position == null)? 
-							transform.position : 
-							patterns[i].spawnPlacement.position) : 
+						patterns[i].spawnPlacement.position : 
 						patterns[i].positionShootAwayFrom.position));
 				}
 				else if(patterns[i].shootAwayFromSpawner)
@@ -167,7 +165,7 @@ public class PatternWeapon : MonoBehaviour
 				{
 					if (patterns[i].sameDirection)
 					{
-						direction = (Vector3)patterns[i].pointDirection;
+						direction = (target.position - transform.position);
 					}
 					else
 					{

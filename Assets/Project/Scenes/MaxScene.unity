@@ -339,7 +339,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.18, y: 11.72, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -373,17 +373,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114c05e899443414eb57c0781fd7509b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pattern: 0
-  howshoot: 0
   bulletPrefab: {fileID: 867516262}
-  shootAwayFromSelf: 0
-  bulletAmount: 6
-  totalSpawnTime: 1
-  shootDelay: 0.5
   spawnPlacement: {fileID: 1248129713}
-  projectiles: []
+  target: {fileID: 1864031580}
   shoot: 0
-  circleRadius: 2
+  patterns:
+  - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    howshoot: 0
+    pointDirection: {x: 1, y: 0}
+    delayToNext: 1
+    shootAwayFromSelf: 0
+    sameDirection: 0
+    withNextPattern: 1
+  - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
+    howshoot: 0
+    pointDirection: {x: 1, y: 0}
+    delayToNext: 1
+    shootAwayFromSelf: 0
+    sameDirection: 0
+    withNextPattern: 0
+  projectiles: []
 --- !u!4 &1248129713
 Transform:
   m_ObjectHideFlags: 0
@@ -460,6 +469,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
+--- !u!4 &1864031580 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4245584574279043073, guid: 40b787ed5f8937e45a4d7cdadfd53fac, type: 3}
+  m_PrefabInstance: {fileID: 1429652076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

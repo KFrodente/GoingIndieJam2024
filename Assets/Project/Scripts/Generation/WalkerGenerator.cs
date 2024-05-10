@@ -342,23 +342,23 @@ public class WalkerGenerator : Room
     {
         if (Vector2.Distance(highestPos, rightmostPos) <= 2)
         {
-            highestPos += Vector2Int.left;
-            rightmostPos += Vector2Int.down;
+            highestPos += Vector2Int.up;
+            rightmostPos += Vector2Int.right;
         }
         if (Vector2.Distance(rightmostPos, lowestPos) <= 2)
         {
-            rightmostPos += Vector2Int.up;
-            lowestPos += Vector2Int.left;
+            rightmostPos += Vector2Int.right;
+            lowestPos += Vector2Int.down;
         }
         if (Vector2.Distance(lowestPos, leftmostPos) <= 2)
         {
-            leftmostPos += Vector2Int.up;
-            lowestPos += Vector2Int.right;
+            leftmostPos += Vector2Int.left;
+            lowestPos += Vector2Int.down;
         }
         if (Vector2.Distance(leftmostPos, highestPos) <= 2)
         {
-            leftmostPos += Vector2Int.down;
-            highestPos += Vector2Int.right;
+            leftmostPos += Vector2Int.left;
+            highestPos += Vector2Int.up;
         }
 
         OpenAreas();

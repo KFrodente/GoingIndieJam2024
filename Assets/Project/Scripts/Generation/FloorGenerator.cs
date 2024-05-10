@@ -88,6 +88,8 @@ public class FloorGenerator : MonoBehaviour
         GeneratePortals();
         yield return new WaitForSeconds(.1f);
 
+        //SpiritCharacter.souls = 100;
+
         for (int i = 0; i < roomObjectDictionary.Count; i++)
         {
             roomObjectDictionary.ElementAt(i).Value.ConnectPortals();

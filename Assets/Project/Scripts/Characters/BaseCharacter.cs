@@ -37,7 +37,7 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(input.GetMouseInput().leftDown) Attack(new Target(input.GetInputType(), input.GetInputTarget(), transform.position, true));
+        if(input.GetMouseInput().leftDown) Attack(new Target(input.GetInputType(), input.GetInputTarget(), transform.position, input.GetInputType()));
     }
 
     protected virtual void FixedUpdate()

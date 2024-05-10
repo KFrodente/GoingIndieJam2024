@@ -369,6 +369,17 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1033002066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 303801544410275538, guid: 163e3d978f4dbac4e994074af0fce3bc, type: 3}
+  m_PrefabInstance: {fileID: 812280811041866618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e78062c288fe14191ac37e14e56856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1516388235 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6830194618145297438, guid: 33ea764adbc54ad4b82e78ad7a375faf, type: 3}
@@ -551,6 +562,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4120797173550359642, guid: 163e3d978f4dbac4e994074af0fce3bc, type: 3}
+      propertyPath: unitBase
+      value: 
+      objectReference: {fileID: 1033002066}
     - target: {fileID: 5998737422452286567, guid: 163e3d978f4dbac4e994074af0fce3bc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

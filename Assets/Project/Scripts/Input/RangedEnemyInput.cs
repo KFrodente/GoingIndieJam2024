@@ -14,7 +14,7 @@ public class RangedEnemyInput : EnemyInput
     {
         return new MouseInputData
         {
-            leftDown = (GetDistance() < preferedRange),
+            leftDown = (GetDistance() < preferedRange * 1.5f),
             leftUp = false,
             rightDown = false,
             rightUp = false,

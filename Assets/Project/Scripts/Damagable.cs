@@ -11,9 +11,10 @@ public class Damagable : MonoBehaviour
     [SerializeField] private bool isHitCounter;
     [SerializeField] private bool immuneToDamage;
 
-    [SerializeField] private int damage;
     [SerializeField] private UnityEvent OnDeath;
     [SerializeField] private UnityEvent OnHit;
+
+    public bool IsEnemy = true;
 
     private float immunityTimer = 0;
 
@@ -29,6 +30,10 @@ public class Damagable : MonoBehaviour
     private float lerpedHealthTarget;
     [SerializeField] private float healthLerpSpeed = 5f;
 
+    public void ConvertToPlayer()
+    {
+        IsEnemy = false;
+    }
 
 
     // Health Properties
@@ -72,8 +77,7 @@ public class Damagable : MonoBehaviour
 
     private void HealthBarLerping()
     {
-        Debug.Log("Lerped Health: " + lerpedHealth);
-        Debug.Log("Lerped Health Target: " + lerpedHealthTarget);
+        
         if(lerpedHealthTarget != lerpedHealth)
         {
             // when difference is greater, lerp slower, meaning lerp is more even
@@ -121,6 +125,7 @@ public class Damagable : MonoBehaviour
         Health = hp;
     }
 
+    
     public void SetDamagable(bool isDamagable)
     {
         immuneToDamage = isDamagable;

@@ -16,7 +16,7 @@ public class CurrencyItem : MonoBehaviour
     private void Awake()
     {
         rb.AddForce(Random.insideUnitCircle.normalized * 10, ForceMode2D.Force);
-        //player = FindObjectOfType<SpiritSoul>().gameObject;
+        player = FindObjectOfType<SpiritCharacter>().gameObject;
     }
 
     private void FixedUpdate()
@@ -32,7 +32,7 @@ public class CurrencyItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out SpiritCharacter player))
+        if (collision.gameObject.TryGetComponent(out Damagable damageable) && !damageable.IsEnemy)
         {
             // add currency based on a local value?
             SpiritCharacter.souls += soulValue;

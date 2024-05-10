@@ -20,4 +20,8 @@ public class PlayerInput : BaseInput
             middleUp = Input.GetMouseButtonUp(2)
         };
     }
+    public override bool GetInputType()
+    {
+        return true;
+    }
 }

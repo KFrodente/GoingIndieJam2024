@@ -292,6 +292,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 595349141803156311}
   - {fileID: 8875256311085480187}
   - {fileID: 5281480690155489460}
   - {fileID: 6449462472207109923}
@@ -458,7 +459,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHitCounter: 0
   immuneToDamage: 0
-  damage: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -474,9 +474,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6140970955457626448}
+        m_TargetAssemblyTypeName: BaseCharacter, Assembly-CSharp
+        m_MethodName: BecomeUnpossessed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHit:
     m_PersistentCalls:
       m_Calls: []
+  IsEnemy: 1
   healthOverBar: {fileID: 0}
   healthUnderBar: {fileID: 0}
   health: 100
@@ -678,6 +691,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4671611534069531922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595349141803156311}
+  - component: {fileID: 368804316106668470}
+  m_Layer: 0
+  m_Name: SoulDropper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &595349141803156311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4671611534069531922}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3291969302707819341}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &368804316106668470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4671611534069531922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aacc1f90d7e84be4cad6f874a31d8756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountRange: {x: 1, y: 2}
+  soulPrefab: {fileID: 3242215970153323200, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
 --- !u!1 &4907396917060083845
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +786,7 @@ GameObject:
   - component: {fileID: 7429959299701162105}
   - component: {fileID: 269481705895975670}
   m_Layer: 9
-  m_Name: Canvas
+  m_Name: HealthSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -900,6 +959,7 @@ MonoBehaviour:
   playerInput: {fileID: 4722190043284422819}
   unitBase: {fileID: 6140970955457626448}
   interactor: {fileID: 9183719020522926096}
+  damagable: {fileID: 7225132558245157515}
 --- !u!1 &7986263515144964238
 GameObject:
   m_ObjectHideFlags: 0

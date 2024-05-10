@@ -6,11 +6,11 @@ public class SpiritEssenceHolder : MonoBehaviour
 {
     public static SpiritEssenceHolder instance;
 
-    public List<GameObject> SSRankEssense = new();
-    public List<GameObject> SRankEssense = new();
-    public List<GameObject> ARankEssense = new();
-    public List<GameObject> BRankEssense = new();
-    public List<GameObject> CRankEssense = new();
+    public List<GameObject> SSRankEssence = new();
+    public List<GameObject> SRankEssence = new();
+    public List<GameObject> ARankEssence = new();
+    public List<GameObject> BRankEssence = new();
+    public List<GameObject> CRankEssence = new();
 
     private void Awake()
     {

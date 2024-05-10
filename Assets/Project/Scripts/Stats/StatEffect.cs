@@ -10,7 +10,7 @@ namespace Stats
     {
         [SerializeField] private StatType type;
         [SerializeField] private OperatorType operation;
-        [SerializeField] private int value;
+        [SerializeField] private float value;
         [SerializeField] private float duration;
 
         private StatModifier statMod = null;

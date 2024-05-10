@@ -4,21 +4,46 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Damagable : MonoBehaviour
 {
-    private int startingHealth;
     [SerializeField] private bool isHitCounter;
     [SerializeField] private bool immuneToDamage;
-    [SerializeField] private int health = 3;
+
+    [SerializeField] private int damage;
     [SerializeField] private UnityEvent OnDeath;
     [SerializeField] private UnityEvent OnHit;
 
     private float immunityTimer = 0;
 
+    // UI
+    [SerializeField] Slider healthBar;
+
+    // Health private vars
+    [SerializeField] private int health = 3;
+    private int startingHealth;
+
+    // Health Properties
+    public int StartingHealth
+    {
+        get { return startingHealth; }
+        set { startingHealth = value; }
+    }
+
+    public int Health
+    {
+        get { return health; }
+        set
+        {
+            healthBar.value = health / (float)StartingHealth;
+        }
+    }
+
+    
     private void Awake()
     {
-        startingHealth = health;
+        StartingHealth = Health;
     }
 
     
@@ -46,8 +71,8 @@ public class Damagable : MonoBehaviour
     {
         if (immuneToDamage) return;
         if(isHitCounter) damage = 1;
-        health -= damage;
-        if (health <= 0)
+        Health -= damage;
+        if (Health <= 0)
         {
             OnDeath?.Invoke();
         }
@@ -56,7 +81,7 @@ public class Damagable : MonoBehaviour
 
     public void SetHealth(int hp)
     {
-        health = hp;
+        Health = hp;
     }
 
     public void SetDamagable(bool isDamagable)

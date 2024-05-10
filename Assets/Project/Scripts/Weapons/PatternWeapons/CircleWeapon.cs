@@ -15,26 +15,70 @@ public class CircleWeapon : MonoBehaviour
 	[Serializable]
 	struct ShootPattern
 	{
+		/// <summary>
+		/// The actual pattern scriptable object to use
+		/// </summary>
 		public Pattern pattern;
+		/// <summary>
+		/// How the pattern shoots out
+		/// </summary>
 		public ShootType howshoot;
+		/// <summary>
+		/// The direction that the spawning originates from<br/>
+		///		Overrides:<br/>
+		///		ONEBYONEDURINGSPAWN -> shootWithNextPattern
+		/// </summary>
 		public Vector2 pointDirection;
+		/// <summary>
+		/// Delay between this pattern spawning and the next pattern spawning
+		/// </summary>
 		public float delayToNext;
+		/// <summary>
+		/// The position where the bullet pattern will spawn
+		/// </summary>
+		public Transform spawnPlacement;
+		/// <summary>
+		/// If the bullet should shoot away from spawnPlacement<br/>
+		///		Overrides:<br/>
+		///		sameDirection
+		/// </summary>
 		public bool shootAwayFromSelf;
+		/// <summary>
+		/// If all the bullets should fire in the same direction using pointDirection
+		/// </summary>
 		public bool sameDirection;
+		/// <summary>
+		/// If the Pattern should SPAWN with the next pattern.
+		/// </summary>
 		public bool spawnWithNextPattern;
+		/// <summary>
+		/// If the Pattern should SHOOT with the next pattern.
+		/// </summary>
 		public bool shootWithNextPattern;
+		/// <summary>
+		/// The projectiles that the pattern spawns
+		/// </summary>
+		public List<Transform> projectiles;
 	}
 
 	[SerializeField] Transform bulletPrefab;
 	//[SerializeField] float totalShootingTime = 0.5f;
-	[SerializeField] Transform spawnPlacement;
 	[SerializeField] Transform target;
 
 	[SerializeField] bool shoot = false; // This is for debugging the shooting
 
 	[SerializeField] ShootPattern[] patterns;
 
-	[SerializeField] List<Transform> projectiles;
+	private void Start()
+	{
+		for (int i = 0; i < patterns.Length; i++)
+		{
+			if (patterns[i].spawnPlacement == null)
+			{
+				patterns[i].spawnPlacement = transform;
+			}
+		}
+	}
 
 	private void Update()
 	{
@@ -42,48 +86,24 @@ public class CircleWeapon : MonoBehaviour
 		{
 			shoot = false;
 
-			StartCoroutine(SpawnBullets());
+			StartCoroutine(SpawnBullets(0));
 		}
 	}
 
-	private IEnumerator SpawnBullets()
+	private IEnumerator SpawnBullets(int startpattern)
 	{
-		//switch (pattern)
-		//{
-		//	case PatternType.CIRCLE:
-		//		for (int i = 0; i < bulletAmount; i++)
-		//		{
-		//			float spawnAngle = (360 / bulletAmount) * i;
-		//			Vector3 position = (Quaternion.Euler(0, 0, spawnAngle) * transform.right * circleRadius);
-		//			projectiles.Add(Instantiate(bulletPrefab, spawnPlacement.position + position, Quaternion.Euler(0, 0, spawnAngle)));
+		bool spawnwithnext = false;
 
-		//			if (totalSpawnTime > 0 || i < bulletAmount - 1)
-		//			{
-		//				yield return new WaitForSeconds(totalSpawnTime / bulletAmount);
-		//			}
-		//		}
-		//		break;
-		//	case PatternType.SHAPE:
-		//		for (int i = 0; i < bulletAmount; i++)
-		//		{
-		//			float spawnAngle = (360 / bulletAmount) * i;
-		//			Vector3 position = (Quaternion.Euler(0, 0, spawnAngle) * transform.right * circleRadius);
-		//			projectiles.Add(Instantiate(bulletPrefab, spawnPlacement.position + position, Quaternion.Euler(0, 0, spawnAngle)));
-
-		//			if (totalSpawnTime > 0 || i < bulletAmount - 1)
-		//			{
-		//				yield return new WaitForSeconds(totalSpawnTime / bulletAmount);
-		//			}
-		//		}
-		//		break;
-		//	case PatternType.IMAGE:
-		//		break;
-		//}
-
-		for (int i = 0; i < patterns.Length; i++)
+		for (int i = startpattern; i < patterns.Length; i++)
 		{
+			if (i + 1 < patterns.Length && patterns[i].spawnWithNextPattern)
+			{
+				StartCoroutine(SpawnBullets(i+1));
+				spawnwithnext = true;
+			}
+
 			int amountofbullets = patterns[i].pattern.bulletAmount;
-			Vector3[] positions = patterns[i].pattern.SpawnBullets(patterns[i].pointDirection, spawnPlacement.position);
+			Vector3[] positions = patterns[i].pattern.SpawnBullets(patterns[i].pointDirection, patterns[i].spawnPlacement.position);
 			for (int o = 0; o < positions.Length; o++)
 			{
 				var newproj = Instantiate((patterns[i].pattern.bulletPrefab == null) ? bulletPrefab : patterns[i].pattern.bulletPrefab, positions[o], Quaternion.identity);
@@ -97,7 +117,7 @@ public class CircleWeapon : MonoBehaviour
 					Vector3 direction;
 					if (patterns[i].sameDirection)
 					{
-						direction = (target.position - spawnPlacement.position);
+						direction = (target.position - (patterns[i].spawnPlacement.position + (Vector3)patterns[i].pointDirection));
 					}
 					else
 					{
@@ -107,7 +127,7 @@ public class CircleWeapon : MonoBehaviour
 					newproj.transform.rotation = Quaternion.Euler(0,0, angle);
 				}
 
-				projectiles.Add(newproj);
+				patterns[i].projectiles.Add(newproj);
 
 				if (patterns[i].howshoot == ShootType.ONEBYONEDURINGSPAWN)
 				{
@@ -124,10 +144,27 @@ public class CircleWeapon : MonoBehaviour
 
 			if (i+1 < patterns.Length && patterns[i].shootWithNextPattern)
 			{
-				additionalDelay += patterns[i + 1].pattern.totalSpawnTime + patterns[i+1].pattern.shootDelay;
+				for (int o = i+1; o < patterns.Length; o++)
+				{
+					if (!patterns[o-1].shootWithNextPattern)
+					{
+						break;
+					}
+					if (patterns[o - 1].spawnWithNextPattern)
+					{
+						continue;
+					}
+					additionalDelay += patterns[o].pattern.totalSpawnTime + patterns[o].pattern.shootDelay + patterns[o].delayToNext;
+				}
+				Debug.Log("Pattern " + i + " is waiting an additional " + additionalDelay + " seconds");
 			}
-
+			
 			StartCoroutine(ShootBullets(i, additionalDelay));
+
+			if (spawnwithnext)
+			{
+				break;
+			}
 
 			yield return new WaitForSeconds(patterns[i].delayToNext);
 		}
@@ -135,26 +172,21 @@ public class CircleWeapon : MonoBehaviour
 
 	private IEnumerator ShootBullets(int patternnumber, float additionaldelay)
 	{
-		List<Transform> toshootprojs = new List<Transform>();
-		foreach (var proj in projectiles)
-		{
-			toshootprojs.Add(proj.transform);
-		}
-		projectiles.Clear();
-
 		yield return new WaitForSeconds(additionaldelay);
 
-		for (int i = 0; i < toshootprojs.Count; i++)
+		for (int i = 0; i < patterns[patternnumber].projectiles.Count; i++)
 		{
-			if (toshootprojs != null)
+			if (patterns[patternnumber].projectiles != null)
 			{
 				if (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN || patterns[patternnumber].howshoot == ShootType.ONEBYONEDURINGSPAWN)
 				{
 					yield return new WaitForSeconds(patterns[patternnumber].pattern.shootDelay);
 				}
 				// this is the place where the projectiles will actually be shot
-				Destroy(toshootprojs[i].gameObject);
+				Destroy(patterns[patternnumber].projectiles[i].gameObject);
 			}
 		}
+
+		patterns[patternnumber].projectiles.Clear();
 	}
 }

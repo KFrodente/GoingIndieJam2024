@@ -5,38 +5,42 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] protected ProjectileObject projectileData;
     protected int hits;
-    protected ProjectileObject po;
     protected bool shotByPlayer;
     [SerializeField] protected Rigidbody2D rb;
-    private void OnTriggerEnter2D(Collider2D other)
+    protected float dMult = 1;
+    protected float spawnTime;
+     public void Initialize(bool playerShot, float damageMultiplier)
+     {
+         dMult = damageMultiplier;
+         shotByPlayer = playerShot;
+         spawnTime = Time.time;
+         rb.velocity = transform.up * projectileData.speed;
+     }
+     
+     
+    protected void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("COLLISION");
-        // if (other.TryGetComponent(out Damagable d) && d.GetImmunities() != (owner))
-        // {
-        //     Debug.Log("DAMAGED");
-        //     d.TakeDamage(po.damage);
-        //     hits++;
-        //     if(hits > po.pierceCount) Destroy(this.gameObject);
-        // }
+        if (other.TryGetComponent(out Damagable d) && d.IsEnemy == shotByPlayer)
+        {
+            d.TakeDamage((int)(projectileData.damage * dMult));
+            hits++;
+            if(hits > projectileData.pierceCount) Destroy(this.gameObject);
+        }
     }
 
-    
-     public void Initialize(ProjectileObject po, bool playerShot)
-     {
-         shotByPlayer = playerShot;
-         this.po = po;
-         spawnTime = Time.time;
-         rb.velocity = transform.up * po.speed;
-     }
 
-    protected float spawnTime;
 
     
 
     protected void Update()
     {
-        transform.position += transform.up * (Time.deltaTime * po.speed);
-        if(po.lifetime > 0 && spawnTime + po.lifetime > Time.time) Destroy(this.gameObject);
+        if(projectileData.lifetime > 0 && Time.time > spawnTime + projectileData.lifetime ) DestroyProjectile();
+    }
+
+    protected void DestroyProjectile()
+    {
+        Destroy(this.gameObject);
     }
 }

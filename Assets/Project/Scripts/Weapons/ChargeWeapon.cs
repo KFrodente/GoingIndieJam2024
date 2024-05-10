@@ -11,7 +11,7 @@ public class ChargeWeapon : Weapon
 	protected float startCancelTime = 0;
 	public override void StartAttack(Target target, BaseCharacter c)
 	{
-		if (!delayOver || !isCancelOver) return;
+		if (!delayOver || !isCancelOver || charging) return;
 		bc = c;
 		savedTarget = target;
 		startChargeTime = Time.time;
@@ -29,6 +29,7 @@ public class ChargeWeapon : Weapon
 		if(charging && isChargingOver)
 		{
 			charging = false;
+			Debug.Log("FIRE");
 			Fire(savedTarget.GetDirection(), savedTarget.playerTargeting);
 		}
 	}

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b41ccf60e5ba7f14d949520e50de4e1c, type: 3}
-  m_Name: CorvidSpiritAttack
+  m_Name: Bow
   m_EditorClassIdentifier: 
-  weaponName: CorvidSpiritAttack
+  fireDelay: 2
+  attackSound: {fileID: 0}
+  chargeTime: 0.3
+  cancelDelay: 0.2
   chargeSound: {fileID: 0}
-  chargeTime: 0
-  fireDelay: 0.5
   burstSeparationDelay: 0
   burstAmount: 0
-  attackDuration: 0.15
-  attackSound: {fileID: 0}
-  projectileObject: []
-  pattern: 0
+  attackDuration: 0
+  knockback: 0
+  projectile: {fileID: 4269149708470235642, guid: 76a64cc4a6500164e852e0caea8c1db8, type: 3}

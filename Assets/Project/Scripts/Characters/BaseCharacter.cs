@@ -37,12 +37,19 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(input.GetMouseInput().leftDown) Attack(new Target(true, null, transform.position, true));
+        if(input.GetMouseInput().leftDown) Attack(new Target(input.GetInputType(), input.GetInputTarget(), transform.position, true));
     }
 
     protected virtual void FixedUpdate()
     {
         Vector2 moveDirection = input.GetNormalizedMoveDirection();
         if(moveDirection != Vector2.zero) Reposition(moveDirection);
+    }
+
+    public virtual void BecomeUnpossessed()
+    {
+        if (possessingSpirit == null) return;
+        possessingSpirit.transform.SetParent(null);
+        possessingSpirit.gameObject.SetActive(true);
     }
 }

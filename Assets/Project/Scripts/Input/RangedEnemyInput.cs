@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyInput : BaseInput
+public class RangedEnemyInput : EnemyInput
 {
-    public static Transform playerCharacter;
+    [SerializeField] protected float preferedRange; 
     public override Vector2 GetNormalizedMoveDirection()
     {
         if (playerCharacter == null) return Vector2.zero;
-        return (playerCharacter.position - transform.position).normalized;
+        return (GetDistance() > preferedRange ? 1 : -1) * (playerCharacter.position - transform.position).normalized;
     }
     public override MouseInputData GetMouseInput()
     {
         return new MouseInputData
         {
-            leftDown = true, // Spamming??
+            leftDown = (GetDistance() < preferedRange),
             leftUp = false,
             rightDown = false,
             rightUp = false,
@@ -22,10 +22,9 @@ public class EnemyInput : BaseInput
             middleUp = false
         };
     }
-
-    public override Transform GetInputTarget()
+    protected float GetDistance()
     {
-        if (playerCharacter != null) return playerCharacter;
-        return null;
+        if (playerCharacter == null) return 0;
+        return Vector2.Distance(playerCharacter.position, transform.position);
     }
 }

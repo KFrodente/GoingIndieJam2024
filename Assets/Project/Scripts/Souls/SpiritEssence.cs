@@ -6,6 +6,12 @@ using UnityEngine;
 public class SpiritEssence : Interactable
 {
     [SerializeField] public Essence essence;
+    public int soulCost;
+
+    private void Awake()
+    {
+        soulCost = essence.soulCost;
+    }
 
     public override void OnInteract(BaseCharacter character)
     {

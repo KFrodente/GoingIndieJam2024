@@ -63,6 +63,7 @@ public class FloorGenerator : MonoBehaviour
 
         SetSpawn();
         BuildBasicRooms();
+
         ConnectBasicRooms();
 
         CreateSpecialRooms(bossRooms[Random.Range(0, bossRooms.Count)], 'B', floorStats[floorNum].minBossDistance, Room.Type.BOSS);
@@ -80,6 +81,7 @@ public class FloorGenerator : MonoBehaviour
         
 
         StartCoroutine(DoPortals());
+
     }
 
     private IEnumerator DoPortals()

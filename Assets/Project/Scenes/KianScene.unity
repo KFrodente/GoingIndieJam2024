@@ -727,6 +727,7 @@ GameObject:
   - component: {fileID: 2008526835}
   - component: {fileID: 2008526836}
   - component: {fileID: 2008526837}
+  - component: {fileID: 2008526838}
   m_Layer: 0
   m_Name: managers
   m_TagString: Untagged
@@ -782,6 +783,18 @@ MonoBehaviour:
   - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
   hardEnemies:
   - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+--- !u!114 &2008526838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008526833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2f85a702067a4418a9e78a01582054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2136173072
 GameObject:
   m_ObjectHideFlags: 0

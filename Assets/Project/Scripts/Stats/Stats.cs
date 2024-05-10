@@ -10,7 +10,7 @@ namespace Stats
 
         public Stats MultiplyModifier(Stats other)
         {
-            return new Stats(this.Damage * other.Mult_Damage, this.Defense * other.Mult_Defence, this.MoveSpeed * other.Mult_MoveSpeed, this.ChargeSpeed * other.Mult_ChargeSpeed, this.MaxMoveSpeed * other.Mult_MaxMoveSpeed, this.TurnSpeed * other.Mult_TurnSpeed, this.Range * other.Mult_Range, this.AttackSpeed * other.Mult_AttackSpeed);
+            return new Stats(this.Damage * other.Mult_Damage, this.MoveSpeed * other.Mult_MoveSpeed, this.ChargeSpeed * other.Mult_ChargeSpeed, this.TurnSpeed * other.Mult_TurnSpeed, this.AttackRange * other.Mult_Range, this.AttackSpeed * other.Mult_AttackSpeed);
         }
 
         public float Damage
@@ -40,20 +40,11 @@ namespace Stats
                 return q.value;
             }
         }
-        public float Range
+        public float AttackRange
         {
             get
             {
-                var q = new Query(StatType.Range, baseStats.range);
-                mediator.PerformQuery(this, q);
-                return q.value;
-            }
-        }
-        public float Defense
-        {
-            get
-            {
-                var q = new Query(StatType.Defence, baseStats.defense);
+                var q = new Query(StatType.AttackRange, baseStats.attackRange);
                 mediator.PerformQuery(this, q);
                 return q.value;
             }
@@ -67,15 +58,6 @@ namespace Stats
                 return q.value;
             }
         }
-		public float MaxMoveSpeed
-		{
-			get
-			{
-				var q = new Query(StatType.MaxMoveSpeed, baseStats.moveSpeed);
-				mediator.PerformQuery(this, q);
-				return q.value;
-			}
-		}
 		public float TurnSpeed
         {
             get
@@ -90,15 +72,6 @@ namespace Stats
             get
             {
                 var q = new Query(StatType.Mult_Damage, baseStats.damageMult);
-                mediator.PerformQuery(this, q);
-                return q.value;
-            }
-        }
-        public float Mult_Defence
-        {
-            get
-            {
-                var q = new Query(StatType.Mult_Defence, baseStats.defenceMult);
                 mediator.PerformQuery(this, q);
                 return q.value;
             }
@@ -121,15 +94,6 @@ namespace Stats
                 return q.value;
             }
         }
-        public float Mult_MaxMoveSpeed
-        {
-            get
-            {
-                var q = new Query(StatType.Mult_MaxMoveSpeed, baseStats.maxMoveSpeedMult);
-                mediator.PerformQuery(this, q);
-                return q.value;
-            }
-        }
         public float Mult_TurnSpeed
         {
             get
@@ -144,7 +108,7 @@ namespace Stats
         {
             get
             {
-                var q = new Query(StatType.Mult_Range, baseStats.rangeMult);
+                var q = new Query(StatType.Mult_AttackRange, baseStats.attackRangeMult);
                 mediator.PerformQuery(this, q);
                 return q.value;
             }
@@ -165,17 +129,15 @@ namespace Stats
             baseStats = _baseStats;
         }
 
-        public Stats(float v1, float v2, float v3, float v4, float v5, float v6, float v7, float v8)
+        public Stats(float v1, float v2, float v3, float v4, float v5, float v6)
         {
             baseStats = new BaseStats();
             baseStats.damage = v1;
-            baseStats.defense = v2;
-            baseStats.moveSpeed = v3;
-            baseStats.chargeSpeed = v4;
-            baseStats.maxMoveSpeed = v5;
-            baseStats.turnSpeed = v6;
-            baseStats.range = v7;
-            baseStats.attackSpeed = v8;
+            baseStats.moveSpeed = v2;
+            baseStats.chargeSpeed = v3;
+            baseStats.turnSpeed = v4;
+            baseStats.attackRange = v5;
+            baseStats.attackSpeed = v6;
         }
     }
     

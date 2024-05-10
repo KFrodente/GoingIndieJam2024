@@ -33,11 +33,19 @@ public class TreasureRoom : Room
             leftPortal = GenerateRespectivePortal(roomConnectedLeft, leftTelePos.position).GetComponent<Portal>();
         }
 
-        GenerateSpiritEssence();
     }
 
-    private void GenerateSpiritEssence()
+    public void GenerateSpiritEssence(int roomCost)
     {
-       
+        for (int i = 0; i < SELocations.Count; i++)
+        {
+            GetSpiritEssence(roomCost);
+        }
+    }
+
+    private GameObject GetSpiritEssence(int roomCost)
+    {
+        float addedChance = roomCost / (float)100;
+
     }
 }

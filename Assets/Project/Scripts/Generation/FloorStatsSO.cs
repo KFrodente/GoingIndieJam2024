@@ -30,6 +30,9 @@ public class FloorStatsSO : ScriptableObject
     [Range(0, 1)]public float removeChance;
     [Range(0, 1)]public float createChance;
 
+    [Header("Enemies")]
+    [MinMaxSlider(0, 100)]public Vector2Int roomPoints;
+
     [Header("Generic")]
     public Vector2 roomOffset;
 }

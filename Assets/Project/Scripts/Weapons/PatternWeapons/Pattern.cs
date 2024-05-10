@@ -13,7 +13,7 @@ public abstract class Pattern : ScriptableObject
 
 	public abstract Vector3[] SpawnBullets(Vector3 direction);
 
-	public Vector3[] Randomize(Vector3[] list)
+	public static Vector3[] Randomize(Vector3[] list)
 	{
 		for (int i = 0; i < list.Length; i++)
 		{

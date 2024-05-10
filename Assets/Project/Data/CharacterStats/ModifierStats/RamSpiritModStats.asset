@@ -18,6 +18,7 @@ MonoBehaviour:
   chargeSpeed: 0
   maxMoveSpeed: 0
   turnSpeed: 0
+  attackSpeed: 0
   range: 0
   damageMult: 1
   defenceMult: 1
@@ -26,3 +27,4 @@ MonoBehaviour:
   maxMoveSpeedMult: 1
   turnSpeedMult: 1
   rangeMult: 1
+  attackSpeedMult: 1

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DashChargeWeapon : ChargeWeapon
 {
-
+	[SerializeField] protected bool affectRotation;
 	
 	protected void FixedUpdate()
 	{
-		if(charging)
+		if(charging && affectRotation)
 		{
 			bc.movement.SetTargetAngle(savedTarget.GetDirection(), true);
 			bc.movement.AngleTowardTargetAngle(bc.GetStats().TurnSpeed, bc);
@@ -27,6 +27,7 @@ public class DashChargeWeapon : ChargeWeapon
 
 	public override void StartAttack(Target target, BaseCharacter c)
 	{
+		Debug.Log("ATTACK " + !delayOver + " " + !isCancelOver + " AttackSPeed: " + bc.GetStats().AttackSpeed);
 		if (!delayOver || !isCancelOver) return;
 		base.StartAttack(target, c);
 		float rotationFreezeMultiplier = 2; // Find proper value
@@ -48,7 +49,7 @@ public class DashChargeWeapon : ChargeWeapon
 
 	protected override void Fire(Vector2 normalizedDirection, bool shotByPlayer)
 	{
-		bc.movement.Move(transform.up, bc.GetStats().ChargeSpeed, ForceMode2D.Impulse, bc, true);
+		bc.movement.Move(normalizedDirection, bc.GetStats().ChargeSpeed, ForceMode2D.Impulse, bc, true);
 		bc.damageable.StartImmunity(weaponData.attackDuration);
 		lastFireTime = Time.time;
 	}

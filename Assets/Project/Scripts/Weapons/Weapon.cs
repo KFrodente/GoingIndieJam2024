@@ -13,6 +13,11 @@ public class Weapon : MonoBehaviour
     protected Target savedTarget;
     protected BaseCharacter bc;
 
+    public virtual void InitializeCharacter(BaseCharacter c)
+    {
+        bc = c;
+    }
+
     
     public virtual void StartAttack(Target target, BaseCharacter c)
     {

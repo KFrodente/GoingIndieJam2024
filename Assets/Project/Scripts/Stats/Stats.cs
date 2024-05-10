@@ -26,7 +26,7 @@ namespace Stats
         {
             get
             {
-                var q = new Query(StatType.Damage, baseStats.damage);
+                var q = new Query(StatType.AttackSpeed, baseStats.attackSpeed);
                 mediator.PerformQuery(this, q);
                 return q.value;
             }

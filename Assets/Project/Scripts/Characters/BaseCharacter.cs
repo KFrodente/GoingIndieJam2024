@@ -22,6 +22,7 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void Awake()
     {
         movement.SetCharacter(this);
+        weapon.InitializeCharacter(this);
     }
 
     protected virtual void Attack(Target target)

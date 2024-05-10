@@ -31,7 +31,7 @@ public class Damagable : MonoBehaviour
     public void StartImmunity(float time)
     {
         SetDamagable(false);
-        immunityTimer = time;
+        if(immunityTimer < time) immunityTimer = time;
     }
     private void CountDownImmunity()
     {

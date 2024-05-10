@@ -22,4 +22,8 @@ public class Interactable : MonoBehaviour
     {
         
     }
+    public virtual void StopInteract(BaseCharacter character)
+    {
+        
+    }
 }

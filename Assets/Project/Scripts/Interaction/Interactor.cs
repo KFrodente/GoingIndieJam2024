@@ -6,10 +6,17 @@ using UnityEngine;
 public class Interactor : MonoBehaviour
 {
     protected List<Interactable> interactables = new List<Interactable>();
+    protected Interactable lastInteractedWith;
 
     public virtual void Interact(BaseCharacter character)
     {
         if(interactables.Count > 0) GetClosest().OnInteract(character);
+    }
+    public virtual void StopInteract(BaseCharacter character)
+    {
+        if (lastInteractedWith == null) return;
+        lastInteractedWith.StopInteract(character);
+        lastInteractedWith = null;
     }
 
     public void Add(Interactable i)

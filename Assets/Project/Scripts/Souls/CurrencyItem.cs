@@ -11,17 +11,15 @@ public class CurrencyItem : MonoBehaviour
     [SerializeField] private float maxAttractionForce = 100;
     [SerializeField] private float maxAttractionDistance = 30;
 
-    private GameObject player;
 
     private void Awake()
     {
         rb.AddForce(Random.insideUnitCircle.normalized * 10, ForceMode2D.Force);
-        player = FindObjectOfType<SpiritCharacter>().gameObject;
     }
 
     private void FixedUpdate()
     {
-        Vector2 direction = player.transform.position - transform.position;
+        Vector2 direction = EnemyInput.playerCharacter.position - transform.position;
         float distance = (direction).magnitude;
         float force = maxAttractionForce / distance;
         if(distance < maxAttractionDistance)

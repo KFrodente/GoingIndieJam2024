@@ -9,7 +9,6 @@ public class SoulDispense : MonoBehaviour
     [SerializeField] private GameObject soulPrefab;
     public void Dispense(Damagable d)
     {
-        if (!d.IsEnemy) return;
         int amount = Random.Range(amountRange.x, amountRange.y);
         for (int i = 0; i < amount; i++)
         {

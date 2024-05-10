@@ -31,21 +31,21 @@ public class Room : MonoBehaviour
     [SerializeField] protected GameObject bossPortal;
 
 
-    public bool connectsUp;
-    public Room roomConnectedUp = null;
-    public Portal topPortal;
+    [HideInInspector] public bool connectsUp;
+    [HideInInspector] public Room roomConnectedUp = null;
+    [HideInInspector] public Portal topPortal;
 
-    public bool connectsRight;
-    public Room roomConnectedRight = null;
-    public Portal rightPortal;
+    [HideInInspector] public bool connectsRight;
+    [HideInInspector] public Room roomConnectedRight = null;
+    [HideInInspector] public Portal rightPortal;
 
-    public bool connectsDown;
-    public Room roomConnectedDown = null;
-    public Portal bottomPortal;
+    [HideInInspector] public bool connectsDown;
+    [HideInInspector] public Room roomConnectedDown = null;
+    [HideInInspector] public Portal bottomPortal;
 
-    public bool connectsLeft;
-    public Room roomConnectedLeft = null;
-    public Portal leftPortal;
+    [HideInInspector] public bool connectsLeft;
+    [HideInInspector] public Room roomConnectedLeft = null;
+    [HideInInspector] public Portal leftPortal;
 
     public Type roomType;
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treasureRoomAmount: 2
   minTreasureDistance: 1
-  costToEnter: {x: 0, y: 0}
+  costToEnter: {x: 23, y: 51}
   shopRoomAmount: 1
   minShopDistance: 0
   minBossDistance: 2

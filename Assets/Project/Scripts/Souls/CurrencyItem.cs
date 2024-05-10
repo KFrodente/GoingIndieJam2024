@@ -32,16 +32,6 @@ public class CurrencyItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out SpiritCharacter player))
-        {
-            // add currency based on a local value?
-            SpiritCharacter.souls += soulValue;
-            // remove from world
-            Destroy(gameObject);
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
         if (collision.gameObject.TryGetComponent(out Damagable damageable) && !damageable.IsEnemy)
         {
             // add currency based on a local value?

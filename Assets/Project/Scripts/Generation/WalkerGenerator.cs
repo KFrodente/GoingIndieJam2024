@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class WalkerGenerator : Room
 {
-    public static int basicRoomProcesses = 6;
+    public static int basicRoomProcesses = 5;
     
     [SerializeField] private Tile ground;
     [SerializeField] private Tile portalGround;
@@ -34,7 +34,7 @@ public class WalkerGenerator : Room
     {
         tilemap = FloorGenerator.instance.globalTilemap;
         floorStats = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum];
-        StartCoroutine(InitializeGrid());
+        InitializeGrid();
     }
 
     public void SetTilesActive()
@@ -87,17 +87,36 @@ public class WalkerGenerator : Room
 
     public void SetRoomInactive()
     {
-        for (int x = 0; x < gridHandler.GetLength(0); x++)
-        {
-            for (int y = 0; y < gridHandler.GetLength(1); y++)
-            {
-                if (gridHandler[x, y] == Grid.WALL)
-                    tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), null);
-            }
-        }
+        //for (int x = 0; x < gridHandler.GetLength(0); x++)
+        //{
+        //    for (int y = 0; y < gridHandler.GetLength(1); y++)
+        //    {
+        //        if (gridHandler[x, y] == Grid.WALL)
+        //            tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), null);
+        //    }
+        //}
     }
 
-    IEnumerator InitializeGrid()
+    //private IEnumerator FillWalls()
+    //{
+    //    for (int x = 0; x < gridHandler.GetLength(0); x++)
+    //    {
+    //        for (int y = 0; y < gridHandler.GetLength(1); y++)
+    //        {
+    //            if (gridHandler[x, y] == Grid.WALL)
+    //                tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), wall);
+    //        }
+
+    //        if (x % 1 == 0)
+    //        {
+    //            yield return new WaitForSeconds(.1f);
+    //        }
+    //    }
+
+    //    FloorGenerator.instance.roomProcessesFinished++;
+    //}
+
+    private void InitializeGrid()
     {
         gridHandler = new Grid[floorStats.roomWidth, floorStats.roomHeight];
 
@@ -134,7 +153,6 @@ public class WalkerGenerator : Room
         FloorGenerator.instance.roomProcessesFinished++;
 
         StartCoroutine(CreateFloors());
-        yield return null;
     }
 
     private Vector2 GetDirection()
@@ -199,6 +217,7 @@ public class WalkerGenerator : Room
 
         SetTilesActive();
 
+        //StartCoroutine(FillWalls());
 
         yield return null;
     }

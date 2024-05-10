@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleWeapon : MonoBehaviour
+public class PatternWeapon : MonoBehaviour
 {
 	enum ShootType
 	{
@@ -74,6 +74,10 @@ public class CircleWeapon : MonoBehaviour
 		/// The projectiles that the pattern spawns
 		/// </summary>
 		public List<Transform> projectiles;
+		/// <summary>
+		/// randomized the spawn order of the projectiles
+		/// </summary>
+		public bool randomize;
 	}
 
 	[SerializeField] Transform bulletPrefab;
@@ -129,6 +133,12 @@ public class CircleWeapon : MonoBehaviour
 
 			//int amountofbullets = patterns[i].pattern.bulletAmount;
 			Vector3[] positions = patterns[i].pattern.SpawnBullets(patterns[i].pointDirection);
+
+			if (patterns[i].randomize)
+			{
+				positions = Pattern.Randomize(positions);
+			}
+
 			for (int o = 0; o < positions.Length; o++)
 			{
 				var newproj = Instantiate((patterns[i].pattern.bulletPrefab == null) ? bulletPrefab : patterns[i].pattern.bulletPrefab);
@@ -143,7 +153,11 @@ public class CircleWeapon : MonoBehaviour
 				Vector3 direction;
 				if (patterns[i].shootAwayFromPosition)
 				{
-					direction = (newproj.position - ((patterns[i].positionShootAwayFrom == null) ? patterns[i].spawnPlacement.position : patterns[i].positionShootAwayFrom.position));
+					direction = (newproj.position - ((patterns[i].positionShootAwayFrom == null) ? 
+						((patterns[i].spawnPlacement.position == null)? 
+							transform.position : 
+							patterns[i].spawnPlacement.position) : 
+						patterns[i].positionShootAwayFrom.position));
 				}
 				else if(patterns[i].shootAwayFromSpawner)
 				{

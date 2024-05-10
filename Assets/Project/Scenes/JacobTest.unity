@@ -595,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 1834628226}
     - target: {fileID: 8049188816408350661, guid: 33ea764adbc54ad4b82e78ad7a375faf, type: 3}
       propertyPath: healthLerpSpeed
-      value: 1
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9144998218471326749, guid: 33ea764adbc54ad4b82e78ad7a375faf, type: 3}
       propertyPath: m_AnchorMax.x

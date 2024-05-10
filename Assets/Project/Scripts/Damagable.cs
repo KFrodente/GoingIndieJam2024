@@ -76,7 +76,9 @@ public class Damagable : MonoBehaviour
         Debug.Log("Lerped Health Target: " + lerpedHealthTarget);
         if(lerpedHealthTarget != lerpedHealth)
         {
-            lerpedHealth = Mathf.Lerp(lerpedHealth, lerpedHealthTarget, healthLerpSpeed * Time.deltaTime);
+            // when difference is greater, lerp slower, meaning lerp is more even
+            float lerpTimeScalar = Mathf.Abs(lerpedHealth - lerpedHealthTarget);
+            lerpedHealth = Mathf.Lerp(lerpedHealth, lerpedHealthTarget, (healthLerpSpeed / lerpTimeScalar) * Time.deltaTime);
             healthUnderBar.value = lerpedHealth / (float)StartingHealth;
 
             if (Mathf.Abs(lerpedHealth - lerpedHealthTarget) < 0.3)

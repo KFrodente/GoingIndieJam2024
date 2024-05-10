@@ -8,7 +8,7 @@ public class BaseCharacter : MonoBehaviour
     public BaseInput input;
     public BaseMovement movement;
     public Weapon weapon;
-    [SerializeField] protected StatHandler characterStats;
+    [SerializeField] public StatHandler characterStats;
     public Rigidbody2D rb;
     public Damagable damageable;
     public EffectPlayer effector;

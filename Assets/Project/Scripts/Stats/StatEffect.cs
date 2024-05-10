@@ -13,6 +13,17 @@ namespace Stats
         [SerializeField] private float value;
         [SerializeField] private float duration;
 
+        public StatEffect() { }
+
+        public StatEffect(StatType type, OperatorType operation, float value, float duration = -1)
+        {
+            this.type = type;
+            this.operation = operation;
+            this.value = value;
+            this.duration = duration;
+        }
+
+
         private StatModifier statMod = null;
         public StatModifier GetModifier()
         {

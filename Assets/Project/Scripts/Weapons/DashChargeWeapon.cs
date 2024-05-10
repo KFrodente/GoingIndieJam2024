@@ -17,9 +17,17 @@ public class DashChargeWeapon : ChargeWeapon
 	}
 
 	protected bool inDash => Time.time - lastFireTime < weaponData.attackDuration;
-	private void OnTriggerEnter2D(Collider2D other)
+	protected void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.TryGetComponent(out Damagable d) && inDash)
+		{
+			Debug.Log("HURT: " + d.gameObject.name);
+			d.TakeDamage((int)bc.GetStats().Damage);
+		}
+	}
+	protected void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.TryGetComponent(out Damagable d) && inDash)
 		{
 			d.TakeDamage((int)bc.GetStats().Damage);
 		}

@@ -468,14 +468,16 @@ MonoBehaviour:
     delayToNext: 1
     shootAwayFromSelf: 0
     sameDirection: 0
-    withNextPattern: 1
+    spawnWithNextPattern: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 0
+    howshoot: 1
     pointDirection: {x: 1, y: 0}
     delayToNext: 1
     shootAwayFromSelf: 0
     sameDirection: 0
-    withNextPattern: 0
+    spawnWithNextPattern: 0
+    shootWithNextPattern: 0
   projectiles: []
 --- !u!4 &1248129713
 Transform:
@@ -492,11 +494,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2126998130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126998132}
+  - component: {fileID: 2126998131}
+  m_Layer: 0
+  m_Name: SpawnerStuff (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2126998131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126998130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114c05e899443414eb57c0781fd7509b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 867516262}
+  spawnPlacement: {fileID: 2126998132}
+  target: {fileID: 428405402}
+  shoot: 0
+  patterns:
+  - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    howshoot: 2
+    pointDirection: {x: 1, y: 1}
+    delayToNext: 1
+    shootAwayFromSelf: 0
+    sameDirection: 0
+    spawnWithNextPattern: 0
+    shootWithNextPattern: 0
+  - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
+    howshoot: 1
+    pointDirection: {x: 1, y: 0}
+    delayToNext: 1
+    shootAwayFromSelf: 0
+    sameDirection: 0
+    spawnWithNextPattern: 0
+    shootWithNextPattern: 0
+  projectiles: []
+--- !u!4 &2126998132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126998130}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.08, y: 2.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 619794751}
   - {fileID: 1248129713}
+  - {fileID: 2126998132}
   - {fileID: 867516262}
   - {fileID: 428405402}

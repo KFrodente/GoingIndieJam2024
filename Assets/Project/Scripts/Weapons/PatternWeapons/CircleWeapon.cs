@@ -21,7 +21,8 @@ public class CircleWeapon : MonoBehaviour
 		public float delayToNext;
 		public bool shootAwayFromSelf;
 		public bool sameDirection;
-		public bool withNextPattern;
+		public bool spawnWithNextPattern;
+		public bool shootWithNextPattern;
 	}
 
 	[SerializeField] Transform bulletPrefab;
@@ -108,6 +109,11 @@ public class CircleWeapon : MonoBehaviour
 
 				projectiles.Add(newproj);
 
+				if (patterns[i].howshoot == ShootType.ONEBYONEDURINGSPAWN)
+				{
+					StartCoroutine(ShootBullets(i, patterns[i].pattern.shootDelay));
+				}
+
 				if (patterns[i].pattern.totalSpawnTime > 0 || i < amountofbullets - 1)
 				{
 					yield return new WaitForSeconds(patterns[i].pattern.totalSpawnTime / amountofbullets);
@@ -116,7 +122,7 @@ public class CircleWeapon : MonoBehaviour
 
 			float additionalDelay = 0;
 
-			if (i+1 < patterns.Length && patterns[i].withNextPattern)
+			if (i+1 < patterns.Length && patterns[i].shootWithNextPattern)
 			{
 				additionalDelay += patterns[i + 1].pattern.totalSpawnTime + patterns[i+1].pattern.shootDelay;
 			}

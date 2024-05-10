@@ -14,7 +14,7 @@ public class QuickDashWeapon : DurationWeapon
         duration = Time.time;
         c.movement.Freeze(weaponData.attackDuration, weaponData.attackDuration);
         Fire(target.GetDirection(), target.playerTargeting);
-        c.effector?.Play(transform.position - (transform.up * 0.05f));
+        c.effector?.Play(Vector2.zero, weaponData.attackDuration);
         //c.immunity.Gain(duration = 0.15)
         
     }

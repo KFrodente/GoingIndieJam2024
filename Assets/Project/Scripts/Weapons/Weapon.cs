@@ -34,50 +34,19 @@ public class Weapon : MonoBehaviour
     protected virtual void Fire(Vector2 normalizedDirection, bool shotByPlayer)
     {
         float angle = InputUtils.GetAngle(normalizedDirection);
-        ProjectileObject po = GetProjectile();
-        if(po)
-        {
-            Instantiate(po.projectileObject, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(po, shotByPlayer);
-        }
+        Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(shotByPlayer, GetProjectileDamageMult());
         
         lastFireTime = Time.time;
+    }
+
+    protected virtual float GetProjectileDamageMult()
+    {
+        return 1;
     }
 
 
    
     
-    protected ProjectileObject GetProjectile()
-    {
-        ProjectileObject po = null;
-        switch (weaponData.pattern)
-        {
-            case ProjectilePattern.Ordered:
-            {
-                po = weaponData.projectileObject[index];
-                index++;
-                if (index == weaponData.projectileObject.Count) index = 0;
-                break;
-            }
-            case ProjectilePattern.Random:
-            {
-                po = weaponData.projectileObject[Random.Range(0, weaponData.projectileObject.Count - 1)];
-                break;
-            }
-            case ProjectilePattern.Single:
-            {
-                po = weaponData.projectileObject[0];
-                break;
-            }
-            default:
-            {
-                break;
-            }
-        }
-
-        return po;
-
-    }
-
     protected virtual void Start()
     {
         lastFireTime = -weaponData.fireDelay;

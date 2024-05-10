@@ -6,14 +6,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/Projectile")]
 public class ProjectileObject : ScriptableObject
 {
-    public string projectileName;
-    public Projectile projectileObject;
+    [Header("Basics")]
+    public float damage;
+    public float speed;
+    public float lifetime;
+    public int pierceCount;
+    
+    [Header("Hit Effects")]
     public GameObject hitParticle;
     public AudioClip hitSound;
-    public int pierceCount;
-    public int speed;
-    public int damage;
-    public int lifetime;
 
 
 }

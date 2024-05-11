@@ -9,9 +9,4 @@ public class SoulCountUI : MonoBehaviour
     {
         text.text = newCount.ToString();
     }
-
-    private void Start()
-    {
-        text.text = 0.ToString();
-    }
 }

@@ -39,6 +39,8 @@ public class ImagePattern : Pattern
 			}
 		}
 
+		bulletAmount = positions.Count;
+
 		return positions.ToArray();
 	}
 }

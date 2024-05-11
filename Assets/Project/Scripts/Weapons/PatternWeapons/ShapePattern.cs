@@ -32,7 +32,7 @@ public class ShapePattern : Pattern
 			{
 				float currentlinedistance = Vector3.Distance(points[currentpoint], points[currentpoint + 1]);
 
-				positions[i] = Vector3.Lerp(points[currentpoint], points[currentpoint + 1], distanceProgress/ currentlinedistance);
+				positions[i] = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * Vector3.Lerp(points[currentpoint], points[currentpoint + 1], distanceProgress/ currentlinedistance);
 				distanceProgress += neededDistance;
 
 				if (distanceProgress >= currentlinedistance)

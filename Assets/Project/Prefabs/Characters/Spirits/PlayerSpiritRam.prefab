@@ -358,6 +358,8 @@ MonoBehaviour:
   damageable: {fileID: 3828826034767346045}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  SoulsUpdated: {fileID: 11400000, guid: aaabe649a015eea49a6d9feac60fbf5c, type: 2}
+  souls: 0
   turnSpeedUpMultiplier: 2
   turnSpeedUpDuration: 2.13
 --- !u!50 &5162756009189700044
@@ -476,7 +478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHitCounter: 1
   immuneToDamage: 0
-  health: 1
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -495,6 +496,13 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls: []
+  IsEnemy: 1
+  healthOverBar: {fileID: 0}
+  healthUnderBar: {fileID: 0}
+  health: 1
+  healthLerpSpeed: 5
+  damageToTake: 0
+  applyDamage: 0
 --- !u!1 &5663336638202250715
 GameObject:
   m_ObjectHideFlags: 0

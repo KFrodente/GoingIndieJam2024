@@ -13,11 +13,12 @@ public class TreasurePortal : Portal
 
     public override void OnInteract(BaseCharacter character)
     {
+        SpiritCharacter spirit = character as SpiritCharacter;
         if (!paidPrice)
         {
-            if (SpiritCharacter.souls - this.costToEnter >= 0)
+            if (spirit.Souls - this.costToEnter >= 0)
             {
-                SpiritCharacter.souls -= this.costToEnter;
+                spirit.Souls -= this.costToEnter;
                 paidPrice = true;
                 connectedPortal.GetComponentInParent<TreasureRoom>().GenerateSpiritEssence(this.costToEnter);
 
@@ -26,7 +27,7 @@ public class TreasurePortal : Portal
 
         else if(paidPrice)
         {
-            Debug.Log($"Entered with {SpiritCharacter.souls} and paid price is: {paidPrice}");
+            Debug.Log($"Entered with {spirit.Souls} and paid price is: {paidPrice}");
             if (connectedPortal.transform.parent.TryGetComponent(out WalkerGenerator nextRoom))
             {
                 StartCoroutine(nextRoom.SetRoomActive(character, connectedPortal, GetComponentInParent<Room>()));

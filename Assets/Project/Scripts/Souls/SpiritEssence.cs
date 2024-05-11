@@ -15,9 +15,10 @@ public class SpiritEssence : Interactable
 
     public override void OnInteract(BaseCharacter character)
     {
-        if(SpiritCharacter.souls >= soulCost)
+        SpiritCharacter spirit = character as SpiritCharacter;
+        if (spirit.Souls >= soulCost)
         {
-            SpiritCharacter.souls -= soulCost;
+            spirit.Souls -= soulCost;
             base.OnInteract(character);
             StatEffect essenceEffect1;
             StatEffect essenceEffect2;

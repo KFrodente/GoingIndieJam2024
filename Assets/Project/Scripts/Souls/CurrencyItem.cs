@@ -15,11 +15,13 @@ public class CurrencyItem : MonoBehaviour
     [SerializeField] private float pickupableDelay = 0.5f;
 
     private GameObject player;
+    private SpiritCharacter character;
 
     private void Awake()
     {
         rb.AddForce(Random.insideUnitCircle.normalized * 50, ForceMode2D.Force);
-        player = FindObjectOfType<SpiritCharacter>().gameObject;
+        character = FindObjectOfType<SpiritCharacter>();
+        player = character.gameObject;
         StartCoroutine(PickupableTimer());
     }
 
@@ -42,7 +44,7 @@ public class CurrencyItem : MonoBehaviour
         if (pickupable && collision.gameObject.TryGetComponent(out Damagable damageable) && !damageable.IsEnemy)
         {
             // add currency based on a local value?
-            SpiritCharacter.souls += soulValue;
+            character.Souls += soulValue;
             // remove from world
             Destroy(gameObject);
         }

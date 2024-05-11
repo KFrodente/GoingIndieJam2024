@@ -5,5 +5,21 @@ using UnityEngine.Events;
 
 public class SpiritCharacter : BaseCharacter
 {
-    public static int souls = 0;
+    [SerializeField] IntEvent SoulsUpdated = default;
+
+    public int souls = 0;
+
+    public int Souls
+    {
+        get { return souls; }
+        set { 
+            souls = value;
+            SoulsUpdated.RaiseEvent(value);
+        }
+    }
+
+    private void Awake()
+    {
+        SoulsUpdated.RaiseEvent(0);
+    }
 }

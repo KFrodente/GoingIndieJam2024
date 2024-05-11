@@ -855,7 +855,7 @@ MonoBehaviour:
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
-  baseCharacter: {fileID: 0}
+  baseCharacter: {fileID: 978496743684557187}
   damageAudioPlayer: {fileID: 0}
   dispenser: {fileID: 0}
   healthOverBar: {fileID: 8611961866157389650}
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e01065b4393a4697c206eb3f7d436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 99aefc25af68aff4eb727e2851038e07, type: 2}
 --- !u!1 &8846246201720946734
 GameObject:
   m_ObjectHideFlags: 0

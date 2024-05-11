@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class EnemyInput : BaseInput
 {
-    public static Transform playerCharacter;
     public override Vector2 GetNormalizedMoveDirection()
     {
-        if (playerCharacter == null) return Vector2.zero;
-        return (playerCharacter.position - transform.position).normalized;
+        if (BaseCharacter.playerCharacter.transform == null) return Vector2.zero;
+        return (BaseCharacter.playerCharacter.transform.position - transform.position).normalized;
     }
     public override MouseInputData GetMouseInput()
     {
@@ -23,9 +22,9 @@ public class EnemyInput : BaseInput
         };
     }
 
-    public override Transform GetInputTarget()
+    public override Target GetInputTarget()
     {
-        if (playerCharacter != null) return playerCharacter;
+        if (BaseCharacter.playerCharacter.transform != null) return new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform.position, false);
         return null;
     }
 }

@@ -22,10 +22,12 @@ public class Projectile : MonoBehaviour
      
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out Damagable d) && d.IsEnemy == shotByPlayer)
+        if (other.TryGetComponent(out Damagable d) && d.IsPlayer != shotByPlayer)
         {
             d.TakeDamage((int)(projectileData.damage * dMult));
             hits++;
+            if(projectileData.hitSound) AudioManager.instance.Play(projectileData.hitSound);
+            if(projectileData.hitParticle) Instantiate(projectileData.hitParticle, transform.position, Quaternion.identity);
             if(hits > projectileData.pierceCount) Destroy(this.gameObject);
         }
     }

@@ -7,7 +7,7 @@ public class CorvidSpiritCharacter : SpiritCharacter
     protected override void Update()
     {
         movement.ChangeAngle(input.GetNormalizedMoveDirection());
-        if(input.GetMouseInput().leftDown) Attack(new Target(true, null, transform.position, true));
+        if(input.GetMouseInput().leftDown) Attack(input.GetInputTarget());
     }
 
     protected override void FixedUpdate()

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
+    public static BaseCharacter playerCharacter;
     public BaseInput input;
     public BaseMovement movement;
     public Weapon weapon;
@@ -12,7 +13,7 @@ public class BaseCharacter : MonoBehaviour
     public Rigidbody2D rb;
     public Damagable damageable;
     public EffectPlayer effector;
-    public SpiritCharacter possessingSpirit;
+    [HideInInspector] public SpiritCharacter possessingSpirit;
 
     public virtual Stats.Stats GetStats()
     {
@@ -37,19 +38,13 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(input.GetMouseInput().leftDown) Attack(new Target(input.GetInputType(), input.GetInputTarget(), transform.position, input.GetInputType()));
+        if(input.GetMouseInput().leftDown) Attack(input.GetInputTarget());
+        if(input.GetMouseInput().leftUp) weapon.EndAttack();
     }
 
     protected virtual void FixedUpdate()
     {
         Vector2 moveDirection = input.GetNormalizedMoveDirection();
         if(moveDirection != Vector2.zero) Reposition(moveDirection);
-    }
-
-    public virtual void BecomeUnpossessed()
-    {
-        if (possessingSpirit == null) return;
-        possessingSpirit.transform.SetParent(null);
-        possessingSpirit.gameObject.SetActive(true);
     }
 }

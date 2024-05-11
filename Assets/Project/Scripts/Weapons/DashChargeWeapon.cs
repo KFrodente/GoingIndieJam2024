@@ -19,15 +19,14 @@ public class DashChargeWeapon : ChargeWeapon
 	protected bool inDash => Time.time - lastFireTime < weaponData.attackDuration;
 	protected void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.TryGetComponent(out Damagable d) && inDash)
+		if (other.TryGetComponent(out Damagable d) && inDash && d.IsPlayer != savedTarget.shotByPlayer)
 		{
-			Debug.Log("HURT: " + d.gameObject.name);
 			d.TakeDamage((int)bc.GetStats().Damage);
 		}
 	}
 	protected void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.TryGetComponent(out Damagable d) && inDash)
+		if (other.gameObject.TryGetComponent(out Damagable d) && inDash && d.IsPlayer != savedTarget.shotByPlayer)
 		{
 			d.TakeDamage((int)bc.GetStats().Damage);
 		}
@@ -35,7 +34,6 @@ public class DashChargeWeapon : ChargeWeapon
 
 	public override void StartAttack(Target target, BaseCharacter c)
 	{
-		Debug.Log("ATTACK " + !delayOver + " " + !isCancelOver + " AttackSPeed: " + bc.GetStats().AttackSpeed);
 		if (!delayOver || !isCancelOver) return;
 		base.StartAttack(target, c);
 		float rotationFreezeMultiplier = 2; // Find proper value
@@ -55,10 +53,10 @@ public class DashChargeWeapon : ChargeWeapon
 
 	}
 
-	protected override void Fire(Vector2 normalizedDirection, bool shotByPlayer)
+	protected override void Fire(Target target)
 	{
-		bc.movement.Move(normalizedDirection, bc.GetStats().ChargeSpeed, ForceMode2D.Impulse, bc, true);
-		bc.damageable.StartImmunity(weaponData.attackDuration);
+		bc.movement.Move(target.GetDirection(), bc.GetStats().ChargeSpeed, ForceMode2D.Impulse, bc, true);
+		bc.damageable.GainImmunity(weaponData.attackDuration);
 		lastFireTime = Time.time;
 	}
 	

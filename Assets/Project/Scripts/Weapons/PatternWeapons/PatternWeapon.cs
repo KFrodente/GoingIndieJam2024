@@ -94,7 +94,7 @@ public class PatternWeapon : Projectile
 
 	private void Start()
 	{
-		target = EnemyInput.playerCharacter;
+		target = BaseCharacter.playerCharacter.transform;
 		for (int i = 0; i < patterns.Length; i++)
 		{
 			if (patterns[i].spawnPlacement == null)

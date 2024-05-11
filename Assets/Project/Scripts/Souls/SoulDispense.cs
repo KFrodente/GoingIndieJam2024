@@ -7,7 +7,7 @@ public class SoulDispense : MonoBehaviour
 {
     [SerializeField, MinMaxSlider(0, 10)] private Vector2Int amountRange;
     [SerializeField] private GameObject soulPrefab;
-    public void Dispense(Damagable d)
+    public void Dispense()
     {
         int amount = Random.Range(amountRange.x, amountRange.y);
         for (int i = 0; i < amount; i++)

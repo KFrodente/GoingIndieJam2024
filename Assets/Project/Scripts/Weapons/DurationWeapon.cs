@@ -12,7 +12,7 @@ public class DurationWeapon : Weapon
     {
         if (!delayOver) return;
         bc = c;
-        Fire(target.GetDirection(), target.playerTargeting);
+        Fire(target);
         duration = Time.time;
     }
 

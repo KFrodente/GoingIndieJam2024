@@ -147,16 +147,16 @@ namespace Stats
             baseStats = _baseStats;
         }
 
-        public Stats(float v1, float v2, float v3, float v4, float v5, float v6, float v7)
+        public Stats(float dam, float msd, float csd, float tsd, float ar, float asd, float ctsd)
         {
             baseStats = new BaseStats();
-            baseStats.damage = v1;
-            baseStats.moveSpeed = v2;
-            baseStats.chargeSpeed = v3;
-            baseStats.turnSpeed = v4;
-            baseStats.attackRange = v5;
-            baseStats.attackSpeed = v6;
-            baseStats.chargeSpeed = v7;
+            baseStats.damage = dam;
+            baseStats.moveSpeed = msd;
+            baseStats.chargeSpeed = csd;
+            baseStats.turnSpeed = tsd;
+            baseStats.attackRange = ar;
+            baseStats.attackSpeed = asd;
+            baseStats.chargeTurnSpeed = ctsd;
         }
     }
     

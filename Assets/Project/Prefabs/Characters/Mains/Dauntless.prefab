@@ -191,6 +191,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4510b0c1c07e694fb6ae67586bc3c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1715143754343381613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372574595221048187}
+  - component: {fileID: 8396880059668850677}
+  m_Layer: 0
+  m_Name: DamageAudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &372574595221048187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715143754343381613}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3291969302707819341}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8396880059668850677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715143754343381613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
+  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
 --- !u!1 &2590820807901892543
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 372574595221048187}
   - {fileID: 595349141803156311}
   - {fileID: 8875256311085480187}
   - {fileID: 5281480690155489460}
@@ -469,45 +516,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHitCounter: 0
-  immuneToDamage: 0
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2794633283095092903}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6140970955457626448}
-        m_TargetAssemblyTypeName: BaseCharacter, Assembly-CSharp
-        m_MethodName: BecomeUnpossessed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnHit:
-    m_PersistentCalls:
-      m_Calls: []
-  IsEnemy: 1
-  healthOverBar: {fileID: 0}
-  healthUnderBar: {fileID: 0}
   health: 100
+  isHitCounter: 0
+  alwaysImmune: 0
+  isSpirit: 0
+  baseCharacter: {fileID: 6140970955457626448}
+  damageAudioPlayer: {fileID: 8396880059668850677}
+  dispenser: {fileID: 368804316106668470}
+  healthOverBar: {fileID: 565769821018024379}
+  healthUnderBar: {fileID: 333343010270737726}
   healthLerpSpeed: 5
-  damageToTake: 0
-  applyDamage: 0
+  testDamageAmount: 5
 --- !u!1 &3679387651407964728
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +990,6 @@ MonoBehaviour:
   playerInput: {fileID: 4722190043284422819}
   unitBase: {fileID: 6140970955457626448}
   interactor: {fileID: 9183719020522926096}
-  damagable: {fileID: 7225132558245157515}
 --- !u!1 &7986263515144964238
 GameObject:
   m_ObjectHideFlags: 0

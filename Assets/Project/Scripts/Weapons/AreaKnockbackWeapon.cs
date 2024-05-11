@@ -6,13 +6,11 @@ public class AreaKnockbackWeapon : Weapon
 {
     
     
-    protected override void Fire(Vector2 normalizedDirection, bool shotByPlayer)
+    protected override void Fire(Target target)
     {
-        Debug.Log("FIRED");
         Collider2D[] characterInRange = Physics2D.OverlapCircleAll(transform.position, bc.GetStats().AttackRange, LayerMask.GetMask("Character"));
         foreach (Collider2D character in characterInRange)
         {
-            Debug.Log("Character: " + character.name);
             if(character.transform.Equals(transform)) continue;
             if (character.TryGetComponent(out Damagable d))
             {

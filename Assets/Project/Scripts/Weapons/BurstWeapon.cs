@@ -17,7 +17,7 @@ public class BurstWeapon : AutoFireWeapon
             if (IsAutoFireDelayOver())
             {
                 shotCount--;
-                Fire(savedTarget.GetDirection(), savedTarget.playerTargeting);
+                Fire(savedTarget);
             }
         }
         else

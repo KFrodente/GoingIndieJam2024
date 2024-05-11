@@ -7,8 +7,10 @@ public class AutoFireWeapon : Weapon
     
     public override void StartAttack(Target target, BaseCharacter c)
     {
+        savedTarget = target;
         if (!delayOver) return;
         attacking = true;
+        bc = c;
     }
     public override void EndAttack()
     {
@@ -18,7 +20,8 @@ public class AutoFireWeapon : Weapon
     {
         if (attacking && IsAutoFireDelayOver())
         {
-            Fire(savedTarget.GetDirection(), savedTarget.playerTargeting);
+            Fire(savedTarget);
+            lastAutoFireTime = Time.time;
         }
     }
 

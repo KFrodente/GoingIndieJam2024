@@ -12,6 +12,6 @@ public class StarterCharacter : MonoBehaviour
     private void Start()
     {
         possessable.OnInteract(spirit);
-        EnemyInput.playerCharacter = spirit.transform;
+        BaseCharacter.playerCharacter = spirit;
     }
 }

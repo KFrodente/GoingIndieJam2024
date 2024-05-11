@@ -8,7 +8,7 @@ public class DauntlessCharacter : BaseCharacter
     {
         if (input.GetMouseInput().leftDown)
         {
-            Attack(new Target(true, null, transform.position, true));
+            Attack(input.GetInputTarget());
         }
         if(input.GetMouseInput().leftUp) weapon.EndAttack();
     }

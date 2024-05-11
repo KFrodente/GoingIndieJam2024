@@ -65,7 +65,6 @@ public class BaseMovement : MonoBehaviour
     }
     public virtual void AngleTowardTargetAngle(float speed, BaseCharacter c)
     {
-        Debug.Log("Angle: " + targetAngle);
         transform.rotation = Quaternion.Euler(0, 0,Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetAngle, Time.deltaTime * speed));
     }
 

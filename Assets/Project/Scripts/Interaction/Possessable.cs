@@ -9,7 +9,6 @@ public class Possessable : Interactable
     [SerializeField] protected BaseInput playerInput;
     [SerializeField] protected BaseCharacter unitBase;
     [SerializeField] protected Interactor interactor;
-    [SerializeField] protected Damagable damagable;
     public override void OnInteract(BaseCharacter character)
     {
         if (character is SpiritCharacter)
@@ -21,11 +20,11 @@ public class Possessable : Interactable
 
     protected void SetPossession(SpiritCharacter c)
     {
+        unitBase.weapon.EndAttack();
         c.transform.SetParent(transform);
         c.transform.localPosition = Vector3.zero;
         c.gameObject.SetActive(false);
         unitBase.possessingSpirit = c;
-        damagable.IsEnemy = false;
     }
     protected void SwapInputs()
     {

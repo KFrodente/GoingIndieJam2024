@@ -29,8 +29,7 @@ public class ChargeWeapon : Weapon
 		if(charging && isChargingOver)
 		{
 			charging = false;
-			Debug.Log("FIRE");
-			Fire(savedTarget.GetDirection(), savedTarget.playerTargeting);
+			Fire(savedTarget);
 		}
 	}
 	

@@ -15,7 +15,7 @@ public class DauntlessSpiritCharacter : SpiritCharacter
             movement.ChangeAngle(Vector2.zero);
             transitionStartTime = Time.time;
         }
-        if(input.GetMouseInput().leftDown) Attack(new Target(true, null, transform.position, true));
+        if(input.GetMouseInput().leftDown) Attack(input.GetInputTarget());
         if(input.GetMouseInput().leftUp) weapon.EndAttack();
         if(isInFastTurn) movement.AngleTowardTargetAngle(turnSpeedUpMultiplier, this);
     }

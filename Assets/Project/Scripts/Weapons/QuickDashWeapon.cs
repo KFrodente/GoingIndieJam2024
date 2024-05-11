@@ -13,15 +13,15 @@ public class QuickDashWeapon : DurationWeapon
         bc = c;
         duration = Time.time;
         c.movement.Freeze(weaponData.attackDuration, weaponData.attackDuration);
-        Fire(target.GetDirection(), target.playerTargeting);
+        Fire(target);
         c.effector?.Play(Vector2.zero, weaponData.attackDuration);
         //c.immunity.Gain(duration = 0.15)
         
     }
-    protected override void Fire(Vector2 normalizedDirection, bool shotByPlayer)
+    protected override void Fire(Target target)
     {
         bc.movement.Move(transform.up, bc.GetStats().ChargeSpeed, ForceMode2D.Impulse, bc, true);
-        bc.damageable.StartImmunity(weaponData.attackDuration);
+        bc.damageable.GainImmunity(weaponData.attackDuration);
         lastFireTime = Time.time;
     }
     

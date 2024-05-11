@@ -14,20 +14,12 @@ public abstract class BaseInput : MonoBehaviour
     {
         return new MouseInputData();
     }
+    
 
-    public virtual bool GetInputType()
-    {
-        return false;
-    }
-
-    public virtual Transform GetInputTarget()
+    public virtual Target GetInputTarget()
     {
         return null;
         
     }
 
-    protected virtual void Update()
-    {
-        
-    }
 }

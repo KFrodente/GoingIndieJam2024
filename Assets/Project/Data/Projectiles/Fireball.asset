@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea365f37b239ee4c92941a90fe0117d, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  projectileName: Fireball
-  projectileObject: {fileID: 8967351094168391729, guid: b5c5ceed12072bc4ba5e165b5146c48d, type: 3}
-  hitParticle: {fileID: 0}
-  hitSound: {fileID: 0}
-  pierceCount: 0
-  speed: 10
   damage: 1
+  speed: 10
+  lifetime: 0
+  pierceCount: 0
+  hitParticle: {fileID: 6537183467329547177, guid: 2bc5af0c838f55d4cbb272bd3f4b0d16, type: 3}
+  hitSound: {fileID: 8300000, guid: 492e30aac024688409d4ae60debe4f3d, type: 3}

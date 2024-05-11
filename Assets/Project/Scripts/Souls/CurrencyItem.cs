@@ -19,8 +19,9 @@ public class CurrencyItem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 direction = EnemyInput.playerCharacter.position - transform.position;
+        Vector2 direction = BaseCharacter.playerCharacter.transform.position - transform.position;
         float distance = (direction).magnitude;
+        if(distance == 0) return;
         float force = maxAttractionForce / distance;
         if(distance < maxAttractionDistance)
         {
@@ -30,7 +31,7 @@ public class CurrencyItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Damagable damageable) && !damageable.IsEnemy)
+        if (collision.gameObject.TryGetComponent(out Damagable damageable) && damageable.IsPlayer)
         {
             // add currency based on a local value?
             SpiritCharacter.souls += soulValue;

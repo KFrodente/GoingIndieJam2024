@@ -41,7 +41,7 @@ public class CurrencyItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (pickupable && collision.gameObject.TryGetComponent(out Damagable damageable) && !damageable.IsEnemy)
+        if (pickupable && collision.gameObject.TryGetComponent(out Damagable damageable) && damageable.IsPlayer)
         {
             // add currency based on a local value?
             character.Souls += soulValue;

@@ -110,7 +110,8 @@ PrefabInstance:
       value: Corvid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 138587334495986242, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}

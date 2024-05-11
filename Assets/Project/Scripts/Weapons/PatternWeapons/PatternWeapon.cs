@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PatternWeapon : Projectile
 {
@@ -20,13 +21,13 @@ public class PatternWeapon : Projectile
 		/// </summary>
 		public Pattern pattern;
 		/// <summary>
-		/// How the pattern shoots out
+		/// How the pattern shoots out<br/>
+		///		Overrides:<br/>
+		///		ONEBYONEDURINGSPAWN -> shootWithNextPattern
 		/// </summary>
 		public ShootType howshoot;
 		/// <summary>
-		/// The direction that the spawning originates from<br/>
-		///		Overrides:<br/>
-		///		ONEBYONEDURINGSPAWN -> shootWithNextPattern
+		/// The direction that the spawning originates from
 		/// </summary>
 		public Vector2 pointDirection;
 		/// <summary>
@@ -184,9 +185,9 @@ public class PatternWeapon : Projectile
 					StartCoroutine(ShootBullets(i, patterns[i].pattern.shootDelay));
 				}
 
-				if (patterns[i].pattern.totalSpawnTime > 0 || i < positions.Length - 1)
+				if (patterns[i].pattern.totalSpawnTime > 0 && i < positions.Length - 1)
 				{
-					yield return new WaitForSeconds(patterns[i].pattern.totalSpawnTime / positions.Length);
+					yield return new WaitForSeconds(Mathf.Max(patterns[i].pattern.totalSpawnTime / positions.Length, Time.deltaTime));
 				}
 			}
 
@@ -240,7 +241,7 @@ public class PatternWeapon : Projectile
 			{
 				if (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN)
 				{
-					yield return new WaitForSeconds(patterns[patternnumber].pattern.shootDelay);
+					yield return new WaitForSeconds(Mathf.Max(patterns[patternnumber].pattern.shootDelay, Time.deltaTime));
 				}
 				// this is the place where the projectiles will actually be shot
 

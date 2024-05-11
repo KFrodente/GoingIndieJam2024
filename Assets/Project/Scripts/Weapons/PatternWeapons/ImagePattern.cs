@@ -7,7 +7,11 @@ public class ImagePattern : Pattern
 {
 	[Header("Image")]
 	[SerializeField] Texture2D image;
-	[SerializeField] Vector2 scale;
+	[SerializeField] Vector2 inverseScale;
+	[SerializeField] Vector2 offset;
+
+	[SerializeField] bool topToDown;
+	[SerializeField] bool rightToLeft;
 
 	public override Vector3[] SpawnBullets(Vector3 direction)
 	{
@@ -17,10 +21,20 @@ public class ImagePattern : Pattern
 		{
 			for (int x = 0; x < image.width; x++)
 			{
-				if (image.GetPixel(x, y) == Color.black)
+				int xtoadd = x;
+				int ytoadd = y;
+
+				if (rightToLeft) { xtoadd = image.width - x - 1; }
+				if ( topToDown) { ytoadd = image.height - y - 1; }
+
+				if (image.GetPixel(xtoadd, ytoadd) == Color.black)
 				{
-					Vector3 toadd = new Vector3((x * scale.x) - (image.width * scale.x / 2), (y * scale.y) - (image.height * scale.y / 2));
-					positions.Add(toadd);
+					float xforvec = (xtoadd * 1 / inverseScale.x) - (image.width * (1 / inverseScale.x) / 2);
+					float yforvec = (ytoadd * 1 / inverseScale.y) - (image.height * (1 / inverseScale.y) / 2);
+
+					Vector3 vectoadd = new Vector3(xforvec + offset.x, yforvec + offset.y);
+					vectoadd = Quaternion.Euler(0,0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * vectoadd;
+					positions.Add(vectoadd);
 				}
 			}
 		}

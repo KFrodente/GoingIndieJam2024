@@ -39,19 +39,9 @@ public class TreasureRoom : Room
     {
         for (int i = 0; i < SELocations.Count; i++)
         {
-            Instantiate(GetSpiritEssence(roomCost), SELocations[i].position, transform.rotation);
+            GameObject essence = Instantiate(SpiritEssenceHolder.instance.GetSpiritEssence(roomCost * FloorGenerator.instance.floorNum), SELocations[i].position, transform.rotation);
+            essence.GetComponent<SpiritEssence>().soulCost = 0;
+            
         }
-    }
-
-    private GameObject GetSpiritEssence(int roomCost)
-    {
-        float addedChance = roomCost / (float)10;
-        float chance = Random.Range(0.0f, 100.0f);
-
-        if (chance <= 1 + addedChance) return SpiritEssenceHolder.instance.GetSSRankEssence();
-        else if (chance <= 5 + addedChance) return SpiritEssenceHolder.instance.GetSRankEssence();
-        else if (chance <= 15 + addedChance) return SpiritEssenceHolder.instance.GetARankEssence();
-        else if (chance <= 30 + addedChance) return SpiritEssenceHolder.instance.GetBRankEssence();
-        else return SpiritEssenceHolder.instance.GetCRankEssence();
     }
 }

@@ -22,6 +22,18 @@ public class SpiritEssenceHolder : MonoBehaviour
         instance = this;
     }
 
+    public GameObject GetSpiritEssence(int roomCost)
+    {
+        float addedChance = roomCost / (float)10;
+        float chance = Random.Range(0.0f, 100.0f);
+
+        if (chance <= 1 + addedChance) return GetSSRankEssence();
+        else if (chance <= 5 + addedChance) return GetSRankEssence();
+        else if (chance <= 15 + addedChance) return GetARankEssence();
+        else if (chance <= 30 + addedChance) return GetBRankEssence();
+        else return GetCRankEssence();
+    }
+
     public GameObject GetSSRankEssence()
     {
         return SSRankEssence[Random.Range(0, SSRankEssence.Count)];

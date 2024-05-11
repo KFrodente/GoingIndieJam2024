@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cceba3421c424d4caa669b9c4da0f2b, type: 3}
   m_Name: SteeringEssence
   m_EditorClassIdentifier: 
-  essenceName: 
-  soulCost: 0
-  tier: 0
-  statType1: 0
+  essenceName: Steering
+  soulCost: 15
+  tier: 3
+  statType1: 4
   operatorType1: 0
-  Value1: 0
+  Value1: 10
   statType2: 0
   operatorType2: 0
   Value2: 0

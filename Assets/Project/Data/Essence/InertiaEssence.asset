@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cceba3421c424d4caa669b9c4da0f2b, type: 3}
   m_Name: InertiaEssence
   m_EditorClassIdentifier: 
-  essenceName: 
-  soulCost: 0
-  tier: 0
-  statType1: 0
+  essenceName: Inertia
+  soulCost: 60
+  tier: 1
+  statType1: 1
   operatorType1: 0
-  Value1: 0
-  statType2: 0
+  Value1: 20
+  statType2: 2
   operatorType2: 0
-  Value2: 0
-  statType3: 0
+  Value2: 20
+  statType3: 3
   operatorType3: 0
-  Value3: 0
+  Value3: 20

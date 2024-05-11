@@ -94,7 +94,6 @@ public class PatternWeapon : Projectile
 
 	private void Start()
 	{
-		target = BaseCharacter.playerCharacter.transform;
 		for (int i = 0; i < patterns.Length; i++)
 		{
 			if (patterns[i].spawnPlacement == null)
@@ -103,6 +102,7 @@ public class PatternWeapon : Projectile
 			}
 			patterns[i].pointDirection = patterns[i].pointDirection.normalized;
 		}
+		target = BaseCharacter.playerCharacter.transform;
 	}
 
 	public void Shoot()

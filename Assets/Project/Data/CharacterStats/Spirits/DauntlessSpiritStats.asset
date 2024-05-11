@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: DauntlessSpiritStats
   m_EditorClassIdentifier: 
   damage: 100
-  defense: 0
   moveSpeed: 20
   chargeSpeed: 20
-  maxMoveSpeed: 5
   turnSpeed: 50
-  range: 30
+  attackRange: 0
+  attackSpeed: 0
+  chargeTurnSpeed: 2.53
+  damageMult: 0
+  moveSpeedMult: 0
+  chargeSpeedMult: 0
+  turnSpeedMult: 0
+  attackRangeMult: 0
+  attackSpeedMult: 0
+  healthMult: 0
+  chargeTurnSpeedMult: 0

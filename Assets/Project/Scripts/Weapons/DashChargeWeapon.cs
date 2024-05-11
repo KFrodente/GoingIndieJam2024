@@ -11,7 +11,7 @@ public class DashChargeWeapon : ChargeWeapon
 		if(charging && affectRotation)
 		{
 			bc.movement.SetTargetAngle(savedTarget.GetDirection(), true);
-			bc.movement.AngleTowardTargetAngle(bc.GetStats().TurnSpeed, bc);
+			bc.movement.AngleTowardTargetAngle(bc.GetStats().ChargeTurnSpeed, bc);
 			// Slow down current movement code
 		}
 	}

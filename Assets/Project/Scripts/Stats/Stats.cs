@@ -10,7 +10,7 @@ namespace Stats
 
         public Stats MultiplyModifier(Stats other)
         {
-            return new Stats(this.Damage * other.Mult_Damage, this.MoveSpeed * other.Mult_MoveSpeed, this.ChargeSpeed * other.Mult_ChargeSpeed, this.TurnSpeed * other.Mult_TurnSpeed, this.AttackRange * other.Mult_Range, this.AttackSpeed * other.Mult_AttackSpeed);
+            return new Stats(this.Damage * other.Mult_Damage, this.MoveSpeed * other.Mult_MoveSpeed, this.ChargeSpeed * other.Mult_ChargeSpeed, this.TurnSpeed * other.Mult_TurnSpeed, this.AttackRange * other.Mult_Range, this.AttackSpeed * other.Mult_AttackSpeed, this.ChargeTurnSpeed * other.Mult_ChargeTurnSpeed);
         }
 
         public float Damage
@@ -36,6 +36,15 @@ namespace Stats
             get
             {
                 var q = new Query(StatType.ChargeSpeed, baseStats.chargeSpeed);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
+        public float ChargeTurnSpeed
+        {
+            get
+            {
+                var q = new Query(StatType.ChargeTurnSpeed, baseStats.chargeTurnSpeed);
                 mediator.PerformQuery(this, q);
                 return q.value;
             }
@@ -122,6 +131,15 @@ namespace Stats
                 return q.value;
             }
         }
+        public float Mult_ChargeTurnSpeed
+        {
+            get
+            {
+                var q = new Query(StatType.Mult_ChargeTurnSpeed, baseStats.chargeTurnSpeedMult);
+                mediator.PerformQuery(this, q);
+                return q.value;
+            }
+        }
 
         public Stats(StatMediator _mediator, BaseStats _baseStats)
         {
@@ -129,7 +147,7 @@ namespace Stats
             baseStats = _baseStats;
         }
 
-        public Stats(float v1, float v2, float v3, float v4, float v5, float v6)
+        public Stats(float v1, float v2, float v3, float v4, float v5, float v6, float v7)
         {
             baseStats = new BaseStats();
             baseStats.damage = v1;
@@ -138,6 +156,7 @@ namespace Stats
             baseStats.turnSpeed = v4;
             baseStats.attackRange = v5;
             baseStats.attackSpeed = v6;
+            baseStats.chargeSpeed = v7;
         }
     }
     

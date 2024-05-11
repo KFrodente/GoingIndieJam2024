@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatternWeapon : MonoBehaviour
+public class PatternWeapon : Projectile
 {
 	enum ShootType
 	{
@@ -94,6 +94,7 @@ public class PatternWeapon : MonoBehaviour
 
 	private void Start()
 	{
+		target = EnemyInput.playerCharacter;
 		for (int i = 0; i < patterns.Length; i++)
 		{
 			if (patterns[i].spawnPlacement == null)
@@ -226,7 +227,10 @@ public class PatternWeapon : MonoBehaviour
 		List<Transform> toshootprojs = new List<Transform>();
 		foreach (var proj in patterns[patternnumber].projectiles)
 		{
-			toshootprojs.Add(proj.transform);
+			if (proj != null)
+			{
+				toshootprojs.Add(proj.transform);	
+			}
 		}
 		patterns[patternnumber].projectiles.Clear();
 

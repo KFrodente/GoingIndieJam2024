@@ -476,7 +476,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHitCounter: 1
   immuneToDamage: 0
-  health: 1
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -495,6 +494,13 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls: []
+  IsEnemy: 1
+  healthOverBar: {fileID: 0}
+  healthUnderBar: {fileID: 0}
+  health: 1
+  healthLerpSpeed: 5
+  damageToTake: 0
+  applyDamage: 0
 --- !u!1 &5663336638202250715
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +699,7 @@ MonoBehaviour:
         m_MethodName: Interact
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 703090160788766598}
           m_ObjectArgumentAssemblyTypeName: BaseCharacter, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -702,7 +708,19 @@ MonoBehaviour:
         m_CallState: 2
   OnKeyReleased:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2422476463686387018}
+        m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
+        m_MethodName: StopInteract
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 703090160788766598}
+          m_ObjectArgumentAssemblyTypeName: BaseCharacter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2422476463686387018
 MonoBehaviour:
   m_ObjectHideFlags: 0

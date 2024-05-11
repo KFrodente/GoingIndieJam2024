@@ -13,6 +13,7 @@ public class BaseStats : ScriptableObject
     public float turnSpeed;
     public float attackRange;
     public float attackSpeed;
+    public float chargeTurnSpeed;
 
     [Header("Modifier Stats")]
     public float damageMult;
@@ -22,8 +23,8 @@ public class BaseStats : ScriptableObject
     public float attackRangeMult;
     public float attackSpeedMult;
     public float healthMult;
+    public float chargeTurnSpeedMult;
 
-    
 }
 
 namespace Stats
@@ -38,6 +39,7 @@ namespace Stats
         TurnSpeed,
         AttackRange,
         AttackSpeed,
+        ChargeTurnSpeed,
         
         
         Mult_Damage,
@@ -46,6 +48,7 @@ namespace Stats
         Mult_TurnSpeed,
         Mult_AttackRange,
         Mult_AttackSpeed,
-        Mult_Health
+        Mult_Health,
+        Mult_ChargeTurnSpeed
     }
 }

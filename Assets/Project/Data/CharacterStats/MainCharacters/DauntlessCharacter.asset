@@ -13,18 +13,17 @@ MonoBehaviour:
   m_Name: DauntlessCharacter
   m_EditorClassIdentifier: 
   damage: 100
-  defense: 0
   moveSpeed: 10
   chargeSpeed: 20
-  maxMoveSpeed: 5
   turnSpeed: 100
+  attackRange: 0
   attackSpeed: 1
-  range: 0
+  chargeTurnSpeed: 1
   damageMult: 0
-  defenceMult: 0
   moveSpeedMult: 0
   chargeSpeedMult: 0
-  maxMoveSpeedMult: 0
   turnSpeedMult: 0
-  rangeMult: 0
+  attackRangeMult: 0
   attackSpeedMult: 0
+  healthMult: 0
+  chargeTurnSpeedMult: 0

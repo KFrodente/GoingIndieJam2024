@@ -11,32 +11,48 @@ public class CurrencyItem : MonoBehaviour
     [SerializeField] private float maxAttractionForce = 100;
     [SerializeField] private float maxAttractionDistance = 30;
 
+    private bool pickupable = false;
+    [SerializeField] private float pickupableDelay = 0.5f;
+
+    private GameObject player;
+    private SpiritCharacter character;
 
     private void Awake()
     {
-        rb.AddForce(Random.insideUnitCircle.normalized * 10, ForceMode2D.Force);
+        rb.AddForce(Random.insideUnitCircle.normalized * 50, ForceMode2D.Force);
+        character = FindObjectOfType<SpiritCharacter>();
+        player = character.gameObject;
+        StartCoroutine(PickupableTimer());
     }
 
     private void FixedUpdate()
     {
-        Vector2 direction = BaseCharacter.playerCharacter.transform.position - transform.position;
-        float distance = (direction).magnitude;
-        if(distance == 0) return;
-        float force = maxAttractionForce / distance;
-        if(distance < maxAttractionDistance)
+        if(pickupable)
         {
-            rb.AddForce(direction.normalized * force, ForceMode2D.Force);
+            Vector2 direction = player.transform.position - transform.position;
+            float distance = (direction).magnitude;
+            float force = maxAttractionForce / distance;
+            if(distance < maxAttractionDistance)
+            {
+                rb.AddForce(direction.normalized * force, ForceMode2D.Force);
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Damagable damageable) && damageable.IsPlayer)
+        if (pickupable && collision.gameObject.TryGetComponent(out Damagable damageable) && !damageable.IsEnemy)
         {
             // add currency based on a local value?
-            SpiritCharacter.souls += soulValue;
+            character.Souls += soulValue;
             // remove from world
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator PickupableTimer()
+    {
+        yield return new WaitForSeconds(pickupableDelay);
+        pickupable = true;
     }
 }

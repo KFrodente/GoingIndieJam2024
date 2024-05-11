@@ -5,33 +5,39 @@ using UnityEngine;
 [Tooltip("Just a test script to add money. DO NOT USE")]
 public class MoneyAdder : MonoBehaviour
 {
+    SpiritCharacter character;
+    private void Start()
+    {
+        character = FindFirstObjectByType<SpiritCharacter>();
+    }
+
     [ContextMenu(nameof(Add10Money))]
     public void Add10Money()
     {
-        SpiritCharacter.souls += 10;
+        character.Souls += 10;
     }
 
     [ContextMenu(nameof(Add20Money))]
     public void Add20Money()
     {
-        SpiritCharacter.souls += 20;
+        character.Souls += 20;
     }
 
     [ContextMenu(nameof(Add30Money))]
     public void Add30Money()
     {
-        SpiritCharacter.souls += 30;
+        character.Souls += 30;
     }
 
     [ContextMenu(nameof(Add40Money))]
     public void Add40Money()
     {
-        SpiritCharacter.souls += 40;
+        character.Souls += 40;
     }
 
     [ContextMenu(nameof(Add50Money))]
     public void Add50Money()
     {
-        SpiritCharacter.souls += 50;
+        character.Souls += 50;
     }
 }

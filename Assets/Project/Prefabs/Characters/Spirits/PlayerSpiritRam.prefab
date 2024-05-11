@@ -405,6 +405,8 @@ MonoBehaviour:
   damageable: {fileID: 3828826034767346045}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  SoulsUpdated: {fileID: 11400000, guid: aaabe649a015eea49a6d9feac60fbf5c, type: 2}
+  souls: 0
   turnSpeedUpMultiplier: 2
   turnSpeedUpDuration: 2.13
 --- !u!50 &5162756009189700044

@@ -286,6 +286,8 @@ MonoBehaviour:
   damageable: {fileID: 3182260529150579343}
   effector: {fileID: 1918988286631901055}
   possessingSpirit: {fileID: 0}
+  SoulsUpdated: {fileID: 11400000, guid: aaabe649a015eea49a6d9feac60fbf5c, type: 2}
+  souls: 0
 --- !u!50 &4743312913176480602
 Rigidbody2D:
   serializedVersion: 4

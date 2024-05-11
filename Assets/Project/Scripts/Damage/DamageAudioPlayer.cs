@@ -11,12 +11,12 @@ public class DamageAudioPlayer : MonoBehaviour
     {
         // Mach variables : pitch | volume
         AudioManager am = AudioManager.instance;
-        if(am != null) am.Play(hitSound);
+        if(am != null && hitSound != null) am.Play(hitSound);
     }
     public void PlayKilledSound()
     {
         // Mach variables : pitch | volume
         AudioManager am = AudioManager.instance;
-        if(am != null) am.Play(killedSound);
+        if(am != null && killedSound != null) am.Play(killedSound);
     }
 }

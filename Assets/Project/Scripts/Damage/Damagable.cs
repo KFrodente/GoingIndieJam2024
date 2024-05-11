@@ -108,7 +108,7 @@ public class Damagable : MonoBehaviour
 
     protected virtual void Hurt()
     {
-        damageAudioPlayer.PlayHitSound();
+        if(damageAudioPlayer) damageAudioPlayer.PlayHitSound();
     }
     
     [Button]

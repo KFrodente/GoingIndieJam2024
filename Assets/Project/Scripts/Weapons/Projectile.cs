@@ -26,8 +26,8 @@ public class Projectile : MonoBehaviour
         {
             d.TakeDamage((int)(projectileData.damage * dMult));
             hits++;
-            if(projectileData.hitSound) AudioManager.instance.Play(projectileData.hitSound);
-            if(projectileData.hitParticle) Instantiate(projectileData.hitParticle, transform.position, Quaternion.identity);
+            if(projectileData.hitSound != null) AudioManager.instance.Play(projectileData.hitSound);
+            if(projectileData.hitParticle != null) Instantiate(projectileData.hitParticle, transform.position, Quaternion.identity);
             if(hits > projectileData.pierceCount) Destroy(this.gameObject);
         }
     }

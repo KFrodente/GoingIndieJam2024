@@ -809,15 +809,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SSRankEssence:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
   SRankEssence:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
   ARankEssence:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
   BRankEssence:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
   CRankEssence:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
 --- !u!1 &2136173072
 GameObject:
   m_ObjectHideFlags: 0

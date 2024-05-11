@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cceba3421c424d4caa669b9c4da0f2b, type: 3}
+  m_Name: EnragedEssence
+  m_EditorClassIdentifier: 
+  essenceName: Enraged
+  soulCost: 100
+  tier: 0
+  statType1: 1
+  operatorType1: 0
+  Value1: 70
+  statType2: 7
+  operatorType2: 0
+  Value2: 1.5
+  statType3: 9
+  operatorType3: 0
+  Value3: 2

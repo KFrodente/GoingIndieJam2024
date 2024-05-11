@@ -9,6 +9,9 @@ public class TreasureRoom : Room
     public Transform downTelePos;
     public Transform leftTelePos;
 
+    [Tooltip("list of locations where Spirit Essence can spawn")]
+    public List<Transform> SELocations = new();
+
     public override void GeneratePortals()
     {
         base.GeneratePortals();
@@ -28,6 +31,17 @@ public class TreasureRoom : Room
         if (connectsLeft)
         {
             leftPortal = GenerateRespectivePortal(roomConnectedLeft, leftTelePos.position).GetComponent<Portal>();
+        }
+
+    }
+
+    public void GenerateSpiritEssence(int roomCost)
+    {
+        for (int i = 0; i < SELocations.Count; i++)
+        {
+            GameObject essence = Instantiate(SpiritEssenceHolder.instance.GetSpiritEssence(roomCost * FloorGenerator.instance.floorNum), SELocations[i].position, transform.rotation);
+            essence.GetComponent<SpiritEssence>().soulCost = 0;
+            
         }
     }
 }

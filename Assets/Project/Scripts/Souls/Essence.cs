@@ -12,18 +12,18 @@ public class Essence : ScriptableObject
 
     [Header("Benefit 1")]
     public Stats.StatType statType1;
-    public float AddedChange1;
-    public float MultipliedChange1;
+    public Stats.OperatorType operatorType1;
+    public float Value1;
 
     [Header("Benefit 2")]
     public Stats.StatType statType2;
-    public float AddedChange2;
-    public float MultipliedChange2;
+    public Stats.OperatorType operatorType2;
+    public float Value2;
 
     [Header("Benefit 3")]
     public Stats.StatType statType3;
-    public float AddedChange3;
-    public float MultipliedChange3;
+    public Stats.OperatorType operatorType3;
+    public float Value3;
 
     public enum EssenceTier
     {

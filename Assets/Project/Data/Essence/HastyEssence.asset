@@ -15,12 +15,12 @@ MonoBehaviour:
   essenceName: Hasty
   soulCost: 35
   tier: 2
-  statType1: 1
-  AddedChange1: 14
-  MultipliedChange1: 0
+  statType1: 2
+  operatorType1: 0
+  Value1: 14
   statType2: 8
-  AddedChange2: 1
-  MultipliedChange2: 0
+  operatorType2: 0
+  Value2: 1
   statType3: 0
-  AddedChange3: 0
-  MultipliedChange3: 0
+  operatorType3: 0
+  Value3: 0

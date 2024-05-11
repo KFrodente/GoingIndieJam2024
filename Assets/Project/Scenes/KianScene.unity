@@ -728,6 +728,7 @@ GameObject:
   - component: {fileID: 2008526836}
   - component: {fileID: 2008526837}
   - component: {fileID: 2008526838}
+  - component: {fileID: 2008526839}
   m_Layer: 0
   m_Name: managers
   m_TagString: Untagged
@@ -795,6 +796,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2f85a702067a4418a9e78a01582054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2008526839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008526833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ddc49b7d13fc2b429cac23d44231bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SSRankEssence:
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
+  SRankEssence:
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
+  ARankEssence:
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
+  BRankEssence:
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
+  CRankEssence:
+  - {fileID: 1871985610074794615, guid: 892a4ace4d1c4f0439d1c542c40ec8fb, type: 3}
 --- !u!1 &2136173072
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class CirclePattern : Pattern
 			{
 				spawnAngle += (arcSpawnedOn/bulletAmount) * 0.5f;
 			}
-			positions[i] = ((Quaternion.Euler(0, 0, spawnAngle) * direction * circleRadius));
+			positions[i] = ((Quaternion.Euler(0, 0, spawnAngle + (arcSpawnedOn*0.5f)) * direction * circleRadius));
 			//positions.Add(Instantiate((bulletPrefab == null) ? prefab : bulletPrefab, spawnPlacement + position, Quaternion.Euler(0, 0, spawnAngle)));
 		}
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
-    public static BaseCharacter playerCharacter;
+    public static SpiritCharacter playerCharacter;
     public BaseInput input;
     public BaseMovement movement;
     public Weapon weapon;

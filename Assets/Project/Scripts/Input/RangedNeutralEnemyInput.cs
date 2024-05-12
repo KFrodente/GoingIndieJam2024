@@ -17,12 +17,27 @@ public class RangedNeutralEnemyInput : RangedEnemyInput
             {
                 t = new Target(TargetType.Position, enemy.position, null, transform.position, false);
                 t.uniqueCaseID = TargetCaseID.Friendly;
+                currentAttackNumber = -1;
             }
         }
         if (BaseCharacter.playerCharacter.transform == null) return null;
         t = new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform.position, false);
-        
+        currentAttackNumber++;
         return t;
+    }
+    public override MouseInputData GetMouseInput()
+    {
+        return new MouseInputData
+        {
+            leftDown = (GetDistance() < character.GetStats().AttackRange * 3),
+            //leftDown = (GetDistance() < preferedRange * 1.5f), // Might want to get actual attack range from stats
+            leftUp = (GetDistance() > character.GetStats().AttackRange * 3),
+            //leftUp = (GetDistance() > preferedRange * 1.5f),
+            rightDown = false,
+            rightUp = false,
+            middleDown = false,
+            middleUp = false
+        };
     }
     public virtual Transform GetAnEnemyPos()
     {

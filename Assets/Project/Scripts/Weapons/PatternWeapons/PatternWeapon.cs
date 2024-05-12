@@ -79,6 +79,10 @@ public class PatternWeapon : Projectile
 		/// randomized the spawn order of the projectiles
 		/// </summary>
 		public bool randomize;
+		/// <summary>
+		/// shoot the projectiles in the reverse order they were spawned
+		/// </summary>
+		public bool shootReverse;
 	}
 
 	[SerializeField] Transform bulletPrefab;
@@ -232,6 +236,10 @@ public class PatternWeapon : Projectile
 			}
 		}
 		patterns[patternnumber].projectiles.Clear();
+		if (patterns[patternnumber].shootReverse)
+		{
+			toshootprojs.Reverse();
+		}
 
 		yield return new WaitForSeconds(additionaldelay);
 

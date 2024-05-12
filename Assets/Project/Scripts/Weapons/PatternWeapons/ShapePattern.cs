@@ -10,9 +10,22 @@ public class ShapePattern : Pattern
 
 	[SerializeField] bool evenAmountBetweenPoints;
 	[SerializeField] bool addEndcaps;
+	[SerializeField] bool pointsAreBulletLocations;
 
 	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)
 	{
+		if (pointsAreBulletLocations)
+		{
+			Vector3[] returns = new Vector3[points.Length];
+
+			for (int i = 0; i < points.Length; i++)
+			{
+				returns[i] = points[i];
+			}
+
+			return returns;
+		}
+
 		float totaldistance = 0;
 		for (int i = 0; i < points.Length; i++)
 		{
@@ -28,7 +41,6 @@ public class ShapePattern : Pattern
 		if (evenAmountBetweenPoints)
 		{
 			length = bulletAmount * (points.Length - 1);
-			neededDistance = totaldistance / points.Length;
 		}
 		else if (addEndcaps)
 		{
@@ -53,8 +65,9 @@ public class ShapePattern : Pattern
 
 				for (int o = 0; o < bulletAmount; o++)
 				{
-					Debug.Log("On POint " + i + ";  spawning bullet " + o + ";  position is " + (o + (bulletAmount * (i - 1))) + "/" + positions.Length);
-					positions[o + (bulletAmount * (i - 1))] = Vector3.Lerp(points[i - 1], points[i], (float)o/bulletAmount);
+					//Debug.Log("On POint " + i + ";  spawning bullet " + o + ";  position is " + (o + (bulletAmount * (i - 1))) + "/" + positions.Length);
+					positions[o + (bulletAmount * (i - 1))] = Vector3.Lerp(points[i - 1], points[i], (float)o/bulletAmount) * scalar;
+					positions[o + (bulletAmount * (i - 1))] = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * positions[o + (bulletAmount * (i - 1))];
 				}
 			}
 		}

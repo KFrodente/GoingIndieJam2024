@@ -8,11 +8,20 @@ public class ShapePattern : Pattern
 {
 	[Header("Shape")]
 	[SerializeField] Vector2[] points;
-	[SerializeField] Vector2 scalar;
 
-	public override Vector3[] SpawnBullets(Vector3 direction)
+	[SerializeField] bool evenAmountBetweenPoints;
+
+	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)
 	{
-		Vector3[] positions = new Vector3[bulletAmount];
+		Vector3[] positions;
+
+		if (evenAmountBetweenPoints)
+		{
+			positions = new Vector3[bulletAmount * (points.Length - 1)];
+		} else
+		{
+			positions = new Vector3[bulletAmount];
+		}
 
 		float totaldistance = 0;
 		for (int i = 0; i < points.Length; i++)
@@ -32,7 +41,8 @@ public class ShapePattern : Pattern
 			{
 				float currentlinedistance = Vector3.Distance(points[currentpoint], points[currentpoint + 1]);
 
-				positions[i] = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * Vector3.Lerp(points[currentpoint], points[currentpoint + 1], distanceProgress/ currentlinedistance);
+				positions[i] = Vector3.Lerp(points[currentpoint], points[currentpoint + 1], distanceProgress/ currentlinedistance) * scalar;
+				positions[i] = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * positions[i];
 				distanceProgress += neededDistance;
 
 				if (distanceProgress >= currentlinedistance)

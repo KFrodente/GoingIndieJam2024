@@ -12,8 +12,9 @@ public class ImagePattern : Pattern
 
 	[SerializeField] bool topToDown;
 	[SerializeField] bool rightToLeft;
+	[SerializeField] bool centerToOutward;
 
-	public override Vector3[] SpawnBullets(Vector3 direction)
+	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)
 	{
 		List<Vector3> positions = new List<Vector3>();
 
@@ -32,12 +33,14 @@ public class ImagePattern : Pattern
 					float xforvec = (xtoadd * 1 / inverseScale.x) - (image.width * (1 / inverseScale.x) / 2);
 					float yforvec = (ytoadd * 1 / inverseScale.y) - (image.height * (1 / inverseScale.y) / 2);
 
-					Vector3 vectoadd = new Vector3(xforvec + offset.x, yforvec + offset.y);
+					Vector3 vectoadd = new Vector3(xforvec + offset.x, yforvec + offset.y) * scalar;
 					vectoadd = Quaternion.Euler(0,0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * vectoadd;
 					positions.Add(vectoadd);
 				}
 			}
 		}
+
+
 
 		bulletAmount = positions.Count;
 

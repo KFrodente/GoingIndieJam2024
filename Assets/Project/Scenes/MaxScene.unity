@@ -159,33 +159,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &35391871
 Transform:
   m_ObjectHideFlags: 0
@@ -237,33 +247,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &183231933
 Transform:
   m_ObjectHideFlags: 0
@@ -315,33 +335,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &326631598
 Transform:
   m_ObjectHideFlags: 0
@@ -477,33 +507,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &501475074
 Transform:
   m_ObjectHideFlags: 0
@@ -555,33 +595,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &613424563
 Transform:
   m_ObjectHideFlags: 0
@@ -734,6 +784,90 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &676879594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 676879595}
+  - component: {fileID: 676879596}
+  m_Layer: 0
+  m_Name: ExampleForTesting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &676879595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676879594}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0.7071068, y: 2.1213205, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &676879596
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676879594}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1510009017, guid: 6cc4dfafdf124c74e82d48b41abebb2e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &760506419
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,33 +904,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &760506421
 Transform:
   m_ObjectHideFlags: 0
@@ -848,33 +992,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &791695662
 Transform:
   m_ObjectHideFlags: 0
@@ -1011,33 +1165,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &912091229
 Transform:
   m_ObjectHideFlags: 0
@@ -1053,6 +1217,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &943183957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943183958}
+  m_Layer: 0
+  m_Name: Testing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &943183958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943183957}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!1 &1111792715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,33 +1368,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &1189868537
 Transform:
   m_ObjectHideFlags: 0
@@ -1251,19 +1456,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: cbdbab313c3ce2e4d9359ac57bc89d8c, type: 2}
-    howshoot: 2
-    pointDirection: {x: 1, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 1248129713}
+    totalSpawnTime: 0
+    pointDirection: {x: 5, y: 1}
+    delayToNext: 3
+    scale: {x: 1, y: 0.25}
+    spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
-    sameDirection: 1
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    sameDirection: 0
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 0
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
+  - pattern: {fileID: 11400000, guid: cbdbab313c3ce2e4d9359ac57bc89d8c, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 2, y: -3}
+    delayToNext: 3
+    scale: {x: 3, y: 5}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 0
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &1248129713
 Transform:
   m_ObjectHideFlags: 0
@@ -1273,7 +1502,7 @@ Transform:
   m_GameObject: {fileID: 1248129711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 0.51, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1316,33 +1545,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &1249745638
 Transform:
   m_ObjectHideFlags: 0
@@ -1478,33 +1717,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &1283960730
 Transform:
   m_ObjectHideFlags: 0
@@ -1556,33 +1805,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &1383670655
 Transform:
   m_ObjectHideFlags: 0
@@ -1634,33 +1893,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &1467882691
 Transform:
   m_ObjectHideFlags: 0
@@ -1712,33 +1981,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &1558116720
 Transform:
   m_ObjectHideFlags: 0
@@ -1790,33 +2069,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &1751010862
 Transform:
   m_ObjectHideFlags: 0
@@ -1868,33 +2157,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &2090748168
 Transform:
   m_ObjectHideFlags: 0
@@ -1946,33 +2245,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &2126998132
 Transform:
   m_ObjectHideFlags: 0
@@ -2024,33 +2333,43 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 0
+    pointDirection: {x: 0, y: 0}
+    delayToNext: 1
+    scale: {x: 0, y: 0}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    shootAwayFromSpawner: 0
+    shootAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    randomize: 0
+    spawnWithNextPattern: 0
     howshoot: 0
-    pointDirection: {x: 0, y: 0}
-    delayToNext: 1
-    spawnPlacement: {fileID: 0}
-    positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
+    shootDelay: 0
     projectiles: []
-    randomize: 0
+    shootReverse: 0
+    shootWithNextPattern: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
-    howshoot: 1
+    totalSpawnTime: 0
     pointDirection: {x: 0, y: 0}
     delayToNext: 1
+    scale: {x: 0, y: 0}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
     sameDirection: 0
-    spawnWithNextPattern: 0
-    shootWithNextPattern: 0
-    projectiles: []
+    inPointDirection: 0
     randomize: 0
+    spawnWithNextPattern: 0
+    howshoot: 1
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
 --- !u!4 &2145733215
 Transform:
   m_ObjectHideFlags: 0
@@ -2092,3 +2411,5 @@ SceneRoots:
   - {fileID: 1249745638}
   - {fileID: 867516262}
   - {fileID: 428405402}
+  - {fileID: 676879595}
+  - {fileID: 943183958}

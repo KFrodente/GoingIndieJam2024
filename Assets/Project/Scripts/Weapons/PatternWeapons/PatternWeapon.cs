@@ -16,16 +16,15 @@ public class PatternWeapon : Projectile
 	[Serializable]
 	struct ShootPattern
 	{
+		[Header("Spawning")]
 		/// <summary>
 		/// The actual pattern scriptable object to use
 		/// </summary>
 		public Pattern pattern;
 		/// <summary>
-		/// How the pattern shoots out<br/>
-		///		Overrides:<br/>
-		///		ONEBYONEDURINGSPAWN -> shootWithNextPattern
+		/// Time to spawn the full pattern
 		/// </summary>
-		public ShootType howshoot;
+		public float totalSpawnTime;
 		/// <summary>
 		/// The direction that the spawning originates from
 		/// </summary>
@@ -34,6 +33,10 @@ public class PatternWeapon : Projectile
 		/// Delay between this pattern spawning and the next pattern spawning
 		/// </summary>
 		public float delayToNext;
+		/// <summary>
+		/// Scale the pattern by this amount on the x and y
+		/// </summary>
+		public Vector2 scale;
 		/// <summary>
 		/// The position where the bullet pattern will spawn
 		/// </summary>
@@ -64,25 +67,40 @@ public class PatternWeapon : Projectile
 		/// </summary>
 		public bool sameDirection;
 		/// <summary>
-		/// If the Pattern should SPAWN with the next pattern.
+		/// Bullets should point within the point direction
 		/// </summary>
-		public bool spawnWithNextPattern;
-		/// <summary>
-		/// If the Pattern should SHOOT with the next pattern.
-		/// </summary>
-		public bool shootWithNextPattern;
-		/// <summary>
-		/// The projectiles that the pattern spawns
-		/// </summary>
-		public List<Transform> projectiles;
+		public bool inPointDirection;
 		/// <summary>
 		/// randomized the spawn order of the projectiles
 		/// </summary>
 		public bool randomize;
 		/// <summary>
+		/// If the Pattern should SPAWN with the next pattern.
+		/// </summary>
+		public bool spawnWithNextPattern;
+		[Header("Shooting")]
+		/// <summary>
+		/// How the pattern shoots out<br/>
+		///		Overrides:<br/>
+		///		ONEBYONEDURINGSPAWN -> shootWithNextPattern
+		/// </summary>
+		public ShootType howshoot;
+		/// <summary>
+		/// Time between bullet shots
+		/// </summary>
+		public float shootDelay;
+		/// <summary>
+		/// The projectiles that the pattern spawns
+		/// </summary>
+		public List<Transform> projectiles;
+		/// <summary>
 		/// shoot the projectiles in the reverse order they were spawned
 		/// </summary>
 		public bool shootReverse;
+		/// <summary>
+		/// If the Pattern should SHOOT with the next pattern.
+		/// </summary>
+		public bool shootWithNextPattern;
 	}
 
 	[SerializeField] Transform bulletPrefab;
@@ -105,6 +123,7 @@ public class PatternWeapon : Projectile
 			{
 				patterns[i].spawnPlacement = transform;
 			}
+			if (patterns[i].pointDirection == Vector2.zero) patterns[i].pointDirection = Vector2.right;
 			patterns[i].pointDirection = patterns[i].pointDirection.normalized;
 		}
 		target = BaseCharacter.playerCharacter.transform;
@@ -138,7 +157,7 @@ public class PatternWeapon : Projectile
 			}
 
 			//int amountofbullets = patterns[i].pattern.bulletAmount;
-			Vector3[] positions = patterns[i].pattern.SpawnBullets(patterns[i].pointDirection);
+			Vector3[] positions = patterns[i].pattern.SpawnBullets(patterns[i].pointDirection, patterns[i].scale);
 
 			if (patterns[i].randomize)
 			{
@@ -156,7 +175,7 @@ public class PatternWeapon : Projectile
 
 				newproj.localPosition = positions[o];
 
-				Vector3 direction;
+				Vector2 direction;
 				if (patterns[i].shootAwayFromPosition)
 				{
 					direction = (newproj.position - ((patterns[i].positionShootAwayFrom == null) ? 
@@ -167,7 +186,10 @@ public class PatternWeapon : Projectile
 				{
 					direction = (newproj.position - transform.position);
 				}
-				else
+				else if (patterns[i].inPointDirection)
+				{
+					direction = patterns[i].pointDirection;
+				} else
 				{
 					if (patterns[i].sameDirection)
 					{
@@ -186,12 +208,12 @@ public class PatternWeapon : Projectile
 
 				if (patterns[i].howshoot == ShootType.ONEBYONEDURINGSPAWN)
 				{
-					StartCoroutine(ShootBullets(i, patterns[i].pattern.shootDelay));
+					StartCoroutine(ShootBullets(i, patterns[i].shootDelay));
 				}
 
-				if (patterns[i].pattern.totalSpawnTime > 0 && i < positions.Length - 1)
+				if (patterns[i].totalSpawnTime > 0 && i < positions.Length - 1)
 				{
-					yield return new WaitForSeconds(Mathf.Max(patterns[i].pattern.totalSpawnTime / positions.Length, Time.deltaTime));
+					yield return new WaitForSeconds(Mathf.Max(patterns[i].totalSpawnTime / positions.Length, Time.deltaTime));
 				}
 			}
 
@@ -209,7 +231,7 @@ public class PatternWeapon : Projectile
 					{
 						continue;
 					}
-					additionalDelay += patterns[o].pattern.totalSpawnTime + patterns[o].pattern.shootDelay + patterns[o].delayToNext;
+					additionalDelay += patterns[o].totalSpawnTime + patterns[o].shootDelay + patterns[o].delayToNext;
 				}
 				Debug.Log("Pattern " + i + " is waiting an additional " + additionalDelay + " seconds");
 			}
@@ -247,9 +269,9 @@ public class PatternWeapon : Projectile
 		{
 			if (toshootprojs[i] != null)
 			{
-				if (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN)
+				if (patterns[patternnumber].shootDelay > 0 && (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN))
 				{
-					yield return new WaitForSeconds(Mathf.Max(patterns[patternnumber].pattern.shootDelay, Time.deltaTime));
+					yield return new WaitForSeconds(Mathf.Max(patterns[patternnumber].shootDelay, Time.deltaTime));
 				}
 				// this is the place where the projectiles will actually be shot
 

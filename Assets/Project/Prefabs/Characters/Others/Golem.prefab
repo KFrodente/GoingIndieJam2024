@@ -176,7 +176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 671df51f62030ad478d2be609b18c35c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59e924129a09c4f4f998f1f3afdb71bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -382,7 +382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8904678179085534920
 Transform:
   m_ObjectHideFlags: 0
@@ -669,6 +669,7 @@ GameObject:
   - component: {fileID: 1533767014830928166}
   - component: {fileID: 8588803817186985679}
   - component: {fileID: -2251215004531786687}
+  - component: {fileID: 8084458293078636590}
   m_Layer: 9
   m_Name: Golem
   m_TagString: Untagged
@@ -721,9 +722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e78062c288fe14191ac37e14e56856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
+  input: {fileID: -2251215004531786687}
   movement: {fileID: 5963222230313543426}
-  weapon: {fileID: 0}
+  weapon: {fileID: 8084458293078636590}
   characterStats: {fileID: 1595631146469311203}
   rb: {fileID: 8658340102009209602}
   damageable: {fileID: 8588803817186985679}
@@ -780,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571cdda30eab423787d2393434c99dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statVariables: {fileID: 11400000, guid: 2b7ddd746c38b5c45a9a1a4d85d108ef, type: 2}
+  statVariables: {fileID: 11400000, guid: 06682cda739bfbf409261ba5fdfc5d7e, type: 2}
   spiritStatModifiers: {fileID: 0}
 --- !u!58 &1533767014830928166
 CircleCollider2D:
@@ -852,6 +853,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b3d9ec1152205468c5b37bd7b168cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8084458293078636590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: fd7e3ba5b3e275f41a7770ad0db25e35, type: 2}
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

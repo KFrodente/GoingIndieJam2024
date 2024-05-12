@@ -7,23 +7,26 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] protected ProjectileObject projectileData;
     protected int hits;
-    protected bool shotByPlayer;
     [SerializeField] protected Rigidbody2D rb;
     protected float spawnTime;
     protected int damage = 0;
+    protected Target target;
+    protected bool initialized;
      
-     public void Initialize(bool playerShot, int damage)
+     public virtual void Initialize(Target target, int damage)
      {
-         shotByPlayer = playerShot;
          spawnTime = Time.time;
-         rb.velocity = transform.up * projectileData.speed;
+         if(rb) rb.velocity = transform.up * projectileData.speed;
          this.damage = damage;
+         this.target = target;
+         initialized = true;
      }
      
      
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out Damagable d) && d.IsPlayer != shotByPlayer)
+        if (!initialized) return;
+        if (other.TryGetComponent(out Damagable d) && d.IsPlayer != target.shotByPlayer)
         {
             d.TakeDamage(damage);
             hits++;
@@ -32,13 +35,10 @@ public class Projectile : MonoBehaviour
             if(hits > projectileData.pierceCount) Destroy(this.gameObject);
         }
     }
-
-
-
     
-
     protected virtual void Update()
     {
+        if (!initialized) return;
         if(projectileData.lifetime > 0 && Time.time > spawnTime + projectileData.lifetime ) DestroyProjectile();
     }
 

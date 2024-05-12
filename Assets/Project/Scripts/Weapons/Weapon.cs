@@ -34,7 +34,7 @@ public class Weapon : MonoBehaviour
     protected virtual void Fire(Target target)
     {
         float angle = InputUtils.GetAngle(target.GetDirection());
-        Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(target.shotByPlayer, (int)bc.GetStats().Damage);
+        Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(target, (int)bc.GetStats().Damage);
         
         lastFireTime = Time.time;
     }

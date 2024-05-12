@@ -25,7 +25,7 @@ public class Target
         
     }
 
-    private Vector2 GetTargetPosition()
+    public Vector2 GetTargetPosition()
     {
         switch (type)
         {

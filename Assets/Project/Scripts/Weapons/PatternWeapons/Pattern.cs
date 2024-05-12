@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Pattern : ScriptableObject
 {
 	[Header("Base Pattern")]
-	[SerializeField] public Transform bulletPrefab;
+	[SerializeField] public Projectile bulletPrefab;
 	[SerializeField] protected int bulletAmount = 4;
 
 	public abstract Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar);

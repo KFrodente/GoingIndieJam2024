@@ -57,6 +57,7 @@ public class DashChargeWeapon : ChargeWeapon
 	{
 		bc.movement.Move(target.GetDirection(), bc.GetStats().ChargeSpeed, ForceMode2D.Impulse, bc, true);
 		bc.damageable.GainImmunity(weaponData.attackDuration);
+		bc.movement.SetTargetAngle(savedTarget.GetDirection(), true);
 		lastFireTime = Time.time;
 	}
 	

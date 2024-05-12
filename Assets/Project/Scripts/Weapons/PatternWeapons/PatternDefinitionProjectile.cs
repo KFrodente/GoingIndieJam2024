@@ -4,8 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PatternWeapon : Projectile
+public class PatternDefinitionProjectile : Projectile
 {
+	protected override void OnTriggerEnter2D(Collider2D other)
+	{
+	}
+	protected override void Update()
+	{
+	}
+	public virtual void Initialize(Target target, int damage)
+	{
+		spawnTime = Time.time;
+		this.damage = damage;
+		this.target = target;
+		initialized = true;
+	}
+	
 	enum ShootType
 	{
 		ALLATONCE,
@@ -92,7 +106,7 @@ public class PatternWeapon : Projectile
 		/// <summary>
 		/// The projectiles that the pattern spawns
 		/// </summary>
-		public List<Transform> projectiles;
+		public List<Projectile> projectiles;
 		/// <summary>
 		/// shoot the projectiles in the reverse order they were spawned
 		/// </summary>
@@ -103,9 +117,8 @@ public class PatternWeapon : Projectile
 		public bool shootWithNextPattern;
 	}
 
-	[SerializeField] Transform bulletPrefab;
+	[SerializeField, Header("Just This:")] Projectile bulletProjectile;
 
-	[SerializeField] Transform target;
 
 	/// <summary>
 	/// When set to true, will initiate the shoot functions
@@ -126,28 +139,14 @@ public class PatternWeapon : Projectile
 			if (patterns[i].pointDirection == Vector2.zero) patterns[i].pointDirection = Vector2.right;
 			patterns[i].pointDirection = patterns[i].pointDirection.normalized;
 		}
-		target = BaseCharacter.playerCharacter.transform;
+		StartCoroutine(SpawnBullets(0));
 	}
-
-	public void Shoot()
-	{
-		shoot = true;
-	}
-
-	private void Update()
-	{
-		if (shoot && bulletPrefab)
-		{
-			shoot = false;
-
-			StartCoroutine(SpawnBullets(0));
-		}
-	}
+	
 
 	private IEnumerator SpawnBullets(int startpattern)
 	{
 		bool spawnwithnext = false;
-		Vector2 possiblesamedirection = target.position - transform.position;
+		Vector2 possiblesamedirection = target.GetTargetPosition() - (Vector2)transform.position;
 
 		for (int i = startpattern; i < patterns.Length; i++)
 		{
@@ -167,25 +166,25 @@ public class PatternWeapon : Projectile
 
 			for (int o = 0; o < positions.Length; o++)
 			{
-				var newproj = Instantiate((patterns[i].pattern.bulletPrefab == null) ? bulletPrefab : patterns[i].pattern.bulletPrefab);
+				Projectile newproj = (Instantiate((patterns[i].pattern.bulletPrefab == null) ? bulletProjectile.gameObject : patterns[i].pattern.bulletPrefab.gameObject)).GetComponent<Projectile>();
 
 				if (!patterns[i].dontParentToSpawner)
 				{
-					newproj.SetParent(patterns[i].spawnPlacement);
+					newproj.transform.SetParent(patterns[i].spawnPlacement);
 				}
 
-				newproj.localPosition = positions[o];
+				newproj.transform.localPosition = positions[o];
 
 				Vector2 direction;
 				if (patterns[i].shootAwayFromPosition)
 				{
-					direction = (newproj.position - ((patterns[i].positionShootAwayFrom == null) ? 
+					direction = (newproj.transform.position - ((patterns[i].positionShootAwayFrom == null) ? 
 						patterns[i].spawnPlacement.position : 
 						patterns[i].positionShootAwayFrom.position));
 				}
 				else if(patterns[i].shootAwayFromSpawner)
 				{
-					direction = (newproj.position - transform.position);
+					direction = (newproj.transform.position - transform.position);
 				}
 				else if (patterns[i].inPointDirection)
 				{
@@ -198,7 +197,7 @@ public class PatternWeapon : Projectile
 					}
 					else
 					{
-						direction = (target.position - newproj.position);
+						direction = target.GetDirection();
 						Debug.Log(direction);
 					}
 				}
@@ -250,38 +249,44 @@ public class PatternWeapon : Projectile
 
 	private IEnumerator ShootBullets(int patternnumber, float additionaldelay)
 	{
-		List<Transform> toshootprojs = new List<Transform>();
-		foreach (var proj in patterns[patternnumber].projectiles)
-		{
-			if (proj != null)
-			{
-				toshootprojs.Add(proj.transform);	
-			}
-		}
-		patterns[patternnumber].projectiles.Clear();
-		if (patterns[patternnumber].shootReverse)
-		{
-			toshootprojs.Reverse();
-		}
+		// List<Projectile> toshootprojs = new List<Projectile>();
+		// foreach (var proj in patterns[patternnumber].projectiles)
+		// {
+		// 	if (proj != null)
+		// 	{
+		// 		toshootprojs.Add(proj);	
+		// 	}
+		// }
+		// patterns[patternnumber].projectiles.Clear();
+		// if (patterns[patternnumber].shootReverse)
+		// {
+		// 	toshootprojs.Reverse();
+		// }
 
 		yield return new WaitForSeconds(additionaldelay);
 
-		for (int i = 0; i < toshootprojs.Count; i++)
+		for (int i = 0; i < patterns[patternnumber].projectiles.Count; i++)
 		{
-			if (toshootprojs[i] != null)
+			if (patterns[patternnumber].projectiles[i] != null)
 			{
 				if (patterns[patternnumber].shootDelay > 0 && (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN))
 				{
 					yield return new WaitForSeconds(Mathf.Max(patterns[patternnumber].shootDelay, Time.deltaTime));
 				}
 				// this is the place where the projectiles will actually be shot
-
-				toshootprojs[i].SetParent(null);
-				//Vector2 direction = (target.position - patterns[patternnumber].projectiles[i].position);
-				//float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-				//patterns[patternnumber].projectiles[i].transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0, 0, angle);
-				//Destroy(patterns[patternnumber].projectiles[i].gameObject);
+				ShootProjectile(patterns[patternnumber].projectiles[i]);
+				// patterns[patternnumber].projectiles[i].transform.SetParent(null);
+				// Vector2 direction = (target.GetTargetPosition() - (Vector2)patterns[patternnumber].projectiles[i].transform.position);
+				// float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+				// patterns[patternnumber].projectiles[i].transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0, 0, angle);
+				// Destroy(patterns[patternnumber].projectiles[i].gameObject);
 			}
 		}
+	}
+
+	private void ShootProjectile(Projectile p)
+	{
+		p.transform.SetParent(null);
+		p.Initialize(target, damage);
 	}
 }

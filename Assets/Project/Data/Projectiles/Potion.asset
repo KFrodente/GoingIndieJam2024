@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea365f37b239ee4c92941a90fe0117d, type: 3}
   m_Name: Potion
   m_EditorClassIdentifier: 
-  damage: 1
+  zeroDamage: 1
   speed: 3
   lifetime: 2
   pierceCount: 0

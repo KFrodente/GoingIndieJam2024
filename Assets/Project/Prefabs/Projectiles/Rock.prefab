@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 391038312890370394}
   - component: {fileID: 4361650146283769226}
   - component: {fileID: 2251179395898420703}
-  - component: {fileID: 4269149708470235642}
+  - component: {fileID: 3204321272480393510}
   m_Layer: 0
-  m_Name: TestP
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2fd7cb2b9dae7074e854e023ecdefc55, type: 3}
+  m_Sprite: {fileID: -851253419, guid: d44cf7a86253212499e5c6a3a958923c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -147,9 +147,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.24, y: 1.33}
+  m_Size: {x: 0.88, y: 0.83}
   m_Direction: 0
---- !u!114 &4269149708470235642
+--- !u!114 &3204321272480393510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51827f39274079f4182cf42bee275fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileData: {fileID: 11400000, guid: 7b9dbbb5d946c1b4d922fe98752c2621, type: 2}
+  projectileData: {fileID: 11400000, guid: 3936efb6f76936847867217033abed19, type: 2}
   rb: {fileID: 4361650146283769226}

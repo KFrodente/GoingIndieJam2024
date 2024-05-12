@@ -274,11 +274,11 @@ public class PatternDefinitionProjectile : Projectile
 					yield return new WaitForSeconds(Mathf.Max(patterns[patternnumber].shootDelay, Time.deltaTime));
 				}
 				// this is the place where the projectiles will actually be shot
+				Vector2 direction = (target.GetTargetPosition() - (Vector2)patterns[patternnumber].projectiles[i].transform.position);
+				float angle = InputUtils.GetAngle(direction);
+				patterns[patternnumber].projectiles[i].transform.rotation = Quaternion.Euler(0, 0, angle);
 				ShootProjectile(patterns[patternnumber].projectiles[i]);
 				// patterns[patternnumber].projectiles[i].transform.SetParent(null);
-				// Vector2 direction = (target.GetTargetPosition() - (Vector2)patterns[patternnumber].projectiles[i].transform.position);
-				// float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-				// patterns[patternnumber].projectiles[i].transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0, 0, angle);
 				// Destroy(patterns[patternnumber].projectiles[i].gameObject);
 			}
 		}

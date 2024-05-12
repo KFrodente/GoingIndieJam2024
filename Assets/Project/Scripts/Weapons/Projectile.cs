@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected Rigidbody2D rb;
     protected float dMult = 1;
     protected float spawnTime;
-     public void Initialize(bool playerShot, float damageMultiplier)
+     public virtual void Initialize(bool playerShot, float damageMultiplier)
      {
          dMult = damageMultiplier;
          shotByPlayer = playerShot;
@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
      }
      
      
-    protected void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent(out Damagable d) && d.IsPlayer != shotByPlayer)
         {
@@ -36,12 +36,12 @@ public class Projectile : MonoBehaviour
 
     
 
-    protected void Update()
+    protected virtual void Update()
     {
         if(projectileData.lifetime > 0 && Time.time > spawnTime + projectileData.lifetime ) DestroyProjectile();
     }
 
-    protected void DestroyProjectile()
+    protected virtual void DestroyProjectile()
     {
         Destroy(this.gameObject);
     }

@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571cdda30eab423787d2393434c99dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statVariables: {fileID: 11400000, guid: 49d5cbc03e47fa240aeb3426f9ac5981, type: 2}
+  statVariables: {fileID: 11400000, guid: 2b7ddd746c38b5c45a9a1a4d85d108ef, type: 2}
   spiritStatModifiers: {fileID: 0}
 --- !u!58 &1533767014830928166
 CircleCollider2D:

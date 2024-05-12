@@ -20,7 +20,7 @@ public class ChargeWeapon : Weapon
 	
 	protected virtual void Start()
 	{
-		lastFireTime = -weaponData.fireDelay;
+		lastFireTime = -bc.GetStats().AttackSpeed;
 		startCancelTime = -weaponData.cancelDelay;
 	}
 

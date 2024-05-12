@@ -27,7 +27,7 @@ public class AutoFireWeapon : Weapon
 
     protected virtual bool IsAutoFireDelayOver()
     {
-        return Time.time - lastAutoFireTime > weaponData.fireDelay;
+        return Time.time - lastAutoFireTime > bc.GetStats().AttackSpeed;
         
     }
 }

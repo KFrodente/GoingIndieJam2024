@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -54,14 +55,14 @@ public class PatternWeapon : Projectile
 		///		Overrides:<br/>
 		///		sameDirection
 		/// </summary>
-		public bool shootAwayFromSpawner;
+		public bool pointAwayFromSpawner;
 		/// <summary>
 		/// If the bullet should shoot away from positionShootAwayFrom. If null, uses spawnplacement<br/>
 		///		Overrides:<br/>
 		///		sameDirection<br/>
-		///		shootAwayFromSpawner
+		///		pointAwayFromSpawner
 		/// </summary>
-		public bool shootAwayFromPosition;
+		public bool pointAwayFromPosition;
 		/// <summary>
 		/// If all the bullets should fire in the same direction using pointDirection
 		/// </summary>
@@ -78,6 +79,10 @@ public class PatternWeapon : Projectile
 		/// If the Pattern should SPAWN with the next pattern.
 		/// </summary>
 		public bool spawnWithNextPattern;
+		/// <summary>
+		/// spawns bullets from the center outwards
+		/// </summary>
+		public bool spawnCenterOutwards;
 		[Header("Shooting")]
 		/// <summary>
 		/// How the pattern shoots out<br/>
@@ -101,6 +106,10 @@ public class PatternWeapon : Projectile
 		/// If the Pattern should SHOOT with the next pattern.
 		/// </summary>
 		public bool shootWithNextPattern;
+		/// <summary>
+		/// shoots spawned bullets from the center outwards
+		/// </summary>
+		public bool shootCenterOutwards;
 	}
 
 	[SerializeField] Transform bulletPrefab;
@@ -151,6 +160,9 @@ public class PatternWeapon : Projectile
 
 		for (int i = startpattern; i < patterns.Length; i++)
 		{
+
+			float starttime = Time.time;
+
 			if (i + 1 < patterns.Length && patterns[i].spawnWithNextPattern)
 			{
 				StartCoroutine(SpawnBullets(i+1));
@@ -160,6 +172,10 @@ public class PatternWeapon : Projectile
 			//int amountofbullets = patterns[i].pattern.bulletAmount;
 			Vector3[] positions = patterns[i].pattern.SpawnBullets(patterns[i].pointDirection, patterns[i].scale);
 
+			if (patterns[i].spawnCenterOutwards)
+			{
+				positions = positions.OrderBy(p => Vector3.Distance(p, patterns[i].spawnPlacement.position)).ToArray();
+			}
 			if (patterns[i].randomize)
 			{
 				positions = Pattern.Randomize(positions);
@@ -177,13 +193,13 @@ public class PatternWeapon : Projectile
 				newproj.localPosition = positions[o];
 
 				Vector2 direction;
-				if (patterns[i].shootAwayFromPosition)
+				if (patterns[i].pointAwayFromPosition)
 				{
 					direction = (newproj.position - ((patterns[i].positionShootAwayFrom == null) ? 
 						patterns[i].spawnPlacement.position : 
 						patterns[i].positionShootAwayFrom.position));
 				}
-				else if(patterns[i].shootAwayFromSpawner)
+				else if(patterns[i].pointAwayFromSpawner)
 				{
 					direction = (newproj.position - transform.position);
 				}
@@ -199,7 +215,7 @@ public class PatternWeapon : Projectile
 					else
 					{
 						direction = (target.position - newproj.position);
-						Debug.Log(direction);
+						//Debug.Log(direction);
 					}
 				}
 				float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -212,11 +228,14 @@ public class PatternWeapon : Projectile
 					StartCoroutine(ShootBullets(i, patterns[i].shootDelay));
 				}
 
-				if (patterns[i].totalSpawnTime > 0 && i < positions.Length - 1)
+				float timeneeded = patterns[i].totalSpawnTime / positions.Length;
+				if (timeneeded * o > (Time.time - starttime) && patterns[i].totalSpawnTime > 0 && i < positions.Length - 1)
 				{
-					yield return new WaitForSeconds(Mathf.Max(patterns[i].totalSpawnTime / positions.Length, Time.deltaTime));
+					yield return new WaitForSeconds(timeneeded);
 				}
 			}
+
+			Debug.Log("Time to complete spawning:  " + (Time.time - starttime));
 
 			float additionalDelay = 0;
 
@@ -224,7 +243,7 @@ public class PatternWeapon : Projectile
 			{
 				for (int o = i+1; o < patterns.Length; o++)
 				{
-					if (!patterns[o-1].shootWithNextPattern)
+					if (!patterns[o - 1].shootWithNextPattern)
 					{
 						break;
 					}
@@ -234,7 +253,7 @@ public class PatternWeapon : Projectile
 					}
 					additionalDelay += patterns[o].totalSpawnTime + patterns[o].shootDelay + patterns[o].delayToNext;
 				}
-				Debug.Log("Pattern " + i + " is waiting an additional " + additionalDelay + " seconds");
+				//Debug.Log("Pattern " + i + " is waiting an additional " + additionalDelay + " seconds");
 			}
 			
 			StartCoroutine(ShootBullets(i, additionalDelay));
@@ -259,6 +278,10 @@ public class PatternWeapon : Projectile
 			}
 		}
 		patterns[patternnumber].projectiles.Clear();
+		if (patterns[patternnumber].shootCenterOutwards)
+		{
+			toshootprojs = toshootprojs.OrderBy(p => Vector3.Distance(p.position, patterns[patternnumber].spawnPlacement.position)).ToList();
+		}
 		if (patterns[patternnumber].shootReverse)
 		{
 			toshootprojs.Reverse();
@@ -272,7 +295,7 @@ public class PatternWeapon : Projectile
 			{
 				if (patterns[patternnumber].shootDelay > 0 && (i == 0 || patterns[patternnumber].howshoot == ShootType.ONEBYONEAFTERSPAWN))
 				{
-					yield return new WaitForSeconds(Mathf.Max(patterns[patternnumber].shootDelay, Time.deltaTime));
+					yield return new WaitForSeconds(patterns[patternnumber].shootDelay);
 				}
 				// this is the place where the projectiles will actually be shot
 
@@ -280,7 +303,7 @@ public class PatternWeapon : Projectile
 				//Vector2 direction = (target.position - patterns[patternnumber].projectiles[i].position);
 				//float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 				//patterns[patternnumber].projectiles[i].transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0, 0, angle);
-				//Destroy(patterns[patternnumber].projectiles[i].gameObject);
+				Destroy(toshootprojs[i].gameObject);
 			}
 		}
 	}

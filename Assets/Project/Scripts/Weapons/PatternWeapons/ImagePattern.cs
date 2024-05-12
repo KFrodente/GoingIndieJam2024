@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Image_Pattern", menuName = "Patterns/Image")]
@@ -12,7 +13,6 @@ public class ImagePattern : Pattern
 
 	[SerializeField] bool topToDown;
 	[SerializeField] bool rightToLeft;
-	[SerializeField] bool centerToOutward;
 
 	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)
 	{
@@ -39,8 +39,6 @@ public class ImagePattern : Pattern
 				}
 			}
 		}
-
-
 
 		bulletAmount = positions.Count;
 

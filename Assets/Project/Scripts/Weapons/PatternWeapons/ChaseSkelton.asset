@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
   bulletAmount: 159
-  totalSpawnTime: 1
-  shootDelay: 0.05
   image: {fileID: 2800000, guid: 59c5cb57204175c499d36d2676cc0bf7, type: 3}
   inverseScale: {x: 4, y: 4}
   offset: {x: 0, y: 0}

@@ -9,12 +9,14 @@ public class Possessable : Interactable
     [SerializeField] protected BaseInput playerInput;
     [SerializeField] protected BaseCharacter unitBase;
     [SerializeField] protected Interactor interactor;
+    [SerializeField] private GameObject healthSystem;
     public override void OnInteract(BaseCharacter character)
     {
         if (character is SpiritCharacter)
         {
             SwapInputs();
             SetPossession(character as SpiritCharacter);
+            if(healthSystem) healthSystem.SetActive(true);
         }
     }
 

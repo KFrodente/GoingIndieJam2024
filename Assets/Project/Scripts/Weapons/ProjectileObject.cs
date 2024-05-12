@@ -7,7 +7,7 @@ using UnityEngine;
 public class ProjectileObject : ScriptableObject
 {
     [Header("Basics")]
-    public float damage;
+    public bool zeroDamage;
     public float speed;
     public float lifetime;
     public int pierceCount;

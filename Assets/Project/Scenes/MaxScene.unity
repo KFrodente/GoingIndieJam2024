@@ -428,7 +428,7 @@ MonoBehaviour:
     dontParentToSpawner: 0
     shootAwayFromSpawner: 0
     shootAwayFromPosition: 0
-    sameDirection: 0
+    sameDirection: 1
     inPointDirection: 0
     randomize: 0
     spawnWithNextPattern: 0

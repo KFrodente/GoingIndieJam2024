@@ -108,12 +108,10 @@ public class Damagable : MonoBehaviour
             if(baseCharacter.possessingSpirit.TryGetComponent(out Damagable d))
             {
                 d.GainImmunity(1f);
-                Debug.Log("Immunity");
             }
             if (baseCharacter.possessingSpirit.TryGetComponent(out Rigidbody2D rb))
             {
                 rb.AddForce(baseCharacter.possessingSpirit.transform.up * 1000, ForceMode2D.Force);
-                Debug.Log("Added force");
             }
         }
         Destroy(baseCharacter.gameObject);

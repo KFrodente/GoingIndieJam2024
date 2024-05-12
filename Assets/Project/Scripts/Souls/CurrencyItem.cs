@@ -39,7 +39,7 @@ public class CurrencyItem : MonoBehaviour
         if (pickupable && collision.gameObject.TryGetComponent(out Damagable damageable) && damageable.IsPlayer)
         {
             // add currency based on a local value?
-            BaseCharacter.playerCharacter.Souls += soulValue;
+            BaseCharacter.playerCharacter.GainSouls(soulValue);
             // remove from world
             Destroy(gameObject);
         }

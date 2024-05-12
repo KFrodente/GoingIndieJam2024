@@ -25,6 +25,7 @@ public class Possessable : Interactable
         c.transform.localPosition = Vector3.zero;
         c.gameObject.SetActive(false);
         unitBase.possessingSpirit = c;
+        BaseCharacter.playerCharacter = unitBase;
     }
     protected void SwapInputs()
     {

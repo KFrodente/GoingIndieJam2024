@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
-    public static SpiritCharacter playerCharacter;
+    public static BaseCharacter playerCharacter;
     public BaseInput input;
     public BaseMovement movement;
     public Weapon weapon;
@@ -46,5 +46,10 @@ public class BaseCharacter : MonoBehaviour
     {
         Vector2 moveDirection = input.GetNormalizedMoveDirection();
         if(moveDirection != Vector2.zero) Reposition(moveDirection);
+    }
+
+    public void GainSouls(int amount)
+    {
+        possessingSpirit.Souls += amount;
     }
 }

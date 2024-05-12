@@ -9,6 +9,8 @@ public class SpiritCharacter : BaseCharacter
     {
         transform.SetParent(null);
         gameObject.SetActive(true);
+        //Debug.Log("Spirit Reliquished from " + playerCharacter);
+        playerCharacter = this;
     }
     [SerializeField] IntEvent SoulsUpdated = default;
 
@@ -23,8 +25,10 @@ public class SpiritCharacter : BaseCharacter
         }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
+        base.Awake();
         SoulsUpdated.RaiseEvent(0);
+        possessingSpirit = this;
     }
 }

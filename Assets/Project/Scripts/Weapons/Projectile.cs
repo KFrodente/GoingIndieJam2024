@@ -9,14 +9,15 @@ public class Projectile : MonoBehaviour
     protected int hits;
     protected bool shotByPlayer;
     [SerializeField] protected Rigidbody2D rb;
-    protected float dMult = 1;
     protected float spawnTime;
-     public virtual void Initialize(bool playerShot, float damageMultiplier)
+    protected int damage = 0;
+     
+     public void Initialize(bool playerShot, int damage)
      {
-         dMult = damageMultiplier;
          shotByPlayer = playerShot;
          spawnTime = Time.time;
          rb.velocity = transform.up * projectileData.speed;
+         this.damage = damage;
      }
      
      
@@ -24,7 +25,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.TryGetComponent(out Damagable d) && d.IsPlayer != shotByPlayer)
         {
-            d.TakeDamage((int)(projectileData.damage * dMult));
+            d.TakeDamage(damage);
             hits++;
             if(projectileData.hitSound != null) AudioManager.instance.Play(projectileData.hitSound);
             if(projectileData.hitParticle != null) Instantiate(projectileData.hitParticle, transform.position, Quaternion.identity);

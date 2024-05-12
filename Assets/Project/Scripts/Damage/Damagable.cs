@@ -102,13 +102,25 @@ public class Damagable : MonoBehaviour
     {
         damageAudioPlayer.PlayKilledSound();
         if(dispenser != null) dispenser.Dispense();
-        if(IsPlayer && baseCharacter.possessingSpirit != null) baseCharacter.possessingSpirit.Reliquish();
+        if (IsPlayer && baseCharacter.possessingSpirit != null)
+        {
+            baseCharacter.possessingSpirit.Reliquish();
+            if(baseCharacter.possessingSpirit.TryGetComponent(out Damagable d))
+            {
+                d.GainImmunity(1f);
+            }
+            if (baseCharacter.possessingSpirit.TryGetComponent(out Rigidbody2D rb))
+            {
+                rb.AddForce(baseCharacter.possessingSpirit.transform.up * 1000, ForceMode2D.Force);
+            }
+        }
         Destroy(baseCharacter.gameObject);
     }
 
     protected virtual void Hurt()
     {
         if(damageAudioPlayer) damageAudioPlayer.PlayHitSound();
+        GainImmunity(0.5f);
     }
 
     public virtual float GetHealthPerent()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RangedEnemyInput : EnemyInput
 {
+    [SerializeField] BaseCharacter character;
     [SerializeField] protected float preferedRange; 
     public override Vector2 GetNormalizedMoveDirection()
     {
@@ -14,8 +15,10 @@ public class RangedEnemyInput : EnemyInput
     {
         return new MouseInputData
         {
-            leftDown = (GetDistance() < preferedRange * 1.5f), // Might want to get actual attack range from stats
-            leftUp = (GetDistance() > preferedRange * 1.5f),
+            leftDown = (GetDistance() < character.characterStats.baseStats.AttackRange),
+            //leftDown = (GetDistance() < preferedRange * 1.5f), // Might want to get actual attack range from stats
+            leftUp = (GetDistance() > character.characterStats.baseStats.AttackRange),
+            //leftUp = (GetDistance() > preferedRange * 1.5f),
             rightDown = false,
             rightUp = false,
             middleDown = false,

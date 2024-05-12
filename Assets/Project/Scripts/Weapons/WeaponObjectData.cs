@@ -7,7 +7,6 @@ using UnityEngine;
 public class WeaponObjectData : ScriptableObject
 {
     [Header("Basics")]
-    public float fireDelay;
     public AudioClip attackSound;
     [Header("Charge")]
     public float chargeTime;

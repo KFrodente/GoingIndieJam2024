@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] protected WeaponObjectData weaponData;
     protected int index = 0;
-    protected bool delayOver => Time.time - lastFireTime > weaponData.fireDelay * bc.GetStats().AttackSpeed;
+    protected bool delayOver => Time.time - lastFireTime > bc.GetStats().AttackSpeed;
     protected float lastFireTime = 0;
     protected Target savedTarget;
     protected BaseCharacter bc;
@@ -34,21 +34,17 @@ public class Weapon : MonoBehaviour
     protected virtual void Fire(Target target)
     {
         float angle = InputUtils.GetAngle(target.GetDirection());
-        Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(target.shotByPlayer, GetProjectileDamageMult());
+        Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(target.shotByPlayer, (int)bc.GetStats().Damage);
         
         lastFireTime = Time.time;
     }
 
-    protected virtual float GetProjectileDamageMult()
-    {
-        return 1;
-    }
-
+    
 
    
     
     protected virtual void Start()
     {
-        lastFireTime = -weaponData.fireDelay;
+        lastFireTime = -bc.GetStats().AttackSpeed;
     }
 }

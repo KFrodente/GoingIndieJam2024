@@ -147,6 +147,7 @@ public class PatternWeapon : Projectile
 	private IEnumerator SpawnBullets(int startpattern)
 	{
 		bool spawnwithnext = false;
+		Vector2 possiblesamedirection = target.position - transform.position;
 
 		for (int i = startpattern; i < patterns.Length; i++)
 		{
@@ -193,7 +194,7 @@ public class PatternWeapon : Projectile
 				{
 					if (patterns[i].sameDirection)
 					{
-						direction = (target.position - transform.position);
+						direction = possiblesamedirection;
 					}
 					else
 					{

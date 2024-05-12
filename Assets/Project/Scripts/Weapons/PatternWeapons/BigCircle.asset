@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: BigCircle
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  bulletAmount: 12
-  totalSpawnTime: 2
-  shootDelay: 0.75
-  circleRadius: 2
-  arcSpawnedOn: 90
-  randomize: 0
+  bulletAmount: 100
+  circleRadius: 1
+  arcSpawnedOn: 360

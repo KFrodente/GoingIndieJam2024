@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [CreateAssetMenu(fileName = "Shape_Pattern", menuName = "Patterns/Shape")]
 public class ShapePattern : Pattern
@@ -10,19 +9,10 @@ public class ShapePattern : Pattern
 	[SerializeField] Vector2[] points;
 
 	[SerializeField] bool evenAmountBetweenPoints;
+	[SerializeField] bool addEndcaps;
 
 	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)
 	{
-		Vector3[] positions;
-
-		if (evenAmountBetweenPoints)
-		{
-			positions = new Vector3[bulletAmount * (points.Length - 1)];
-		} else
-		{
-			positions = new Vector3[bulletAmount];
-		}
-
 		float totaldistance = 0;
 		for (int i = 0; i < points.Length; i++)
 		{
@@ -31,24 +21,67 @@ public class ShapePattern : Pattern
 				totaldistance += Vector2.Distance(points[i - 1], points[i]);
 			}
 		}
+
+		int length = bulletAmount;
 		float neededDistance = totaldistance / bulletAmount;
-		float distanceProgress = 0;
+
+		if (evenAmountBetweenPoints)
+		{
+			length = bulletAmount * (points.Length - 1);
+			neededDistance = totaldistance / points.Length;
+		}
+		else if (addEndcaps)
+		{
+			if (bulletAmount < points.Length - 1)
+			{
+				bulletAmount = points.Length - 1;
+			}
+			length = bulletAmount + (points.Length) - 1;
+			//Debug.Log(length + " ____ " + bulletAmount);
+		} 
+
+		Vector3[] positions = new Vector3[length];
+
+		float distanceProgress = neededDistance/2.0f;
 		int currentpoint = 0;
 
-		for (int i = 0; i < positions.Length; i++)
+		if (evenAmountBetweenPoints)
 		{
-			if (currentpoint < points.Length - 1)
+			for (int i = 1; i < points.Length; i++)
 			{
-				float currentlinedistance = Vector3.Distance(points[currentpoint], points[currentpoint + 1]);
+				//float currentlinedistance = Vector3.Distance(points[currentpoint - 1], points[currentpoint]);
 
-				positions[i] = Vector3.Lerp(points[currentpoint], points[currentpoint + 1], distanceProgress/ currentlinedistance) * scalar;
-				positions[i] = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * positions[i];
-				distanceProgress += neededDistance;
-
-				if (distanceProgress >= currentlinedistance)
+				for (int o = 0; o < bulletAmount; o++)
 				{
-					distanceProgress -= currentlinedistance;
-					currentpoint++;
+					Debug.Log("On POint " + i + ";  spawning bullet " + o + ";  position is " + (o + (bulletAmount * (i - 1))) + "/" + positions.Length);
+					positions[o + (bulletAmount * (i - 1))] = Vector3.Lerp(points[i - 1], points[i], (float)o/bulletAmount);
+				}
+			}
+		}
+		else
+		{
+			for (int i = 0; i < positions.Length; i++)
+			{
+				if (currentpoint < points.Length - 1)
+				{
+					float currentlinedistance = Vector3.Distance(points[currentpoint], points[currentpoint + 1]);
+
+					positions[i] = Vector3.Lerp(points[currentpoint], points[currentpoint + 1], distanceProgress/ currentlinedistance) * scalar;
+					positions[i] = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * positions[i];
+					distanceProgress += neededDistance;
+
+					if (distanceProgress >= currentlinedistance - 0.05f)
+					{
+						//Debug.Log(positions.Length + " ____ " + i);
+						if (addEndcaps)
+						{
+							i++;
+							positions[i] = points[currentpoint + 1] * scalar;
+							positions[i] = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * positions[i];
+						}
+						distanceProgress -= currentlinedistance;
+						currentpoint++;
+					}
 				}
 			}
 		}

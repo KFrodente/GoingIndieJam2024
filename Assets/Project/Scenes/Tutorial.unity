@@ -299,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8049188816408350661, guid: 33ea764adbc54ad4b82e78ad7a375faf, type: 3}
       propertyPath: health
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9144998218471326749, guid: 33ea764adbc54ad4b82e78ad7a375faf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -611,19 +611,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 237055325538202888, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 237055325538202888, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4018743392345611538, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4018743392345611538, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5037566995258170101, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -676,6 +676,10 @@ PrefabInstance:
     - target: {fileID: 8742978284093614969, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}
       propertyPath: m_Name
       value: Corvid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742978284093614969, guid: cb8ff47f341391241a1e75b57928f7e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

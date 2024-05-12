@@ -110,6 +110,11 @@ public class Damagable : MonoBehaviour
     {
         if(damageAudioPlayer) damageAudioPlayer.PlayHitSound();
     }
+
+    public virtual float GetHealthPerent()
+    {
+        return health / (float)startingHealth;
+    }
     
     [Button]
     public virtual void ApplyDamage()

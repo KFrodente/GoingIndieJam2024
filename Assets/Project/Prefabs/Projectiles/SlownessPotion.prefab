@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009bde634da34dcd82561980d41e8348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileData: {fileID: 0}
-  rb: {fileID: 0}
-  spin: 0
+  projectileData: {fileID: 11400000, guid: be3121ff865c70a429b12b3e25be47af, type: 2}
+  rb: {fileID: 2397933145337248889}
+  spin: 30
 --- !u!1 &5339358802178693678
 GameObject:
   m_ObjectHideFlags: 0

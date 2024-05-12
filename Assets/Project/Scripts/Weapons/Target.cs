@@ -8,6 +8,7 @@ public class Target
     private Transform? characterTarget;
     private Vector2 fireLocation;
     public bool shotByPlayer { get; private set; }
+    public TargetCaseID uniqueCaseID = TargetCaseID.None;
 
     public Target(TargetType type, Vector2? lockedPos, Transform? target, Vector2 fireSpot, bool shotByPlayer)
     {
@@ -50,9 +51,18 @@ public class Target
     }
 }
 
+
 public enum TargetType
 {
     Mouse,
     Position,
     Character
+}
+
+public enum TargetCaseID
+{
+    None,
+    Neutral,
+    Friendly,
+    Enemy
 }

@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: TetheredSpiritStats
   m_EditorClassIdentifier: 
   damage: 10
-  defense: 0
   moveSpeed: 30
   chargeSpeed: 0
-  maxMoveSpeed: 5
   turnSpeed: 0.1
-  range: 3
+  attackRange: 0
+  attackSpeed: 0
+  chargeTurnSpeed: 0
+  damageMult: 1
+  moveSpeedMult: 1
+  chargeSpeedMult: 1
+  turnSpeedMult: 1
+  attackRangeMult: 1
+  attackSpeedMult: 1
+  healthMult: 1
+  chargeTurnSpeedMult: 1

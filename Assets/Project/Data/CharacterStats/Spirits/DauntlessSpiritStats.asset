@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   moveSpeed: 20
-  chargeSpeed: 20
-  turnSpeed: 50
+  chargeSpeed: 30.62
+  turnSpeed: 79.67
   attackRange: 0
   attackSpeed: 0
-  chargeTurnSpeed: 2.53
-  damageMult: 0
-  moveSpeedMult: 0
-  chargeSpeedMult: 0
-  turnSpeedMult: 0
-  attackRangeMult: 0
-  attackSpeedMult: 0
-  healthMult: 0
-  chargeTurnSpeedMult: 0
+  chargeTurnSpeed: 4
+  damageMult: 1
+  moveSpeedMult: 1
+  chargeSpeedMult: 1
+  turnSpeedMult: 1
+  attackRangeMult: 1
+  attackSpeedMult: 1
+  healthMult: 1
+  chargeTurnSpeedMult: 1

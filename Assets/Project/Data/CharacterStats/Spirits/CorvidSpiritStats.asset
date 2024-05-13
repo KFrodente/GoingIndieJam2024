@@ -18,10 +18,12 @@ MonoBehaviour:
   turnSpeed: 270
   attackRange: 30
   attackSpeed: 1
-  damageMult: 0
-  moveSpeedMult: 0
-  chargeSpeedMult: 0
-  turnSpeedMult: 0
-  attackRangeMult: 0
-  attackSpeedMult: 0
-  healthMult: 0
+  chargeTurnSpeed: 0
+  damageMult: 1
+  moveSpeedMult: 1
+  chargeSpeedMult: 1
+  turnSpeedMult: 1
+  attackRangeMult: 1
+  attackSpeedMult: 1
+  healthMult: 1
+  chargeTurnSpeedMult: 1

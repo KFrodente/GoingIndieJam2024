@@ -66,6 +66,13 @@ public class BaseMovement : MonoBehaviour
     public virtual void AngleTowardTargetAngle(float speed, BaseCharacter c)
     {
         transform.rotation = Quaternion.Euler(0, 0,Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetAngle, Time.deltaTime * speed));
+
+    }
+
+    public virtual void Rotate(float speed, BaseCharacter c, bool forcedAction = false)
+    {
+        if (rotationFrozen && !forcedAction) return;
+        transform.RotateAround(transform.position, Vector3.forward, Time.deltaTime * speed);
     }
 
     public virtual void ChangeAngle(Vector2 direction)

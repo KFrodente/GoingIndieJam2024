@@ -10,9 +10,9 @@ public class DashChargeWeapon : ChargeWeapon
 	{
 		if(charging && affectRotation)
 		{
+			Debug.Log("SPEED: " + bc.GetStats().ChargeTurnSpeed);
 			bc.movement.SetTargetAngle(savedTarget.GetDirection(), true);
 			bc.movement.AngleTowardTargetAngle(bc.GetStats().ChargeTurnSpeed, bc);
-			Debug.Log("ROTATION: " + bc.movement);
 			// Slow down current movement code
 		}
 	}

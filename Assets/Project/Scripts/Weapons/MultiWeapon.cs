@@ -12,7 +12,7 @@ public class MultiWeapon : Weapon
 
 	public override void InitializeCharacter(BaseCharacter c)
 	{
-		foreach (AutoFireWeapon weapon in Weapons)
+		foreach (Weapon weapon in Weapons)
 		{
 			weapon.InitializeCharacter(c);
 		}
@@ -34,7 +34,10 @@ public class MultiWeapon : Weapon
 
 	public override void EndAttack()
 	{
-		currentWeapon.EndAttack();
+		foreach (Weapon weapon in Weapons)
+		{
+			weapon.EndAttack();
+		}
 	}
 
 	private void PickWeapon()

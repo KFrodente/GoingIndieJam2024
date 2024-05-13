@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Line
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  bulletAmount: 15
+  bulletAmount: 100
   points:
   - {x: -1, y: 0}
   - {x: 1, y: 0}
-  evenAmountBetweenPoints: 0
+  evenAmountBetweenPoints: 1
   addEndcaps: 0
+  pointsAreBulletLocations: 0

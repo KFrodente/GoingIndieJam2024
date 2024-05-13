@@ -16,3 +16,4 @@ MonoBehaviour:
   bulletAmount: 10
   circleRadius: 1
   arcSpawnedOn: 360
+  centerArcInDirection: 0

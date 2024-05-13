@@ -423,8 +423,8 @@ MonoBehaviour:
   bulletProjectile: {fileID: 0}
   shoot: 0
   patterns:
-  - pattern: {fileID: 11400000, guid: 035ff53bdd466154b8d449eb74b64514, type: 2}
-    totalSpawnTime: 3
+  - pattern: {fileID: 11400000, guid: cbdbab313c3ce2e4d9359ac57bc89d8c, type: 2}
+    totalSpawnTime: 1
     pointDirection: {x: 1, y: 0}
     delayToNext: 0
     scale: {x: 1, y: 1}

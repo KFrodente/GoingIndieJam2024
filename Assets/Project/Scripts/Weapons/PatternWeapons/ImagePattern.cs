@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Image_Pattern", menuName = "Patterns/Image")]
@@ -12,7 +13,6 @@ public class ImagePattern : Pattern
 
 	[SerializeField] bool topToDown;
 	[SerializeField] bool rightToLeft;
-	[SerializeField] bool centerToOutward;
 
 	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)
 	{
@@ -26,7 +26,7 @@ public class ImagePattern : Pattern
 				int ytoadd = y;
 
 				if (rightToLeft) { xtoadd = image.width - x - 1; }
-				if ( topToDown) { ytoadd = image.height - y - 1; }
+				if (topToDown) { ytoadd = image.height - y - 1; }
 
 				if (image.GetPixel(xtoadd, ytoadd) == Color.black)
 				{
@@ -34,13 +34,11 @@ public class ImagePattern : Pattern
 					float yforvec = (ytoadd * 1 / inverseScale.y) - (image.height * (1 / inverseScale.y) / 2);
 
 					Vector3 vectoadd = new Vector3(xforvec + offset.x, yforvec + offset.y) * scalar;
-					vectoadd = Quaternion.Euler(0,0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * vectoadd;
+					vectoadd = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * vectoadd;
 					positions.Add(vectoadd);
 				}
 			}
 		}
-
-
 
 		bulletAmount = positions.Count;
 

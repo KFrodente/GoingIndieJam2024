@@ -57,14 +57,16 @@ MonoBehaviour:
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
-    shootAwayFromSpawner: 0
-    shootAwayFromPosition: 0
-    sameDirection: 0
-    inPointDirection: 0
     randomize: 1
     spawnWithNextPattern: 0
+    spawnCenterOutwards: 0
+    pointAwayFromSpawner: 0
+    pointAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
     howshoot: 0
     shootDelay: 0.1
     projectiles: []
     shootReverse: 0
     shootWithNextPattern: 0
+    shootCenterOutwards: 0

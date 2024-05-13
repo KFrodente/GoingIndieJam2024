@@ -7,6 +7,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject characterSelectMenu;
 
 
     public void ShowSettings()
@@ -21,9 +22,16 @@ public class MainMenuManager : MonoBehaviour
         settingsMenu.SetActive(false);
     }
 
-    public void StartGame(string sceneName)
+    public void ExitCharacterSelect()
     {
-        SceneManager.LoadScene(sceneName);
+        characterSelectMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        mainMenu.SetActive(false);
+        characterSelectMenu.SetActive(true);
     }
 
     public void ExitGame()

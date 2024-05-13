@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,47 +33,81 @@ public class PatternDefinitionProjectile : Projectile
 	struct ShootPattern
 	{
 		[Header("Spawning")]
+		[Expandable]
 		[Tooltip("The actual pattern scriptable object to use")]
 		public Pattern pattern;
+
 		[Tooltip("Time to spawn the full pattern")]
 		public float totalSpawnTime;
+		
 		[Tooltip("The direction that the spawning originates from")]
 		public Vector2 pointDirection;
+		
 		[Tooltip("Delay between this pattern spawning and the next pattern spawning")]
 		public float delayToNext;
+		
 		[Tooltip("Scale the pattern by this amount on the x and y")]
 		public Vector2 scale;
+		
 		[Tooltip("The position where the bullet pattern will spawn")]
 		public Transform spawnPlacement;
+		
 		[Tooltip("Point in space that the projectiles shoot away from")]
 		public Transform positionShootAwayFrom;
+		
 		[Tooltip("If the spawned projectiles should be parented to the placements")]
 		public bool dontParentToSpawner;
-		[Tooltip("If the bullet should shoot away from transform.position")]
-		public bool pointAwayFromSpawner;
-		[Tooltip("If the bullet should shoot away from positionShootAwayFrom. If null, uses spawnplacement")]
-		public bool pointAwayFromPosition;
-		[Tooltip("If all the bullets should fire in the same direction using pointDirection")]
-		public bool sameDirection;
-		[Tooltip("Bullets should point within the point direction")]
-		public bool inPointDirection;
+
 		[Tooltip("randomized the spawn order of the projectiles")]
 		public bool randomize;
+
 		[Tooltip("If the Pattern should SPAWN with the next pattern")]
 		public bool spawnWithNextPattern;
+
 		[Tooltip("spawns bullets from the center outwards")]
 		public bool spawnCenterOutwards;
+
+		[Header("PointDirection")]
+		[Tooltip("If the bullet should shoot away from transform.position")]
+		[AllowNesting]
+		[Foldout("Point")]
+		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "inPointDirection")]
+		public bool pointAwayFromSpawner;
+		
+		[Tooltip("If the bullet should shoot away from positionShootAwayFrom. If null, uses spawnplacement")]
+		[AllowNesting]
+		[Foldout("Point")]
+		[HideIf(EConditionOperator.Or, "pointAwayFromSpawner", "sameDirection", "inPointDirection")]//
+		public bool pointAwayFromPosition;
+		
+		[Tooltip("If all the bullets should fire in the same direction using pointDirection")]
+		[AllowNesting]
+		[Foldout("Point")]
+		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "pointAwayFromSpawner", "inPointDirection")]
+		public bool sameDirection;
+		
+		[Tooltip("Bullets should point within the point direction")]
+		[AllowNesting]
+		[Foldout("Point")]
+		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "pointAwayFromSpawner")]
+		public bool inPointDirection;
+		
 		[Header("Shooting")]
 		[Tooltip("How the pattern shoots out")]
 		public ShootType howshoot;
+		
 		[Tooltip("Time between bullet shots")]
 		public float shootDelay;
+		
 		[Tooltip("The projectiles that the pattern spawns")]
 		public List<Projectile> projectiles;
+		
 		[Tooltip("shoot the projectiles in the reverse order they were spawned")]
 		public bool shootReverse;
+		
 		[Tooltip("If the Pattern should SHOOT with the next pattern")]
 		public bool shootWithNextPattern;
+		
 		[Tooltip("shoots spawned bullets from the center outwards")]
 		public bool shootCenterOutwards;
 	}

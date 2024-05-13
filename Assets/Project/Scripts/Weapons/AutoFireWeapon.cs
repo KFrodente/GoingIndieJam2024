@@ -5,12 +5,14 @@ public class AutoFireWeapon : Weapon
     protected bool attacking;
     protected float lastAutoFireTime = 0;
     
-    public override void StartAttack(Target target, BaseCharacter c)
+    public override bool StartAttack(Target target, BaseCharacter c)
     {
         savedTarget = target;
-        if (!delayOver) return;
+        if (!delayOver) return false;
         attacking = true;
         bc = c;
+        return true;
+
     }
     public override void EndAttack()
     {

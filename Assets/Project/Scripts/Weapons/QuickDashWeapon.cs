@@ -7,14 +7,15 @@ public class QuickDashWeapon : DurationWeapon
 	
     
 
-    public override void StartAttack(Target target, BaseCharacter c)
+    public override bool StartAttack(Target target, BaseCharacter c)
     {
-        if (!delayOver) return;
+        if (!delayOver) return false;
         bc = c;
         duration = Time.time;
         c.movement.Freeze(weaponData.attackDuration, weaponData.attackDuration);
         Fire(target);
         c.effector?.Play(Vector2.zero, weaponData.attackDuration);
+        return true;
         //c.immunity.Gain(duration = 0.15)
         
     }

@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] protected WeaponObjectData weaponData;
     protected int index = 0;
-    protected bool delayOver => Time.time - lastFireTime > bc.GetStats().AttackSpeed;
+    public bool delayOver => Time.time - lastFireTime > bc.GetStats().AttackSpeed;
     protected float lastFireTime = 0;
     protected Target savedTarget;
     protected BaseCharacter bc;
@@ -19,12 +19,13 @@ public class Weapon : MonoBehaviour
     }
 
     
-    public virtual void StartAttack(Target target, BaseCharacter c)
+    public virtual bool StartAttack(Target target, BaseCharacter c)
     {
-        if (!delayOver) return;
+        if (!delayOver) return false;
         bc = c;
         savedTarget = target;
         Fire(target);
+        return true;
     }
 
     public virtual void EndAttack()

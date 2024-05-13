@@ -32,12 +32,13 @@ public class DashChargeWeapon : ChargeWeapon
 		}
 	}
 
-	public override void StartAttack(Target target, BaseCharacter c)
+	public override bool StartAttack(Target target, BaseCharacter c)
 	{
-		if (!delayOver || !isCancelOver) return;
+		if (!delayOver || !isCancelOver) return false;
 		base.StartAttack(target, c);
 		float rotationFreezeMultiplier = 2; // Find proper value
 		bc.movement.Freeze(weaponData.chargeTime, weaponData.chargeTime * rotationFreezeMultiplier);
+		return true;
 	}
 
 	public override void EndAttack()

@@ -3,12 +3,13 @@ using UnityEngine;
 public class BurstWeapon : AutoFireWeapon
 {
     protected int shotCount = 0;
-    public override void StartAttack(Target target, BaseCharacter c)
+    public override bool StartAttack(Target target, BaseCharacter c)
     {
-        if (!delayOver) return;
+        if (!delayOver) return false;
         bc = c;
         shotCount = weaponData.burstAmount;
         attacking = true;
+        return true;
     }
     protected void Update()
     {

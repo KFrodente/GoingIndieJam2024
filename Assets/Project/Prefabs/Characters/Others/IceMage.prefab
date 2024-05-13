@@ -670,6 +670,9 @@ GameObject:
   - component: {fileID: 8588803817186985679}
   - component: {fileID: -2251215004531786687}
   - component: {fileID: 8084458293078636590}
+  - component: {fileID: 1969644216222731332}
+  - component: {fileID: 917965816486486533}
+  - component: {fileID: -8256740145659277666}
   m_Layer: 9
   m_Name: IceMage
   m_TagString: Untagged
@@ -724,7 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: -2251215004531786687}
   movement: {fileID: 5963222230313543426}
-  weapon: {fileID: 8084458293078636590}
+  weapon: {fileID: -8256740145659277666}
   characterStats: {fileID: 1595631146469311203}
   rb: {fileID: 8658340102009209602}
   damageable: {fileID: 8588803817186985679}
@@ -866,6 +869,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: fc0f203b220569a42be2f287b4dce1f0, type: 2}
+--- !u!114 &1969644216222731332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 176b45d336a4cf54eb3addc7c1db4607, type: 2}
+--- !u!114 &917965816486486533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 04a0bb6a781167b4ca4530ee9fd00b35, type: 2}
+--- !u!114 &-8256740145659277666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9483c847743824ba8444b503b30ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 0}
+  Weapons:
+  - {fileID: 8084458293078636590}
+  - {fileID: 1969644216222731332}
+  - {fileID: 917965816486486533}
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

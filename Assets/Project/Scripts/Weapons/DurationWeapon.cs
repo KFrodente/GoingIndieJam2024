@@ -8,12 +8,13 @@ public class DurationWeapon : Weapon
     
     protected bool attackInAffect => Time.time - duration < weaponData.attackDuration;
     protected float duration = 0;
-    public override void StartAttack(Target target, BaseCharacter c)
+    public override bool StartAttack(Target target, BaseCharacter c)
     {
-        if (!delayOver) return;
+        if (!delayOver) return false;
         bc = c;
         Fire(target);
         duration = Time.time;
+        return true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

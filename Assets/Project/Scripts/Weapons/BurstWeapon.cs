@@ -26,7 +26,7 @@ public class BurstWeapon : AutoFireWeapon
             if(attacking) StartAttack(savedTarget, bc);
         }
     }
-    protected override bool IsAutoFireDelayOver()
+    public override bool IsAutoFireDelayOver()
     {
         return Time.time - lastAutoFireTime > weaponData.burstSeparationDelay;
         

@@ -21,7 +21,7 @@ public class MultiWeapon : Weapon
 
 	public override bool StartAttack(Target target, BaseCharacter c)
 	{
-		if (prevWeapon && !prevWeapon.delayOver) return false;
+		if (prevWeapon && !prevWeapon.IsAutoFireDelayOver()) return false;
 
 		if(currentWeapon.StartAttack(target, c))
 		{

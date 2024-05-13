@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3925894777581319777, guid: 33ea764adbc54ad4b82e78ad7a375faf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4573040059325769352, guid: 33ea764adbc54ad4b82e78ad7a375faf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1286,6 +1290,7 @@ MonoBehaviour:
   health: 10
   isHitCounter: 0
   alwaysImmune: 0
+  isSpirit: 0
   baseCharacter: {fileID: 0}
   damageAudioPlayer: {fileID: 0}
   dispenser: {fileID: 0}
@@ -1809,6 +1814,7 @@ MonoBehaviour:
   playerInput: {fileID: 3571368738322011953}
   unitBase: {fileID: 8712661986761828292}
   interactor: {fileID: 4316432200583147846}
+  healthSystem: {fileID: 0}
 --- !u!224 &5175485909867754138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1913,6 +1919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75f3d6815960274e9e4bb8ac1fcc775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickRate: 0.5
+  character: {fileID: 0}
   preferedRange: 6.17
 --- !u!1 &6484640200403638077
 GameObject:

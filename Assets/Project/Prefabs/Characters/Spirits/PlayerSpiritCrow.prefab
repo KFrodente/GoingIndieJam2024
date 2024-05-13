@@ -405,7 +405,7 @@ MonoBehaviour:
   isHitCounter: 1
   alwaysImmune: 0
   isSpirit: 1
-  baseCharacter: {fileID: 0}
+  baseCharacter: {fileID: 6353325505182375790}
   damageAudioPlayer: {fileID: 0}
   dispenser: {fileID: 0}
   healthOverBar: {fileID: 0}

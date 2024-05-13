@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyInput : BaseInput
 {
+    [SerializeField] protected float clickRate = 0.5f;
+    protected float lastClickTime = 0;
     public override Vector2 GetNormalizedMoveDirection()
     {
         if (BaseCharacter.playerCharacter.transform == null) return Vector2.zero;
@@ -11,9 +13,11 @@ public class EnemyInput : BaseInput
     }
     public override MouseInputData GetMouseInput()
     {
+        bool clicked = Time.time - lastClickTime > clickRate;
+        if(clicked) lastClickTime = Time.time;
         return new MouseInputData
         {
-            leftDown = true, // Spamming??
+            leftDown = clicked,
             leftUp = false,
             rightDown = false,
             rightUp = false,
@@ -27,4 +31,5 @@ public class EnemyInput : BaseInput
         if (BaseCharacter.playerCharacter.transform != null) return new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform.position, false);
         return null;
     }
+
 }

@@ -17,17 +17,20 @@ public class MultiWeapon : Weapon
 			weapon.InitializeCharacter(c);
 		}
 		PickWeapon();
+		bc = c;
 	}
 
 	public override bool StartAttack(Target target, BaseCharacter c)
 	{
-		if (prevWeapon && !prevWeapon.delayOver) return false;
-
-		if(currentWeapon.StartAttack(target, c))
-		{
-			prevWeapon = currentWeapon;
-			PickWeapon();
-		}
+		if (!delayOver) return false;
+		//savedTarget = target; 
+		//if(prevWeapon) prevWeapon.EndAttack();
+		
+		currentWeapon.StartAttack(target, c);
+		prevWeapon = currentWeapon;
+		lastFireTime = Time.time;
+		Debug.Log("DELAY delayOver: " + delayOver);
+		PickWeapon();
 
 		return true;
 	}

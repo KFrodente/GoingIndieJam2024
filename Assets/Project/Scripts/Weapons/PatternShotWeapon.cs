@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatternShotWeapon : AutoFireWeapon
+public class PatternShotWeapon : Weapon
 {
     protected virtual void Fire(Target target)
     {

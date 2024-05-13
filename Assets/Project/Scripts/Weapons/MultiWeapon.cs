@@ -6,9 +6,9 @@ using UnityEngine;
 public class MultiWeapon : Weapon
 {
 	[Header("Dont use weapon data above, only the ones filling the list")]
-	[SerializeField] private List<AutoFireWeapon> Weapons = new List<AutoFireWeapon>();
-	private AutoFireWeapon currentWeapon;
-	private AutoFireWeapon prevWeapon;
+	[SerializeField] private List<Weapon> Weapons = new List<Weapon>();
+	private Weapon currentWeapon;
+	private Weapon prevWeapon;
 
 	public override void InitializeCharacter(BaseCharacter c)
 	{
@@ -21,7 +21,7 @@ public class MultiWeapon : Weapon
 
 	public override bool StartAttack(Target target, BaseCharacter c)
 	{
-		if (prevWeapon && !prevWeapon.IsAutoFireDelayOver()) return false;
+		if (prevWeapon && !prevWeapon.delayOver) return false;
 
 		if(currentWeapon.StartAttack(target, c))
 		{

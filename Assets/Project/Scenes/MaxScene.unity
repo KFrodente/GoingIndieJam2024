@@ -427,7 +427,7 @@ MonoBehaviour:
   shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: cbdbab313c3ce2e4d9359ac57bc89d8c, type: 2}
-    totalSpawnTime: 3
+    totalSpawnTime: 1
     pointDirection: {x: 1, y: 0}
     delayToNext: 0
     scale: {x: 1, y: 1}
@@ -441,8 +441,8 @@ MonoBehaviour:
     randomize: 0
     spawnWithNextPattern: 0
     spawnCenterOutwards: 0
-    howshoot: 0
-    shootDelay: 0
+    howshoot: 1
+    shootDelay: 0.1
     projectiles: []
     shootReverse: 0
     shootWithNextPattern: 0

@@ -36,7 +36,6 @@ public class MultiWeapon : Weapon
 		AttackWithCurrentWeapon(target, c);
 		prevWeapon = currentWeapon;
 		lastFireTime = Time.time;
-		Debug.Log("DELAY delayOver: " + delayOver);
 		PickWeapon();
 
 		return true;
@@ -54,6 +53,7 @@ public class MultiWeapon : Weapon
 			case WeaponSelectionType.Alternate:
 			{
 				currentTimesUsed++;
+				Debug.Log("Current times used: " + currentTimesUsed + " out of " + weaponUsesBeforeSwap[alternateIndex] + " | " + currentWeapon);
 				break;
 			}
 		}
@@ -88,14 +88,16 @@ public class MultiWeapon : Weapon
 				if (currentTimesUsed >= weaponUsesBeforeSwap[alternateIndex])
 				{
 					alternateIndex++;
+					currentTimesUsed = 0;
 					if (alternateIndex >= Weapons.Count)
 					{
 						alternateIndex = 0;
-						currentTimesUsed = 0;
+						
 					}
 				}
 
 				currentWeapon = Weapons[alternateIndex];
+				Debug.Log(alternateIndex);
 				break;
 			}
 		}

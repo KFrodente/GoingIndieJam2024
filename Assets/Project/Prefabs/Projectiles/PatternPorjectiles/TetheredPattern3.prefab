@@ -49,11 +49,11 @@ MonoBehaviour:
   bulletProjectile: {fileID: 3204321272480393510, guid: c925a183fbc2251449b435421c8ba534, type: 3}
   shoot: 0
   patterns:
-  - pattern: {fileID: 11400000, guid: 9739a2bffc54fcc43b3fa763976665cd, type: 2}
+  - pattern: {fileID: 11400000, guid: 78bd9e19eecc296469e0af28c3f076ea, type: 2}
     totalSpawnTime: 1
-    pointDirection: {x: 2, y: 1}
+    pointDirection: {x: 1, y: 0}
     delayToNext: 0
-    scale: {x: 1, y: 3}
+    scale: {x: 1, y: 1}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0

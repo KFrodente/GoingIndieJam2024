@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
   bulletAmount: 10
-  circleRadius: 1
+  circleRadius: 2
   arcSpawnedOn: 360
   centerArcInDirection: 0

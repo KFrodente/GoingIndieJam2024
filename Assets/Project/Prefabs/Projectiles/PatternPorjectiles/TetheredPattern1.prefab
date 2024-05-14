@@ -51,9 +51,9 @@ MonoBehaviour:
   patterns:
   - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
     totalSpawnTime: 1
-    pointDirection: {x: 2, y: 1}
+    pointDirection: {x: 1, y: 0}
     delayToNext: 0
-    scale: {x: 1, y: 3}
+    scale: {x: 1, y: 1}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
@@ -72,9 +72,9 @@ MonoBehaviour:
     shootCenterOutwards: 0
   - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
     totalSpawnTime: 1
-    pointDirection: {x: 2, y: 1}
+    pointDirection: {x: 1, y: 0}
     delayToNext: 0
-    scale: {x: 1, y: 3}
+    scale: {x: 1, y: 1}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0

@@ -51,9 +51,9 @@ MonoBehaviour:
   patterns:
   - pattern: {fileID: 11400000, guid: f8326045f8ac75c448654ad474e965c8, type: 2}
     totalSpawnTime: 1
-    pointDirection: {x: 2, y: 1}
+    pointDirection: {x: 1, y: 0}
     delayToNext: 0
-    scale: {x: 1, y: 3}
+    scale: {x: 1, y: 1}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1679647788598956437}
   - component: {fileID: 4020299109298818426}
   - component: {fileID: 2397933145337248889}
-  - component: {fileID: 9100305768235465966}
+  - component: {fileID: 8110783098472230936}
   m_Layer: 0
   m_Name: HealingPotion
   m_TagString: Untagged
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9100305768235465966
+--- !u!114 &8110783098472230936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054220050833602879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 009bde634da34dcd82561980d41e8348, type: 3}
+  m_Script: {fileID: 11500000, guid: 60094cfbebe048e88f73824768705dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: be3121ff865c70a429b12b3e25be47af, type: 2}
@@ -118,6 +118,7 @@ MonoBehaviour:
     value: 0
     duration: 0
   spin: 30
+  healthIncrease: 25
 --- !u!1 &5339358802178693678
 GameObject:
   m_ObjectHideFlags: 0

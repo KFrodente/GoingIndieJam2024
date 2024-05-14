@@ -15,13 +15,13 @@ public class Projectile : MonoBehaviour
     protected Target target;
     protected bool initialized;
     [SerializeField] protected StatEffect onHitEffect;
-    protected bool isActive => Time.time - spawnTime >= timeBeforeActiveDamage;
+    protected bool isActive => Time.time - spawnTime > timeBeforeActiveDamage;
      
      public virtual void Initialize(Target target, int damage)
      {
          spawnTime = Time.time;
          if(rb) rb.velocity = transform.up * projectileData.speed;
-         this.damage = damage;
+         if(!projectileData.zeroDamage) this.damage = damage;
          this.target = target;
          initialized = true;
      }
@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
      
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (!initialized && isActive) return;
+        if (!initialized || !isActive) return;
         if (other.TryGetComponent(out Damagable d) && d.IsPlayer != target.shotByPlayer)
         {
             d.TakeDamage(damage, projectileData.type);

@@ -48,6 +48,7 @@ public class Damagable : MonoBehaviour
         set
         {
             health = value;
+            if (health > startingHealth) health = startingHealth;
             if(healthOverBar != null) healthOverBar.value = health / (float)startingHealth;
         }
     }

@@ -21,7 +21,7 @@ public class DurationWeapon : Weapon
     {
         if (other.TryGetComponent(out Damagable d) && attackInAffect)
         {
-            d.TakeDamage((int)bc.GetStats().Damage);
+            d.TakeDamage((int)bc.GetStats().Damage, defaultDamageType);
         }
     }
 }

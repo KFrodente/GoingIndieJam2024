@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] protected WeaponObjectData weaponData;
+    [SerializeField] protected ProjectileDamageType defaultDamageType;
     protected int index = 0;
     public bool delayOver => Time.time - lastFireTime > bc.GetStats().AttackSpeed;
     protected float lastFireTime = 0;

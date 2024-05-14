@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
         if (!initialized) return;
         if (other.TryGetComponent(out Damagable d) && d.IsPlayer != target.shotByPlayer)
         {
-            d.TakeDamage(damage);
+            d.TakeDamage(damage, projectileData.type);
             hits++;
             if(projectileData.hitSound != null) AudioManager.instance.Play(projectileData.hitSound);
             if(projectileData.hitParticle != null) Instantiate(projectileData.hitParticle, transform.position, Quaternion.identity);
@@ -46,4 +46,16 @@ public class Projectile : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+}
+
+[Flags]
+public enum ProjectileDamageType
+{
+    Blunt = 1,
+    Acid = 2,
+    Sharp = 4,
+    Explosion = 8,
+    Cold = 16,
+    Arcane = 32,
+    Fire = 64
 }

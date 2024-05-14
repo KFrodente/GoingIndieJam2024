@@ -39,6 +39,6 @@ public class Suffocation : MonoBehaviour
     private void Suffocate()
     {
         timeSuffTick = Time.time;
-        damager.TakeDamage(1);
+        damager.TakeDamage(1, ProjectileDamageType.Blunt);
     }
 }

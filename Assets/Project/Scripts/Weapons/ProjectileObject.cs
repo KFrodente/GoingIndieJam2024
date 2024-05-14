@@ -11,6 +11,7 @@ public class ProjectileObject : ScriptableObject
     public float speed;
     public float lifetime;
     public int pierceCount;
+    public ProjectileDamageType type;
     
     [Header("Hit Effects")]
     public GameObject hitParticle;

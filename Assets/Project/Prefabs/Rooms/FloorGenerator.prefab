@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 308381870437847890, guid: e13f8fe8a5c9d2647ba7075456e1e61e, type: 3}
   treasureRooms:
   - {fileID: 6733746826131674145, guid: ac702201c46ec444281ca9b31a65c9f8, type: 3}
+  - {fileID: 6733746826131674145, guid: c8a593a0f3d4d6a44bd6ba2f3e65d0be, type: 3}
   shopRooms:
   - {fileID: 2684158950016600734, guid: eb9af98f1fe74b14dbb0935cea1e5885, type: 3}
   floorStats:
@@ -349,7 +350,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -20
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

@@ -46,6 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileData: {fileID: 0}
   rb: {fileID: 0}
+  timeBeforeActiveDamage: 0
+  onHitEffect:
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0
   bulletProjectile: {fileID: 3204321272480393510, guid: ca01cfab1254b82429d7269c2f6e866a, type: 3}
   shoot: 0
   patterns:
@@ -70,7 +76,7 @@ MonoBehaviour:
     shootReverse: 0
     shootWithNextPattern: 1
     shootCenterOutwards: 0
-  - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
+  - pattern: {fileID: 11400000, guid: c973af9d49d829249861c3b1bd981899, type: 2}
     totalSpawnTime: 1
     pointDirection: {x: 1, y: 0}
     delayToNext: 0

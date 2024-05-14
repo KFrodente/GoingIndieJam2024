@@ -28,7 +28,7 @@ public class Damagable : MonoBehaviour
     [SerializeField] Slider healthUnderBar;
 
     // Health protected vars
-    [SerializeField] protected float healthLerpSpeed = 5f;
+    [SerializeField] protected float healthLerpSpeed = 20f;
     protected float lerpedHealth;
     protected float lerpedHealthTarget;
 
@@ -68,20 +68,35 @@ public class Damagable : MonoBehaviour
 
     protected void UpdateHealthBars()
     {
-        
-        if(lerpedHealthTarget != lerpedHealth)
-        {
-            // when difference is greater, lerp slower, meaning lerp is more even
-            float lerpTimeScalar = Mathf.Abs(lerpedHealth - lerpedHealthTarget);
-            lerpedHealth = Mathf.Lerp(lerpedHealth, lerpedHealthTarget, (healthLerpSpeed / lerpTimeScalar) * Time.deltaTime);
-            healthUnderBar.value = lerpedHealth / startingHealth;
 
-            if (Mathf.Abs(lerpedHealth - lerpedHealthTarget) < 0.3)
-            {
-                lerpedHealth = lerpedHealthTarget;
-            }
-        }
-    }
+		if (lerpedHealthTarget != lerpedHealth) { 
+		//{
+		//	// when difference is greater, lerp slower, meaning lerp is more even
+		//	float lerpTimeScalar = Mathf.Abs(lerpedHealth - lerpedHealthTarget);
+		//	lerpedHealth = Mathf.Lerp(lerpedHealth, lerpedHealthTarget, (healthLerpSpeed / lerpTimeScalar) * Time.deltaTime);
+		//	healthUnderBar.value = lerpedHealth / startingHealth;
+		//	//float lerpTimeScalar = Mathf.Abs(lerpedHealth - lerpedHealthTarget);
+		//	//lerpedHealth = Mathf.Lerp(lerpedHealth, lerpedHealthTarget, (healthLerpSpeed / lerpTimeScalar) * Time.deltaTime);
+
+			if (lerpedHealth > lerpedHealthTarget)
+			{
+				lerpedHealth -= healthLerpSpeed * Time.deltaTime;
+			}
+			else // less than
+			{
+				lerpedHealth += healthLerpSpeed * Time.deltaTime;
+			}
+
+			if (Mathf.Abs(lerpedHealth - lerpedHealthTarget) < 0.3)
+			{
+				lerpedHealth = lerpedHealthTarget;
+			}
+
+			healthUnderBar.value = lerpedHealth / startingHealth;
+		}
+	}
+
+
 
     
     public void GainImmunity(float time)
@@ -143,3 +158,4 @@ public class Damagable : MonoBehaviour
     }
     [SerializeField,Tooltip("Apply X damage"),Header("Testing")] int testDamageAmount = 5;
 }
+

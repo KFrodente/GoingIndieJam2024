@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 698ed4a3b8d7bf84da28914fdababf25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44b2a501e0a89984092d34eb0efb1bc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2664013649647103319}
   - component: {fileID: 7368585838701353589}
   - component: {fileID: 6647792438580029254}
+  - component: {fileID: 4550597596558220542}
   m_Layer: 0
   m_Name: FuriousEssence
   m_TagString: Untagged
@@ -167,3 +168,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!114 &4550597596558220542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871985610074794615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fb0c018aa03e647a4c2645f4eef462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

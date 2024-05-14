@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1679647788598956437}
   - component: {fileID: 4020299109298818426}
   - component: {fileID: 2397933145337248889}
-  - component: {fileID: 8967351094168391729}
+  - component: {fileID: 9100305768235465966}
   m_Layer: 0
-  m_Name: PoisonPotion
+  m_Name: HealingPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8967351094168391729
+--- !u!114 &9100305768235465966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,11 +106,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054220050833602879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51827f39274079f4182cf42bee275fcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 009bde634da34dcd82561980d41e8348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileData: {fileID: 11400000, guid: e301593591cf817488a91cce30f4683b, type: 2}
+  projectileData: {fileID: 11400000, guid: be3121ff865c70a429b12b3e25be47af, type: 2}
   rb: {fileID: 2397933145337248889}
+  spin: 30
 --- !u!1 &5339358802178693678
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.22566856, g: 0.83137256, b: 0.19215682, a: 0.48235294}
+  m_Color: {r: 0.19215682, g: 0.83137256, b: 0.22217767, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

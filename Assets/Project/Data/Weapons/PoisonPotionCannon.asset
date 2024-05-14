@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b41ccf60e5ba7f14d949520e50de4e1c, type: 3}
-  m_Name: PotionCannon
+  m_Name: PoisonPotionCannon
   m_EditorClassIdentifier: 
   fireDelay: 1.5
   attackSound: {fileID: 8300000, guid: c0997ca249da9d24b86ad2bae355976d, type: 3}

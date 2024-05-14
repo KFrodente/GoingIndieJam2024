@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionProjectile : Projectile
+public class SpinningProjectile : Projectile
 {
     [SerializeField] protected float spin;
     protected override void Update()

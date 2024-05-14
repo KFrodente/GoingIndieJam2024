@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8510036705523852194, guid: 4a19aee39ec7bb1409c56382824548de, type: 3}
+      propertyPath: statVariables
+      value: 
+      objectReference: {fileID: 11400000, guid: e8876175d739c4641951ad6a10ec566e, type: 2}
     - target: {fileID: 8980408171277284427, guid: 4a19aee39ec7bb1409c56382824548de, type: 3}
       propertyPath: m_Name
       value: Tethered

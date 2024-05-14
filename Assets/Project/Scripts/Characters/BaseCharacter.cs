@@ -17,7 +17,6 @@ public class BaseCharacter : MonoBehaviour
 
     public virtual Stats.Stats GetStats()
     {
-        Debug.Log("POSSESSING SPIRIT: " + possessingSpirit.gameObject.name);
         if (possessingSpirit != null && possessingSpirit != this) return characterStats.baseStats.MultiplyModifier(possessingSpirit.characterStats.modifierStats);
         return characterStats.baseStats;
     }

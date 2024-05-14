@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ab8c520df99b9478385ea63b43538e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 7344754775967893009}
   offset: {x: 0, y: -0.7, z: 0}
 --- !u!114 &4011927565395851499
 MonoBehaviour:
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ab8c520df99b9478385ea63b43538e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 7344754775967893009}
   offset: {x: 0, y: -0.7, z: 0}
 --- !u!114 &8837162859652039251
 MonoBehaviour:
@@ -959,7 +959,6 @@ GameObject:
   - component: {fileID: 8510036705523852194}
   - component: {fileID: 641379320040725484}
   - component: {fileID: 5919757889762728058}
-  - component: {fileID: 170128005721330009}
   - component: {fileID: 8697113959979630645}
   m_Layer: 9
   m_Name: Tethered
@@ -1125,19 +1124,6 @@ MonoBehaviour:
   healthUnderBar: {fileID: 4011927565395851499}
   healthLerpSpeed: 5
   testDamageAmount: 5
---- !u!114 &170128005721330009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8980408171277284427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2e01065b4393a4697c206eb3f7d436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: db89b083d39ce5143875b7c0311fe26a, type: 2}
 --- !u!114 &8697113959979630645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,7 +1138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 4020049581633619501}
   movement: {fileID: 2990796584846901526}
-  weapon: {fileID: 170128005721330009}
+  weapon: {fileID: 0}
   characterStats: {fileID: 8510036705523852194}
   rb: {fileID: 8344255443861914099}
   damageable: {fileID: 5919757889762728058}

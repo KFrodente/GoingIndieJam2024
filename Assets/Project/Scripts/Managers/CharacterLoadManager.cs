@@ -28,8 +28,8 @@ public class CharacterLoadManager : MonoBehaviour
 
 
             default:
-                dauntlessViewpoint.transform.parent.parent.gameObject.SetActive(true);
-                virtualCamera.Follow = dauntlessViewpoint;
+                //dauntlessViewpoint.transform.parent.parent.gameObject.SetActive(true);
+                //virtualCamera.Follow = dauntlessViewpoint;
                 break;
         }
     }

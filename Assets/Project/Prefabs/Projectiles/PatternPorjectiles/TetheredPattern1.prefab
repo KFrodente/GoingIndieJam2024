@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1274615337179441419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2531597428278474645}
+  - component: {fileID: 2434425762666144854}
+  m_Layer: 0
+  m_Name: TetheredPattern1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2531597428278474645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274615337179441419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2434425762666144854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274615337179441419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114c05e899443414eb57c0781fd7509b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileData: {fileID: 0}
+  rb: {fileID: 0}
+  bulletProjectile: {fileID: 3204321272480393510, guid: ca01cfab1254b82429d7269c2f6e866a, type: 3}
+  shoot: 0
+  patterns:
+  - pattern: {fileID: 11400000, guid: 107717e18be09cd4f9283ab8f4cebcce, type: 2}
+    totalSpawnTime: 1
+    pointDirection: {x: 2, y: 1}
+    delayToNext: 0
+    scale: {x: 1, y: 3}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    randomize: 0
+    spawnWithNextPattern: 0
+    spawnCenterOutwards: 0
+    pointAwayFromSpawner: 0
+    pointAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    howshoot: 1
+    shootDelay: 0.1
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 1
+    shootCenterOutwards: 0
+  - pattern: {fileID: 11400000, guid: 4f9d61298e25fd34e988cae188e66030, type: 2}
+    totalSpawnTime: 1
+    pointDirection: {x: 2, y: 1}
+    delayToNext: 0
+    scale: {x: 1, y: 3}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    randomize: 0
+    spawnWithNextPattern: 0
+    spawnCenterOutwards: 0
+    pointAwayFromSpawner: 0
+    pointAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    howshoot: 1
+    shootDelay: 0.1
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
+    shootCenterOutwards: 0

@@ -50,9 +50,9 @@ public class RangedNeutralEnemyInput : RangedEnemyInput
             if(character.transform.Equals(transform)) continue;
             if (character.TryGetComponent(out Damagable d) && !d.IsPlayer)
             {
-                if (d.GetHealthPerent() < lowestHealthValue)
+                if (d.GetHealthPercent() < lowestHealthValue)
                 {
-                    lowestHealthValue = d.GetHealthPerent();
+                    lowestHealthValue = d.GetHealthPercent();
                     lowestHealth = d.transform;
                 }
             }

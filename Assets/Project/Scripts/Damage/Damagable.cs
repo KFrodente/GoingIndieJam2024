@@ -130,7 +130,7 @@ public class Damagable : MonoBehaviour
         GainImmunity(0.5f);
     }
 
-    public virtual float GetHealthPerent()
+    public virtual float GetHealthPercent()
     {
         return health / (float)startingHealth;
     }

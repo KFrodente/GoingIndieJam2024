@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4361650146283769226}
   - component: {fileID: 2251179395898420703}
   - component: {fileID: 3204321272480393510}
+  - component: {fileID: 1081229399121725768}
   m_Layer: 0
   m_Name: OrbBig
   m_TagString: Untagged
@@ -163,3 +164,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: 17fc905faee4a54448c13b21af50eda2, type: 2}
   rb: {fileID: 4361650146283769226}
+--- !u!114 &1081229399121725768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558810233948327324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f7239b0e8ea741a3ec54aa11febb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyed: {fileID: 8558810233948327324}

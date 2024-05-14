@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: db89b083d39ce5143875b7c0311fe26a, type: 2}
+  defaultDamageType: 4
 --- !u!114 &1595631146469311203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +863,7 @@ MonoBehaviour:
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
+  immunities: 0
   baseCharacter: {fileID: 303801544410275538}
   damageAudioPlayer: {fileID: 3619510936053716770}
   dispenser: {fileID: 5400706786891336071}

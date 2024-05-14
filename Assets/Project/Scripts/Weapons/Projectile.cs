@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Stats;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -12,6 +13,7 @@ public class Projectile : MonoBehaviour
     protected int damage = 0;
     protected Target target;
     protected bool initialized;
+    [SerializeField] protected StatEffect onHitEffect;
      
      public virtual void Initialize(Target target, int damage)
      {
@@ -29,6 +31,7 @@ public class Projectile : MonoBehaviour
         if (other.TryGetComponent(out Damagable d) && d.IsPlayer != target.shotByPlayer)
         {
             d.TakeDamage(damage, projectileData.type);
+            if(onHitEffect != null) d.baseCharacter.characterStats.AddStatModifier(onHitEffect.GetModifier());
             hits++;
             if(projectileData.hitSound != null) AudioManager.instance.Play(projectileData.hitSound);
             if(projectileData.hitParticle != null) Instantiate(projectileData.hitParticle, transform.position, Quaternion.identity);

@@ -158,7 +158,7 @@ public class PatternDefinitionProjectile : Projectile
 
 			if (patterns[i].spawnCenterOutwards)
 			{
-				positions = positions.OrderBy(p => Vector3.Distance(p, patterns[i].spawnPlacement.position)).ToArray();
+				positions = positions.OrderBy(p => Vector3.Distance(p, patterns[i].spawnPlacement.localPosition)).ToArray();
 			}
 			if (patterns[i].randomize)
 			{

@@ -18,7 +18,7 @@ public class Damagable : MonoBehaviour
     [SerializeField] protected ProjectileDamageType immunities;
 
     [Header("Character Data")]
-    [SerializeField] protected BaseCharacter baseCharacter;
+    [SerializeField] public BaseCharacter baseCharacter;
     [SerializeField] protected DamageAudioPlayer damageAudioPlayer;
     [SerializeField] protected SoulDispense dispenser;
 

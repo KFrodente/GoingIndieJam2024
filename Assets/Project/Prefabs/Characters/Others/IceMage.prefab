@@ -837,6 +837,7 @@ MonoBehaviour:
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
+  immunities: 0
   baseCharacter: {fileID: 303801544410275538}
   damageAudioPlayer: {fileID: 3619510936053716770}
   dispenser: {fileID: 5400706786891336071}
@@ -856,6 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b3d9ec1152205468c5b37bd7b168cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickRate: 0.5
 --- !u!114 &8084458293078636590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: fc0f203b220569a42be2f287b4dce1f0, type: 2}
+  defaultDamageType: 48
 --- !u!114 &1969644216222731332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,6 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 176b45d336a4cf54eb3addc7c1db4607, type: 2}
+  defaultDamageType: 48
 --- !u!114 &917965816486486533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,6 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 04a0bb6a781167b4ca4530ee9fd00b35, type: 2}
+  defaultDamageType: 48
 --- !u!114 &-8256740145659277666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,10 +913,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 0}
+  defaultDamageType: 0
   Weapons:
   - {fileID: 8084458293078636590}
   - {fileID: 1969644216222731332}
   - {fileID: 917965816486486533}
+  selectionType: 0
+  weaponUsesBeforeSwap: 
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

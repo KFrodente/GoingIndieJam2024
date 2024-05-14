@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 9070913253358314515}
   - component: {fileID: 4184589940575459001}
   - component: {fileID: 3828826034767346045}
+  - component: {fileID: 885881355391374328}
   m_Layer: 10
   m_Name: PlayerSpiritRam
   m_TagString: Untagged
@@ -545,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 3
   isHitCounter: 1
   alwaysImmune: 0
   isSpirit: 1
@@ -556,6 +557,21 @@ MonoBehaviour:
   healthUnderBar: {fileID: 0}
   healthLerpSpeed: 5
   testDamageAmount: 5
+--- !u!114 &885881355391374328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864429675843094036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4737eb06553c53f4b8455d7038fc3dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damager: {fileID: 3828826034767346045}
+  inWallTime: 1
+  suffocationTickDelay: 1
 --- !u!1 &5663336638202250715
 GameObject:
   m_ObjectHideFlags: 0

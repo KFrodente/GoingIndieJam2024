@@ -183,17 +183,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSpiritCrow
       objectReference: {fileID: 0}
-    - target: {fileID: 2875245903044552693, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6353325505182375790, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
-      propertyPath: effector
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 549696753549735519, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}

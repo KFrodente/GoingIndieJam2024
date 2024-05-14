@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 6140327678613932532}
   - component: {fileID: 1083614385343506093}
   - component: {fileID: 3182260529150579343}
+  - component: {fileID: 5584289822690604209}
   m_Layer: 0
   m_Name: PlayerSpiritCrow
   m_TagString: Untagged
@@ -248,6 +249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5950816559096346682}
   - {fileID: 5268939577730386359}
   - {fileID: 5684821792265885701}
   - {fileID: 1485018423420836147}
@@ -401,17 +403,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 3
   isHitCounter: 1
   alwaysImmune: 0
   isSpirit: 1
   baseCharacter: {fileID: 6353325505182375790}
-  damageAudioPlayer: {fileID: 0}
+  damageAudioPlayer: {fileID: 8391660716514387575}
   dispenser: {fileID: 0}
   healthOverBar: {fileID: 0}
   healthUnderBar: {fileID: 0}
   healthLerpSpeed: 5
   testDamageAmount: 5
+--- !u!114 &5584289822690604209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2875245903044552693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4737eb06553c53f4b8455d7038fc3dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damager: {fileID: 3182260529150579343}
+  inWallTime: 1
+  suffocationTickDelay: 1
 --- !u!1 &4336942949570644061
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,3 +878,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &9058497580501463196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5950816559096346682}
+  - component: {fileID: 8391660716514387575}
+  m_Layer: 0
+  m_Name: DamageAudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5950816559096346682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058497580501463196}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1211172789275232512}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8391660716514387575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058497580501463196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
+  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}

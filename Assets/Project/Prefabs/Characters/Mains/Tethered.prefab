@@ -740,6 +740,98 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7474674762381340605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6370858141331112631}
+  - component: {fileID: 1224211090282364133}
+  m_Layer: 0
+  m_Name: DamageAudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6370858141331112631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474674762381340605}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7344754775967893009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1224211090282364133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474674762381340605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
+  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
+--- !u!1 &7598259559293238596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422419290212775569}
+  - component: {fileID: 1784927453287268814}
+  m_Layer: 0
+  m_Name: SoulDropper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1422419290212775569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7598259559293238596}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7344754775967893009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784927453287268814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7598259559293238596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aacc1f90d7e84be4cad6f874a31d8756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountRange: {x: 1, y: 2}
+  soulPrefab: {fileID: 3242215970153323200, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
 --- !u!1 &7710264218255339809
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +981,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6370858141331112631}
+  - {fileID: 1422419290212775569}
   - {fileID: 5722990596118898832}
   - {fileID: 7316376464763537247}
   - {fileID: 1294621831779337403}
@@ -919,6 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b3d9ec1152205468c5b37bd7b168cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickRate: 0.5
 --- !u!50 &8344255443861914099
 Rigidbody2D:
   serializedVersion: 4
@@ -1023,11 +1118,11 @@ MonoBehaviour:
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
-  baseCharacter: {fileID: 0}
-  damageAudioPlayer: {fileID: 0}
-  dispenser: {fileID: 0}
-  healthOverBar: {fileID: 0}
-  healthUnderBar: {fileID: 0}
+  baseCharacter: {fileID: 8697113959979630645}
+  damageAudioPlayer: {fileID: 1224211090282364133}
+  dispenser: {fileID: 1784927453287268814}
+  healthOverBar: {fileID: 8837162859652039251}
+  healthUnderBar: {fileID: 4011927565395851499}
   healthLerpSpeed: 5
   testDamageAmount: 5
 --- !u!114 &170128005721330009
@@ -1042,7 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e01065b4393a4697c206eb3f7d436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: db89b083d39ce5143875b7c0311fe26a, type: 2}
 --- !u!114 &8697113959979630645
 MonoBehaviour:
   m_ObjectHideFlags: 0

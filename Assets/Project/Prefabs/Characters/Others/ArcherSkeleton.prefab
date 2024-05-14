@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75f3d6815960274e9e4bb8ac1fcc775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickRate: 0.5
   character: {fileID: 303801544410275538}
   preferedRange: 6.17
 --- !u!114 &303801544410275538

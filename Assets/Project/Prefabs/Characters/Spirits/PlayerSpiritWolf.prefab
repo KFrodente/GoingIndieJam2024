@@ -85,6 +85,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3787634463267361034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1754319077077072563}
+  - component: {fileID: 6121108792203303894}
+  m_Layer: 0
+  m_Name: DamageAudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1754319077077072563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3787634463267361034}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8217628741758482957}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6121108792203303894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3787634463267361034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
+  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
 --- !u!1 &4172917245950575081
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +624,7 @@ GameObject:
   - component: {fileID: 6387215904567533639}
   - component: {fileID: 311401358745899444}
   - component: {fileID: 1000766835473646273}
+  - component: {fileID: 3732618606800130361}
   m_Layer: 10
   m_Name: PlayerSpiritWolf
   m_TagString: Untagged
@@ -598,6 +645,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1754319077077072563}
   - {fileID: 1588390644576521797}
   - {fileID: 3727581817531419773}
   - {fileID: 6241811523000049459}
@@ -763,14 +811,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 3
   isHitCounter: 1
   alwaysImmune: 0
   isSpirit: 1
-  baseCharacter: {fileID: 0}
-  damageAudioPlayer: {fileID: 0}
+  baseCharacter: {fileID: 3283111475133032755}
+  damageAudioPlayer: {fileID: 6121108792203303894}
   dispenser: {fileID: 0}
   healthOverBar: {fileID: 0}
   healthUnderBar: {fileID: 0}
   healthLerpSpeed: 5
   testDamageAmount: 5
+--- !u!114 &3732618606800130361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070855396274030882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4737eb06553c53f4b8455d7038fc3dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damager: {fileID: 1000766835473646273}
+  inWallTime: 1
+  suffocationTickDelay: 1

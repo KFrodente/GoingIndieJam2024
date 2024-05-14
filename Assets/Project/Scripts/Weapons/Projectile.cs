@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
      
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (!initialized) return;
+        //if (!initialized) return;
         if (other.TryGetComponent(out Damagable d) && d.IsPlayer != target.shotByPlayer)
         {
             d.TakeDamage(damage, projectileData.type);

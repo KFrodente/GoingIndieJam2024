@@ -9,6 +9,8 @@ public class RangedNeutralEnemyInput : RangedEnemyInput
     protected int currentAttackNumber = 0;
     public override Target GetInputTarget()
     {
+        return new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform.position, false);
+
         Target t = null;
         if (currentAttackNumber == benefitAttackCountPeriod)
         {

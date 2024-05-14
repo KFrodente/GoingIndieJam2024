@@ -15,7 +15,7 @@ public class PatternDefinitionProjectile : Projectile
 	protected override void Update()
 	{
 	}
-	public virtual void Initialize(Target target, int damage)
+	public override void Initialize(Target target, int damage)
 	{
 		spawnTime = Time.time;
 		this.damage = damage;

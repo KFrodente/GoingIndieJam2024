@@ -21,6 +21,10 @@ public class FloorGenerator : MonoBehaviour
 
     public Tilemap globalTilemap;
 
+    public GameObject corvid;
+    public GameObject dauntless;
+    public GameObject tethered;
+
     [Header("Spawnable Rooms")]
     [SerializeField] private List<GameObject> basicRoomForFloor = new();
     [SerializeField] private List<GameObject> spawnRooms = new();

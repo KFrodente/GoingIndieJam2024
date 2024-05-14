@@ -13,6 +13,10 @@ public class Spawn : Room
 
     public override void GeneratePortals()
     {
+        FloorGenerator.instance.corvid.transform.position = spawnPos.position;
+        FloorGenerator.instance.dauntless.transform.position = spawnPos.position;
+        FloorGenerator.instance.tethered.transform.position = spawnPos.position;
+
         base.GeneratePortals();
 
         if (connectsUp)

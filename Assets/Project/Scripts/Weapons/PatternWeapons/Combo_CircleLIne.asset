@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0da3f7eb935bc4480176094ecc8478, type: 3}
+  m_Name: Combo_CircleLIne
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  bulletAmount: 4
+  basePattern: {fileID: 11400000, guid: 2f1e51ef977b16d45802dbecb95c1a84, type: 2}
+  addedPattern: {fileID: 11400000, guid: 7021cc593d4cd5e46815dd64aded0a4a, type: 2}
+  skippedBullets: 0
+  spawnDirection: {x: 0, y: 0}
+  pointAwayFromZero: 1
+  pointTowardsZero: 0
+  dontSpawnBasePattern: 1

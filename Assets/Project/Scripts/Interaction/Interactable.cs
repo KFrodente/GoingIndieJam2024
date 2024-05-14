@@ -6,18 +6,34 @@ public class Interactable : MonoBehaviour
 {
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        Interactor i = other.GetComponentInChildren<Interactor>();
-        if (i != null)
+        if (other.TryGetComponent(out Interactor i))
         {
             i.Add(this);
+        }
+        else
+        {
+            Interactor it = other.GetComponentInChildren<Interactor>();
+            if (it != null)
+            {
+                it.Add(this);
+            }
+            
         }
     }
     protected virtual void OnTriggerExit2D(Collider2D other)
     {
-        Interactor i = other.GetComponentInChildren<Interactor>();
-        if (i != null)
+        if (other.TryGetComponent(out Interactor i))
         {
             i.Remove(this);
+        }
+        else
+        {
+            Interactor it = other.GetComponentInChildren<Interactor>();
+            if (it != null)
+            {
+                it.Remove(this);
+            }
+            
         }
     }
     public virtual void OnInteract(BaseCharacter character)

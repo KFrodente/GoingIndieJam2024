@@ -16,6 +16,10 @@ public class ProjectileObject : ScriptableObject
     [Header("Hit Effects")]
     public GameObject hitParticle;
     public AudioClip hitSound;
+    
+    [Header("Despawn Effects")]
+    public GameObject despawnParticle;
+    public AudioClip despawnSound;
 
 
 }

@@ -138,7 +138,7 @@ public class Damagable : MonoBehaviour
     [Button]
     public virtual void ApplyDamage()
     {
-        TakeDamage(testDamageAmount, new ProjectileDamageType());
+        TakeDamage(testDamageAmount, ProjectileDamageType.Blunt);
     }
     [SerializeField,Tooltip("Apply X damage"),Header("Testing")] int testDamageAmount = 5;
 }

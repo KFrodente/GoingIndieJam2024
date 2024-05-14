@@ -9,11 +9,13 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected ProjectileObject projectileData;
     protected int hits;
     [SerializeField] protected Rigidbody2D rb;
+    [SerializeField] protected float timeBeforeActiveDamage;
     protected float spawnTime;
     protected int damage = 0;
     protected Target target;
     protected bool initialized;
     [SerializeField] protected StatEffect onHitEffect;
+    protected bool isActive => Time.time - spawnTime >= timeBeforeActiveDamage;
      
      public virtual void Initialize(Target target, int damage)
      {
@@ -27,14 +29,14 @@ public class Projectile : MonoBehaviour
      
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (!initialized) return;
+        if (!initialized && isActive) return;
         if (other.TryGetComponent(out Damagable d) && d.IsPlayer != target.shotByPlayer)
         {
             d.TakeDamage(damage, projectileData.type);
             if(onHitEffect != null) d.baseCharacter.characterStats.AddStatModifier(onHitEffect.GetModifier());
             hits++;
             if(projectileData.hitSound != null) AudioManager.instance.Play(projectileData.hitSound);
-            if(projectileData.hitParticle != null) Instantiate(projectileData.hitParticle, transform.position, Quaternion.identity);
+            if(projectileData.hitParticle != null) Instantiate(projectileData.hitParticle, transform.position, transform.rotation);
             if(hits > projectileData.pierceCount) Destroy(this.gameObject);
         }
     }
@@ -47,6 +49,8 @@ public class Projectile : MonoBehaviour
 
     protected virtual void DestroyProjectile()
     {
+        if (projectileData.despawnParticle) Instantiate(projectileData.despawnParticle, transform.position, transform.rotation);
+        if (projectileData.despawnSound) AudioManager.instance.Play(projectileData.despawnSound);
         Destroy(this.gameObject);
     }
 }

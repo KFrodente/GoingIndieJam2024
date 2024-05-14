@@ -111,6 +111,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: be3121ff865c70a429b12b3e25be47af, type: 2}
   rb: {fileID: 2397933145337248889}
+  timeBeforeActiveDamage: 1
+  onHitEffect:
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0
   spin: 30
 --- !u!1 &5339358802178693678
 GameObject:
@@ -186,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72533ddbfcfcbda408906571fb4fd663, type: 3}
   m_Color: {r: 0.19215682, g: 0.83137256, b: 0.22217767, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0

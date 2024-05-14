@@ -6,11 +6,14 @@ using UnityEngine.Tilemaps;
 public class WalkerGenerator : Room
 {
     public static int basicRoomProcesses = 5;
-    
-    [SerializeField] private Tile ground;
+
+    //[SerializeField] private Tile ground;
+    [SerializeField] private List<Tile> rockTiles = new();
+    [SerializeField] private List<Tile> dirtTiles = new();
     [SerializeField] private Tile portalGround;
     [SerializeField] private RuleTile wall;
 
+    [SerializeField, Range(0, 1)] private float dirtPatchChance;
 
     [SerializeField] private Grid[,] gridHandler;
     private List<Vector2Int> grounds = new();
@@ -41,8 +44,11 @@ public class WalkerGenerator : Room
     {
         for (int i = 0; i < grounds.Count; i++)
         {
-            if (gridHandler[grounds[i].x, grounds[i].y] == Grid.FLOOR)
-                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), ground);
+            if (gridHandler[grounds[i].x, grounds[i].y] == Grid.ROCK)
+                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), rockTiles[Random.Range(0, rockTiles.Count)]);
+            else if (gridHandler[grounds[i].x, grounds[i].y] == Grid.DIRT)
+                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), dirtTiles[Random.Range(0, dirtTiles.Count)]);
+
             if (gridHandler[grounds[i].x, grounds[i].y] == Grid.PFLOOR)
                 tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), portalGround);
         }
@@ -97,25 +103,6 @@ public class WalkerGenerator : Room
         //}
     }
 
-    //private IEnumerator FillWalls()
-    //{
-    //    for (int x = 0; x < gridHandler.GetLength(0); x++)
-    //    {
-    //        for (int y = 0; y < gridHandler.GetLength(1); y++)
-    //        {
-    //            if (gridHandler[x, y] == Grid.WALL)
-    //                tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), wall);
-    //        }
-
-    //        if (x % 1 == 0)
-    //        {
-    //            yield return new WaitForSeconds(.1f);
-    //        }
-    //    }
-
-    //    FloorGenerator.instance.roomProcessesFinished++;
-    //}
-
     private void InitializeGrid()
     {
         gridHandler = new Grid[floorStats.roomWidth, floorStats.roomHeight];
@@ -136,7 +123,7 @@ public class WalkerGenerator : Room
         Vector2 pickedDir = GetDirection();
         WalkerObject currentWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), pickedDir);
 
-        gridHandler[tileCenter.x, tileCenter.y] = Grid.FLOOR;
+        gridHandler[tileCenter.x, tileCenter.y] = Grid.ROCK;
         //tilemap.SetTile(new Vector3Int(tileCenter.x + (int)roomOffset.x, tileCenter.y + (int)roomOffset.y), ground);
 
         grounds.Add(tileCenter);
@@ -178,7 +165,7 @@ public class WalkerGenerator : Room
             {
                 Vector2Int pos = new Vector2Int((int)walker.position.x, (int)walker.position.y);
 
-                if (gridHandler[pos.x, pos.y] != Grid.FLOOR)
+                if (gridHandler[pos.x, pos.y] != Grid.ROCK || gridHandler[pos.x, pos.y] != Grid.DIRT)
                 {
                     //tilemap.SetTile(new Vector3Int(pos.x + (int)roomOffset.x, pos.y + (int)roomOffset.y), ground);
                     tileCount++;
@@ -187,7 +174,12 @@ public class WalkerGenerator : Room
                     if (pos.y > highestPos.y) highestPos = pos;
                     if (pos.y < lowestPos.y) lowestPos = pos;
 
-                    gridHandler[pos.x, pos.y] = Grid.FLOOR;
+                    if (Random.Range(0.0f, 1.0f) <= dirtPatchChance)
+                    {
+                        MakeDirtPatch(pos);
+                    }
+                    else
+                        gridHandler[pos.x, pos.y] = Grid.ROCK;
                     grounds.Add(pos);
                 }
             }
@@ -222,6 +214,51 @@ public class WalkerGenerator : Room
         yield return null;
     }
 
+    private void MakeDirtPatch(Vector2Int pos)
+    {
+        int pattern = Random.Range(0, 3);
+        int x = pos.x;
+        int y = pos.y;
+        switch(pattern)
+        {
+            case 0:
+                MakeDirtTile(x, y);
+                MakeDirtTile(x + 1, y);
+                MakeDirtTile(x + 1, y + 1);
+                MakeDirtTile(x, y + 1);
+                MakeDirtTile(x, y - 1);
+                MakeDirtTile(x + 1, y - 1);
+                MakeDirtTile(x + 1, y - 2);
+                MakeDirtTile(x - 1, y + 1);
+                MakeDirtTile(x, y - 2);
+                
+                break;
+            case 1:
+                MakeDirtTile(x, y);
+                MakeDirtTile(x - 1, y);
+                MakeDirtTile(x - 1, y - 1);
+                MakeDirtTile(x - 2, y);
+                MakeDirtTile(x + 1, y);
+                MakeDirtTile(x, y - 1);
+                MakeDirtTile(x, y - 2);
+                MakeDirtTile(x - 1, y - 2);
+
+                break;
+            case 2:
+                MakeDirtTile(x, y);
+                MakeDirtTile(x, y + 1);
+                MakeDirtTile(x + 1, y + 1);
+                MakeDirtTile(x + 1, y + 2);
+                MakeDirtTile(x, y + 2);
+                MakeDirtTile(x - 1, y + 2);
+                MakeDirtTile(x + 2, y + 1);
+                MakeDirtTile(x - 1, y);
+
+                break;
+
+        }
+    }
+
     private IEnumerator Thicken()
     {
         int originalCount = grounds.Count;
@@ -231,15 +268,15 @@ public class WalkerGenerator : Room
             int y = grounds[i].y;
             if (gridHandler[x + 1, y] == Grid.WALL && gridHandler[x, y + 1] == Grid.WALL && Random.Range(0.0f, 1.0f) <= floorStats.chanceToThicken)
             {
-                MakeNormalTile(x + 1, y + 1);
+                MakeRockTile(x + 1, y + 1);
             }
             if (gridHandler[x + 1, y] == Grid.WALL && gridHandler[x, y - 1] == Grid.WALL && Random.Range(0.0f, 1.0f) <= floorStats.chanceToThicken)
             {
-                MakeNormalTile(x + 1, y - 1);
+                MakeRockTile(x + 1, y - 1);
             }
             if (gridHandler[x - 1, y] == Grid.WALL && gridHandler[x, y + 1] == Grid.WALL && Random.Range(0.0f, 1.0f) <= floorStats.chanceToThicken)
             {
-                MakeNormalTile(x - 1, y + 1);
+                MakeRockTile(x - 1, y + 1);
             }
         }
         yield return null;
@@ -255,11 +292,11 @@ public class WalkerGenerator : Room
 
             if (!GetIsFloor(x - 1, y))
             {
-                MakeNormalTile(x - 1, y);
+                MakeRockTile(x - 1, y);
             }
             if (!GetIsFloor(x, y - 1))
             {
-                MakeNormalTile(x, y - 1);
+                MakeRockTile(x, y - 1);
             }
         }
         yield return null;
@@ -277,21 +314,21 @@ public class WalkerGenerator : Room
             {
                 if (!GetIsFloor(x, y + 1) && !GetIsFloor(x, y - 1))
                 {
-                    MakeNormalTile(x, y - 1);
+                    MakeRockTile(x, y - 1);
                 }
                 if (!GetIsFloor(x + 1, y) && !GetIsFloor(x - 1, y))
                 {
-                    MakeNormalTile(x + 1, y);
+                    MakeRockTile(x + 1, y);
                 }
 
                 if (!GetIsFloor(x + 1, y + 1) && !GetIsFloor(x - 1, y - 1))
                 {
-                    MakeNormalTile(x - 1, y - 1);
+                    MakeRockTile(x - 1, y - 1);
                 }
 
                 if (!GetIsFloor(x - 1, y + 1) && !GetIsFloor(x + 1, y - 1))
                 {
-                    MakeNormalTile(x + 1, y - 1);
+                    MakeRockTile(x + 1, y - 1);
                 }
             }
         }
@@ -303,7 +340,7 @@ public class WalkerGenerator : Room
 
     private bool GetIsFloor(int x, int y)
     {
-        return gridHandler[x, y] == Grid.FLOOR;
+        return gridHandler[x, y] == Grid.DIRT || gridHandler[x, y] == Grid.ROCK;
     }
 
     private void CheckRemove()
@@ -396,39 +433,45 @@ public class WalkerGenerator : Room
         int x = center.x;
         int y = center.y;
         //main 3x3
-        MakePortalTile(x, y);
-        MakePortalTile(x - 1, y + 1);
-        MakePortalTile(x, y + 1);
-        MakePortalTile(x + 1, y + 1);
-        MakePortalTile(x - 1, y);
-        MakePortalTile(x + 1, y);
-        MakePortalTile(x - 1, y - 1);
-        MakePortalTile(x, y - 1);
-        MakePortalTile(x + 1, y - 1);
+        MakeDirtTile(x, y);
+        MakeDirtTile(x - 1, y + 1);
+        MakeDirtTile(x, y + 1);
+        MakeDirtTile(x + 1, y + 1);
+        MakeDirtTile(x - 1, y);
+        MakeDirtTile(x + 1, y);
+        MakeDirtTile(x - 1, y - 1);
+        MakeDirtTile(x, y - 1);
+        MakeDirtTile(x + 1, y - 1);
 
 
         //outside bits
         //top 3
-        MakePortalTile(x - 1, y + 2);
-        MakePortalTile(x, y + 2);
-        MakePortalTile(x + 1, y + 2);
+        MakeDirtTile(x - 1, y + 2);
+        MakeDirtTile(x, y + 2);
+        MakeDirtTile(x + 1, y + 2);
         //right 3
-        MakePortalTile(x + 2, y + 1);
-        MakePortalTile(x + 2, y);
-        MakePortalTile(x + 2, y - 1);
+        MakeDirtTile(x + 2, y + 1);
+        MakeDirtTile(x + 2, y);
+        MakeDirtTile(x + 2, y - 1);
         //left 3
-        MakePortalTile(x - 2, y - 1);
-        MakePortalTile(x - 2, y);
-        MakePortalTile(x - 2, y + 1);
+        MakeDirtTile(x - 2, y - 1);
+        MakeDirtTile(x - 2, y);
+        MakeDirtTile(x - 2, y + 1);
         //bottom 3
-        MakePortalTile(x - 1, y - 2);
-        MakePortalTile(x, y - 2);
-        MakePortalTile(x + 1, y - 2);
+        MakeDirtTile(x - 1, y - 2);
+        MakeDirtTile(x, y - 2);
+        MakeDirtTile(x + 1, y - 2);
     }
 
-    private void MakeNormalTile(int x, int y)
+    private void MakeRockTile(int x, int y)
     {
-        gridHandler[x, y] = Grid.FLOOR;
+        gridHandler[x, y] = Grid.ROCK;
+        grounds.Add(new Vector2Int(x, y));
+    }
+
+    private void MakeDirtTile(int x, int y)
+    {
+        gridHandler[x, y] = Grid.DIRT;
         grounds.Add(new Vector2Int(x, y));
     }
 

@@ -6,10 +6,14 @@ using UnityEngine;
 public class ShapePattern : Pattern
 {
 	[Header("Shape")]
+	[Tooltip("Points of the shape")]
 	[SerializeField] Vector2[] points;
 
+	[Tooltip("Spawn the same amount of bullets between each point")]
 	[SerializeField] bool evenAmountBetweenPoints;
+	[Tooltip("If the spawning should add bullets to each point of the shape")]
 	[SerializeField] bool addEndcaps;
+	[Tooltip("If this should ignore the bullet amount and just spawn bullets at the points")]
 	[SerializeField] bool pointsAreBulletLocations;
 
 	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)

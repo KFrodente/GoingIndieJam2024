@@ -23,6 +23,7 @@ public class MultiWeapon : Weapon
 			weapon.InitializeCharacter(c);
 		}
 		PickWeapon();
+		currentTimesUsed = 0;
 		bc = c;
 	}
 
@@ -56,6 +57,7 @@ public class MultiWeapon : Weapon
 				break;
 			}
 		}
+		
 		currentWeapon.StartAttack(t, c);
 	}
 
@@ -69,6 +71,7 @@ public class MultiWeapon : Weapon
 
 	private void PickWeapon()
 	{
+		if(prevWeapon) prevWeapon.EndAttack();
 		switch (selectionType)
 		{
 			case WeaponSelectionType.Random :
@@ -85,12 +88,14 @@ public class MultiWeapon : Weapon
 				if (currentTimesUsed >= weaponUsesBeforeSwap[alternateIndex])
 				{
 					alternateIndex++;
-					if (alternateIndex > Weapons.Count)
+					if (alternateIndex >= Weapons.Count)
 					{
 						alternateIndex = 0;
 						currentTimesUsed = 0;
 					}
 				}
+
+				currentWeapon = Weapons[alternateIndex];
 				break;
 			}
 		}

@@ -47,9 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
   basicPortal: {fileID: 3449573642077812805, guid: c290587b91451a64db390380b4be8634, type: 3}
-  shopPortal: {fileID: 3449573642077812805, guid: c290587b91451a64db390380b4be8634, type: 3}
+  shopPortal: {fileID: 3449573642077812805, guid: f620e904614278048959d355139b298d, type: 3}
   treasurePortal: {fileID: 6474578518641867457, guid: c568aa9f1ed72ac4b95d0bbdc5cd7637, type: 3}
-  bossPortal: {fileID: 3449573642077812805, guid: c290587b91451a64db390380b4be8634, type: 3}
+  bossPortal: {fileID: 3449573642077812805, guid: b9298524d437078488eec6ab2abab322, type: 3}
   connectsUp: 0
   roomConnectedUp: {fileID: 0}
   topPortal: {fileID: 0}

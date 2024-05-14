@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -134,6 +135,7 @@ public class PatternDefinitionProjectile : Projectile
 			if (patterns[i].pointDirection == Vector2.zero) patterns[i].pointDirection = Vector2.right;
 			patterns[i].pointDirection = patterns[i].pointDirection.normalized;
 		}
+		transform.rotation *= Quaternion.Euler(0, 0, 90);
 		StartCoroutine(SpawnBullets(0));
 	}
 	
@@ -141,7 +143,7 @@ public class PatternDefinitionProjectile : Projectile
 	private IEnumerator SpawnBullets(int startpattern)
 	{
 		bool spawnwithnext = false;
-		Vector2 possiblesamedirection = target.GetTargetPosition() - (Vector2)transform.position;
+		Vector2 possiblesamedirection = target.GetDirection();//
 
 		for (int i = startpattern; i < patterns.Length; i++)
 		{
@@ -174,16 +176,19 @@ public class PatternDefinitionProjectile : Projectile
 				{
 					newproj.transform.SetParent(patterns[i].spawnPlacement.transform, false);
                     newproj.transform.localPosition = positions[o];
-                } else
+					Vector2 direction = GetDirection(i, newproj.transform.position, possiblesamedirection);
+					float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+					newproj.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0, 0, angle);
+				}
+				else
 				{
-                    newproj.transform.position = patterns[i].spawnPlacement.transform.position + positions[o];
+					newproj.transform.position = patterns[i].spawnPlacement.transform.position;
+					Vector2 direction = GetDirection(i, newproj.transform.position, possiblesamedirection);
+					float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+					newproj.transform.position += ( Quaternion.Euler(0, 0, angle) * positions[o]);
                 }
 
 				//newproj.transform.position = positions[o];
-
-				Vector2 direction = GetDirection(i, newproj.transform.position, possiblesamedirection);
-				float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-				newproj.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0,0, angle);
 
 				patterns[i].projectiles.Add(newproj);
 
@@ -261,7 +266,7 @@ public class PatternDefinitionProjectile : Projectile
 				}
 				// this is the place where the projectiles will actually be shot
 				//Vector2 direction = (target.GetTargetPosition() - (Vector2)toshootprojs[i].transform.position);
-				Vector2 direction = GetDirection(patternnumber, toshootprojs[i].transform.position, (target.GetTargetPosition() - (Vector2)toshootprojs[i].transform.position));
+				Vector2 direction = GetDirection(patternnumber, toshootprojs[i].transform.position, target.GetDirection());
 				float angle = InputUtils.GetAngle(direction);
 				toshootprojs[i].transform.rotation = Quaternion.Euler(0, 0, angle);
 				ShootProjectile(toshootprojs[i]);
@@ -296,7 +301,8 @@ public class PatternDefinitionProjectile : Projectile
 			}
 			else
 			{
-				direction = target.GetDirection();
+				direction = (target.GetTargetPosition() - (Vector2)projectileposition);
+				//direction = target.GetDirection();
 				//Debug.Log(direction);
 			}
 		}

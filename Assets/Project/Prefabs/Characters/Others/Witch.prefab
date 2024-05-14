@@ -670,8 +670,8 @@ GameObject:
   - component: {fileID: 8588803817186985679}
   - component: {fileID: 5406769814313069043}
   - component: {fileID: 7875857087674713876}
-  - component: {fileID: 6192252286459079702}
   - component: {fileID: 8415105228097584682}
+  - component: {fileID: 9190933145169605666}
   m_Layer: 9
   m_Name: Witch
   m_TagString: Untagged
@@ -859,8 +859,6 @@ MonoBehaviour:
   clickRate: 0.5
   character: {fileID: 303801544410275538}
   preferedRange: 9
-  benefitAttackCountPeriod: 2
-  friendSearchRadius: 13
 --- !u!114 &7875857087674713876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,23 +875,9 @@ MonoBehaviour:
   defaultDamageType: 0
   Weapons:
   - {fileID: 8415105228097584682}
-  - {fileID: 6192252286459079702}
+  - {fileID: 9190933145169605666}
   selectionType: 1
   weaponUsesBeforeSwap: 0400000001000000
---- !u!114 &6192252286459079702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6048535723004659668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2e01065b4393a4697c206eb3f7d436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 4af00fe99019c324ea4c9f230eba292e, type: 2}
-  defaultDamageType: 34
 --- !u!114 &8415105228097584682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,6 +892,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 3c0a1da790f3aff4597176000cd1f48d, type: 2}
   defaultDamageType: 34
+--- !u!114 &9190933145169605666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd5d282951844c4806e514e4f33a99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 4af00fe99019c324ea4c9f230eba292e, type: 2}
+  defaultDamageType: 34
+  friendSearchRadius: 13
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,11 +7,16 @@ using UnityEngine;
 public class ImagePattern : Pattern
 {
 	[Header("Image")]
+	[Tooltip("The image to take the pattern from")]
 	[SerializeField] Texture2D image;
+	[Tooltip("Scale is applied as 1/inverseScale.\r\ntype bigger numbers rather than decimals to make it smaller.")]
 	[SerializeField] Vector2 inverseScale;
+	[Tooltip("Offset on the x and y axis applied to the pattern")]
 	[SerializeField] Vector2 offset;
 
+	[Tooltip("If the image should be read in Top to Down")]
 	[SerializeField] bool topToDown;
+	[Tooltip("If the image should be read in Right to Left")]
 	[SerializeField] bool rightToLeft;
 
 	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)

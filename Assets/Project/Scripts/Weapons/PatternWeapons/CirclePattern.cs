@@ -6,9 +6,12 @@ using UnityEngine;
 public class CirclePattern : Pattern
 {
 	[Header("Circle")]
+	[Tooltip("Radius of the circle")]
 	[SerializeField] float circleRadius;
+	[Tooltip("The arc along the circle, in degrees, that bullets should spawn on")]
 	[SerializeField] float arcSpawnedOn = 360;
 
+	[Tooltip("If the arc should center itself in the spawned direction")]
 	[SerializeField] bool centerArcInDirection;
 
 	public override Vector3[] SpawnBullets(Vector3 direction, Vector2 scalar)

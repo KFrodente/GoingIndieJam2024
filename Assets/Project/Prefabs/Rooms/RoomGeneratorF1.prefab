@@ -85,7 +85,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 34e8db0356587284393c298cbcf5fb1c, type: 2}
   portalGround: {fileID: 11400000, guid: e5971cb0bfd278b4a8dd5442e0e3493c, type: 2}
   wall: {fileID: 11400000, guid: acaba0d42c56fe24db69b0890ce6e9ab, type: 2}
-  dirtPatchChance: 0
+  dirtPatchChance: 0.061
   maxWalkers: 10
   roomOffset: {x: 0, y: 0}
 --- !u!114 &3669719565392114946

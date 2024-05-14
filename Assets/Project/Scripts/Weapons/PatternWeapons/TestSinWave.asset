@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: TestSinWave
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  bulletAmount: 4
-  amplitude: 1
+  bulletAmount: 10
+  amplitude: 2
   frequency: 1
-  xIntervals: 0.1
+  SineIntervals: 1
+  distance: 2
+  initialOffset: 0
+  AmplitudeInTermsOfPi: 0
+  FrequencyInTermsOfPi: 1
+  OffsetInTermsOfPi: 1
+  IntervalInTermsOfPi: 0
+  SeperateDistanceFromInterval: 1

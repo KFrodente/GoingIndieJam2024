@@ -70,9 +70,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e92ac11b4740e9409c12d39e040979e, type: 2}
   - {fileID: 11400000, guid: 5014ede802189ec40a27fc5820d84fa1, type: 2}
   - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
-  - {fileID: 11400000, guid: 5a7d1151b2d7ae84eacb17e2786bbe82, type: 2}
-  - {fileID: 11400000, guid: dc64ba41abce0a04baccf920aaf33c15, type: 2}
-  - {fileID: 11400000, guid: e0a7a508439a0164c9c06b7b36a2c70d, type: 2}
+  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
+  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
+  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
+  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
   dirtTiles:
   - {fileID: 11400000, guid: 69088f56103715e42bd1ebb89618d7b7, type: 2}
   - {fileID: 11400000, guid: 04e8431c6ae185d40b4688f0068fc52d, type: 2}
@@ -84,7 +85,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 34e8db0356587284393c298cbcf5fb1c, type: 2}
   portalGround: {fileID: 11400000, guid: e5971cb0bfd278b4a8dd5442e0e3493c, type: 2}
   wall: {fileID: 11400000, guid: acaba0d42c56fe24db69b0890ce6e9ab, type: 2}
-  dirtPatchChance: 0.115
+  dirtPatchChance: 0
   maxWalkers: 10
   roomOffset: {x: 0, y: 0}
 --- !u!114 &3669719565392114946

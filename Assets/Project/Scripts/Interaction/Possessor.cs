@@ -11,14 +11,14 @@ public class Possessor : Interactor
         if (interactables.Count > 0)
         {
             Interactable closest = GetClosest();
-            closest.OnInteract(character);
-            Possess(closest);
+            Possess(closest, character);
             
         }
     }
-    protected void Possess(Interactable i)
+    protected void Possess(Interactable i, BaseCharacter c)
     {
         if (!(i is Possessable)) return;
-        
+        i.OnInteract(c);
+        // Code for counting Kian
     }
 }

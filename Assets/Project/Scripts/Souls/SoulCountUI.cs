@@ -7,11 +7,11 @@ public class SoulCountUI : MonoBehaviour
     [SerializeField] SuperTextMesh text;
     public void UpdateSoulText(int newCount)
     {
-        text.text = newCount.ToString();
+        text.text = "<w=seasick>" + newCount;
     }
 
     private void Start()
     {
-        text.text = 0.ToString();
+        text.text = "<w=seasick>" + 0;
     }
 }

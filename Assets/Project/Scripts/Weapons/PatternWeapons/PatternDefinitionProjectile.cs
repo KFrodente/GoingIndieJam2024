@@ -167,14 +167,19 @@ public class PatternDefinitionProjectile : Projectile
 
 			for (int o = 0; o < positions.Length; o++)
 			{
-				Projectile newproj = (Instantiate(((patterns[i].pattern.bulletPrefab == null) ? bulletProjectile.gameObject : patterns[i].pattern.bulletPrefab.gameObject), patterns[i].spawnPlacement.position + transform.position, Quaternion.identity).GetComponent<Projectile>());
+				Projectile newproj = (Instantiate(((patterns[i].pattern.bulletPrefab == null) ? bulletProjectile.gameObject : 
+					patterns[i].pattern.bulletPrefab.gameObject)).GetComponent<Projectile>());
 
 				if (!patterns[i].dontParentToSpawner)
 				{
-					newproj.transform.SetParent(patterns[i].spawnPlacement);
-				}
+					newproj.transform.SetParent(patterns[i].spawnPlacement.transform, false);
+                    newproj.transform.localPosition = positions[o];
+                } else
+				{
+                    newproj.transform.position = patterns[i].spawnPlacement.transform.position + positions[o];
+                }
 
-				newproj.transform.localPosition = positions[o];
+				//newproj.transform.position = positions[o];
 
 				Vector2 direction = GetDirection(i, newproj.transform.position, possiblesamedirection);
 				float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

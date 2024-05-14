@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c094cbef8b95f44a013a35c23e26e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 989759114698568827}
+  playerInput: {fileID: 8715422445829386512}
   unitBase: {fileID: 8697113959979630645}
   interactor: {fileID: 3822858214643828428}
   healthSystem: {fileID: 6105096313657145854}
@@ -952,7 +952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7344754775967893009}
-  - component: {fileID: 989759114698568827}
+  - component: {fileID: 8715422445829386512}
   - component: {fileID: 4020049581633619501}
   - component: {fileID: 8344255443861914099}
   - component: {fileID: 2990796584846901526}
@@ -992,7 +992,7 @@ Transform:
   - {fileID: 2987151407700480976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &989759114698568827
+--- !u!114 &8715422445829386512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8980408171277284427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc4ed85cf14ce1f4ead1ecdb628a4994, type: 3}
+  m_Script: {fileID: 11500000, guid: b69313e9df524681a98d1ab7c1f91b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4020049581633619501

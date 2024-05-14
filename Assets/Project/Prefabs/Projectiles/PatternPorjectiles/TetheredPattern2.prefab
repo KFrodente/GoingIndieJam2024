@@ -56,10 +56,10 @@ MonoBehaviour:
     scale: {x: 1, y: 1}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
-    dontParentToSpawner: 0
-    randomize: 1
+    dontParentToSpawner: 1
+    randomize: 0
     spawnWithNextPattern: 0
-    spawnCenterOutwards: 0
+    spawnCenterOutwards: 1
     pointAwayFromSpawner: 0
     pointAwayFromPosition: 0
     sameDirection: 0

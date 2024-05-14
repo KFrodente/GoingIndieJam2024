@@ -14,7 +14,7 @@ public class AreaKnockbackWeapon : Weapon
             if(character.transform.Equals(transform)) continue;
             if (character.TryGetComponent(out Damagable d))
             {
-                d.TakeDamage((int)bc.GetStats().Damage);
+                d.TakeDamage((int)bc.GetStats().Damage, defaultDamageType);
             }
             if (character.TryGetComponent(out BaseMovement movement))
             {

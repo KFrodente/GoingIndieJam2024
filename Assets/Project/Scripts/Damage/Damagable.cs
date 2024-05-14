@@ -15,6 +15,7 @@ public class Damagable : MonoBehaviour
     [SerializeField] protected bool isHitCounter;
     [SerializeField] protected bool alwaysImmune;
     [SerializeField] protected bool isSpirit;
+    [SerializeField] protected ProjectileDamageType immunities;
 
     [Header("Character Data")]
     [SerializeField] protected BaseCharacter baseCharacter;
@@ -34,8 +35,12 @@ public class Damagable : MonoBehaviour
     public virtual bool IsPlayer => baseCharacter.possessingSpirit != null || isSpirit;
 
     protected float immunityEndTime = 0;
-    protected bool isImmune => Time.time < immunityEndTime || alwaysImmune; 
-    
+
+    protected bool isImmune(ProjectileDamageType t)
+    {
+        return Time.time < immunityEndTime || alwaysImmune || immunities.HasFlag(t);
+    }
+
     // Health Properties
     public int Health
     {
@@ -86,9 +91,9 @@ public class Damagable : MonoBehaviour
         }
     }
     
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, ProjectileDamageType type)
     {
-        if (isImmune) return;
+        if (isImmune(type)) return;
         if(isHitCounter) damage = 1;
         Health -= damage;
         lerpedHealthTarget = Health;
@@ -98,6 +103,8 @@ public class Damagable : MonoBehaviour
         }
         else Hurt();
     }
+
+    
     protected virtual void Die()
     {
         damageAudioPlayer.PlayKilledSound();
@@ -131,7 +138,7 @@ public class Damagable : MonoBehaviour
     [Button]
     public virtual void ApplyDamage()
     {
-        TakeDamage(testDamageAmount);
+        TakeDamage(testDamageAmount, new ProjectileDamageType());
     }
     [SerializeField,Tooltip("Apply X damage"),Header("Testing")] int testDamageAmount = 5;
 }

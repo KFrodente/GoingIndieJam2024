@@ -22,14 +22,14 @@ public class DashChargeWeapon : ChargeWeapon
 	{
 		if (other.TryGetComponent(out Damagable d) && inDash && d.IsPlayer != savedTarget.shotByPlayer)
 		{
-			d.TakeDamage((int)bc.GetStats().Damage);
+			d.TakeDamage((int)bc.GetStats().Damage, defaultDamageType);
 		}
 	}
 	protected void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.TryGetComponent(out Damagable d) && inDash && d.IsPlayer != savedTarget.shotByPlayer)
 		{
-			d.TakeDamage((int)bc.GetStats().Damage);
+			d.TakeDamage((int)bc.GetStats().Damage, defaultDamageType);
 		}
 	}
 

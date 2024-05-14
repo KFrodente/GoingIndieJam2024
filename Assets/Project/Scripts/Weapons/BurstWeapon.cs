@@ -7,6 +7,7 @@ public class BurstWeapon : AutoFireWeapon
     {
         if (!delayOver) return false;
         bc = c;
+        savedTarget = target;
         shotCount = weaponData.burstAmount;
         attacking = true;
         return true;
@@ -19,6 +20,7 @@ public class BurstWeapon : AutoFireWeapon
             {
                 shotCount--;
                 Fire(savedTarget);
+                lastAutoFireTime = Time.time;
             }
         }
         else

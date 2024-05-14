@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,11 @@ public class MultiWeapon : Weapon
 	[SerializeField] private List<Weapon> Weapons = new List<Weapon>();
 	private Weapon currentWeapon;
 	private Weapon prevWeapon;
+
+	[SerializeField] private WeaponSelectionType selectionType;
+	[SerializeField] private List<int> weaponUsesBeforeSwap = new List<int>();
+	private int alternateIndex = 0;
+	private int currentTimesUsed = 0;
 
 	public override void InitializeCharacter(BaseCharacter c)
 	{
@@ -25,14 +31,32 @@ public class MultiWeapon : Weapon
 		if (!delayOver) return false;
 		//savedTarget = target; 
 		//if(prevWeapon) prevWeapon.EndAttack();
-		
-		currentWeapon.StartAttack(target, c);
+
+		AttackWithCurrentWeapon(target, c);
 		prevWeapon = currentWeapon;
 		lastFireTime = Time.time;
 		Debug.Log("DELAY delayOver: " + delayOver);
 		PickWeapon();
 
 		return true;
+	}
+
+	private void AttackWithCurrentWeapon(Target t, BaseCharacter c)
+	{
+		switch (selectionType)
+		{
+			case WeaponSelectionType.Random :
+			{
+				
+				break;
+			}
+			case WeaponSelectionType.Alternate:
+			{
+				currentTimesUsed++;
+				break;
+			}
+		}
+		currentWeapon.StartAttack(t, c);
 	}
 
 	public override void EndAttack()
@@ -45,11 +69,31 @@ public class MultiWeapon : Weapon
 
 	private void PickWeapon()
 	{
-		// get random to pick weapon
-		int randomVal = Random.Range(0, Weapons.Count);
+		switch (selectionType)
+		{
+			case WeaponSelectionType.Random :
+			{
+				// get random to pick weapon
+				int randomVal = Random.Range(0, Weapons.Count);
 
-		// index into list with random number
-		currentWeapon = Weapons[randomVal];
+				// index into list with random number
+				currentWeapon = Weapons[randomVal];
+				break;
+			}
+			case WeaponSelectionType.Alternate:
+			{
+				if (currentTimesUsed >= weaponUsesBeforeSwap[alternateIndex])
+				{
+					alternateIndex++;
+					if (alternateIndex > Weapons.Count)
+					{
+						alternateIndex = 0;
+						currentTimesUsed = 0;
+					}
+				}
+				break;
+			}
+		}
 	}
 
 
@@ -60,4 +104,10 @@ public class MultiWeapon : Weapon
 	protected override void Start()
 	{
 	}
+}
+
+public enum WeaponSelectionType
+{
+	Random,
+	Alternate
 }

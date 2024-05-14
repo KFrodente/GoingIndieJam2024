@@ -167,7 +167,7 @@ public class PatternDefinitionProjectile : Projectile
 
 			for (int o = 0; o < positions.Length; o++)
 			{
-				Projectile newproj = (Instantiate((patterns[i].pattern.bulletPrefab == null) ? bulletProjectile.gameObject : patterns[i].pattern.bulletPrefab.gameObject)).GetComponent<Projectile>();
+				Projectile newproj = (Instantiate(((patterns[i].pattern.bulletPrefab == null) ? bulletProjectile.gameObject : patterns[i].pattern.bulletPrefab.gameObject), patterns[i].spawnPlacement.position + transform.position, Quaternion.identity).GetComponent<Projectile>());
 
 				if (!patterns[i].dontParentToSpawner)
 				{

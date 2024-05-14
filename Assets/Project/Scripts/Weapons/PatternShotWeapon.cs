@@ -7,9 +7,9 @@ public class PatternShotWeapon : Weapon
     protected virtual void Fire(Target target)
     {
         float angle = InputUtils.GetAngle(target.GetDirection());
-        Projectile e = Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>();
-        e.Initialize(target, (int)bc.GetStats().Damage);
-        e.transform.SetParent(transform);
+        Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle), transform).GetComponent<Projectile>().Initialize(target, (int)bc.GetStats().Damage);
+        //e.Initialize(target, (int)bc.GetStats().Damage);
+        //e.transform.SetParent(transform);
         lastFireTime = Time.time;
     }
 

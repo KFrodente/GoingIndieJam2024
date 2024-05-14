@@ -13,7 +13,7 @@ public class TreasurePortal : Portal
 
     public override void OnInteract(BaseCharacter character)
     {
-        SpiritCharacter spirit = character as SpiritCharacter;
+        SpiritCharacter spirit = character.possessingSpirit;
         if (!paidPrice)
         {
             if (spirit.Souls - this.costToEnter >= 0)

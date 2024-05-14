@@ -15,7 +15,7 @@ public class SpiritEssence : Interactable
 
     public override void OnInteract(BaseCharacter character)
     {
-        SpiritCharacter spirit = character as SpiritCharacter;
+        SpiritCharacter spirit = character.possessingSpirit;
         if (spirit.Souls >= soulCost)
         {
             spirit.Souls -= soulCost;

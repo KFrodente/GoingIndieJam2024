@@ -9,6 +9,8 @@ public class Portal : Interactable
     public int costToEnter;
     public bool paidPrice = false;
 
+    [SerializeField] public SuperTextMesh portalText;
+
     public bool active;
 
     //Connect ALL portals after creating the portals
@@ -17,8 +19,8 @@ public class Portal : Interactable
     {
         base.OnInteract(character);
 
-        //character.transform.position = connectedPortal.transform.position;
-
+        portalText.text = "";
+        connectedPortal.portalText.text = "";
         if (connectedPortal.transform.parent.TryGetComponent(out WalkerGenerator nextRoom))
         {
             StartCoroutine(nextRoom.SetRoomActive(character, connectedPortal, GetComponentInParent<Room>()));
@@ -27,8 +29,6 @@ public class Portal : Interactable
         {
             StartCoroutine(Teleport(character));
         }
-
-            //StartCoroutine(TransitionManager.instance.TransitionBetweenRooms(character, connectedPortal, transform.parent.GetComponent<Room>()));
     }
 
     private IEnumerator Teleport(BaseCharacter character)

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class TreasurePortal : Portal
 {
+
+
     private void Start()
     {
         Vector2Int costToEnter = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum].costToEnter;
         this.costToEnter = Random.Range(costToEnter.x, costToEnter.y);
-
+        portalText.text = "<w=seasick>" + this.costToEnter.ToString() + " souls";
     }
 
     public override void OnInteract(BaseCharacter character)
@@ -18,6 +20,7 @@ public class TreasurePortal : Portal
         {
             if (spirit.Souls - this.costToEnter >= 0)
             {
+                portalText.text = "";
                 spirit.Souls -= this.costToEnter;
                 paidPrice = true;
                 connectedPortal.GetComponentInParent<TreasureRoom>().GenerateSpiritEssence(this.costToEnter);

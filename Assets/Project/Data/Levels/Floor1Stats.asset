@@ -18,7 +18,7 @@ MonoBehaviour:
   shopRoomAmount: 1
   minShopDistance: 0
   minBossDistance: 2
-  basicRoomAmount: 16
+  basicRoomAmount: 10
   roomWidth: 200
   roomHeight: 200
   fillPercentage: 0.04

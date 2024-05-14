@@ -85,6 +85,7 @@ public class WalkerGenerator : Room
 
         yield return new WaitForSecondsRealtime(.4f);
 
+        previouslyActivated = true;
 
         GetComponent<EnemySpawner>().SpawnEnemies(goodEnemyPositions, roomOffset);
 

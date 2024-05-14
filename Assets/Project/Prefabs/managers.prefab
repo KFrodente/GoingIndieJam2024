@@ -64,13 +64,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rareEnemies:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 6048535723004659668, guid: 163e3d978f4dbac4e994074af0fce3bc, type: 3}
   easyEnemies:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 6048535723004659668, guid: 163e3d978f4dbac4e994074af0fce3bc, type: 3}
+  - {fileID: 6048535723004659668, guid: 6a09c3ddb8da53049ace2ba05f56ff97, type: 3}
   mediumEnemies:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 6048535723004659668, guid: a9b1e848eb7f70b4f922eb4f5e5cda36, type: 3}
+  - {fileID: 6048535723004659668, guid: 20a312ab1d534f242a440d3bf61250ff, type: 3}
   hardEnemies:
-  - {fileID: 8722958609823329157, guid: 5ed8dbae92eaa93439150972c8e59cb4, type: 3}
+  - {fileID: 6048535723004659668, guid: 1b3e7c6f47f2c7d4097712bc49d77566, type: 3}
 --- !u!114 &1585684234875098319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,9 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0ca70fbae3e4842bf1c0c4cbeb18b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corvid: {fileID: 0}
-  dauntless: {fileID: 0}
-  tethered: {fileID: 0}
+  corvidViewpoint: {fileID: 0}
+  dauntlessViewpoint: {fileID: 0}
+  tetheredViewpoint: {fileID: 0}
   virtualCamera: {fileID: 0}
 --- !u!114 &1216393469165064505
 MonoBehaviour:

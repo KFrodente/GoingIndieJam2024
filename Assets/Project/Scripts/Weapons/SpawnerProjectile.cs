@@ -20,11 +20,23 @@ public class SpawnerProjectile : Projectile
 		base.Update();
 		if(Time.time > projectileSpawnTime) 
 		{
-			int randomIndex = Random.Range(0, charactersToSpawn.Count);
-
-			Instantiate(charactersToSpawn[randomIndex], this.transform.position, Quaternion.identity);
-
-			Destroy(gameObject);
+			SpawnCharacter();
 		}
+	}
+
+	protected override void OnTriggerEnter2D(Collider2D other)
+	{
+		//base.OnTriggerEnter2D(other);
+		if (!initialized) return;
+		SpawnCharacter();
+	}
+
+	private void SpawnCharacter()
+	{
+		int randomIndex = Random.Range(0, charactersToSpawn.Count);
+
+		Instantiate(charactersToSpawn[randomIndex], this.transform.position, Quaternion.identity);
+
+		Destroy(gameObject);
 	}
 }

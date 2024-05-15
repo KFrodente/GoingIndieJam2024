@@ -92,7 +92,7 @@ public class Damagable : MonoBehaviour
 				lerpedHealth = lerpedHealthTarget;
 			}
 
-			healthUnderBar.value = lerpedHealth / startingHealth;
+			if(healthUnderBar) healthUnderBar.value = lerpedHealth / startingHealth;
 		}
 	}
 
@@ -121,7 +121,7 @@ public class Damagable : MonoBehaviour
     }
 
     
-    protected virtual void Die()
+    public virtual void Die()
     {
         damageAudioPlayer.PlayKilledSound();
         if(dispenser != null) dispenser.Dispense();

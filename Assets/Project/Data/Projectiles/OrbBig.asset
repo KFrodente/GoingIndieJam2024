@@ -19,3 +19,5 @@ MonoBehaviour:
   type: 33
   hitParticle: {fileID: 6537183467329547177, guid: 2bc5af0c838f55d4cbb272bd3f4b0d16, type: 3}
   hitSound: {fileID: 8300000, guid: 492e30aac024688409d4ae60debe4f3d, type: 3}
+  despawnParticle: {fileID: 0}
+  despawnSound: {fileID: 0}

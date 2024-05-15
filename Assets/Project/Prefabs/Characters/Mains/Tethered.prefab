@@ -1143,7 +1143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 4020049581633619501}
   movement: {fileID: 2990796584846901526}
-  weapon: {fileID: 0}
+  weapon: {fileID: 2685680008534052695}
   characterStats: {fileID: 8510036705523852194}
   rb: {fileID: 8344255443861914099}
   damageable: {fileID: 5919757889762728058}
@@ -1163,7 +1163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 0}
   defaultDamageType: 0
-  Weapons: []
+  Weapons:
+  - {fileID: 1695169314987321775}
+  - {fileID: 4260541826916412659}
+  - {fileID: 4914985286272449387}
   selectionType: 0
   weaponUsesBeforeSwap: 
 --- !u!114 &1695169314987321775
@@ -1192,7 +1195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 6cf470765c64a344eadad768403d27e6, type: 2}
   defaultDamageType: 0
 --- !u!114 &4914985286272449387
 MonoBehaviour:
@@ -1206,5 +1209,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 6b7cb50f82fddc949ac06bc53743b824, type: 2}
   defaultDamageType: 0

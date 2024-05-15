@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2fa834f8262be274da689737123718ce, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.58932406, g: 0.27002484, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,6 +164,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: 96190dccb5eba744bb53b1b7b815b2df, type: 2}
   rb: {fileID: 4361650146283769226}
+  timeBeforeActiveDamage: 0
+  onHitEffect:
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0
 --- !u!114 &2026012379354396978
 MonoBehaviour:
   m_ObjectHideFlags: 0

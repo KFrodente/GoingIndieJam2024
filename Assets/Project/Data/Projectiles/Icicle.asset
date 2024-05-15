@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Icicle
   m_EditorClassIdentifier: 
   zeroDamage: 0
-  speed: 7
+  speed: 10
   lifetime: 10
-  pierceCount: 1
+  pierceCount: 2
   type: 48
   hitParticle: {fileID: 6537183467329547177, guid: 2bc5af0c838f55d4cbb272bd3f4b0d16, type: 3}
   hitSound: {fileID: 8300000, guid: 492e30aac024688409d4ae60debe4f3d, type: 3}
+  despawnParticle: {fileID: 0}
+  despawnSound: {fileID: 0}

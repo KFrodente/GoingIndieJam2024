@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8588432026722244084}
   - component: {fileID: 4163879514336813254}
   m_Layer: 0
-  m_Name: Square
+  m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2146650652291094561}
@@ -833,7 +833,7 @@ MonoBehaviour:
   debugMode: 0
   totalReadTime: 0.00001
   totalUnreadTime: 0.00001
-  currentReadTime: 2.6073468
+  currentReadTime: 9.126528
   autoRead: 1
   rememberReadPosition: 1
   autoQuality: 0
@@ -948,7 +948,6 @@ MonoBehaviour:
   paidPrice: 0
   portalText: {fileID: 1170656644746379600}
   active: 0
-  costText: {fileID: 1170656644746379600}
 --- !u!58 &7425385305718831248
 CircleCollider2D:
   m_ObjectHideFlags: 0

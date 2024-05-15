@@ -14,6 +14,8 @@ public class BaseCharacter : MonoBehaviour
     public Damagable damageable;
     public EffectPlayer effector;
     [HideInInspector] public SpiritCharacter possessingSpirit;
+    public SpriteRenderer gfx;
+    public bool overrideFlipping = false;
 
     public virtual Stats.Stats GetStats()
     {
@@ -41,6 +43,16 @@ public class BaseCharacter : MonoBehaviour
         if(input.GetMouseInput().leftDown) Attack(input.GetInputTarget());
         if(input.GetMouseInput().leftUp) weapon.EndAttack();
     }
+
+    protected void xFlipping()
+    {
+        if (!overrideFlipping)
+        {
+            Debug.Log(gfx.flipX);
+            gfx.flipX = (rb.velocity.x < 0);
+        }
+    }
+
 
     protected virtual void FixedUpdate()
     {

@@ -864,10 +864,10 @@ MonoBehaviour:
   bottomLeftBounds: {x: -6.03, y: 0.6600001, z: -0.1}
   bottomRightBounds: {x: 5.97, y: 0.6600001, z: -0.1}
   centerBounds: {x: -0.03000021, y: 0.86500007, z: -0.1}
-  topLeftTextBounds: {x: -1.2375779, y: 1.07, z: -0.1}
-  topRightTextBounds: {x: 1.177578, y: 1.07, z: -0.1}
-  bottomLeftTextBounds: {x: -1.2375779, y: 0.6600001, z: -0.1}
-  bottomRightTextBounds: {x: 1.177578, y: 0.6600001, z: -0.1}
+  topLeftTextBounds: {x: -1.2375779, y: 1.07, z: 0.1}
+  topRightTextBounds: {x: 1.177578, y: 1.07, z: 0.1}
+  bottomLeftTextBounds: {x: -1.2375779, y: 0.6600001, z: 0.1}
+  bottomRightTextBounds: {x: 1.177578, y: 0.6600001, z: 0.1}
   centerTextBounds: {x: -0.029999971, y: 0.86500007, z: 0}
   finalTopLeftTextBounds: {x: -1.2375779, y: 1.07, z: -0.1}
   finalTopRightTextBounds: {x: 1.177578, y: 1.07, z: -0.1}

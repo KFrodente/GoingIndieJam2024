@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41ccf60e5ba7f14d949520e50de4e1c, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  fireDelay: 2
   attackSound: {fileID: 8300000, guid: c0997ca249da9d24b86ad2bae355976d, type: 3}
-  chargeTime: 0.3
+  chargeTime: 0.6
   cancelDelay: 0.2
   chargeSound: {fileID: 8300000, guid: bf82f1409586f1f48af3436afa72012e, type: 3}
   burstSeparationDelay: 0

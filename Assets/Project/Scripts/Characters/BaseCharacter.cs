@@ -52,7 +52,7 @@ public class BaseCharacter : MonoBehaviour
         {
             Debug.Log(gfx.flipX);
             if(!invertFlipping) gfx.flipX = (rb.velocity.x < 0);
-            else                gfx.flipX = (rb.velocity.x > 0);
+            else                gfx.flipX = (rb.velocity.x > 1);
         }
     }
 

@@ -428,10 +428,13 @@ MonoBehaviour:
   damageable: {fileID: 3828826034767346045}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  gfx: {fileID: 0}
+  overrideFlipping: 0
+  invertFlipping: 0
   SoulsUpdated: {fileID: 11400000, guid: aaabe649a015eea49a6d9feac60fbf5c, type: 2}
   souls: 0
-  turnSpeedUpMultiplier: 2
-  turnSpeedUpDuration: 2.13
+  turnSpeedUpMultiplier: 7
+  turnSpeedUpDuration: 0.2
 --- !u!50 &5162756009189700044
 Rigidbody2D:
   serializedVersion: 4
@@ -485,6 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 7a975a2fbf48e7d40baa21bd3c5a68d5, type: 2}
   defaultDamageType: 0
+  charging: 0
   affectRotation: 1
 --- !u!114 &9070913253358314515
 MonoBehaviour:

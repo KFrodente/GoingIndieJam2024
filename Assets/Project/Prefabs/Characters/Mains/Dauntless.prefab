@@ -437,6 +437,7 @@ MonoBehaviour:
   possessingSpirit: {fileID: 0}
   gfx: {fileID: 5157189204362696825}
   overrideFlipping: 0
+  invertFlipping: 0
   animator: {fileID: 7849309887560639849}
 --- !u!50 &7411527918199409643
 Rigidbody2D:
@@ -451,7 +452,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2.63
+  m_LinearDrag: 3.92
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

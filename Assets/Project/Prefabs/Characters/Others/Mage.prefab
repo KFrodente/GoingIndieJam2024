@@ -113,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3622712258089703523}
   - component: {fileID: 8169470628405355318}
+  - component: {fileID: 6193281894146650089}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bca4553a5f97e6b45a158164afae789f, type: 3}
+  m_Sprite: {fileID: 1030522979, guid: 12c664e3d988ce64d8b2dd9c24f7512d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,6 +188,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6193281894146650089
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675375573470031403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f296a1db20f00d2489cd36bc99984181, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2953115082942787600
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +767,9 @@ MonoBehaviour:
   damageable: {fileID: 8588803817186985679}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  gfx: {fileID: 0}
+  overrideFlipping: 0
+  invertFlipping: 0
 --- !u!50 &8658340102009209602
 Rigidbody2D:
   serializedVersion: 4

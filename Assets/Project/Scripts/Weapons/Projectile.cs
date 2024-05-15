@@ -16,6 +16,8 @@ public class Projectile : MonoBehaviour
     protected bool initialized;
     [SerializeField] protected StatEffect onHitEffect;
     protected bool isActive => Time.time - spawnTime > timeBeforeActiveDamage;
+
+    //[SerializeField] private InvisibleDestroy invisDestroy;
      
      public virtual void Initialize(Target target, int damage)
      {
@@ -24,9 +26,10 @@ public class Projectile : MonoBehaviour
          if(!projectileData.zeroDamage) this.damage = damage;
          this.target = target;
          initialized = true;
+         //if(invisDestroy)invisDestroy.enabled = true;
      }
      
-     
+      
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (!initialized || !isActive) return;

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 391038312890370394}
   - component: {fileID: 4361650146283769226}
   - component: {fileID: 2251179395898420703}
-  - component: {fileID: 1081229399121725768}
   - component: {fileID: -6900405444456853332}
   m_Layer: 3
   m_Name: SpawnerOrb
@@ -150,19 +149,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.88, y: 0.83}
   m_Direction: 0
---- !u!114 &1081229399121725768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8558810233948327324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016f7239b0e8ea741a3ec54aa11febb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyed: {fileID: 8558810233948327324}
 --- !u!114 &-6900405444456853332
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -121,10 +121,10 @@ public class Damagable : MonoBehaviour
     }
 
     
-    public virtual void Die()
+    public virtual void Die(bool suicide = false)
     {
         damageAudioPlayer.PlayKilledSound();
-        if(dispenser != null) dispenser.Dispense();
+        if(!suicide && dispenser != null) dispenser.Dispense();
         if (IsPlayer && baseCharacter.possessingSpirit != null)
         {
             baseCharacter.possessingSpirit.Reliquish();

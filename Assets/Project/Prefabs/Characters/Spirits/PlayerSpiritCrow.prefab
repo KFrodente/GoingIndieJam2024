@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f4db8c9de84182b49c3441b2e39163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 32
+  key: 101
   OnKeyPressed:
     m_PersistentCalls:
       m_Calls:
@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 07dc10d2066df0647b5990f01e062fbf, type: 2}
+  defaultDamageType: 0
 --- !u!114 &6140327678613932532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +408,7 @@ MonoBehaviour:
   isHitCounter: 1
   alwaysImmune: 0
   isSpirit: 1
+  immunities: 0
   baseCharacter: {fileID: 6353325505182375790}
   damageAudioPlayer: {fileID: 8391660716514387575}
   dispenser: {fileID: 0}

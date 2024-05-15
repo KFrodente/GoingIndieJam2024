@@ -8,9 +8,42 @@ public class SpiritEssence : Interactable
     [SerializeField] public Essence essence;
     [HideInInspector] public int soulCost;
 
+    public GameObject essenceUI;
+    public SuperTextMesh costText;
+    public SuperTextMesh nameText;
+
     private void Awake()
     {
         soulCost = essence.soulCost;
+
+        essenceUI.SetActive(false);
+        nameText.text = essence.name + " Essence";
+        costText.text = "Costs: " + soulCost.ToString() + " souls";
+    }
+
+    private void Update()
+    {
+
+        costText.Text = (soulCost > 0) ? "" : "Costs: " + soulCost.ToString() + " souls";
+
+
+        if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Dauntless && Vector2.Distance(FloorGenerator.instance.dauntless.transform.position, transform.position) < 4)
+        {
+            essenceUI.SetActive(true);
+            //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
+        }
+        else if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Corvid && Vector2.Distance(FloorGenerator.instance.corvid.transform.position, transform.position) < 4)
+        {
+            essenceUI.SetActive(true);
+            //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
+        }
+        else if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Tethered && Vector2.Distance(FloorGenerator.instance.tethered.transform.position, transform.position) < 4)
+        {
+            essenceUI.SetActive(true);
+            //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
+        }
+        else essenceUI.SetActive(false);
+
     }
 
     public override void OnInteract(BaseCharacter character)

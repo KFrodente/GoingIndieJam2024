@@ -81,7 +81,7 @@ public class FloorGenerator : MonoBehaviour
             CreateSpecialRooms(shopRooms[Random.Range(0, shopRooms.Count)], 'S', floorStats[floorNum].minShopDistance, Room.Type.SHOP);
         }
 
-        
+        Debug.Log($"rooms dictionary count: {rooms.Count}\n roomObjectDictionary count: {roomObjectDictionary.Count}");
 
         StartCoroutine(DoPortals());
 
@@ -260,34 +260,59 @@ public class FloorGenerator : MonoBehaviour
 
         Room checkedRoom;
 
+        char checkedChar;
 
-        if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
+        if (rooms.TryGetValue(pickedPos + Vector2.up, out checkedChar))
         {
-            checkedRoom.connectsDown = true;
-            checkedRoom.roomConnectedDown = br.GetComponent<Room>();
-            br.GetComponent<Room>().connectsUp = true;
-            br.GetComponent<Room>().roomConnectedUp = checkedRoom;
+            if (checkedChar == 'b')
+            {
+                if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
+                {
+                    checkedRoom.connectsDown = true;
+                    checkedRoom.roomConnectedDown = br.GetComponent<Room>();
+                    br.GetComponent<Room>().connectsUp = true;
+                    br.GetComponent<Room>().roomConnectedUp = checkedRoom;
+                }
+            }
         }
-        else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
+        else if (rooms.TryGetValue(pickedPos + Vector2.down, out checkedChar))
         {
-            checkedRoom.connectsUp = true;
-            checkedRoom.roomConnectedUp = br.GetComponent<Room>();
-            br.GetComponent<Room>().connectsDown = true;
-            br.GetComponent<Room>().roomConnectedDown = checkedRoom;
+            if (checkedChar == 'b')
+            {
+                if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
+                {
+                    checkedRoom.connectsUp = true;
+                    checkedRoom.roomConnectedUp = br.GetComponent<Room>();
+                    br.GetComponent<Room>().connectsDown = true;
+                    br.GetComponent<Room>().roomConnectedDown = checkedRoom;
+                }
+            }
         }
-        else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
+        else if (rooms.TryGetValue(pickedPos + Vector2.right, out checkedChar))
         {
-            checkedRoom.connectsLeft = true;
-            checkedRoom.roomConnectedLeft = br.GetComponent<Room>();
-            br.GetComponent<Room>().connectsRight = true;
-            br.GetComponent<Room>().roomConnectedRight = checkedRoom;
+            if (checkedChar == 'b')
+            {
+                if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
+                {
+                    checkedRoom.connectsLeft = true;
+                    checkedRoom.roomConnectedLeft = br.GetComponent<Room>();
+                    br.GetComponent<Room>().connectsRight = true;
+                    br.GetComponent<Room>().roomConnectedRight = checkedRoom;
+                }
+            }
         }
-        else if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
+        else if (rooms.TryGetValue(pickedPos + Vector2.left, out checkedChar))
         {
-            checkedRoom.connectsRight = true;
-            checkedRoom.roomConnectedRight = br.GetComponent<Room>();
-            br.GetComponent<Room>().connectsLeft = true;
-            br.GetComponent<Room>().roomConnectedLeft = checkedRoom;
+            if (checkedChar == 'b')
+            {
+                if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
+                {
+                    checkedRoom.connectsRight = true;
+                    checkedRoom.roomConnectedRight = br.GetComponent<Room>();
+                    br.GetComponent<Room>().connectsLeft = true;
+                    br.GetComponent<Room>().roomConnectedLeft = checkedRoom;
+                }
+            }
         }
 
         rooms.Add(pickedPos, letter);

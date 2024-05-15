@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Target
 {
-    private TargetType type;
-    private Vector2? lockedTarget;
-    private Transform? characterTarget;
+    public TargetType type { get; private set; }
+	private Vector2? lockedTarget;
+    public Transform? characterTarget { get; private set; }
     private Vector2 fireLocation;
     public bool shotByPlayer { get; private set; }
     public TargetCaseID uniqueCaseID = TargetCaseID.None;

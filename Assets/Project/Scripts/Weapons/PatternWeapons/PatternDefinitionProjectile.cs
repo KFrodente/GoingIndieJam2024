@@ -53,9 +53,6 @@ public class PatternDefinitionProjectile : Projectile
 		[Tooltip("The position where the bullet pattern will spawn")]
 		public Transform spawnPlacement;
 
-		[Tooltip("if the pattern should spawn on the target")]
-		[HideInInspector]public bool spawnOnTarget;
-
 		[Tooltip("Point in space that the projectiles shoot away from")]
 		public Transform positionShootAwayFrom;
 		
@@ -72,27 +69,26 @@ public class PatternDefinitionProjectile : Projectile
 		public bool spawnCenterOutwards;
 
 		[Header("PointDirection")]
-		[Tooltip("If the bullet should shoot away from transform.position")]
+		[Tooltip("Should the chosen direction be flipped.\r\nPoint Away -> Point Towards")]
+		public bool flipDirection;
+
+		[Tooltip("If the bullet should shoot away from spawnPlacement")]
 		[AllowNesting]
-		[Foldout("Point")]
 		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "inPointDirection")]
 		public bool pointAwayFromSpawner;
-		
+
 		[Tooltip("If the bullet should shoot away from positionShootAwayFrom. If null, uses spawnplacement")]
 		[AllowNesting]
-		[Foldout("Point")]
 		[HideIf(EConditionOperator.Or, "pointAwayFromSpawner", "sameDirection", "inPointDirection")]//
 		public bool pointAwayFromPosition;
-		
+
 		[Tooltip("If all the bullets should fire in the same direction using pointDirection")]
 		[AllowNesting]
-		[Foldout("Point")]
 		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "pointAwayFromSpawner", "inPointDirection")]
 		public bool sameDirection;
 		
 		[Tooltip("Bullets should point within the point direction")]
 		[AllowNesting]
-		[Foldout("Point")]
 		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "pointAwayFromSpawner")]
 		public bool inPointDirection;
 		
@@ -118,13 +114,6 @@ public class PatternDefinitionProjectile : Projectile
 
 	[SerializeField, Header("Just This:")] Projectile bulletProjectile;
 
-
-	/// <summary>
-	/// When set to true, will initiate the shoot functions
-	/// </summary>
-	[SerializeField] bool shoot = false;
-
-
 	[SerializeField] ShootPattern[] patterns;
 
 	Vector2 targetDirection;
@@ -136,12 +125,6 @@ public class PatternDefinitionProjectile : Projectile
 		{
 			if (patterns[i].spawnPlacement == null)
 			{
-				if (patterns[i].spawnOnTarget)
-				{
-					//patterns[i].spawnPlacement = ; // Needs Implementation
-				} else
-				{
-				}
 				patterns[i].spawnPlacement = transform;
 			}
 			if (patterns[i].pointDirection == Vector2.zero) patterns[i].pointDirection = Vector2.right;
@@ -318,6 +301,11 @@ public class PatternDefinitionProjectile : Projectile
 				//direction = target.GetDirection();
 				//Debug.Log(direction);
 			}
+		}
+
+		if (patterns[i].flipDirection)
+		{
+			direction *= -1;
 		}
 
 		return direction;

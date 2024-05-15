@@ -844,7 +844,7 @@ MonoBehaviour:
   head: {fileID: 2160604955480289949, guid: 6c959f8937a9a1b40b18d969ad4855d8, type: 3}
   tail: {fileID: 8127760423111761855, guid: 8cae70f7beda9fc4c80aedf5aa838d4c, type: 3}
   bodyPrefab: {fileID: 2492296653263926546, guid: 4c340224bdb566e4781143e5a99c9662, type: 3}
-  length: 7
+  length: 19
   followDistance: 2
   vibrationRate: 1.01
   vibrationAmplitude: 0.2
@@ -2700,7 +2700,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: d32b4cfa86a742c47a535c74bd5807c2, type: 3}
+  - {fileID: 2100000, guid: 071ecfa7d187afb4985688b1a9583557, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

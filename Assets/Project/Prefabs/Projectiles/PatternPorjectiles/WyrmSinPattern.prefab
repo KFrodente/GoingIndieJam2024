@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2531597428278474645}
   - component: {fileID: 2434425762666144854}
   m_Layer: 0
-  m_Name: SinPattern
+  m_Name: WyrmSinPattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,10 +52,32 @@ MonoBehaviour:
     operation: 0
     value: 0
     duration: 0
-  bulletProjectile: {fileID: 3204321272480393510, guid: 7ab457e6ad4c06d4885fa8a4e8f07600, type: 3}
+  bulletProjectile: {fileID: 3204321272480393510, guid: 71de29ae310dea94b901ab41fd9e9308, type: 3}
   shoot: 0
   patterns:
-  - pattern: {fileID: 11400000, guid: a186a59a35d4ed74ebeffd9c158f6b76, type: 2}
+  - pattern: {fileID: 11400000, guid: ba5f0bf6c7845a447a4eff3024a452a9, type: 2}
+    totalSpawnTime: 0.5
+    pointDirection: {x: 1, y: 0}
+    delayToNext: 0
+    scale: {x: 0.5, y: 0.5}
+    spawnPlacement: {fileID: 0}
+    spawnOnTarget: 0
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    randomize: 0
+    spawnWithNextPattern: 1
+    spawnCenterOutwards: 0
+    pointAwayFromSpawner: 0
+    pointAwayFromPosition: 0
+    sameDirection: 1
+    inPointDirection: 0
+    howshoot: 1
+    shootDelay: 0.1
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
+    shootCenterOutwards: 1
+  - pattern: {fileID: 11400000, guid: 59458f78a2afb15499fa3f5ecd2439a3, type: 2}
     totalSpawnTime: 0.5
     pointDirection: {x: 1, y: 0}
     delayToNext: 0

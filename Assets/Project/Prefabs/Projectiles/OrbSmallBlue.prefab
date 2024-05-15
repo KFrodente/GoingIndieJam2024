@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 391038312890370394}
   - component: {fileID: 4361650146283769226}
   - component: {fileID: 2251179395898420703}
-  - component: {fileID: 1081229399121725768}
-  - component: {fileID: -6900405444456853332}
-  m_Layer: 3
-  m_Name: SpawnerOrb
+  - component: {fileID: 3204321272480393510}
+  - component: {fileID: 7054610865725929865}
+  m_Layer: 0
+  m_Name: OrbSmallBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,9 +76,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d21c62223651f5f488ef41a0ce30cb55, type: 3}
-  m_Color: {r: 0.31288314, g: 0.63595337, b: 0.8805031, a: 1}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: cdfefba237cc09a4d82b2433cb1c9e38, type: 3}
+  m_Color: {r: 0.14408045, g: 0.57545173, b: 0.9748427, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -150,7 +150,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.88, y: 0.83}
   m_Direction: 0
---- !u!114 &1081229399121725768
+--- !u!114 &3204321272480393510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558810233948327324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51827f39274079f4182cf42bee275fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileData: {fileID: 11400000, guid: 71e343c3961230c48a354156daa3ac6b, type: 2}
+  rb: {fileID: 4361650146283769226}
+  timeBeforeActiveDamage: 0
+  onHitEffect:
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0
+--- !u!114 &7054610865725929865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,26 +183,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyed: {fileID: 8558810233948327324}
---- !u!114 &-6900405444456853332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8558810233948327324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dac7f1577edba74cb269c40783fdee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileData: {fileID: 11400000, guid: 17fc905faee4a54448c13b21af50eda2, type: 2}
-  rb: {fileID: 4361650146283769226}
-  timeBeforeActiveDamage: 1000
-  onHitEffect:
-    type: 0
-    operation: 0
-    value: 0
-    duration: 0
-  charactersToSpawn:
-  - {fileID: 6048535723004659668, guid: a9b1e848eb7f70b4f922eb4f5e5cda36, type: 3}
-  timeToSpawn: 3

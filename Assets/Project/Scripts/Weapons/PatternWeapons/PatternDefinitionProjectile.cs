@@ -177,14 +177,14 @@ public class PatternDefinitionProjectile : Projectile
 					newproj.transform.SetParent(patterns[i].spawnPlacement.transform, false);
                     newproj.transform.localPosition = positions[o];
 					Vector2 direction = GetDirection(i, newproj.transform.position, possiblesamedirection);
-					float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-					newproj.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Quaternion.Euler(0, 0, angle);
+					float angle = InputUtils.GetAngle(direction);
+					newproj.transform.rotation =  Quaternion.Euler(0, 0, angle);
 				}
 				else
 				{
 					newproj.transform.position = patterns[i].spawnPlacement.transform.position;
 					Vector2 direction = GetDirection(i, newproj.transform.position, possiblesamedirection);
-					float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+					float angle = InputUtils.GetAngle(direction);
 					newproj.transform.position += ( Quaternion.Euler(0, 0, angle) * positions[o]);
                 }
 

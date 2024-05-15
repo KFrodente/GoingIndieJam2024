@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4361650146283769226}
   - component: {fileID: 2251179395898420703}
   - component: {fileID: 3204321272480393510}
-  - component: {fileID: 6387666361832460437}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -851253419, guid: d44cf7a86253212499e5c6a3a958923c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c9581fea38cdaa4c853b21f7f8013c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -164,16 +163,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: 3936efb6f76936847867217033abed19, type: 2}
   rb: {fileID: 4361650146283769226}
---- !u!114 &6387666361832460437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8558810233948327324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016f7239b0e8ea741a3ec54aa11febb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyed: {fileID: 8558810233948327324}
+  timeBeforeActiveDamage: 0
+  onHitEffect:
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0

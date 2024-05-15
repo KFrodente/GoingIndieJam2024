@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BulkEssence
   m_EditorClassIdentifier: 
   essenceName: Bulk
-  soulCost: 15
+  soulCost: 35
   tier: 3
   statType1: 1
   operatorType1: 0

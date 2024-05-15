@@ -47,24 +47,11 @@ public class SpiritEssence : Interactable
         //    essenceUI.SetActive(true);
         //    //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
         //}
-        if (Vector2.Distance(BaseCharacter.playerCharacter.transform.position, transform.position) < 5) 
-        {
             float alpha = 1 - (Vector2.Distance(BaseCharacter.playerCharacter.transform.position, transform.position) / 6) * 1.5f;
             essenceUI.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
-            //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, alpha);
-            costText.color = new Color(0, 0, 0, alpha);
-            //nameText.color = new Color(nameText.color.r, nameText.color.g, nameText.color.b, alpha);
-            nameText.color = new Color(0, 0, 0, alpha);
+            nameText.color = new Color(.01f, .01f, .01f, alpha);
+            costText.color = new Color(.01f, .01f, .01f, alpha);
             Debug.Log("Alpha value: " + nameText.color.a);
-        }
-        else
-        {
-            essenceUI.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-            //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, alpha);
-            costText.color = new Color(0, 0, 0, 0);
-            //nameText.color = new Color(nameText.color.r, nameText.color.g, nameText.color.b, alpha);
-            nameText.color = new Color(0, 0, 0, 0);
-        }
     }
 
     public override void OnInteract(BaseCharacter character)

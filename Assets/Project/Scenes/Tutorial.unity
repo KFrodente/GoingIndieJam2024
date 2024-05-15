@@ -884,7 +884,7 @@ MonoBehaviour:
   tail: {fileID: 8127760423111761855, guid: 8cae70f7beda9fc4c80aedf5aa838d4c, type: 3}
   bodyPrefab: {fileID: 2492296653263926546, guid: 4c340224bdb566e4781143e5a99c9662, type: 3}
   length: 19
-  followDistance: 2
+  followDistance: 5.17
   vibrationRate: 1.01
   vibrationAmplitude: 0.2
   vibrationOffset: 0.18

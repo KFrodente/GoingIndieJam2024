@@ -5,29 +5,60 @@ using UnityEngine;
 
 public class PieceSeparation : MonoBehaviour
 {
+    [Header("Pieces")]
     [SerializeField] private Segment head;
     [SerializeField] private Segment tail;
-    [SerializeField] private List<Segment> segments = new List<Segment>();
-    //[SerializeField] private float separation;
+    [SerializeField] private Segment bodyPrefab;
 
-    private void Update()
+    [Header("Details")]
+    [SerializeField] private int length;
+    [SerializeField] private float followDistance;
+    [SerializeField] private float vibrationRate;
+    [SerializeField] private float vibrationAmplitude;
+    [SerializeField] private float vibrationOffset;
+
+    [Header("other")]
+    [SerializeField] private Damagable DragonDamager;
+
+    private List<Segment> segments = new List<Segment>();
+    private void Start()
     {
-        //SetSegmentSeparation();
+        flyPatterns.head = CreateSegment(head, 0);
+        for (int i = 0; i < length - 1; i++)
+        {
+            CreateSegment(bodyPrefab, i + 1);
+        }
+        CreateSegment(tail, length + 1);
     }
 
-    public void SetSegmentSeparation()
+    private Segment CreateSegment(Segment type, int position)
     {
-        // for (int i = 0; i < segments.Count - 1; i++)
-        // {
-        //     segments[i].distance = separation;
-        //     if(i == 0) segments[i].pieceFollowing = head;
-        //     else segments[i].pieceFollowing = segments[i - 1].pieceFollowing;
-        // }
-        //
-        // if (segments.Count > 1)
-        // {
-        //     tail.pieceFollowing = segments[segments.Count - 1];
-        //     tail.distance = separation;
-        // }
+        Segment newSegment = Instantiate(type, transform.position + transform.right * followDistance * position, Quaternion.identity, transform).GetComponent<Segment>();
+        newSegment.Initialize(vibrationAmplitude, vibrationRate, vibrationOffset * position, segments.Count > 0 ? segments[segments.Count - 1] : null, followDistance, this);
+        segments.Add(newSegment);
+        return newSegment;
     }
+
+    private void Reposition()
+    {
+        for(int i = 1; i < segments.Count; i++)
+        {
+            segments[i].SetFollowingPiece(segments[i - 1]);
+        }
+    }
+    
+
+    public void Lose(Segment brokenSegment)
+    {
+        segments.Remove(brokenSegment);
+        brokenSegment.transform.gameObject.SetActive(false);
+        Reposition();
+        if (segments.Count <= 2)
+        {
+            DragonDamager.Die();
+        }
+    }
+
+    [SerializeField] private DragonFlyPatterns flyPatterns;
+
 }

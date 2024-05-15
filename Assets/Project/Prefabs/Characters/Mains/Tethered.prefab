@@ -1127,7 +1127,7 @@ MonoBehaviour:
   dispenser: {fileID: 1784927453287268814}
   healthOverBar: {fileID: 8837162859652039251}
   healthUnderBar: {fileID: 4011927565395851499}
-  healthLerpSpeed: 5
+  healthLerpSpeed: 20
   testDamageAmount: 5
 --- !u!114 &8697113959979630645
 MonoBehaviour:

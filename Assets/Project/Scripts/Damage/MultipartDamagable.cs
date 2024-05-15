@@ -10,7 +10,10 @@ using UnityEngine.UI;
 public class MultipartDamagable : Damagable
 {
 
+    
     [SerializeField] protected Segment segment;
+
+    public override bool IsPlayer => false;
     
     public override void Die()
     {

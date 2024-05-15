@@ -16,6 +16,7 @@ public class BaseCharacter : MonoBehaviour
     [HideInInspector] public SpiritCharacter possessingSpirit;
     public SpriteRenderer gfx;
     public bool overrideFlipping = false;
+    public bool invertFlipping = false;
 
     public virtual Stats.Stats GetStats()
     {
@@ -42,6 +43,7 @@ public class BaseCharacter : MonoBehaviour
     {
         if(input.GetMouseInput().leftDown) Attack(input.GetInputTarget());
         if(input.GetMouseInput().leftUp) weapon.EndAttack();
+        xFlipping();
     }
 
     protected void xFlipping()
@@ -49,7 +51,8 @@ public class BaseCharacter : MonoBehaviour
         if (!overrideFlipping)
         {
             Debug.Log(gfx.flipX);
-            gfx.flipX = (rb.velocity.x < 0);
+            if(!invertFlipping) gfx.flipX = (rb.velocity.x < 0);
+            else                gfx.flipX = (rb.velocity.x > 0);
         }
     }
 

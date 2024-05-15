@@ -113,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3622712258089703523}
   - component: {fileID: 8169470628405355318}
+  - component: {fileID: 314402343126879243}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 964022c66d1fa954d8c7f1c7e92ca90f, type: 3}
+  m_Sprite: {fileID: -864624545, guid: 2b2c7a193b2d20c469f6b69913794ada, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,6 +188,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &314402343126879243
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675375573470031403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46ebb5c2702092c41a3d58a5713a0986, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2953115082942787600
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +685,7 @@ GameObject:
   - component: {fileID: 3025352833950134153}
   - component: {fileID: 5570612978717863463}
   - component: {fileID: 3003375948597128664}
+  - component: {fileID: 3043143900213347304}
   - component: {fileID: 303801544410275538}
   - component: {fileID: 8658340102009209602}
   - component: {fileID: 5963222230313543426}
@@ -725,6 +748,20 @@ MonoBehaviour:
   clickRate: 0.5
   character: {fileID: 303801544410275538}
   preferedRange: 6.17
+--- !u!114 &3043143900213347304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9aced228d17e8a419c75b4b41c88b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 314402343126879243}
+  c: {fileID: 303801544410275538}
 --- !u!114 &303801544410275538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +782,9 @@ MonoBehaviour:
   damageable: {fileID: 8588803817186985679}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  gfx: {fileID: 8169470628405355318}
+  overrideFlipping: 0
+  invertFlipping: 1
 --- !u!50 &8658340102009209602
 Rigidbody2D:
   serializedVersion: 4
@@ -798,6 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: db89b083d39ce5143875b7c0311fe26a, type: 2}
   defaultDamageType: 4
+  charging: 0
 --- !u!114 &1595631146469311203
 MonoBehaviour:
   m_ObjectHideFlags: 0

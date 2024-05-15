@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 2251179395898420703}
   - component: {fileID: 3204321272480393510}
   - component: {fileID: 1081229399121725768}
+  - component: {fileID: 931936329259235576}
   m_Layer: 0
-  m_Name: OrbBig
+  m_Name: SquareRune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d21c62223651f5f488ef41a0ce30cb55, type: 3}
+  m_Sprite: {fileID: 261639434, guid: 21ba848e0dc14f94c9d964920574adb2, type: 3}
   m_Color: {r: 0.8301887, g: 0.33677456, b: 0.33677456, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51827f39274079f4182cf42bee275fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileData: {fileID: 11400000, guid: 41a4c28f25f0fd7468bace4c7248f29b, type: 2}
+  projectileData: {fileID: 11400000, guid: 5529ea282fd392e4b8103deca9540a7c, type: 2}
   rb: {fileID: 4361650146283769226}
   timeBeforeActiveDamage: 0
   onHitEffect:
@@ -183,3 +184,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyed: {fileID: 8558810233948327324}
+--- !u!95 &931936329259235576
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558810233948327324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe48200e17be20346a9d4024f60c2f7e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

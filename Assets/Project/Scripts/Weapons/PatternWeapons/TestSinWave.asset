@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8d271df47655c479c6232b95d43ff4, type: 3}
   m_Name: TestSinWave
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  bulletAmount: 10
+  bulletPrefab: {fileID: 3204321272480393510, guid: ca01cfab1254b82429d7269c2f6e866a, type: 3}
+  bulletAmount: 50
   amplitude: 2
-  frequency: 1
+  frequency: 2
   SineIntervals: 1
   distance: 2
   initialOffset: 0

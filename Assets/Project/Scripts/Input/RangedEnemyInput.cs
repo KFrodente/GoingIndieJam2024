@@ -13,9 +13,11 @@ public class RangedEnemyInput : EnemyInput
     }
     public override MouseInputData GetMouseInput()
     {
+        bool clicked = Time.time - lastClickTime > clickRate;
+        if (clicked) lastClickTime = Time.time;
         return new MouseInputData
         {
-            leftDown = (GetDistance() < character.GetStats().AttackRange),
+            leftDown = clicked && (GetDistance() < character.GetStats().AttackRange),
             //leftDown = (GetDistance() < preferedRange * 1.5f), // Might want to get actual attack range from stats
             leftUp = (GetDistance() > character.GetStats().AttackRange),
             //leftUp = (GetDistance() > preferedRange * 1.5f),

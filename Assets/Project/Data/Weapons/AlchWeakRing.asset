@@ -20,4 +20,4 @@ MonoBehaviour:
   burstAmount: 0
   attackDuration: 0
   knockback: 0
-  projectile: {fileID: 9100305768235465966, guid: 5915a201c8cd83c4c9659008a542a597, type: 3}
+  projectile: {fileID: 2434425762666144854, guid: a9ca903efc3569740b1a3dcb36851c6c, type: 3}

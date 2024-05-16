@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1437213981121721069}
   - component: {fileID: 7383719906944423228}
   - component: {fileID: 9008041971729748069}
+  - component: {fileID: 4297068658431347002}
+  - component: {fileID: 924586385409214446}
   m_Layer: 0
   m_Name: WeaknessArea
   m_TagString: Untagged
@@ -63,7 +65,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -87,6 +89,35 @@ MonoBehaviour:
     operation: 1
     value: 0.5
     duration: 5
+--- !u!114 &4297068658431347002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774574974223034609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e81e04187000c64eb7004f6e3921069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 5
+  destroyNotThis: {fileID: 0}
+--- !u!114 &924586385409214446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774574974223034609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944e53067a56f24478e06321a31a391d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endScale: {x: 0.2, y: 0.2}
+  time: 5
+  ps: {fileID: 6737334143383659399}
 --- !u!1 &8209074423029061701
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class EnemyInput : BaseInput
     public override MouseInputData GetMouseInput()
     {
         bool clicked = Time.time - lastClickTime > clickRate;
-        if(clicked) lastClickTime = Time.time;
+        if (clicked) lastClickTime = Time.time;
         return new MouseInputData
         {
             leftDown = clicked,

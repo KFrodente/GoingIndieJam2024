@@ -5,9 +5,11 @@ using UnityEngine;
 public class AutoLifetimeKill : MonoBehaviour
 {
     [SerializeField] private float lifetime;
-    [SerializeField] private GameObject toDestroy;
+    [SerializeField] private GameObject destroyNotThis;
     private void Start()
     {
-        Destroy(toDestroy, lifetime);
+        if (destroyNotThis == null) destroyNotThis = this.gameObject;
+        Destroy(destroyNotThis, lifetime);
+        
     }
 }

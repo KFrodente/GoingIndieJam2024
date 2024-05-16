@@ -50,7 +50,7 @@ public class BaseCharacter : MonoBehaviour
     {
         if (!overrideFlipping && rb.velocity.magnitude > 0.1)
         {
-            Debug.Log(gfx.flipX);
+            //Debug.Log(gfx.flipX);
             if(!invertFlipping) gfx.flipX = (rb.velocity.x < 0);
             else                gfx.flipX = (rb.velocity.x > 0);
         }

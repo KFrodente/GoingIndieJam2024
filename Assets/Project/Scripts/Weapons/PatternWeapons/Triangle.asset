@@ -20,5 +20,5 @@ MonoBehaviour:
   - {x: 1, y: -1}
   - {x: -1, y: -1}
   evenAmountBetweenPoints: 0
-  addEndcaps: 1
+  addEndcaps: 0
   pointsAreBulletLocations: 0

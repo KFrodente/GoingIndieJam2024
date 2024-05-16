@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2397933145337248889}
   - component: {fileID: 8967351094168391729}
   m_Layer: 0
-  m_Name: FireballSpellProjectile
+  m_Name: SlowerFireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51827f39274079f4182cf42bee275fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileData: {fileID: 11400000, guid: e301593591cf817488a91cce30f4683b, type: 2}
+  projectileData: {fileID: 11400000, guid: be2f66f012f8c034a8982c3274c18a31, type: 2}
   rb: {fileID: 2397933145337248889}
   timeBeforeActiveDamage: 0
   onHitEffect:

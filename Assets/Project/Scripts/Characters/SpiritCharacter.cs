@@ -11,6 +11,7 @@ public class SpiritCharacter : BaseCharacter
         gameObject.SetActive(true);
         //Debug.Log("Spirit Reliquished from " + playerCharacter);
         playerCharacter = this;
+        damageable.RefillHealth();
     }
     [SerializeField] IntEvent SoulsUpdated = default;
 

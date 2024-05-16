@@ -48,11 +48,11 @@ public class BaseCharacter : MonoBehaviour
 
     protected void xFlipping()
     {
-        if (!overrideFlipping)
+        if (!overrideFlipping && rb.velocity.magnitude > 0.1)
         {
             Debug.Log(gfx.flipX);
             if(!invertFlipping) gfx.flipX = (rb.velocity.x < 0);
-            else                gfx.flipX = (rb.velocity.x > 1);
+            else                gfx.flipX = (rb.velocity.x > 0);
         }
     }
 

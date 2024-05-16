@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: RockLine
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3204321272480393510, guid: 9c205ba376ec862429cb6f651369772a, type: 3}
-  bulletAmount: 5
+  bulletAmount: 3
   points:
-  - {x: -1, y: 0}
-  - {x: 1, y: 0}
+  - {x: -1.5, y: 1}
+  - {x: 0.5, y: 1}
   evenAmountBetweenPoints: 0
   addEndcaps: 0
   pointsAreBulletLocations: 0

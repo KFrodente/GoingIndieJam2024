@@ -65,6 +65,7 @@ public class TetheredSpiritCharacter : SpiritCharacter
         {
             tetheredMovement.currentAngle = 0;
             tetheredMovement.currentRadius = tetheredMovement.maxRadius;
+            tetheredBody.transform.position = tetheredDeadBody.transform.position;
             tetheredBody.SetActive(true);
             tetheredDeadBody.SetActive(false);
             tetheredBody.GetComponentInChildren<Possessable>().OnInteract(this);

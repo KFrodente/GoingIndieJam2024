@@ -514,7 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 999
   isHitCounter: 0
-  alwaysImmune: 0
+  alwaysImmune: 1
   isSpirit: 0
   immunities: 0
   baseCharacter: {fileID: 4570155750601713230}

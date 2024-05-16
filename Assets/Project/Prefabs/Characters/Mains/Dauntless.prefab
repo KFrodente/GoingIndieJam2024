@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 6449462472207109923}
   - component: {fileID: 7796739796333536108}
   - component: {fileID: 9183719020522926096}
+  - component: {fileID: 3999886596197890111}
   m_Layer: 9
   m_Name: Interactor
   m_TagString: Untagged
@@ -191,6 +192,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4510b0c1c07e694fb6ae67586bc3c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3999886596197890111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340910806369070629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f4db8c9de84182b49c3441b2e39163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 113
+  OnKeyPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7755894463558239492}
+        m_TargetAssemblyTypeName: Possessable, Assembly-CSharp
+        m_MethodName: UnPossess
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnKeyReleased:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1715143754343381613
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,8 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
-  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
+  hitSound: {fileID: 8300000, guid: 3ba16e30f282a96419e5c2ecb4dff7c3, type: 3}
+  killedSound: {fileID: 8300000, guid: ebabffed6beffbc4f810c9d97c35ad6c, type: 3}
 --- !u!1 &2590820807901892543
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +435,10 @@ MonoBehaviour:
   damageable: {fileID: 7225132558245157515}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  gfx: {fileID: 5157189204362696825}
+  overrideFlipping: 0
+  invertFlipping: 0
+  animator: {fileID: 7849309887560639849}
 --- !u!50 &7411527918199409643
 Rigidbody2D:
   serializedVersion: 4
@@ -416,7 +452,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2.63
+  m_LinearDrag: 3.92
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -456,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: a9e3dee090445494eb445f18b9c3ae28, type: 2}
   defaultDamageType: 1
+  charging: 0
   affectRotation: 0
 --- !u!114 &8958990022729752372
 MonoBehaviour:
@@ -518,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 120
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -615,6 +652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8875256311085480187}
   - component: {fileID: 5157189204362696825}
+  - component: {fileID: 7849309887560639849}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -678,8 +716,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.24528301, g: 0.03818085, b: 0.03818085, a: 1}
+  m_Sprite: {fileID: 1436178160, guid: 6a33d241b8c24a240bd7aab45bcfba01, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -689,6 +727,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7849309887560639849
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913128971880067306}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee90495f75853d347aa5f16f32bf59be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4037646381078669107
 GameObject:
   m_ObjectHideFlags: 0

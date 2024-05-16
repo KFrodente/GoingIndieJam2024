@@ -113,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3622712258089703523}
   - component: {fileID: 8169470628405355318}
+  - component: {fileID: 8497995453019477676}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 671df51f62030ad478d2be609b18c35c, type: 3}
+  m_Sprite: {fileID: -94151247, guid: 367caae21943e4747bbe54571f6b2dc5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,6 +188,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8497995453019477676
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675375573470031403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ddfff3675ba6e64aa96e94e85eff572, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2953115082942787600
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,8 +672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
-  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
+  hitSound: {fileID: 8300000, guid: 3ba16e30f282a96419e5c2ecb4dff7c3, type: 3}
+  killedSound: {fileID: 8300000, guid: 4dbdd6d61c75c7d4c9171b3199ee7340, type: 3}
 --- !u!1 &6048535723004659668
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,12 +688,13 @@ GameObject:
   - component: {fileID: 8658340102009209602}
   - component: {fileID: 5963222230313543426}
   - component: {fileID: 1595631146469311203}
-  - component: {fileID: 1533767014830928166}
   - component: {fileID: 8588803817186985679}
+  - component: {fileID: 5380347233351820147}
   - component: {fileID: 5406769814313069043}
   - component: {fileID: 7875857087674713876}
   - component: {fileID: 8415105228097584682}
   - component: {fileID: 9190933145169605666}
+  - component: {fileID: 2522192532892512999}
   m_Layer: 9
   m_Name: Witch
   m_TagString: Untagged
@@ -732,6 +755,9 @@ MonoBehaviour:
   damageable: {fileID: 8588803817186985679}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  gfx: {fileID: 8169470628405355318}
+  overrideFlipping: 0
+  invertFlipping: 1
 --- !u!50 &8658340102009209602
 Rigidbody2D:
   serializedVersion: 4
@@ -785,41 +811,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statVariables: {fileID: 11400000, guid: 2b7ddd746c38b5c45a9a1a4d85d108ef, type: 2}
   spiritStatModifiers: {fileID: 0}
---- !u!58 &1533767014830928166
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6048535723004659668}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &8588803817186985679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 25
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -844,6 +835,20 @@ MonoBehaviour:
   healthUnderBar: {fileID: 5658632166767207504}
   healthLerpSpeed: 5
   testDamageAmount: 5
+--- !u!114 &5380347233351820147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6878b78c92523f84dbf94450967f9618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8497995453019477676}
+  c: {fileID: 303801544410275538}
 --- !u!114 &5406769814313069043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +912,41 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 4af00fe99019c324ea4c9f230eba292e, type: 2}
   defaultDamageType: 34
   friendSearchRadius: 13
+--- !u!70 &2522192532892512999
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.042299658, y: -0.09467065}
+  m_Size: {x: 0.5845993, y: 1.6808233}
+  m_Direction: 0
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1033,7 @@ GameObject:
   - component: {fileID: 5180722746724824753}
   - component: {fileID: 8880577726911107781}
   - component: {fileID: 5132355596475304016}
+  - component: {fileID: 1049285932300516114}
   m_Layer: 9
   m_Name: Interactor
   m_TagString: Untagged
@@ -1070,6 +1111,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4510b0c1c07e694fb6ae67586bc3c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1049285932300516114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558946761563253388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f4db8c9de84182b49c3441b2e39163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 113
+  OnKeyPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4120797173550359642}
+        m_TargetAssemblyTypeName: Possessable, Assembly-CSharp
+        m_MethodName: UnPossess
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnKeyReleased:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8843149964061527275
 GameObject:
   m_ObjectHideFlags: 0

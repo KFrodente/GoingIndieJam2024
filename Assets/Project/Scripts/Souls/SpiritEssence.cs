@@ -16,7 +16,7 @@ public class SpiritEssence : Interactable
     {
         soulCost = essence.soulCost;
 
-        essenceUI.SetActive(false);
+        //essenceUI.SetActive(false);
         nameText.text = essence.essenceName + " Essence";
         costText.text = "Costs: " + soulCost.ToString() + " souls";
     }
@@ -25,24 +25,28 @@ public class SpiritEssence : Interactable
     {
 
         costText.Text = (soulCost <= 0) ? "" : "Costs: " + soulCost.ToString() + " souls";
+        nameText.text = essence.essenceName + " Essence";
 
-        if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Dauntless && Vector2.Distance(FloorGenerator.instance.dauntless.transform.position, transform.position) <= 4)
-        {
-            essenceUI.SetActive(true);
-            //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
-        }
-        else if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Corvid && Vector2.Distance(FloorGenerator.instance.corvid.transform.position, transform.position) < 4)
-        {
-            essenceUI.SetActive(true);
-            //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
-        }
-        else if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Tethered && Vector2.Distance(FloorGenerator.instance.tethered.transform.position, transform.position) < 4)
-        {
-            essenceUI.SetActive(true);
-            //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
-        }
-        //else essenceUI.SetActive(false);
-
+        //if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Dauntless && Vector2.Distance(FloorGenerator.instance.dauntless.transform.position, transform.position) <= 4)
+        //{
+        //    essenceUI.SetActive(true);
+        //    //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
+        //}
+        //else if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Corvid && Vector2.Distance(FloorGenerator.instance.corvid.transform.position, transform.position) < 4)
+        //{
+        //    essenceUI.SetActive(true);
+        //    //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
+        //}
+        //else if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Tethered && Vector2.Distance(FloorGenerator.instance.tethered.transform.position, transform.position) < 4)
+        //{
+        //    essenceUI.SetActive(true);
+        //    //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
+        //}
+        float alpha = 1 - (Vector2.Distance(BaseCharacter.playerCharacter.transform.position, transform.position) / 6) * .6f;
+            essenceUI.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
+            nameText.color = new Color(.01f, .01f, .01f, alpha);
+            costText.color = new Color(.01f, .01f, .01f, alpha);
+            //Debug.Log("Alpha value: " + nameText.color.a);
     }
 
     public override void OnInteract(BaseCharacter character)

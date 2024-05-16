@@ -107,9 +107,9 @@ public class Damagable : MonoBehaviour
         }
     }
     
-    public virtual void TakeDamage(int damage, ProjectileDamageType type)
+    public virtual bool TakeDamage(int damage, ProjectileDamageType type)
     {
-        if (isImmune(type)) return;
+        if (isImmune(type)) return false;
         if(isHitCounter) damage = 1;
         Health -= damage;
         lerpedHealthTarget = Health;
@@ -118,13 +118,14 @@ public class Damagable : MonoBehaviour
             Die();
         }
         else Hurt();
+        return true;
     }
 
     
-    public virtual void Die()
+    public virtual void Die(bool suicide = false)
     {
         damageAudioPlayer.PlayKilledSound();
-        if(dispenser != null) dispenser.Dispense();
+        if(!suicide && dispenser != null) dispenser.Dispense();
         if (IsPlayer && baseCharacter.possessingSpirit != null)
         {
             baseCharacter.possessingSpirit.Reliquish();

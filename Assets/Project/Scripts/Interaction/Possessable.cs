@@ -34,4 +34,9 @@ public class Possessable : Interactable
         unitBase.input = playerInput;
         interactor.gameObject.SetActive(true);
     }
+
+    public virtual void UnPossess()
+    {
+        unitBase.damageable.Die(true);
+    }
 }

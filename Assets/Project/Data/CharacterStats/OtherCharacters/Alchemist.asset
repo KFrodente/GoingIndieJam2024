@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1c66acee1bc6040aea9f9948ed9802, type: 3}
+  m_Name: Alchemist
+  m_EditorClassIdentifier: 
+  damage: 10
+  moveSpeed: 5
+  chargeSpeed: 1
+  turnSpeed: 1
+  attackRange: 15.7
+  attackSpeed: 1
+  chargeTurnSpeed: 0
+  damageMult: 0
+  moveSpeedMult: 0
+  chargeSpeedMult: 0
+  turnSpeedMult: 0
+  attackRangeMult: 0
+  attackSpeedMult: 0
+  healthMult: 0
+  chargeTurnSpeedMult: 0

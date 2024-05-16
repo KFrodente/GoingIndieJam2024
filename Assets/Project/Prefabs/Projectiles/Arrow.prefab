@@ -209,3 +209,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: 05384ee3f1b537e4d8e5dc90a7d8aa55, type: 2}
   rb: {fileID: 4361650146283769226}
+  timeBeforeActiveDamage: 0
+  onHitEffect:
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0

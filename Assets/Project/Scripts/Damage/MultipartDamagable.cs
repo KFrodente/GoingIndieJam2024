@@ -15,10 +15,10 @@ public class MultipartDamagable : Damagable
 
     public override bool IsPlayer => false;
     
-    public override void Die()
+    public override void Die(bool suicide = false)
     {
         if(damageAudioPlayer) damageAudioPlayer.PlayKilledSound();
-        if(dispenser != null) dispenser.Dispense();
+        if(!suicide && dispenser != null) dispenser.Dispense();
         segment.LoseSegment();
     }
 

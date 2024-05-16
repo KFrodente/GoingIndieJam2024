@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
-  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
+  killedSound: {fileID: 8300000, guid: 4dbdd6d61c75c7d4c9171b3199ee7340, type: 3}
 --- !u!1 &3539219368129139329
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,10 +428,14 @@ MonoBehaviour:
   damageable: {fileID: 3828826034767346045}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  gfx: {fileID: 0}
+  overrideFlipping: 0
+  invertFlipping: 0
+  isSpirit: 1
   SoulsUpdated: {fileID: 11400000, guid: aaabe649a015eea49a6d9feac60fbf5c, type: 2}
   souls: 0
-  turnSpeedUpMultiplier: 2
-  turnSpeedUpDuration: 2.13
+  turnSpeedUpMultiplier: 7
+  turnSpeedUpDuration: 0.2
 --- !u!50 &5162756009189700044
 Rigidbody2D:
   serializedVersion: 4
@@ -484,6 +488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 7a975a2fbf48e7d40baa21bd3c5a68d5, type: 2}
+  defaultDamageType: 0
+  charging: 0
   affectRotation: 1
 --- !u!114 &9070913253358314515
 MonoBehaviour:
@@ -550,6 +556,7 @@ MonoBehaviour:
   isHitCounter: 1
   alwaysImmune: 0
   isSpirit: 1
+  immunities: 0
   baseCharacter: {fileID: 703090160788766598}
   damageAudioPlayer: {fileID: 8915054746229719943}
   dispenser: {fileID: 0}
@@ -649,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f4db8c9de84182b49c3441b2e39163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 32
+  key: 101
   OnKeyPressed:
     m_PersistentCalls:
       m_Calls:

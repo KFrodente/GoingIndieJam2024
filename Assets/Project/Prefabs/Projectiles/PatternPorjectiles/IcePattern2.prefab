@@ -53,7 +53,6 @@ MonoBehaviour:
     value: 0
     duration: 0
   bulletProjectile: {fileID: 3204321272480393510, guid: ef30572503089d248bfc635ee35f061c, type: 3}
-  shoot: 0
   patterns:
   - pattern: {fileID: 11400000, guid: c973af9d49d829249861c3b1bd981899, type: 2}
     totalSpawnTime: 1
@@ -66,6 +65,7 @@ MonoBehaviour:
     randomize: 0
     spawnWithNextPattern: 0
     spawnCenterOutwards: 0
+    flipDirection: 0
     pointAwayFromSpawner: 1
     pointAwayFromPosition: 0
     sameDirection: 0

@@ -53,7 +53,7 @@ public class MultiWeapon : Weapon
 			case WeaponSelectionType.Alternate:
 			{
 				currentTimesUsed++;
-				Debug.Log("Current times used: " + currentTimesUsed + " out of " + weaponUsesBeforeSwap[alternateIndex] + " | " + currentWeapon);
+				//Debug.Log("Current times used: " + currentTimesUsed + " out of " + weaponUsesBeforeSwap[alternateIndex] + " | " + currentWeapon);
 				break;
 			}
 		}
@@ -97,7 +97,6 @@ public class MultiWeapon : Weapon
 				}
 
 				currentWeapon = Weapons[alternateIndex];
-				Debug.Log(alternateIndex);
 				break;
 			}
 		}

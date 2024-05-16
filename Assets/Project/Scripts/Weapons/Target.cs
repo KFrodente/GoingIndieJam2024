@@ -6,11 +6,11 @@ public class Target
     public TargetType type { get; private set; }
 	private Vector2? lockedTarget;
     public Transform? characterTarget { get; private set; }
-    private Vector2 fireLocation;
+    private Transform fireLocation;
     public bool shotByPlayer { get; private set; }
     public TargetCaseID uniqueCaseID = TargetCaseID.None;
 
-    public Target(TargetType type, Vector2? lockedPos, Transform? target, Vector2 fireSpot, bool shotByPlayer)
+    public Target(TargetType type, Vector2? lockedPos, Transform? target, Transform fireSpot, bool shotByPlayer)
     {
         this.type = type;
         this.lockedTarget = lockedPos;
@@ -21,7 +21,7 @@ public class Target
 
     public Vector2 GetDirection()
     {
-        return (GetTargetPosition() - fireLocation).normalized;
+        return (GetTargetPosition() - (Vector2)fireLocation.position).normalized;
         
     }
 

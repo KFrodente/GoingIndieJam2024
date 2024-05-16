@@ -1022,7 +1022,7 @@ GameObject:
   - component: {fileID: 2990796584846901526}
   - component: {fileID: 8510036705523852194}
   - component: {fileID: 641379320040725484}
-  - component: {fileID: 5919757889762728058}
+  - component: {fileID: 1182495190832592455}
   - component: {fileID: 8697113959979630645}
   - component: {fileID: 2685680008534052695}
   - component: {fileID: 1695169314987321775}
@@ -1169,7 +1169,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5919757889762728058
+--- !u!114 &1182495190832592455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1178,10 +1178,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8980408171277284427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
+  m_Script: {fileID: 11500000, guid: ed757d07eed411448824a99f181948bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 3
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -1193,6 +1193,7 @@ MonoBehaviour:
   healthUnderBar: {fileID: 4011927565395851499}
   healthLerpSpeed: 20
   testDamageAmount: 5
+  tetheredDeadBody: {fileID: 0}
 --- !u!114 &8697113959979630645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,12 +1211,13 @@ MonoBehaviour:
   weapon: {fileID: 2685680008534052695}
   characterStats: {fileID: 8510036705523852194}
   rb: {fileID: 8344255443861914099}
-  damageable: {fileID: 5919757889762728058}
+  damageable: {fileID: 0}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
   gfx: {fileID: 0}
   overrideFlipping: 0
   invertFlipping: 0
+  isSpirit: 0
 --- !u!114 &2685680008534052695
 MonoBehaviour:
   m_ObjectHideFlags: 0

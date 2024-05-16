@@ -97,6 +97,11 @@ GameObject:
   - component: {fileID: 3835883768378973197}
   - component: {fileID: 5506131097256280353}
   - component: {fileID: 3762289577290389527}
+  - component: {fileID: 383684240714678788}
+  - component: {fileID: -8272980328460680643}
+  - component: {fileID: 643405594013585131}
+  - component: {fileID: 4529441811740593027}
+  - component: {fileID: 9076098807261597012}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -215,3 +220,88 @@ MonoBehaviour:
     duration: 0
   hitSound: {fileID: 0}
   hitParticle: {fileID: 0}
+--- !u!114 &383684240714678788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337867326972349516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df807446bdb4eee866a5c55556f9139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 0}
+  movement: {fileID: 0}
+  weapon: {fileID: 643405594013585131}
+  characterStats: {fileID: -8272980328460680643}
+  rb: {fileID: 0}
+  damageable: {fileID: 0}
+  effector: {fileID: 0}
+  possessingSpirit: {fileID: 0}
+  gfx: {fileID: 0}
+  overrideFlipping: 0
+  invertFlipping: 0
+  isSpirit: 0
+--- !u!114 &-8272980328460680643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337867326972349516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 571cdda30eab423787d2393434c99dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statVariables: {fileID: 11400000, guid: 951f0f54bd299f447942930adfca643a, type: 2}
+  spiritStatModifiers: {fileID: 0}
+--- !u!114 &643405594013585131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337867326972349516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9483c847743824ba8444b503b30ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 0}
+  defaultDamageType: 0
+  Weapons:
+  - {fileID: 4529441811740593027}
+  - {fileID: 9076098807261597012}
+  selectionType: 1
+  weaponUsesBeforeSwap: 0100000001000000
+--- !u!114 &4529441811740593027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337867326972349516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e87968afb9a49e2b3840787b8936bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 7d69b8d3937611c4ca78eac3b24648c8, type: 2}
+  defaultDamageType: 1
+--- !u!114 &9076098807261597012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337867326972349516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e87968afb9a49e2b3840787b8936bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 13298784327372d4396e6323d225407c, type: 2}
+  defaultDamageType: 0

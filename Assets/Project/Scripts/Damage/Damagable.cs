@@ -178,5 +178,10 @@ public class Damagable : MonoBehaviour
         TakeDamage(testDamageAmount, ProjectileDamageType.Blunt);
     }
     [SerializeField,Tooltip("Apply X damage"),Header("Testing")] int testDamageAmount = 5;
+
+    public virtual void RefillHealth()
+    {
+        health = startingHealth * (FloorGenerator.instance.floorNum + 1);
+    }
 }
 

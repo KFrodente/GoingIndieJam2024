@@ -47,7 +47,7 @@ public class BaseCharacter : MonoBehaviour
         xFlipping();
     }
 
-    protected void xFlipping()
+    protected virtual void xFlipping()
     {
         if (!overrideFlipping && rb.velocity.magnitude > 0.1)
         {

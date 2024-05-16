@@ -44,8 +44,8 @@ public class ArcRotationMovement : ContinuousForwardMovement
 	//     }
 	// }
 
-	public override void Move(Vector2 direction, float speed, ForceMode2D forceMode, BaseCharacter c, bool forcedAction = false)
-	{
+	//public override void Move(Vector2 direction, float speed, ForceMode2D forceMode, BaseCharacter c, bool forcedAction = false)
+	//{
 
-	}
+	//}
 }

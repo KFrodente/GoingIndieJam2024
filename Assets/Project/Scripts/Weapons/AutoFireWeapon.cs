@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AutoFireWeapon : Weapon
 {
-    protected bool attacking;
+    public bool attacking;
     protected float lastAutoFireTime = 0;
     
     public override bool StartAttack(Target target, BaseCharacter c)

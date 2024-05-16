@@ -848,8 +848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
-  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
+  hitSound: {fileID: 8300000, guid: 27b9cb71b752ff6458f26aa63ba63b13, type: 3}
+  killedSound: {fileID: 8300000, guid: 83d473bf71b368744a7b59bf0ad6ad07, type: 3}
 --- !u!1 &7598259559293238596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1213,9 @@ MonoBehaviour:
   damageable: {fileID: 5919757889762728058}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  gfx: {fileID: 0}
+  overrideFlipping: 0
+  invertFlipping: 0
 --- !u!114 &2685680008534052695
 MonoBehaviour:
   m_ObjectHideFlags: 0

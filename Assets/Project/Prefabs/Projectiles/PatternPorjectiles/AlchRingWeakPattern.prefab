@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2531597428278474645}
   - component: {fileID: 2434425762666144854}
+  - component: {fileID: -4552211574061244137}
   m_Layer: 0
   m_Name: AlchRingWeakPattern
   m_TagString: Untagged
@@ -66,9 +67,9 @@ MonoBehaviour:
     spawnWithNextPattern: 0
     spawnCenterOutwards: 1
     flipDirection: 0
-    pointAwayFromSpawner: 0
+    pointAwayFromSpawner: 1
     pointAwayFromPosition: 0
-    sameDirection: 1
+    sameDirection: 0
     inPointDirection: 0
     howshoot: 0
     shootDelay: 0.1
@@ -76,3 +77,17 @@ MonoBehaviour:
     shootReverse: 0
     shootWithNextPattern: 0
     shootCenterOutwards: 1
+--- !u!114 &-4552211574061244137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274615337179441419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e81e04187000c64eb7004f6e3921069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 10
+  destroyNotThis: {fileID: 0}

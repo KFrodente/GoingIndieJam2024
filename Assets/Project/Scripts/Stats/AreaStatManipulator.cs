@@ -12,22 +12,22 @@ namespace Stats
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out StatHandler handler))
+            if (other.TryGetComponent(out Damagable d) && d.IsPlayer)
             {
                 foreach (var e in effects)
                 {
-                    handler.AddStatModifier(e.GetModifier());
+                    d.baseCharacter.characterStats.AddStatModifier(e.GetModifier());
                 }
             }
         }
         private void OnTriggerExit2D(Collider2D other)
         {
             if(!removeOnExit) return;
-            if (other.TryGetComponent(out StatHandler handler))
+            if (other.TryGetComponent(out Damagable d) && d.IsPlayer)
             {
                 foreach (var e in effects)
                 {
-                    handler.RemoveStatModifier(e.GetModifier());
+                    d.baseCharacter.characterStats.RemoveStatModifier(e.GetModifier());
                 }
             }
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41ccf60e5ba7f14d949520e50de4e1c, type: 3}
   m_Name: AlchWeakRing
   m_EditorClassIdentifier: 
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 9d6a9a33d158f1a4ea7759a6ab74c42e, type: 3}
   chargeTime: 0
   cancelDelay: 0
   chargeSound: {fileID: 0}
@@ -20,4 +20,4 @@ MonoBehaviour:
   burstAmount: 0
   attackDuration: 0
   knockback: 0
-  projectile: {fileID: 9100305768235465966, guid: 5915a201c8cd83c4c9659008a542a597, type: 3}
+  projectile: {fileID: 2434425762666144854, guid: a9ca903efc3569740b1a3dcb36851c6c, type: 3}

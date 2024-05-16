@@ -672,8 +672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
-  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
+  hitSound: {fileID: 8300000, guid: 3ba16e30f282a96419e5c2ecb4dff7c3, type: 3}
+  killedSound: {fileID: 8300000, guid: e8e9f4c0ff9d52c4caa2f7a920718ac9, type: 3}
 --- !u!1 &6048535723004659668
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 45
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e01065b4393a4697c206eb3f7d436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 323cba172e59f9d429b98c84bb3ceee6, type: 2}
+  weaponData: {fileID: 11400000, guid: bbaa274ffe4a4174396c85e022f2219e, type: 2}
   defaultDamageType: 0
 --- !u!114 &1969644216222731332
 MonoBehaviour:
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 1886d7c789f242f469fa5c137b453760, type: 2}
+  weaponData: {fileID: 11400000, guid: 323cba172e59f9d429b98c84bb3ceee6, type: 2}
   defaultDamageType: 48
   spawnOnTarget: 0
   parentToTarget: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: bbaa274ffe4a4174396c85e022f2219e, type: 2}
+  weaponData: {fileID: 11400000, guid: 1886d7c789f242f469fa5c137b453760, type: 2}
   defaultDamageType: 48
   spawnOnTarget: 0
   parentToTarget: 0

@@ -17,6 +17,7 @@ public class BaseCharacter : MonoBehaviour
     public SpriteRenderer gfx;
     public bool overrideFlipping = false;
     public bool invertFlipping = false;
+    public bool isSpirit;
 
     public virtual Stats.Stats GetStats()
     {
@@ -48,11 +49,11 @@ public class BaseCharacter : MonoBehaviour
 
     protected void xFlipping()
     {
-        if (!overrideFlipping)
+        if (!overrideFlipping && rb.velocity.magnitude > 0.1)
         {
-            Debug.Log(gfx.flipX);
+            //Debug.Log(gfx.flipX);
             if(!invertFlipping) gfx.flipX = (rb.velocity.x < 0);
-            else                gfx.flipX = (rb.velocity.x > 1);
+            else                gfx.flipX = (rb.velocity.x > 0);
         }
     }
 

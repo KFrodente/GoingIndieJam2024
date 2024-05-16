@@ -672,8 +672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cedadfb343be34db55fa76f91cffb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
-  killedSound: {fileID: 8300000, guid: f8237ed69b339a84f8b87d3188fe1758, type: 3}
+  hitSound: {fileID: 8300000, guid: 3ba16e30f282a96419e5c2ecb4dff7c3, type: 3}
+  killedSound: {fileID: 8300000, guid: 4dbdd6d61c75c7d4c9171b3199ee7340, type: 3}
 --- !u!1 &6048535723004659668
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +691,9 @@ GameObject:
   - component: {fileID: 1595631146469311203}
   - component: {fileID: 1533767014830928166}
   - component: {fileID: 8588803817186985679}
-  - component: {fileID: 9076232173426218877}
+  - component: {fileID: 5812144892071142150}
+  - component: {fileID: 7546472309543668719}
+  - component: {fileID: 2724347115338293810}
   m_Layer: 9
   m_Name: Mage
   m_TagString: Untagged
@@ -761,7 +763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 3003375948597128664}
   movement: {fileID: 5963222230313543426}
-  weapon: {fileID: 9076232173426218877}
+  weapon: {fileID: 7546472309543668719}
   characterStats: {fileID: 1595631146469311203}
   rb: {fileID: 8658340102009209602}
   damageable: {fileID: 8588803817186985679}
@@ -870,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 45
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -882,7 +884,7 @@ MonoBehaviour:
   healthUnderBar: {fileID: 5658632166767207504}
   healthLerpSpeed: 5
   testDamageAmount: 5
---- !u!114 &9076232173426218877
+--- !u!114 &5812144892071142150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -891,11 +893,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 6048535723004659668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51b21fc4b2a4428ea59a921efd920019, type: 3}
+  m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: bbaa274ffe4a4174396c85e022f2219e, type: 2}
-  defaultDamageType: 96
+  weaponData: {fileID: 11400000, guid: 2f9aa872d1ba9964f8e5cecfe71873d2, type: 2}
+  defaultDamageType: 0
+  spawnOnTarget: 0
+  parentToTarget: 0
+--- !u!114 &7546472309543668719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9483c847743824ba8444b503b30ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 0}
+  defaultDamageType: 0
+  Weapons:
+  - {fileID: 5812144892071142150}
+  - {fileID: 2724347115338293810}
+  selectionType: 0
+  weaponUsesBeforeSwap: 
+--- !u!114 &2724347115338293810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 1c570b03cad9af842855418d273915e0, type: 2}
+  defaultDamageType: 0
+  spawnOnTarget: 0
+  parentToTarget: 0
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

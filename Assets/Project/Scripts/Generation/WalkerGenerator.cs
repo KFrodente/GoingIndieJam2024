@@ -8,8 +8,10 @@ public class WalkerGenerator : Room
     public static int basicRoomProcesses = 5;
 
     //[SerializeField] private Tile ground;
-    [SerializeField] private List<Tile> rockTiles = new();
-    [SerializeField] private List<Tile> dirtTiles = new();
+    //[SerializeField] private List<Tile> rockTiles = new();
+    //[SerializeField] private List<Tile> dirtTiles = new();
+    [SerializeField] private Tile dirt;
+    [SerializeField] private RuleTile ground;
     [SerializeField] private Tile portalGround;
     [SerializeField] private RuleTile wall;
 
@@ -45,13 +47,13 @@ public class WalkerGenerator : Room
     {
         for (int i = 0; i < grounds.Count; i++)
         {
-            if (gridHandler[grounds[i].x, grounds[i].y] == Grid.ROCK)
-                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), rockTiles[Random.Range(0, rockTiles.Count)]);
+            if (gridHandler[grounds[i].x, grounds[i].y] == Grid.GRASS)
+                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), ground);
             else if (gridHandler[grounds[i].x, grounds[i].y] == Grid.DIRT)
-                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), dirtTiles[Random.Range(0, dirtTiles.Count)]);
+                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), dirt);
 
             if (gridHandler[grounds[i].x, grounds[i].y] == Grid.PFLOOR)
-                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), dirtTiles[Random.Range(0, dirtTiles.Count)]);
+                tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), dirt);
                 //tilemap.SetTile(new Vector3Int(grounds[i].x + (int)roomOffset.x, grounds[i].y + (int)roomOffset.y), portalGround);
         }
     }
@@ -126,7 +128,7 @@ public class WalkerGenerator : Room
         Vector2 pickedDir = GetDirection();
         WalkerObject currentWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), pickedDir);
 
-        gridHandler[tileCenter.x, tileCenter.y] = Grid.ROCK;
+        gridHandler[tileCenter.x, tileCenter.y] = Grid.GRASS;
         //tilemap.SetTile(new Vector3Int(tileCenter.x + (int)roomOffset.x, tileCenter.y + (int)roomOffset.y), ground);
 
         grounds.Add(tileCenter);
@@ -168,7 +170,7 @@ public class WalkerGenerator : Room
             {
                 Vector2Int pos = new Vector2Int((int)walker.position.x, (int)walker.position.y);
 
-                if (gridHandler[pos.x, pos.y] != Grid.ROCK || gridHandler[pos.x, pos.y] != Grid.DIRT)
+                if (gridHandler[pos.x, pos.y] != Grid.GRASS || gridHandler[pos.x, pos.y] != Grid.DIRT)
                 {
                     //tilemap.SetTile(new Vector3Int(pos.x + (int)roomOffset.x, pos.y + (int)roomOffset.y), ground);
                     tileCount++;
@@ -182,7 +184,7 @@ public class WalkerGenerator : Room
                         MakeDirtPatch(pos);
                     }
                     else
-                        gridHandler[pos.x, pos.y] = Grid.ROCK;
+                        gridHandler[pos.x, pos.y] = Grid.GRASS;
                     grounds.Add(pos);
                 }
             }
@@ -323,7 +325,7 @@ public class WalkerGenerator : Room
 
     private bool GetIsFloor(int x, int y)
     {
-        return (gridHandler[x, y] == Grid.DIRT || gridHandler[x, y] == Grid.ROCK) && gridHandler[x, y] != Grid.PFLOOR;
+        return (gridHandler[x, y] == Grid.DIRT || gridHandler[x, y] == Grid.GRASS) && gridHandler[x, y] != Grid.PFLOOR;
     }
 
     private void CheckRemove()
@@ -448,7 +450,7 @@ public class WalkerGenerator : Room
 
     private void MakeRockTile(int x, int y)
     {
-        gridHandler[x, y] = Grid.ROCK;
+        gridHandler[x, y] = Grid.GRASS;
         grounds.Add(new Vector2Int(x, y));
     }
 

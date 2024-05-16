@@ -8,7 +8,7 @@ public class Room : MonoBehaviour
 {
     protected enum Grid
     {
-        ROCK,
+        GRASS,
         DIRT,
         PFLOOR,
         WALL,

@@ -64,25 +64,8 @@ MonoBehaviour:
   leftPortal: {fileID: 0}
   roomType: 0
   activeRoom: 0
-  rockTiles:
-  - {fileID: 11400000, guid: 2eb8997cbeec72c4d8ec5f1c9277de0a, type: 2}
-  - {fileID: 11400000, guid: 60260ffe64661844d80e95da4557510e, type: 2}
-  - {fileID: 11400000, guid: 1e92ac11b4740e9409c12d39e040979e, type: 2}
-  - {fileID: 11400000, guid: 5014ede802189ec40a27fc5820d84fa1, type: 2}
-  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
-  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
-  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
-  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
-  - {fileID: 11400000, guid: 88928d852a89486438640ddf3a1eec97, type: 2}
-  dirtTiles:
-  - {fileID: 11400000, guid: 69088f56103715e42bd1ebb89618d7b7, type: 2}
-  - {fileID: 11400000, guid: 04e8431c6ae185d40b4688f0068fc52d, type: 2}
-  - {fileID: 11400000, guid: d2368f4cd82b696409baefbf7e57fc9c, type: 2}
-  - {fileID: 11400000, guid: b5cdc5b1b7648ae4692aa63d2e65f6a5, type: 2}
-  - {fileID: 11400000, guid: 45740ce8632f4104c81177b799266ce5, type: 2}
-  - {fileID: 11400000, guid: 0787966219380234c9b7389a3d356662, type: 2}
-  - {fileID: 11400000, guid: 2df0594ce85d13a479face5bfb7cbd99, type: 2}
-  - {fileID: 11400000, guid: 34e8db0356587284393c298cbcf5fb1c, type: 2}
+  dirt: {fileID: 11400000, guid: 728e7f42ad3611c4f8311ff644b5d620, type: 2}
+  ground: {fileID: 11400000, guid: 0b5ae25c0778b3743954d2468b57291f, type: 2}
   portalGround: {fileID: 11400000, guid: e5971cb0bfd278b4a8dd5442e0e3493c, type: 2}
   wall: {fileID: 11400000, guid: acaba0d42c56fe24db69b0890ce6e9ab, type: 2}
   dirtPatchChance: 0.061

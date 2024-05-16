@@ -20,10 +20,10 @@ MonoBehaviour:
   attackSpeed: 0
   chargeTurnSpeed: 4
   damageMult: 1
-  moveSpeedMult: 2
+  moveSpeedMult: 1
   chargeSpeedMult: 1
   turnSpeedMult: 1
   attackRangeMult: 1
-  attackSpeedMult: 3
+  attackSpeedMult: 1
   healthMult: 1
   chargeTurnSpeedMult: 1

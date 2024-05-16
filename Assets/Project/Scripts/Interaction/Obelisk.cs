@@ -6,6 +6,7 @@ public class Obelisk : Interactable
 {
     
     [SerializeField] private PieceSeparation dragonMaker;
+    [SerializeField] private GameObject particleActivation;
     private bool activated;
     
     public override void OnInteract(BaseCharacter character)
@@ -19,5 +20,6 @@ public class Obelisk : Interactable
     {
         activated = true;
         dragonMaker.SpawnDragon();
+        if (particleActivation) particleActivation.SetActive(true);
     }
 }

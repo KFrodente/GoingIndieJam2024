@@ -18,6 +18,7 @@ MonoBehaviour:
   turnSpeed: 0
   attackRange: 0
   attackSpeed: 0
+  chargeTurnSpeed: 0
   damageMult: 1
   moveSpeedMult: 1
   chargeSpeedMult: 1
@@ -25,3 +26,4 @@ MonoBehaviour:
   attackRangeMult: 1
   attackSpeedMult: 1
   healthMult: 1
+  chargeTurnSpeedMult: 0

@@ -130,7 +130,7 @@ public class Damagable : MonoBehaviour
         {
             if(baseCharacter.isSpirit)
             { // LOSE!!!
-                StartCoroutine(TransitionManager.instance.FadeToBlackEnding());
+                StartCoroutine(TransitionManager.instance.FadeToBlack());
                 StartCoroutine(TransitionManager.instance.SlideUpButton());
                 TransitionManager.instance.TypeText();
 

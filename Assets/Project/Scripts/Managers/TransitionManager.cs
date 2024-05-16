@@ -10,6 +10,7 @@ public class TransitionManager : MonoBehaviour
     public Image blackScreen;
     [Header("Input here to have text fade in by calling TypeText")]
     public SuperTextMesh text;
+    public SuperTextMesh text2;
     public GameObject textGO;
     public GameObject restartButton;
 
@@ -39,32 +40,12 @@ public class TransitionManager : MonoBehaviour
         }
     }
 
-    public IEnumerator FadeToBlackEnding()
-    {
-        while (blackScreen.color.a < 1)
-        {
-            blackScreen.color = new Color(0, 0, 0, blackScreen.color.a + .1f);
-            yield return new WaitForSeconds(.01f);
-        }
-        //Time.timeScale = 0;
-    }
-
-
     public IEnumerator SlideUpButton()
     {
         yield return new WaitForSecondsRealtime(3.3f);
         restartButton.SetActive(true);
         yield return new WaitForSecondsRealtime(0.6f);
         Time.timeScale = 0;
-    }
-
-    public IEnumerator FadeInText()
-    {
-        while (text.color.a < 1)
-        {
-            text.color = new Color(0, 0, 0, text.color.a + .1f);
-            yield return new WaitForSeconds(.01f);
-        }
     }
 
     public IEnumerator FadeOutOfBlack()

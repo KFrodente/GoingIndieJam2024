@@ -43,7 +43,7 @@ public class TetheredSpiritCharacter : SpiritCharacter
 
         float percentComplete = Mathf.Abs(tetheredMovement.currentAngle) / tetheredMovement.totalRequiredAngle;
 
-        if (percentComplete <= .5f)
+        if (percentComplete <= .45f)
         {
             float whatWillBeAdded = Mathf.Abs(addedAngle * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)) * 2f);
             if (addedAngle > 0) tetheredMovement.currentAngle += whatWillBeAdded;
@@ -51,7 +51,7 @@ public class TetheredSpiritCharacter : SpiritCharacter
         }
         else
         {
-            tetheredMovement.currentAngle += Mathf.Sign(tetheredMovement.currentAngle) * Mathf.Abs(addedAngle) * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)) * 5;
+            tetheredMovement.currentAngle += Mathf.Sign(tetheredMovement.currentAngle) * Mathf.Abs(addedAngle) * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)) * 7;
         }
 
         tetheredMovement.currentRadius = tetheredMovement.maxRadius * (1 - (Mathf.Abs(tetheredMovement.currentAngle) / tetheredMovement.totalRequiredAngle));

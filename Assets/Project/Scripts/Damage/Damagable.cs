@@ -107,9 +107,9 @@ public class Damagable : MonoBehaviour
         }
     }
     
-    public virtual void TakeDamage(int damage, ProjectileDamageType type)
+    public virtual bool TakeDamage(int damage, ProjectileDamageType type)
     {
-        if (isImmune(type)) return;
+        if (isImmune(type)) return false;
         if(isHitCounter) damage = 1;
         Health -= damage;
         lerpedHealthTarget = Health;
@@ -118,6 +118,7 @@ public class Damagable : MonoBehaviour
             Die();
         }
         else Hurt();
+        return true;
     }
 
     

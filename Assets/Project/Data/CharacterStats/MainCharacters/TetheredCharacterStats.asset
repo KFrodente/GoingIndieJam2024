@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1c66acee1bc6040aea9f9948ed9802, type: 3}
   m_Name: TetheredCharacterStats
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 20
   moveSpeed: 10
   chargeSpeed: 20
   turnSpeed: 100

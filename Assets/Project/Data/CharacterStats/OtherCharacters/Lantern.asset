@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1c66acee1bc6040aea9f9948ed9802, type: 3}
   m_Name: Lantern
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   moveSpeed: 5
   chargeSpeed: 1
   turnSpeed: 1

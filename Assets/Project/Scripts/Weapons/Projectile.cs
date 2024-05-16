@@ -35,10 +35,13 @@ public class Projectile : MonoBehaviour
         if (!initialized || !isActive) return;
         if (other.TryGetComponent(out Damagable d) && d.IsPlayer != target.shotByPlayer)
         {
-            d.TakeDamage(damage, projectileData.type);
+            bool damageTaken = d.TakeDamage(damage, projectileData.type);
+
+            if (damageTaken && projectileData.hitSound != null) AudioManager.instance.Play(projectileData.hitSound);
+            
             if(onHitEffect != null) d.baseCharacter.characterStats.AddStatModifier(onHitEffect.GetModifier());
             hits++;
-            if(projectileData.hitSound != null) AudioManager.instance.Play(projectileData.hitSound);
+            
             if(projectileData.hitParticle != null) Instantiate(projectileData.hitParticle, transform.position, transform.rotation);
             if(hits > projectileData.pierceCount) Destroy(this.gameObject);
         }

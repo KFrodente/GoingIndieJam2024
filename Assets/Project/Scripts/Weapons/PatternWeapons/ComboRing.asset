@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0da3f7eb935bc4480176094ecc8478, type: 3}
   m_Name: ComboRing
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: []
   bulletAmount: 4
   basePattern: {fileID: 11400000, guid: 4f64d0f9f7914e44abc047ea568e09ca, type: 2}
   addedPattern: {fileID: 11400000, guid: c973af9d49d829249861c3b1bd981899, type: 2}

@@ -28,7 +28,7 @@ public class EnemyInput : BaseInput
 
     public override Target GetInputTarget()
     {
-        if (BaseCharacter.playerCharacter.transform != null) return new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform.position, false);
+        if (BaseCharacter.playerCharacter.transform != null) return new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform, false);
         return null;
     }
 

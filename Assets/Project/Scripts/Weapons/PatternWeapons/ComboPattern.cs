@@ -36,7 +36,7 @@ public class ComboPattern : Pattern
 			usedDirection = spawnDirection;
 		}
 
-		skippedBulletsCount = skippedBullets;
+		skippedBulletsCount = 0;
 		for (int i = 0; i < basepositions.Length; i++)
 		{
 			if (!dontSpawnBasePattern)
@@ -44,6 +44,7 @@ public class ComboPattern : Pattern
 				positionsToReturn.Add(basepositions[i]);
 			}
 
+			skippedBulletsCount--;
 			if (skippedBulletsCount <= 0)
 			{
 				if (pointTowardsZero)
@@ -63,7 +64,6 @@ public class ComboPattern : Pattern
 				}
 				skippedBulletsCount = skippedBullets;
 			}
-			skippedBulletsCount--;
 		}
 
 		for (int i = 0; i < positionsToReturn.Count; i++)

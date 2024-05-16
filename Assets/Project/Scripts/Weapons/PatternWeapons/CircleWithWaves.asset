@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
   bulletAmount: 4
-  basePattern: {fileID: 0}
-  addedPattern: {fileID: 0}
-  skippedBullets: 0
+  basePattern: {fileID: 11400000, guid: c973af9d49d829249861c3b1bd981899, type: 2}
+  addedPattern: {fileID: 11400000, guid: ec95c720169dc944490695ee72fc09a6, type: 2}
+  skippedBullets: 2
   spawnDirection: {x: 0, y: 0}
-  pointAwayFromZero: 0
+  pointAwayFromZero: 1
   pointTowardsZero: 0
   dontSpawnBasePattern: 0

@@ -60,7 +60,7 @@ public class PauseMenuManager : MonoBehaviour
     private void Pause()
     {
         pauseScreen.SetActive(true);
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
         paused = true;
     }
 

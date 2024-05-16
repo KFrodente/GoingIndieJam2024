@@ -17,6 +17,7 @@ public class PieceSeparation : MonoBehaviour
     [SerializeField] private float vibrationRate;
     [SerializeField] private float vibrationAmplitude;
     [SerializeField] private float vibrationOffset;
+    [SerializeField] private float scaleDownPercent = 0.9f;
 
     [Header("other")]
     [SerializeField] private Damagable DragonDamager;
@@ -41,9 +42,10 @@ public class PieceSeparation : MonoBehaviour
 
     private Segment CreateSegment(Segment type, int position)
     {
-        Segment newSegment = Instantiate(type, startingLocation.position + transform.right * followDistance * position, Quaternion.identity, transform).GetComponent<Segment>();
-        newSegment.Initialize(vibrationAmplitude, vibrationRate, vibrationOffset * position, segments.Count > 0 ? segments[segments.Count - 1] : null, followDistance, this);
+        Segment newSegment = Instantiate(type, startingLocation.position + transform.right * (followDistance * position), Quaternion.identity, transform).GetComponent<Segment>();
+        newSegment.Initialize(vibrationAmplitude, vibrationRate, vibrationOffset * position, segments.Count > 0 ? segments[segments.Count - 1] : null, followDistance  * (Mathf.Pow(scaleDownPercent, position)), this);
         segments.Add(newSegment);
+        newSegment.transform.localScale = newSegment.transform.localScale * Mathf.Pow(scaleDownPercent, position);
         return newSegment;
     }
 

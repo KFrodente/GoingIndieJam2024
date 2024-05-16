@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54a9ab8bcc9ff88439cdffd84339c93d, type: 3}
-  m_Name: 5Line
+  m_Name: RockLine
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3204321272480393510, guid: 18a78d33196e8e647b7082e689ef31b3, type: 3}
+  bulletPrefab: {fileID: 3204321272480393510, guid: 9c205ba376ec862429cb6f651369772a, type: 3}
   bulletAmount: 5
   points:
   - {x: -1, y: 0}

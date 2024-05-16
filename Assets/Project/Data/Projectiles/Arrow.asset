@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arrow
   m_EditorClassIdentifier: 
   zeroDamage: 0
-  speed: 3
+  speed: 5
   lifetime: 15
   pierceCount: 0
   type: 4

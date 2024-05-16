@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1eb1b82054c22c4b8d821cd2a73c1d3, type: 3}
   m_Name: PotionCircle
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: []
   bulletAmount: 8
   circleRadius: 3
   arcSpawnedOn: 360

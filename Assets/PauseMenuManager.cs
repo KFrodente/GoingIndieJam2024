@@ -47,6 +47,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = 1;
         paused = false;
+        AudioManager.instance.doAudio = true;
         SceneManager.LoadScene("MainMenu");
     }
 

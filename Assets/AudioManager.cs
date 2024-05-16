@@ -6,11 +6,12 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
+    public bool doAudio = true;
     public static AudioManager instance;
 
     public void Play(AudioClip clip)
     {
-        source.PlayOneShot(clip);
+        if(doAudio) source.PlayOneShot(clip);
     }
     private void Awake()
     {

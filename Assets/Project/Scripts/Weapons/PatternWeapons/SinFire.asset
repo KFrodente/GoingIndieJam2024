@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8d271df47655c479c6232b95d43ff4, type: 3}
   m_Name: SinFire
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: []
   bulletAmount: 8
   amplitude: 1.44
   frequency: 1.92

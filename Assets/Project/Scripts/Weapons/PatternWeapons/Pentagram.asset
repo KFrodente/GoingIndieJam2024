@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a9ab8bcc9ff88439cdffd84339c93d, type: 3}
   m_Name: Pentagram
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: []
   bulletAmount: 12
   points:
   - {x: 1, y: 1}

@@ -60,13 +60,19 @@ public class PatternDefinitionProjectile : Projectile
 		public bool dontParentToSpawner;
 
 		[Tooltip("randomized the spawn order of the projectiles")]
-		public bool randomize;
+		public bool spawnRandomize;
 
 		[Tooltip("If the Pattern should SPAWN with the next pattern")]
 		public bool spawnWithNextPattern;
 
 		[Tooltip("spawns bullets from the center outwards")]
 		public bool spawnCenterOutwards;
+
+		[Tooltip("shoot the projectiles in the reverse order they were spawned")]
+		public bool spawnReverse;
+
+		[Tooltip("if the prefabs should spawn in random order")]
+		public bool randomPrefabs;
 
 		[Header("PointDirection")]
 		[Tooltip("Should the chosen direction be flipped.\r\nPoint Away -> Point Towards")]
@@ -118,9 +124,12 @@ public class PatternDefinitionProjectile : Projectile
 		
 		[Tooltip("shoots spawned bullets from the center outwards")]
 		public bool shootCenterOutwards;
+
+		[Tooltip("randomized the spawn order of the projectiles")]
+		public bool shootRandomize;
 	}
 
-	[SerializeField, Header("Just This:")] Projectile bulletProjectile;
+	[SerializeField, Header("Just This:")] Projectile[] bulletProjectile;
 
 	[SerializeField] ShootPattern[] patterns;
 
@@ -151,6 +160,7 @@ public class PatternDefinitionProjectile : Projectile
 		targetDirection = target.GetDirection();
 		targetPosition = target.GetTargetPosition();
 
+		int prefabtoSpawn = 0;
 		for (int i = startpattern; i < patterns.Length; i++)
 		{
 			float starttime = Time.time;
@@ -168,31 +178,45 @@ public class PatternDefinitionProjectile : Projectile
 			{
 				positions = positions.OrderBy(p => Vector3.Distance(p, Vector3.zero)).ToArray();
 			}
-			if (patterns[i].randomize)
+			if (patterns[i].spawnReverse)
+			{
+				positions.Reverse();
+			}
+			if (patterns[i].spawnRandomize)
 			{
 				positions = Pattern.Randomize(positions);
 			}
 
 			for (int o = 0; o < positions.Length; o++)
 			{
-				Projectile newproj = (Instantiate(((patterns[i].pattern.bulletPrefab == null) ? bulletProjectile.gameObject : 
-					patterns[i].pattern.bulletPrefab.gameObject)).GetComponent<Projectile>());
+				bool usingPatternPrefab = patterns[i].pattern.bulletPrefab.Length == 0;
 
-				if (!patterns[i].dontParentToSpawner)
+				if ((usingPatternPrefab) ? prefabtoSpawn >= bulletProjectile.Length : prefabtoSpawn >= patterns[i].pattern.bulletPrefab.Length)
 				{
-					newproj.transform.SetParent(patterns[i].spawnPlacement.transform, false);
-                    newproj.transform.localPosition = positions[o];
-					Vector2 direction = GetDirection(i, newproj.transform.position, false);
-					float angle = InputUtils.GetAngle(direction);
-					newproj.transform.rotation =  Quaternion.Euler(0, 0, angle);
+					prefabtoSpawn = 0;
+				}
+
+				Projectile newproj = (Instantiate(((usingPatternPrefab) ? bulletProjectile[prefabtoSpawn].gameObject :
+					patterns[i].pattern.bulletPrefab[prefabtoSpawn].gameObject)).GetComponent<Projectile>());
+
+				if (patterns[i].randomPrefabs)
+				{
+					prefabtoSpawn = (usingPatternPrefab) ? UnityEngine.Random.Range(0, bulletProjectile.Length) : UnityEngine.Random.Range(0, patterns[i].pattern.bulletPrefab.Length);
 				}
 				else
 				{
-					newproj.transform.position = patterns[i].spawnPlacement.transform.position;
-					Vector2 direction = GetDirection(i, newproj.transform.position, false);
-					float angle = InputUtils.GetAngle(direction);
-					newproj.transform.position += ( Quaternion.Euler(0, 0, angle) * positions[o]);
-                }
+					prefabtoSpawn++;
+				}
+
+                newproj.transform.SetParent(patterns[i].spawnPlacement.transform, false);
+                newproj.transform.localPosition = positions[o];
+				Vector2 direction = GetDirection(i, newproj.transform.position, false);
+				float angle = InputUtils.GetAngle(direction);
+				newproj.transform.rotation =  Quaternion.Euler(0, 0, angle);
+				if (patterns[i].dontParentToSpawner)
+				{
+					newproj.transform.SetParent(null);
+				}
 
 				//newproj.transform.position = positions[o];
 
@@ -258,6 +282,16 @@ public class PatternDefinitionProjectile : Projectile
 		if (patterns[patternnumber].shootReverse)
 		{
 			toshootprojs.Reverse();
+		}
+		if (patterns[patternnumber].shootRandomize)
+		{
+			for (int i = 0; i < toshootprojs.Count; i++)
+			{
+				var temp = toshootprojs[i];
+				int random = UnityEngine.Random.Range(0, toshootprojs.Count);
+				toshootprojs[i] = toshootprojs[random];
+				toshootprojs[random] = temp;
+			}
 		}
 
 		yield return new WaitForSeconds(additionaldelay);

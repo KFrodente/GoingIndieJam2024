@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a9ab8bcc9ff88439cdffd84339c93d, type: 3}
+  m_Name: DualProj_Line
+  m_EditorClassIdentifier: 
+  bulletPrefab:
+  - {fileID: 3204321272480393510, guid: 21a2d351bc5742641b20e846ae34d87b, type: 3}
+  - {fileID: 3204321272480393510, guid: ef30572503089d248bfc635ee35f061c, type: 3}
+  - {fileID: 3204321272480393510, guid: ca01cfab1254b82429d7269c2f6e866a, type: 3}
+  bulletAmount: 30
+  points:
+  - {x: 1, y: 0}
+  - {x: 11, y: 0}
+  evenAmountBetweenPoints: 1
+  addEndcaps: 0
+  pointsAreBulletLocations: 0

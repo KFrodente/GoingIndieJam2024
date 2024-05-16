@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class PieceSeparation : MonoBehaviour
@@ -19,9 +20,16 @@ public class PieceSeparation : MonoBehaviour
 
     [Header("other")]
     [SerializeField] private Damagable DragonDamager;
+    [SerializeField] private Transform startingLocation;
 
     private List<Segment> segments = new List<Segment>();
     private void Start()
+    {
+        
+    }
+
+    [Button]
+    public void SpawnDragon()
     {
         flyPatterns.head = CreateSegment(head, 0);
         for (int i = 0; i < length - 1; i++)
@@ -33,7 +41,7 @@ public class PieceSeparation : MonoBehaviour
 
     private Segment CreateSegment(Segment type, int position)
     {
-        Segment newSegment = Instantiate(type, transform.position + transform.right * followDistance * position, Quaternion.identity, transform).GetComponent<Segment>();
+        Segment newSegment = Instantiate(type, startingLocation.position + transform.right * followDistance * position, Quaternion.identity, transform).GetComponent<Segment>();
         newSegment.Initialize(vibrationAmplitude, vibrationRate, vibrationOffset * position, segments.Count > 0 ? segments[segments.Count - 1] : null, followDistance, this);
         segments.Add(newSegment);
         return newSegment;

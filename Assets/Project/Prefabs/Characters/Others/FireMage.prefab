@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e01065b4393a4697c206eb3f7d436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 323cba172e59f9d429b98c84bb3ceee6, type: 2}
+  weaponData: {fileID: 11400000, guid: bbaa274ffe4a4174396c85e022f2219e, type: 2}
   defaultDamageType: 0
 --- !u!114 &1969644216222731332
 MonoBehaviour:
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 1886d7c789f242f469fa5c137b453760, type: 2}
+  weaponData: {fileID: 11400000, guid: 323cba172e59f9d429b98c84bb3ceee6, type: 2}
   defaultDamageType: 48
   spawnOnTarget: 0
   parentToTarget: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: bbaa274ffe4a4174396c85e022f2219e, type: 2}
+  weaponData: {fileID: 11400000, guid: 1886d7c789f242f469fa5c137b453760, type: 2}
   defaultDamageType: 48
   spawnOnTarget: 0
   parentToTarget: 0

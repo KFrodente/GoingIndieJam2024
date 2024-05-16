@@ -22,7 +22,6 @@ public class BaseStats : ScriptableObject
     public float turnSpeedMult;
     public float attackRangeMult;
     public float attackSpeedMult;
-    public float healthMult;
     public float chargeTurnSpeedMult;
 
 }
@@ -48,7 +47,6 @@ namespace Stats
         Mult_TurnSpeed,
         Mult_AttackRange,
         Mult_AttackSpeed,
-        Mult_Health,
         Mult_ChargeTurnSpeed
     }
 }

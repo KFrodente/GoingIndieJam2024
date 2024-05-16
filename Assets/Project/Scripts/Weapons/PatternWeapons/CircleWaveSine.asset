@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: CircleWaveSine
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  bulletAmount: 4
+  bulletAmount: 20
   amplitude: 1
   frequency: 1
-  SineIntervals: 0.1
-  distance: 0.1
+  SineIntervals: 0.2
+  distance: 0.3
   initialOffset: 0
   AmplitudeInTermsOfPi: 0
-  FrequencyInTermsOfPi: 0
+  FrequencyInTermsOfPi: 1
   OffsetInTermsOfPi: 0
   IntervalInTermsOfPi: 0
-  SeperateDistanceFromInterval: 0
+  SeperateDistanceFromInterval: 1

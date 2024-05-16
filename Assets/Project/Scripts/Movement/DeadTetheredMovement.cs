@@ -8,4 +8,9 @@ public class DeadTetheredMovement : EnemyMovement
     {
 
     }
+
+    public override void ExplodeAway(Vector2 center, float power)
+    {
+        base.ExplodeAway(center, power);
+    }
 }

@@ -113,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3622712258089703523}
   - component: {fileID: 8169470628405355318}
+  - component: {fileID: 7430219294580585651}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 59e924129a09c4f4f998f1f3afdb71bf, type: 3}
+  m_Sprite: {fileID: -562076927, guid: 1cec76f8c3c284e41ab3abf7134cf0e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,6 +188,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7430219294580585651
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675375573470031403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50114881529001a46a800e11f1c8cedd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2953115082942787600
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,9 +452,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.11789739}
   serializedVersion: 2
-  m_Radius: 1.85
+  m_Radius: 1.9449669
 --- !u!114 &4120797173550359642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,6 +692,9 @@ GameObject:
   - component: {fileID: 8588803817186985679}
   - component: {fileID: -2251215004531786687}
   - component: {fileID: 8084458293078636590}
+  - component: {fileID: 1704496609412818287}
+  - component: {fileID: 2959343842619051940}
+  - component: {fileID: 6945617372338947825}
   m_Layer: 9
   m_Name: Golem
   m_TagString: Untagged
@@ -730,9 +755,10 @@ MonoBehaviour:
   damageable: {fileID: 8588803817186985679}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
-  gfx: {fileID: 0}
+  gfx: {fileID: 8169470628405355318}
   overrideFlipping: 0
-  invertFlipping: 0
+  invertFlipping: 1
+  isSpirit: 0
 --- !u!50 &8658340102009209602
 Rigidbody2D:
   serializedVersion: 4
@@ -818,9 +844,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.14896375}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.9139177
 --- !u!114 &8588803817186985679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,17 +859,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
+  health: 120
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
-  immunities: 4
+  immunities: 0
   baseCharacter: {fileID: 303801544410275538}
   damageAudioPlayer: {fileID: 3619510936053716770}
   dispenser: {fileID: 5400706786891336071}
   healthOverBar: {fileID: 290528838757789303}
   healthUnderBar: {fileID: 5658632166767207504}
-  healthLerpSpeed: 5
+  healthLerpSpeed: 20
   testDamageAmount: 5
 --- !u!114 &-2251215004531786687
 MonoBehaviour:
@@ -874,6 +900,55 @@ MonoBehaviour:
   defaultDamageType: 1
   spawnOnTarget: 0
   parentToTarget: 0
+--- !u!114 &1704496609412818287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: fb296e3420f97694c955af38363d5351, type: 2}
+  defaultDamageType: 1
+  spawnOnTarget: 0
+  parentToTarget: 0
+--- !u!114 &2959343842619051940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9483c847743824ba8444b503b30ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 0}
+  defaultDamageType: 0
+  Weapons:
+  - {fileID: 8084458293078636590}
+  - {fileID: 1704496609412818287}
+  selectionType: 0
+  weaponUsesBeforeSwap: 
+--- !u!114 &6945617372338947825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352d4cdea358afd4fa09f305fdc5739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7430219294580585651}
+  c: {fileID: 303801544410275538}
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

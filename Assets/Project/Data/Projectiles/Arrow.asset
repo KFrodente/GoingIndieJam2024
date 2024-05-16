@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Arrow
   m_EditorClassIdentifier: 
   zeroDamage: 0
-  speed: 3
-  lifetime: 2
+  speed: 5
+  lifetime: 15
   pierceCount: 0
   type: 4
   hitParticle: {fileID: 6537183467329547177, guid: 2bc5af0c838f55d4cbb272bd3f4b0d16, type: 3}

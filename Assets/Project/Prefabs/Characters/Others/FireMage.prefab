@@ -755,9 +755,10 @@ MonoBehaviour:
   damageable: {fileID: 8588803817186985679}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
-  gfx: {fileID: 0}
+  gfx: {fileID: 8169470628405355318}
   overrideFlipping: 0
-  invertFlipping: 0
+  invertFlipping: 1
+  isSpirit: 0
 --- !u!50 &8658340102009209602
 Rigidbody2D:
   serializedVersion: 4

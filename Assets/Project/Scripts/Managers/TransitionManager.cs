@@ -9,9 +9,8 @@ public class TransitionManager : MonoBehaviour
 
     public Image blackScreen;
     [Header("Input here to have text fade in by calling TypeText")]
-    public SuperTextMesh text;
-    public SuperTextMesh text2;
     public GameObject textGO;
+    public GameObject textGO2;
     public GameObject restartButton;
 
     private bool showBlack = false;
@@ -28,10 +27,15 @@ public class TransitionManager : MonoBehaviour
     public void TypeText()
     {
         textGO.SetActive(true);
-        //text.enabled = true;
     }
 
-    public IEnumerator FadeToBlack()
+	public void TypeText2()
+	{
+		textGO2.SetActive(true);
+	}
+
+
+	public IEnumerator FadeToBlack()
     {
         while (blackScreen.color.a < 1)
         {

@@ -128,6 +128,12 @@ public class Damagable : MonoBehaviour
         if(!suicide && dispenser != null) dispenser.Dispense();
         if (IsPlayer && baseCharacter.possessingSpirit != null)
         {
+            if(this.gameObject.CompareTag("Spectre"))
+            {
+				StartCoroutine(TransitionManager.instance.FadeToBlack());
+				StartCoroutine(TransitionManager.instance.SlideUpButton());
+				TransitionManager.instance.TypeText2();
+			}
             if(baseCharacter.isSpirit)
             { // LOSE!!!
                 StartCoroutine(TransitionManager.instance.FadeToBlack());

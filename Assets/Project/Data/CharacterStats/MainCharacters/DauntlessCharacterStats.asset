@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DauntlessCharacterStats
   m_EditorClassIdentifier: 
   damage: 40
-  moveSpeed: 15
+  moveSpeed: 10.32
   chargeSpeed: 20
   turnSpeed: 100
   attackRange: 0

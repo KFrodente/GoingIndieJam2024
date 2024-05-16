@@ -264,7 +264,7 @@ public class FloorGenerator : MonoBehaviour
 
         if (rooms.TryGetValue(pickedPos + Vector2.up, out checkedChar))
         {
-            if (checkedChar == 'b')
+            if (checkedChar == 'b' || checkedChar == 's')
             {
                 if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
                 {
@@ -277,7 +277,7 @@ public class FloorGenerator : MonoBehaviour
         }
         else if (rooms.TryGetValue(pickedPos + Vector2.down, out checkedChar))
         {
-            if (checkedChar == 'b')
+            if (checkedChar == 'b' || checkedChar == 's')
             {
                 if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
                 {
@@ -290,7 +290,7 @@ public class FloorGenerator : MonoBehaviour
         }
         else if (rooms.TryGetValue(pickedPos + Vector2.right, out checkedChar))
         {
-            if (checkedChar == 'b')
+            if (checkedChar == 'b' || checkedChar == 's')
             {
                 if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
                 {
@@ -303,7 +303,7 @@ public class FloorGenerator : MonoBehaviour
         }
         else if (rooms.TryGetValue(pickedPos + Vector2.left, out checkedChar))
         {
-            if (checkedChar == 'b')
+            if (checkedChar == 'b' || checkedChar == 's')
             {
                 if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
                 {

@@ -20,4 +20,8 @@ public class DauntlessSpiritCharacter : SpiritCharacter
         if(isInFastTurn) movement.AngleTowardTargetAngle(turnSpeedUpMultiplier, this);
     }
 
+	protected override void FixedUpdate()
+	{
+	}
+
 }

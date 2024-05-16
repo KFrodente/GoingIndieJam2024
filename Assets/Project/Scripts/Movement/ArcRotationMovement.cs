@@ -27,25 +27,25 @@ public class ArcRotationMovement : ContinuousForwardMovement
 	{
 		turnIndicator = !turnIndicator;
 	}
-	
-	
-	
-    // public override void RightClickDown(Vector2 position)
-    // {
-    //     turnAngle = !turnAngle;
-    //     transitionTimer = transitionTime;
-    // }
 
-    // private void TransitionTiming()
-    // {
-    //     if (transitionTimer > 0)
-    //     {
-    //         transitionTimer -= Time.deltaTime;
-    //     }
-    // }
 
-	// public override void Move(Vector2 direction)
+
+	// public override void RightClickDown(Vector2 position)
 	// {
-	// 	
+	//     turnAngle = !turnAngle;
+	//     transitionTimer = transitionTime;
 	// }
+
+	// private void TransitionTiming()
+	// {
+	//     if (transitionTimer > 0)
+	//     {
+	//         transitionTimer -= Time.deltaTime;
+	//     }
+	// }
+
+	//public override void Move(Vector2 direction, float speed, ForceMode2D forceMode, BaseCharacter c, bool forcedAction = false)
+	//{
+
+	//}
 }

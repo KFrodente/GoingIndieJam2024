@@ -18,37 +18,32 @@ public class DragonFlyPatterns : MonoBehaviour
             float3 pos = path.Spline.EvaluatePosition(t);
             return new Vector2(pos.x, pos.y);
         }
-    
-        // public Vector2 GetDirectionRight()
-        // {
-        //     return (path.Ge.transform.position.x > point2.transform.position.x) ? (point1.position - point2.position).normalized : (point2.position - point1.position).normalized;
-        // }
-        //
-        // public float GetNeededSpeed()
-        // {
-        //     return Vector2.Distance(point1.position, point2.position) / duration;
-        // }
-        //
-        // public Vector2 GetLeftPos()
-        // {
-        //     return (point1.transform.position.x > point2.transform.position.x) ? point2.position : point1.position;
-        // }
     }
-    
+
+    private void Start()
+    {
+        timer = incomingPath.duration;
+        LockOntoPath(incomingPath);
+    }
+
     [SerializeField] private List<Path> locations = new List<Path>();
+    [SerializeField] private Path incomingPath;
     [SerializeField] private float pickRate;
 
     [HideInInspector] public Segment head;
 
     private float timer = 0;
     private bool goingLeft;
+    private Vector2 lastHeadPos;
     private void Update()
     {
+        if(head == null) return;
         if(timer <= 0) PickPath();
         timer -= Time.deltaTime;
-
+        head.transform.rotation = Quaternion.Euler(0, 0, InputUtils.GetAngle(((Vector2)head.transform.position - lastHeadPos)) + 90);
+            //Quaternion.LookRotation(Vector3.forward, selectedPath.path.EvaluateUpVector((timer - pickRate) / selectedPath.duration));
+            //Quaternion.Euler(0, 0, InputUtils.GetAngle(((Vector2)head.transform.position - lastHeadPos)) + 90);
         if (timer - pickRate < 0) return;
-        Debug.Log("Time: " + ((timer - pickRate) / selectedPath.duration));
         if(goingLeft)
         {
             head.transform.position = selectedPath.GetPathPoint((timer - pickRate) / selectedPath.duration) + (Vector2)transform.position;
@@ -57,6 +52,8 @@ public class DragonFlyPatterns : MonoBehaviour
         {
             head.transform.position = selectedPath.GetPathPoint(1 - (timer - pickRate) / selectedPath.duration) + (Vector2)transform.position;
         }
+
+        lastHeadPos = head.transform.position;
     }
 
     private void PickPath()

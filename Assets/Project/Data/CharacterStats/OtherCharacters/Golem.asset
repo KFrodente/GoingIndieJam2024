@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: 
   damage: 10
-  moveSpeed: 2
+  moveSpeed: 3
   chargeSpeed: 1
   turnSpeed: 1
   attackRange: 13.18

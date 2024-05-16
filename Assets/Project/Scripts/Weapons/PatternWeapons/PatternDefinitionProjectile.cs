@@ -41,9 +41,9 @@ public class PatternDefinitionProjectile : Projectile
 		[Tooltip("Time to spawn the full pattern")]
 		public float totalSpawnTime;
 		
-		[Tooltip("The direction that the spawning originates from")]
+		[Tooltip("The direction that the spawning aims toward")]
 		public Vector2 pointDirection;
-		
+
 		[Tooltip("Delay between this pattern spawning and the next pattern spawning")]
 		public float delayToNext;
 		
@@ -74,28 +74,36 @@ public class PatternDefinitionProjectile : Projectile
 
 		[Tooltip("If the bullet should shoot away from spawnPlacement")]
 		[AllowNesting]
-		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "inPointDirection")]
+		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "inPointDirection", "inShootDirection")]
 		public bool pointAwayFromSpawner;
 
 		[Tooltip("If the bullet should shoot away from positionShootAwayFrom. If null, uses spawnplacement")]
 		[AllowNesting]
-		[HideIf(EConditionOperator.Or, "pointAwayFromSpawner", "sameDirection", "inPointDirection")]//
+		[HideIf(EConditionOperator.Or, "pointAwayFromSpawner", "sameDirection", "inPointDirection", "inShootDirection")]//
 		public bool pointAwayFromPosition;
 
 		[Tooltip("If all the bullets should fire in the same direction using pointDirection")]
 		[AllowNesting]
-		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "pointAwayFromSpawner", "inPointDirection")]
+		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "pointAwayFromSpawner", "inPointDirection", "inShootDirection")]
 		public bool sameDirection;
 		
 		[Tooltip("Bullets should point within the point direction")]
 		[AllowNesting]
-		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "pointAwayFromSpawner")]
+		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "pointAwayFromSpawner", "inShootDirection")]
 		public bool inPointDirection;
-		
+
+		[Tooltip("Bullets should point toward the shoot direction")]
+		[AllowNesting]
+		[HideIf(EConditionOperator.Or, "pointAwayFromPosition", "sameDirection", "pointAwayFromSpawner", "inPointDirection")]
+		public bool inShootDirection;
+
 		[Header("Shooting")]
 		[Tooltip("How the pattern shoots out")]
 		public ShootType howshoot;
-		
+
+		[Tooltip("The direction that the bullets will shoot toward")]
+		public Vector2 shootDirection;
+
 		[Tooltip("Time between bullet shots")]
 		public float shootDelay;
 		
@@ -118,8 +126,8 @@ public class PatternDefinitionProjectile : Projectile
 
 	[SerializeField] bool aimOnShoot = false;
 
-	//Vector2 targetDirection;
-	//Vector2 targetPosition;
+	Vector2 targetDirection;
+	Vector2 targetPosition;
 
 	private void Start()
 	{
@@ -140,8 +148,8 @@ public class PatternDefinitionProjectile : Projectile
 	private IEnumerator SpawnBullets(int startpattern)
 	{
 		bool spawnwithnext = false;
-		//targetDirection = target.GetDirection();
-		//targetPosition = target.GetTargetPosition();
+		targetDirection = target.GetDirection();
+		targetPosition = target.GetTargetPosition();
 
 		for (int i = startpattern; i < patterns.Length; i++)
 		{
@@ -174,14 +182,14 @@ public class PatternDefinitionProjectile : Projectile
 				{
 					newproj.transform.SetParent(patterns[i].spawnPlacement.transform, false);
                     newproj.transform.localPosition = positions[o];
-					Vector2 direction = GetDirection(i, newproj.transform.position);
+					Vector2 direction = GetDirection(i, newproj.transform.position, false);
 					float angle = InputUtils.GetAngle(direction);
 					newproj.transform.rotation =  Quaternion.Euler(0, 0, angle);
 				}
 				else
 				{
 					newproj.transform.position = patterns[i].spawnPlacement.transform.position;
-					Vector2 direction = GetDirection(i, newproj.transform.position);
+					Vector2 direction = GetDirection(i, newproj.transform.position, false);
 					float angle = InputUtils.GetAngle(direction);
 					newproj.transform.position += ( Quaternion.Euler(0, 0, angle) * positions[o]);
                 }
@@ -266,7 +274,7 @@ public class PatternDefinitionProjectile : Projectile
 				if (aimOnShoot)
 				{
 					//Vector2 direction = (target.GetTargetPosition() - (Vector2)toshootprojs[i].transform.position);
-					Vector2 direction = GetDirection(patternnumber, toshootprojs[i].transform.position);
+					Vector2 direction = GetDirection(patternnumber, toshootprojs[i].transform.position, true);
 					float angle = InputUtils.GetAngle(direction);
 					toshootprojs[i].transform.rotation = Quaternion.Euler(0, 0, angle);
 				}
@@ -277,7 +285,7 @@ public class PatternDefinitionProjectile : Projectile
 		}
 	}
 
-	private Vector2 GetDirection(int i, Vector3 projectileposition)
+	private Vector2 GetDirection(int i, Vector3 projectileposition, bool shooting)
 	{
 		Vector2 direction;
 		if (patterns[i].pointAwayFromPosition)
@@ -294,15 +302,19 @@ public class PatternDefinitionProjectile : Projectile
 		{
 			direction = patterns[i].pointDirection;
 		}
+		else if (patterns[i].inShootDirection)
+		{
+			direction = patterns[i].shootDirection;
+		}
 		else
 		{
 			if (patterns[i].sameDirection)
 			{
-				direction = target.GetDirection();
+				direction = (aimOnShoot && shooting) ? target.GetDirection() : targetDirection;
 			}
 			else
 			{
-				direction = (target.GetTargetPosition() - (Vector2)projectileposition);
+				direction = (((aimOnShoot && shooting) ? target.GetTargetPosition() : targetPosition) - (Vector2)projectileposition);
 				//direction = target.GetDirection();
 				//Debug.Log(direction);
 			}

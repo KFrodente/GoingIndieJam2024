@@ -55,11 +55,12 @@ MonoBehaviour:
   head: {fileID: 2160604955480289949, guid: 6c959f8937a9a1b40b18d969ad4855d8, type: 3}
   tail: {fileID: 8127760423111761855, guid: 8cae70f7beda9fc4c80aedf5aa838d4c, type: 3}
   bodyPrefab: {fileID: 2492296653263926546, guid: 4c340224bdb566e4781143e5a99c9662, type: 3}
-  length: 7
+  length: 17
   followDistance: 5.17
   vibrationRate: 1.01
   vibrationAmplitude: 0.2
   vibrationOffset: 0.18
+  scaleDownPercent: 0.96
   DragonDamager: {fileID: 6617018599365847507}
   startingLocation: {fileID: 394684518066268742}
   flyPatterns: {fileID: 7298007781163463062}

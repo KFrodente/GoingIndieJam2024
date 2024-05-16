@@ -52,7 +52,11 @@ MonoBehaviour:
     operation: 0
     value: 0
     duration: 0
-  bulletProjectile: {fileID: 3204321272480393510, guid: 7ab457e6ad4c06d4885fa8a4e8f07600, type: 3}
+  bulletProjectile:
+  - {fileID: 3204321272480393510, guid: 522337d955ccfca4f8db6afb4161ca94, type: 3}
+  - {fileID: 3204321272480393510, guid: 18a78d33196e8e647b7082e689ef31b3, type: 3}
+  - {fileID: 3204321272480393510, guid: 9c205ba376ec862429cb6f651369772a, type: 3}
+  - {fileID: 3204321272480393510, guid: 0392c9c2a963c6a408b6ce754a44e74f, type: 3}
   patterns:
   - pattern: {fileID: 11400000, guid: add0a6ac53ccc3c44892442de67ffcb0, type: 2}
     totalSpawnTime: 1
@@ -62,17 +66,23 @@ MonoBehaviour:
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
-    randomize: 0
+    spawnRandomize: 0
     spawnWithNextPattern: 0
     spawnCenterOutwards: 1
+    spawnReverse: 0
+    randomPrefabs: 0
     flipDirection: 0
     pointAwayFromSpawner: 1
     pointAwayFromPosition: 0
     sameDirection: 0
     inPointDirection: 0
+    inShootDirection: 0
     howshoot: 1
+    shootDirection: {x: 0, y: 0}
     shootDelay: 0.1
     projectiles: []
     shootReverse: 0
     shootWithNextPattern: 0
     shootCenterOutwards: 1
+    shootRandomize: 0
+  aimOnShoot: 1

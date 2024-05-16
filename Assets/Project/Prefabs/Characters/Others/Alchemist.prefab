@@ -737,6 +737,9 @@ MonoBehaviour:
   damageable: {fileID: 8588803817186985679}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+  gfx: {fileID: 8169470628405355318}
+  overrideFlipping: 0
+  invertFlipping: 0
 --- !u!50 &8658340102009209602
 Rigidbody2D:
   serializedVersion: 4
@@ -837,7 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 40
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -861,7 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8594a0b8234bf0a94f55b64295b738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickRate: 0.5
+  clickRate: 2
   character: {fileID: 303801544410275538}
   preferedRange: 9
 --- !u!114 &7875857087674713876

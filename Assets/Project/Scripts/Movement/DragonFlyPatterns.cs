@@ -40,7 +40,6 @@ public class DragonFlyPatterns : MonoBehaviour
         if(head == null) return;
         if(timer <= 0) PickPath();
         timer -= Time.deltaTime;
-        head.transform.rotation = Quaternion.Euler(0, 0, InputUtils.GetAngle(((Vector2)head.transform.position - lastHeadPos)) + 90);
             //Quaternion.LookRotation(Vector3.forward, selectedPath.path.EvaluateUpVector((timer - pickRate) / selectedPath.duration));
             //Quaternion.Euler(0, 0, InputUtils.GetAngle(((Vector2)head.transform.position - lastHeadPos)) + 90);
         if (timer - pickRate < 0) return;
@@ -53,6 +52,7 @@ public class DragonFlyPatterns : MonoBehaviour
             head.transform.position = selectedPath.GetPathPoint(1 - (timer - pickRate) / selectedPath.duration) + (Vector2)transform.position;
         }
 
+        head.transform.rotation = Quaternion.Euler(0, 0, InputUtils.GetAngle(((Vector2)head.transform.position - lastHeadPos)) - 90);
         lastHeadPos = head.transform.position;
     }
 
@@ -61,7 +61,7 @@ public class DragonFlyPatterns : MonoBehaviour
         Path l = GetPath();
         LockOntoPath(l);
         goingLeft = !goingLeft;
-        head.GetComponentInChildren<SpriteRenderer>().flipX = goingLeft;
+        head.GetComponentInChildren<SpriteRenderer>().flipY = goingLeft;
         timer = pickRate + l.duration;
     }
 

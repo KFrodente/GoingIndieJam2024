@@ -19,11 +19,11 @@ public class Interactor : MonoBehaviour
         lastInteractedWith = null;
     }
 
-    public void Add(Interactable i)
+    public virtual void Add(Interactable i)
     {
         interactables.Add(i);
     }
-    public void Remove(Interactable i)
+    public virtual void Remove(Interactable i)
     {
         interactables.Remove(i);
     }

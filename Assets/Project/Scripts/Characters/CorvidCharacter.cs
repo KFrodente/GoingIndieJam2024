@@ -8,6 +8,8 @@ public class CorvidCharacter : BaseCharacter
     {
         if(input.GetMouseInput().rightDown) movement.ChangeAngle(Vector2.zero);
         if(input.GetMouseInput().leftDown) Attack(input.GetInputTarget());
+        if(input.GetMouseInput().leftUp) weapon.EndAttack();
+        xFlipping();
     }
 
     

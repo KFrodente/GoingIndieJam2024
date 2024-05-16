@@ -58,7 +58,7 @@ MonoBehaviour:
     totalSpawnTime: 1
     pointDirection: {x: 2, y: 1}
     delayToNext: 0
-    scale: {x: 3, y: 3}
+    scale: {x: 5, y: 5}
     spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
@@ -70,9 +70,12 @@ MonoBehaviour:
     pointAwayFromPosition: 0
     sameDirection: 0
     inPointDirection: 0
+    inShootDirection: 0
     howshoot: 0
+    shootDirection: {x: 0, y: 0}
     shootDelay: 0.1
     projectiles: []
     shootReverse: 0
     shootWithNextPattern: 0
     shootCenterOutwards: 0
+  aimOnShoot: 0

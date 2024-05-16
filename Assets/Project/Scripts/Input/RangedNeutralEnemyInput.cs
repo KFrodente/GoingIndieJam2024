@@ -7,7 +7,7 @@ public class RangedNeutralEnemyInput : RangedEnemyInput
     
     public override Target GetInputTarget()
     {
-        return new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform.position, false);
+        return new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform, false);
 
     }
     

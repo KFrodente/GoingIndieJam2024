@@ -71,8 +71,9 @@ public class TetheredSpiritCharacter : SpiritCharacter
             tetheredBody.GetComponentInChildren<Possessable>().OnInteract(this);
             tetheredBody.GetComponent<Damagable>().RefillHealth();
         }
-
-        lr.SetPosition(1, tetheredDeadBody.transform.position);
+        Vector3 chainBodyPos = tetheredDeadBody.transform.position;
+        chainBodyPos.y -= 0.4f;
+        lr.SetPosition(1, chainBodyPos);
         lr.SetPosition(0, transform.position);
         //lr.SetPosition(1, tetheredDeadBody.transform.position);
 

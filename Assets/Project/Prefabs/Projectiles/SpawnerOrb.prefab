@@ -171,4 +171,6 @@ MonoBehaviour:
     duration: 0
   charactersToSpawn:
   - {fileID: 6048535723004659668, guid: a9b1e848eb7f70b4f922eb4f5e5cda36, type: 3}
-  timeToSpawn: 3
+  - {fileID: 6048535723004659668, guid: 33cf509f0deaaf440b6a5aa3dc71102d, type: 3}
+  - {fileID: 6048535723004659668, guid: 20a312ab1d534f242a440d3bf61250ff, type: 3}
+  timeToSpawn: 2

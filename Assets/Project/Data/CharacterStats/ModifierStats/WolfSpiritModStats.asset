@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeed: 0
   chargeSpeed: 0
   turnSpeed: 0
-  attackRange: 0
+  attackRange: 8.46
   attackSpeed: 0
   chargeTurnSpeed: 0
   damageMult: 2

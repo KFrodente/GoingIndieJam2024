@@ -19,5 +19,5 @@ MonoBehaviour:
   burstSeparationDelay: 0
   burstAmount: 0
   attackDuration: 0
-  knockback: 5
+  knockback: 1949.5
   projectile: {fileID: 0}

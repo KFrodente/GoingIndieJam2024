@@ -425,7 +425,7 @@ MonoBehaviour:
   debugMode: 0
   totalReadTime: 0.00001
   totalUnreadTime: 0.00001
-  currentReadTime: 176.90366
+  currentReadTime: 1.9277127
   autoRead: 1
   rememberReadPosition: 1
   autoQuality: 0
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   debugMode: 0
   totalReadTime: 0.00001
   totalUnreadTime: 0.00001
-  currentReadTime: 98.09052
+  currentReadTime: 1.333323
   autoRead: 1
   rememberReadPosition: 1
   autoQuality: 0
@@ -1249,7 +1249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1136436171872676241
 RectTransform:
   m_ObjectHideFlags: 0

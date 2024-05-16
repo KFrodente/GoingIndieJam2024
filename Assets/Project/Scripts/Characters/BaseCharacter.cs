@@ -17,6 +17,7 @@ public class BaseCharacter : MonoBehaviour
     public SpriteRenderer gfx;
     public bool overrideFlipping = false;
     public bool invertFlipping = false;
+    public bool isSpirit;
 
     public virtual Stats.Stats GetStats()
     {

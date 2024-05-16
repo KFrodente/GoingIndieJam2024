@@ -116,8 +116,10 @@ public class PatternDefinitionProjectile : Projectile
 
 	[SerializeField] ShootPattern[] patterns;
 
-	Vector2 targetDirection;
-	Vector2 targetPosition;
+	[SerializeField] bool aimOnShoot = false;
+
+	//Vector2 targetDirection;
+	//Vector2 targetPosition;
 
 	private void Start()
 	{
@@ -138,8 +140,8 @@ public class PatternDefinitionProjectile : Projectile
 	private IEnumerator SpawnBullets(int startpattern)
 	{
 		bool spawnwithnext = false;
-		targetDirection = target.GetDirection();
-		targetPosition = target.GetTargetPosition();
+		//targetDirection = target.GetDirection();
+		//targetPosition = target.GetTargetPosition();
 
 		for (int i = startpattern; i < patterns.Length; i++)
 		{
@@ -261,10 +263,13 @@ public class PatternDefinitionProjectile : Projectile
 					yield return new WaitForSeconds(patterns[patternnumber].shootDelay);
 				}
 				// this is the place where the projectiles will actually be shot
-				//Vector2 direction = (target.GetTargetPosition() - (Vector2)toshootprojs[i].transform.position);
-				//Vector2 direction = GetDirection(patternnumber, toshootprojs[i].transform.position);
-				//float angle = InputUtils.GetAngle(direction);
-				//toshootprojs[i].transform.rotation = Quaternion.Euler(0, 0, angle);
+				if (aimOnShoot)
+				{
+					//Vector2 direction = (target.GetTargetPosition() - (Vector2)toshootprojs[i].transform.position);
+					Vector2 direction = GetDirection(patternnumber, toshootprojs[i].transform.position);
+					float angle = InputUtils.GetAngle(direction);
+					toshootprojs[i].transform.rotation = Quaternion.Euler(0, 0, angle);
+				}
 				ShootProjectile(toshootprojs[i]);
 				// patterns[patternnumber].projectiles[i].transform.SetParent(null);
 				// Destroy(patterns[patternnumber].projectiles[i].gameObject);
@@ -293,11 +298,11 @@ public class PatternDefinitionProjectile : Projectile
 		{
 			if (patterns[i].sameDirection)
 			{
-				direction = targetDirection;
+				direction = target.GetDirection();
 			}
 			else
 			{
-				direction = (targetPosition - (Vector2)projectileposition);
+				direction = (target.GetTargetPosition() - (Vector2)projectileposition);
 				//direction = target.GetDirection();
 				//Debug.Log(direction);
 			}

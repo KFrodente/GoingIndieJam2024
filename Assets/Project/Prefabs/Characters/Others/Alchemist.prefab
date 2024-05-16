@@ -737,7 +737,11 @@ MonoBehaviour:
   damageable: {fileID: 8588803817186985679}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
+<<<<<<< Updated upstream
   gfx: {fileID: 0}
+=======
+  gfx: {fileID: 8169470628405355318}
+>>>>>>> Stashed changes
   overrideFlipping: 0
   invertFlipping: 0
 --- !u!50 &8658340102009209602
@@ -864,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8594a0b8234bf0a94f55b64295b738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickRate: 0.5
+  clickRate: 2
   character: {fileID: 303801544410275538}
   preferedRange: 9
 --- !u!114 &7875857087674713876

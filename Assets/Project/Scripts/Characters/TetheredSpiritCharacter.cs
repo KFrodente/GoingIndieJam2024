@@ -70,8 +70,9 @@ public class TetheredSpiritCharacter : SpiritCharacter
             tetheredBody.GetComponentInChildren<Possessable>().OnInteract(this);
         }
 
-        lr.SetPosition(0, transform.position);
         lr.SetPosition(1, tetheredDeadBody.transform.position);
+        lr.SetPosition(0, transform.position);
+        //lr.SetPosition(1, tetheredDeadBody.transform.position);
 
         prevDirection = direction;
     }

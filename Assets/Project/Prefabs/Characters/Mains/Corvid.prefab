@@ -895,13 +895,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 8539920609268418506}
   movement: {fileID: 892319786144662976}
-  weapon: {fileID: 0}
+  weapon: {fileID: 6718803166621681296}
   characterStats: {fileID: 1443854057737889854}
   rb: {fileID: 5512403940900447615}
   damageable: {fileID: 6648151417140379923}
   effector: {fileID: 0}
   possessingSpirit: {fileID: 0}
-  gfx: {fileID: 0}
+  gfx: {fileID: 8413273548043650737}
   overrideFlipping: 0
   invertFlipping: 0
   isSpirit: 0
@@ -918,7 +918,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2.63
+  m_LinearDrag: 4.66
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1031,6 +1031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 99aefc25af68aff4eb727e2851038e07, type: 2}
   defaultDamageType: 4
+  attacking: 0
 --- !u!114 &1043409259728483753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,8 +1044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57495fa4a0bce784d99eaa74ebb7ad6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  c: {fileID: 0}
+  animator: {fileID: 3634379618021295881}
+  c: {fileID: 978496743684557187}
 --- !u!1 &8846246201720946734
 GameObject:
   m_ObjectHideFlags: 0

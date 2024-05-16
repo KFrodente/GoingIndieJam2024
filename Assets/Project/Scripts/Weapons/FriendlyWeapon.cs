@@ -19,7 +19,7 @@ public class FriendlyWeapon : Weapon
         Transform enemy = GetAnEnemyPos();
         if (enemy != null)
         {
-            Target t = new Target(TargetType.Position, enemy.position, null, transform.position, false);
+            Target t = new Target(TargetType.Position, enemy.position, null, transform, false);
             t.uniqueCaseID = TargetCaseID.Friendly;
             return t;
         }

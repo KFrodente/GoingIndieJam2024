@@ -6,6 +6,6 @@ public class LockTargetPlayerInput : PlayerInput
 {
     public override Target GetInputTarget()
     {
-        return new Target(TargetType.Position, InputUtils.GetMousePosition(), null, transform.position, true);
+        return new Target(TargetType.Position, InputUtils.GetMousePosition(), null, transform, true);
     }
 }

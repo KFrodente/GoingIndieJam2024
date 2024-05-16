@@ -22,6 +22,6 @@ public class PlayerInput : BaseInput
     }
     public override Target GetInputTarget()
     {
-        return new Target(TargetType.Mouse, null, null, transform.position, true);
+        return new Target(TargetType.Mouse, null, null, transform, true);
     }
 }

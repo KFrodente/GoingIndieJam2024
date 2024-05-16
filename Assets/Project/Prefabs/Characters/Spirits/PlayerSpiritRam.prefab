@@ -431,6 +431,7 @@ MonoBehaviour:
   gfx: {fileID: 0}
   overrideFlipping: 0
   invertFlipping: 0
+  isSpirit: 1
   SoulsUpdated: {fileID: 11400000, guid: aaabe649a015eea49a6d9feac60fbf5c, type: 2}
   souls: 0
   turnSpeedUpMultiplier: 7

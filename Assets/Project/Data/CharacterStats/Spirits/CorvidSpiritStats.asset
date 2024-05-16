@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CorvidSpiritStats
   m_EditorClassIdentifier: 
   damage: 10
-  moveSpeed: 40
+  moveSpeed: 30
   chargeSpeed: 20
-  turnSpeed: 270
+  turnSpeed: 230
   attackRange: 30
   attackSpeed: 0.5
   chargeTurnSpeed: 0
@@ -25,5 +25,4 @@ MonoBehaviour:
   turnSpeedMult: 1
   attackRangeMult: 1
   attackSpeedMult: 1
-  healthMult: 1
   chargeTurnSpeedMult: 1

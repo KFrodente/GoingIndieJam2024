@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41ccf60e5ba7f14d949520e50de4e1c, type: 3}
   m_Name: IceShooter
   m_EditorClassIdentifier: 
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 9d6a9a33d158f1a4ea7759a6ab74c42e, type: 3}
   chargeTime: 0
   cancelDelay: 0
   chargeSound: {fileID: 0}

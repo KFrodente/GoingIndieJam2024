@@ -15,7 +15,7 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: c0997ca249da9d24b86ad2bae355976d, type: 3}
   chargeTime: 0.6
   cancelDelay: 0.2
-  chargeSound: {fileID: 8300000, guid: bf82f1409586f1f48af3436afa72012e, type: 3}
+  chargeSound: {fileID: 8300000, guid: ca347218181d44f758cfc46c3bb2a999, type: 3}
   burstSeparationDelay: 0
   burstAmount: 0
   attackDuration: 0

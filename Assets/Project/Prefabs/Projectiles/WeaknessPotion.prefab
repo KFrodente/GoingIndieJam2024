@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679647788598956437}
-  - component: {fileID: 4020299109298818426}
   - component: {fileID: 2397933145337248889}
   - component: {fileID: 9100305768235465966}
   m_Layer: 0
-  m_Name: SlownessPotion
+  m_Name: WeaknessPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,41 +34,6 @@ Transform:
   - {fileID: 338779418748876557}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &4020299109298818426
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054220050833602879}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &2397933145337248889
 Rigidbody2D:
   serializedVersion: 4
@@ -109,15 +73,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009bde634da34dcd82561980d41e8348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileData: {fileID: 11400000, guid: be3121ff865c70a429b12b3e25be47af, type: 2}
+  projectileData: {fileID: 11400000, guid: 0b7740b46b063f949bc4ebafed4fe66d, type: 2}
   rb: {fileID: 2397933145337248889}
-  timeBeforeActiveDamage: 0
+  timeBeforeActiveDamage: 1
   onHitEffect:
     type: 2
     operation: 1
-    value: 0.2
+    value: 1.5
     duration: 4
-  spin: 90.18
+  spin: 30
 --- !u!1 &5339358802178693678
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +156,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0e851cc94b977b14992f8104f35d0b57, type: 3}
-  m_Color: {r: 0.45321196, g: 0.19215682, b: 0.83137256, a: 0.48235294}
+  m_Color: {r: 0.14465404, g: 0.14465404, b: 0.14465404, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

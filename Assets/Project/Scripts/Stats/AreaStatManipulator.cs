@@ -7,6 +7,7 @@ namespace Stats
 {
     public class AreaStatManipulator : MonoBehaviour
     {
+        [SerializeField] private bool removeOnExit;
         [SerializeField] private List<StatEffect> effects = new List<StatEffect>();
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -21,6 +22,7 @@ namespace Stats
         }
         private void OnTriggerExit2D(Collider2D other)
         {
+            if(!removeOnExit) return;
             if (other.TryGetComponent(out StatHandler handler))
             {
                 foreach (var e in effects)

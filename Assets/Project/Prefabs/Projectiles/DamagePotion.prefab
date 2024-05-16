@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2397933145337248889}
   - component: {fileID: 9100305768235465966}
   m_Layer: 0
-  m_Name: SlownessPotion
+  m_Name: DamagePotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,15 +109,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009bde634da34dcd82561980d41e8348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileData: {fileID: 11400000, guid: be3121ff865c70a429b12b3e25be47af, type: 2}
+  projectileData: {fileID: 11400000, guid: 081423995b7ad16489cb67b11ebbf1ec, type: 2}
   rb: {fileID: 2397933145337248889}
   timeBeforeActiveDamage: 0
   onHitEffect:
-    type: 2
-    operation: 1
-    value: 0.2
-    duration: 4
-  spin: 90.18
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0
+  spin: 90.01
 --- !u!1 &5339358802178693678
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,8 +191,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0e851cc94b977b14992f8104f35d0b57, type: 3}
-  m_Color: {r: 0.45321196, g: 0.19215682, b: 0.83137256, a: 0.48235294}
+  m_Sprite: {fileID: 21300000, guid: 44b2a501e0a89984092d34eb0efb1bc3, type: 3}
+  m_Color: {r: 0.83137256, g: 0.19215682, b: 0.253415, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

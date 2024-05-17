@@ -68,6 +68,10 @@ public class TetheredDeadCharacter : BaseCharacter
 
         if (percentComplete >= .9f)
         {
+            if (connectedObject != spirit)
+            {
+                connectedObject.GetComponent<Damagable>().Die();
+            }
             currentAngle = 0;
             currentRadius = maxRadius;
             tetheredBody.transform.position = transform.position;
@@ -84,11 +88,6 @@ public class TetheredDeadCharacter : BaseCharacter
         //lr.SetPosition(1, tetheredDeadBody.transform.position);
 
         prevDirection = direction;
-
-        if (connectedObject == null)
-        {
-            SetConnectedObject(spirit);
-        }
     }
 
     public void SetConnectedObject(GameObject connectedObject)

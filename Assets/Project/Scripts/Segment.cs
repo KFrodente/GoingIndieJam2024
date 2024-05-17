@@ -19,7 +19,7 @@ public class Segment : MonoBehaviour
 
     public float getHealth()
     {
-        return multD.Health;
+        return multD.health;
     }
     public void Initialize(float range, float speed, float offset, Segment pieceFollowing, float distance, PieceSeparation main)
     {

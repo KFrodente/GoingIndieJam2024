@@ -57,6 +57,7 @@ public class DashChargeWeapon : ChargeWeapon
 
 	protected override void Fire(Target target)
 	{
+		if(weaponData.attackSound && AudioManager.instance) AudioManager.instance.Play(weaponData.attackSound);
 		bc.movement.Move(target.GetDirection(), bc.GetStats().ChargeSpeed, ForceMode2D.Impulse, bc, true);
 		bc.damageable.GainImmunity(weaponData.attackDuration);
 		bc.movement.SetTargetAngle(savedTarget.GetDirection(), true);

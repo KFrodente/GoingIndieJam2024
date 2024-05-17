@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalTilemap: {fileID: 5637412465546212930}
+  corvid: {fileID: 0}
+  dauntless: {fileID: 0}
+  tethered: {fileID: 0}
   basicRoomForFloor:
   - {fileID: 2875941998679612308, guid: fc951dda8a23b2f43a92aa0b4ee3a2c1, type: 3}
   spawnRooms:
@@ -122,7 +125,7 @@ GameObject:
   - component: {fileID: 6363770241492366934}
   - component: {fileID: 880738747303947917}
   - component: {fileID: 3588848200516619781}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

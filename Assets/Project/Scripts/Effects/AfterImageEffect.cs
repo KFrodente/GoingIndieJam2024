@@ -47,7 +47,7 @@ public class AfterImageEffect : EffectPlayer
     protected void SpawnAfterEffect()
     {
         AfterImagePO afterImage = GetPoolObject();
-        afterImage.Init(this);
+        afterImage.Init(this, this.transform.rotation);
         lastPos = transform.position;
     }
     

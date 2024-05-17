@@ -11,6 +11,7 @@ public class Shop : Room
 
     [Tooltip("list of locations where Spirit Essence can spawn")]
     public List<Transform> SELocations = new();
+    public List<Transform> TSLocations = new();
 
     public override void GeneratePortals()
     {
@@ -33,7 +34,7 @@ public class Shop : Room
             leftPortal = GenerateRespectivePortal(roomConnectedLeft, leftTelePos.position).GetComponent<Portal>();
         }
 
-        GenerateSpiritEssence(2 * FloorGenerator.instance.floorNum);
+        GenerateSpiritEssence(5 * FloorGenerator.instance.floorNum);
     }
 
     public void GenerateSpiritEssence(int roomCost)
@@ -41,6 +42,11 @@ public class Shop : Room
         for (int i = 0; i < SELocations.Count; i++)
         {
             Instantiate(SpiritEssenceHolder.instance.GetSpiritEssence(roomCost), SELocations[i].position, transform.rotation);
+        }
+
+        for (int i = 0; i < TSLocations.Count; i++)
+        {
+            Instantiate(TombstoneHolder.instance.GetTombstone(roomCost), TSLocations[i].position, transform.rotation);
         }
     }
 

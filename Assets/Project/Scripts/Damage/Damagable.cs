@@ -64,7 +64,7 @@ public class Damagable : MonoBehaviour
     }
 
     
-    protected void Update()
+    protected virtual void Update()
     {
         UpdateHealthBars();
     }

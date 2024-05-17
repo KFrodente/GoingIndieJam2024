@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damager: {fileID: 1000766835473646273}
-  inWallTime: 1
+  inWallTime: 4
   suffocationTickDelay: 1
 --- !u!120 &1127677308988390305
 LineRenderer:

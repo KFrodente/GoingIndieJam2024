@@ -9,6 +9,16 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject characterSelectMenu;
 
+    private void Start()
+    {
+        SettingsManager sm = settingsMenu.GetComponent<SettingsManager>();
+        SettingsData settingsData = SaveSystem.LoadSettings();
+        if (settingsData != null)
+        {
+            sm.SetVolume(settingsData.volume);
+            sm.SetMusicVolume(settingsData.musicVolume);
+        }
+    }
 
     public void ShowSettings()
     {

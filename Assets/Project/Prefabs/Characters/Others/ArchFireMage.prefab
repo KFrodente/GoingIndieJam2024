@@ -841,7 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spiritEjectForce: 100
   startingHealth: 0
-  health: 45
+  health: 100
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 67bcad4e44b79084696e5d225d989df9, type: 2}
-  defaultDamageType: 0
+  defaultDamageType: 64
   spawnOnTarget: 0
   dontParentToTarget: 0
   dontRotateTowardTarget: 0

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f9ede18dd62b44baef1a369d011636, type: 3}
   m_Name: Floor1Stats
   m_EditorClassIdentifier: 
-  treasureRoomAmount: 3
+  treasureRoomAmount: 2
   minTreasureDistance: 1
-  costToEnter: {x: 0, y: 0}
-  shopRoomAmount: 3
+  costToEnter: {x: 20, y: 69}
+  shopRoomAmount: 2
   minShopDistance: 0
   minBossDistance: 2
-  basicRoomAmount: 7
+  basicRoomAmount: 8
   roomWidth: 200
   roomHeight: 200
   fillPercentage: 0.04

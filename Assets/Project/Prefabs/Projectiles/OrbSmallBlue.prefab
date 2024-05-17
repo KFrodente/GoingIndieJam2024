@@ -169,3 +169,5 @@ MonoBehaviour:
     operation: 0
     value: 0
     duration: 0
+  wallCollision: 1
+  destroyOnWall: 1

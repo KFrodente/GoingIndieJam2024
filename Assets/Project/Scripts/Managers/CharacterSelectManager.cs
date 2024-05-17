@@ -54,4 +54,23 @@ public class CharacterSelectManager : MonoBehaviour
             SceneManager.LoadScene("Game");
         }
     }
+
+    public void OnTutorial()
+    {
+        switch(selectedCharacter)
+        {
+            case Characters.None:
+                warningText.SetActive(true);
+                break;
+            case Characters.Corvid:
+                SceneManager.LoadScene("CorvidTutorial");
+                break;
+            case Characters.Tethered:
+                SceneManager.LoadScene("TetheredTutorial");
+                break;
+            case Characters.Dauntless:
+                SceneManager.LoadScene("DauntlessTutorial");
+                break;
+        }
+    }
 }

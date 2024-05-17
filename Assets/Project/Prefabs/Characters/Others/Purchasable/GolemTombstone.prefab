@@ -5350,7 +5350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a9484ac49c49deb4d121fb8de38b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 35
+  cost: 25
   body: {fileID: 2165675290014258021}
   name: Golem
   lore: A pile of rocks doomed to live forever due to a curse.

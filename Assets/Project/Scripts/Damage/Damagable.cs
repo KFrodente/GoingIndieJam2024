@@ -161,15 +161,12 @@ public class Damagable : MonoBehaviour
                 }
             }
         }
-        else
+        if (transform.parent != null)
         {
-            if (transform.parent != null)
+            if (transform.parent.TryGetComponent(out EnemySpawner ES) && !pointsSubtracted)
             {
-                if (transform.parent.TryGetComponent(out EnemySpawner ES) && !pointsSubtracted)
-                {
-                    ES.spawnedEnemies--;
-                    pointsSubtracted = true;
-                }
+                ES.spawnedEnemies--;
+                pointsSubtracted = true;
             }
         }
         Destroy(baseCharacter.gameObject);

@@ -8,6 +8,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject characterSelectMenu;
+    [SerializeField] private GameObject creditsScreen;
 
     private void Start()
     {
@@ -52,5 +53,17 @@ public class MainMenuManager : MonoBehaviour
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.ExitPlaymode();
         #endif
+    }
+
+    public void OnCredits()
+    {
+        mainMenu.SetActive(false);
+        creditsScreen.SetActive(true);
+    }
+
+    public void ExitCredits()
+    {
+        mainMenu.SetActive(true);
+        creditsScreen.SetActive(false);
     }
 }

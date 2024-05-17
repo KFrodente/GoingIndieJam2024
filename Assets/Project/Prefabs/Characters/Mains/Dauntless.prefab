@@ -360,8 +360,8 @@ GameObject:
   - component: {fileID: 4245274863059315058}
   - component: {fileID: 7216124006383118385}
   - component: {fileID: 8958990022729752372}
-  - component: {fileID: 4134685308740849308}
   - component: {fileID: 7225132558245157515}
+  - component: {fileID: 3340117190346844737}
   m_Layer: 9
   m_Name: Dauntless
   m_TagString: Untagged
@@ -438,6 +438,7 @@ MonoBehaviour:
   gfx: {fileID: 5157189204362696825}
   overrideFlipping: 0
   invertFlipping: 0
+  isSpirit: 0
   animator: {fileID: 7849309887560639849}
 --- !u!50 &7411527918199409643
 Rigidbody2D:
@@ -508,8 +509,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statVariables: {fileID: 11400000, guid: 427325f97f08e534bbd5f74b7965a10e, type: 2}
   spiritStatModifiers: {fileID: 0}
---- !u!58 &4134685308740849308
-CircleCollider2D:
+--- !u!114 &7225132558245157515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794633283095092903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 120
+  isHitCounter: 0
+  alwaysImmune: 0
+  isSpirit: 0
+  immunities: 0
+  baseCharacter: {fileID: 6140970955457626448}
+  damageAudioPlayer: {fileID: 8396880059668850677}
+  dispenser: {fileID: 368804316106668470}
+  healthOverBar: {fileID: 565769821018024379}
+  healthUnderBar: {fileID: 333343010270737726}
+  healthLerpSpeed: 5
+  testDamageAmount: 5
+--- !u!70 &3340117190346844737
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -540,33 +565,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &7225132558245157515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2794633283095092903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 120
-  isHitCounter: 0
-  alwaysImmune: 0
-  isSpirit: 0
-  immunities: 0
-  baseCharacter: {fileID: 6140970955457626448}
-  damageAudioPlayer: {fileID: 8396880059668850677}
-  dispenser: {fileID: 368804316106668470}
-  healthOverBar: {fileID: 565769821018024379}
-  healthUnderBar: {fileID: 333343010270737726}
-  healthLerpSpeed: 5
-  testDamageAmount: 5
+  m_Offset: {x: 0.0046931803, y: -0.1267156}
+  m_Size: {x: 0.45306838, y: 0.7465688}
+  m_Direction: 0
 --- !u!1 &3679387651407964728
 GameObject:
   m_ObjectHideFlags: 0

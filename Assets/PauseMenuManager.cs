@@ -29,7 +29,7 @@ public class PauseMenuManager : MonoBehaviour
             {
                 if (settingsUI.activeSelf)
                 {
-                    //pauseUI.SetActive(true);
+                    pauseScreen.SetActive(true);
                     settingsUI.SetActive(false);
                 }
                 else if (pauseScreen.activeSelf)
@@ -51,6 +51,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OnSettings()
     {
+        pauseScreen.SetActive(false);
         settingsUI.SetActive(true);
     }
 

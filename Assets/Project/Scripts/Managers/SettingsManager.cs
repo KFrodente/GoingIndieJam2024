@@ -52,7 +52,7 @@ public class SettingsManager : MonoBehaviour
             }
         }
         resolutionDropdown.AddOptions(stringRes);
-        resolutionDropdown.value = currentResIndex;
+        //resolutionDropdown.value = currentResIndex;
         resolutionDropdown.RefreshShownValue();
     }
 

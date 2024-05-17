@@ -11,7 +11,7 @@ public class SpiritEssence : Interactable
     public GameObject essenceUI;
     public SuperTextMesh costText;
     public SuperTextMesh nameText;
-    //public SuperTextMesh flavorText;
+    public SuperTextMesh flavorText;
 
     private void Awake()
     {
@@ -27,28 +27,12 @@ public class SpiritEssence : Interactable
 
         costText.Text = (soulCost <= 0) ? "" : "Costs: " + soulCost.ToString() + " souls";
         nameText.text = essence.essenceName + " Essence";
-        //flavorText.Text = essence.essenceDescription;
-        //if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Dauntless && Vector2.Distance(FloorGenerator.instance.dauntless.transform.position, transform.position) <= 4)
-        //{
-        //    essenceUI.SetActive(true);
-        //    //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
-        //}
-        //else if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Corvid && Vector2.Distance(FloorGenerator.instance.corvid.transform.position, transform.position) < 4)
-        //{
-        //    essenceUI.SetActive(true);
-        //    //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
-        //}
-        //else if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Tethered && Vector2.Distance(FloorGenerator.instance.tethered.transform.position, transform.position) < 4)
-        //{
-        //    essenceUI.SetActive(true);
-        //    //costText.color = new Color(costText.color.r, costText.color.g, costText.color.b, 1 + (10 / Vector2.Distance(transform.position, FloorGenerator.instance.dauntless.transform.position)));
-        //}
+        flavorText.Text = essence.essenceDescription;
         float alpha = 1 - (Vector2.Distance(BaseCharacter.playerCharacter.transform.position, transform.position) / 6) * .6f;
             essenceUI.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
             nameText.color = new Color(.01f, .01f, .01f, alpha);
             costText.color = new Color(.01f, .01f, .01f, alpha);
-            //flavorText.color = new Color(.01f, .01f, .01f, alpha);
-            //Debug.Log("Alpha value: " + nameText.color.a);
+            flavorText.color = new Color(.01f, .01f, .01f, alpha);
     }
 
     public override void OnInteract(BaseCharacter character)

@@ -20,4 +20,4 @@ MonoBehaviour:
   hitParticle: {fileID: 6537183467329547177, guid: 2bc5af0c838f55d4cbb272bd3f4b0d16, type: 3}
   hitSound: {fileID: 8300000, guid: b71257038c0044a4e9f268668a0d1a0c, type: 3}
   despawnParticle: {fileID: 2774574974223034609, guid: de8401c6163fe9842a66a0721c274a3d, type: 3}
-  despawnSound: {fileID: 0}
+  despawnSound: {fileID: 8300000, guid: f6d4ddde2c4f58a4ba0f4701616a5e7c, type: 3}

@@ -157,6 +157,8 @@ MonoBehaviour:
   rb: {fileID: 5357504108947636873}
   maxAttractionForce: 100
   maxAttractionDistance: 30
+  pickupableDelay: 0.5
+  pickupSound: {fileID: 8300000, guid: 68608282c1a1ce443aed792c4be3769f, type: 3}
 --- !u!50 &5357504108947636873
 Rigidbody2D:
   serializedVersion: 4

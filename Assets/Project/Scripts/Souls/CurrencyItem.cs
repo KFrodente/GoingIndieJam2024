@@ -13,6 +13,7 @@ public class CurrencyItem : MonoBehaviour
 
     private bool pickupable = false;
     [SerializeField] private float pickupableDelay = 0.5f;
+    [SerializeField] private AudioClip pickupSound;
     
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class CurrencyItem : MonoBehaviour
         {
             // add currency based on a local value?
             BaseCharacter.playerCharacter.GainSouls(soulValue);
+            AudioManager.instance.Play(pickupSound);
             // remove from world
             Destroy(gameObject);
         }

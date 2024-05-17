@@ -14,6 +14,6 @@ public class AlchemistAnimationHandler : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("Speed", c.rb.velocity.magnitude);
-        if(potions.startedAttack)animator.SetTrigger("Attacked");
+        animator.SetBool("Attacked", potions.startedAttack);
     }
 }

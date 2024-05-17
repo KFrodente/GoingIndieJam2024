@@ -864,6 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spiritEjectForce: 100
   health: 70
   isHitCounter: 0
   alwaysImmune: 0
@@ -875,6 +876,7 @@ MonoBehaviour:
   healthOverBar: {fileID: 290528838757789303}
   healthUnderBar: {fileID: 5658632166767207504}
   healthLerpSpeed: 5
+  pointsSubtracted: 0
   testDamageAmount: 5
 --- !u!114 &5406769814313069043
 MonoBehaviour:

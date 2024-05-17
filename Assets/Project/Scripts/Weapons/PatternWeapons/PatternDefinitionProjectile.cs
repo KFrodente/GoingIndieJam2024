@@ -180,7 +180,7 @@ public class PatternDefinitionProjectile : Projectile
 			}
 			if (patterns[i].spawnReverse)
 			{
-				positions.Reverse();
+				positions = positions.Reverse().ToArray();
 			}
 			if (patterns[i].spawnRandomize)
 			{
@@ -281,7 +281,7 @@ public class PatternDefinitionProjectile : Projectile
 		}
 		if (patterns[patternnumber].shootReverse)
 		{
-			toshootprojs.Reverse();
+			toshootprojs = toshootprojs.ToArray().Reverse().ToList();
 		}
 		if (patterns[patternnumber].shootRandomize)
 		{

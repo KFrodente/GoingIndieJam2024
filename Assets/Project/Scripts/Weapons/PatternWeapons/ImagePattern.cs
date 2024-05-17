@@ -39,7 +39,8 @@ public class ImagePattern : Pattern
 					float yforvec = (ytoadd * 1 / inverseScale.y) - (image.height * (1 / inverseScale.y) / 2);
 
 					Vector3 vectoadd = new Vector3(xforvec + offset.x, yforvec + offset.y) * scalar;
-					vectoadd = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) * vectoadd;
+					vectoadd = Quaternion.Euler(0, 0, (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90) * vectoadd;
+
 					positions.Add(vectoadd);
 				}
 			}

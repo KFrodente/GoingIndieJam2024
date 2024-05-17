@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2531597428278474645}
   - component: {fileID: 2434425762666144854}
   m_Layer: 0
-  m_Name: MaxTestPatternProj
+  m_Name: Rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

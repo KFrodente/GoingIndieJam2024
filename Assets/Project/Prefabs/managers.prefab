@@ -115,9 +115,12 @@ MonoBehaviour:
   - {fileID: 6397812174836228418, guid: 77ceb1e1aa20f9043be63498476bef17, type: 3}
   - {fileID: 6397812174836228418, guid: 17d39679d5e679e44ae8c3598ccf53cd, type: 3}
   - {fileID: 6397812174836228418, guid: a6403971fe4f3a14ca1e424af2b95846, type: 3}
-  rareCharacter:
   - {fileID: 6397812174836228418, guid: 5c54bcc23d1829345beeea96b1758e56, type: 3}
   - {fileID: 6397812174836228418, guid: 95c5ae27240f96d439028a30899850d1, type: 3}
+  rareCharacter:
+  - {fileID: 6397812174836228418, guid: 113568a3f535ebf4798551684ea4ac5e, type: 3}
+  - {fileID: 6397812174836228418, guid: bc65464b97a0140458e97e110d4ab2f9, type: 3}
+  - {fileID: 6397812174836228418, guid: a386b3d4fbaff8a41b1a7197e37dc22f, type: 3}
   immenseCharacter:
   - {fileID: 6397812174836228418, guid: 0d4001c78fa92c545b1aa6aa64e33240, type: 3}
   - {fileID: 6397812174836228418, guid: 4feb88624a2cdc441b71cc9cda0e2867, type: 3}

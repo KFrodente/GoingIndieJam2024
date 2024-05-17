@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a9484ac49c49deb4d121fb8de38b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
+  cost: 25
   body: {fileID: 1772190323452241645}
   name: Alchemist
   lore: After stealing a potion from a tavern he became obsessed with science and

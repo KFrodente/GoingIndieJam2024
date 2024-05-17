@@ -24,6 +24,7 @@ public class TetheredSpiritCharacter : SpiritCharacter
 
     private void Start()
     {
+        //currentRadius = maxRadius;
         tetheredMovement = movement.GetComponent<TetheredMovement>();
     }
 
@@ -45,15 +46,15 @@ public class TetheredSpiritCharacter : SpiritCharacter
 
         float percentComplete = Mathf.Abs(tetheredMovement.currentAngle) / tetheredMovement.totalRequiredAngle;
 
-        if (percentComplete <= .45f)
+        float whatWillBeAdded = Mathf.Abs(addedAngle * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)));
+        if (percentComplete <= .6f)
         {
-            float whatWillBeAdded = Mathf.Abs(addedAngle * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)) * 2f);
             if (addedAngle > 0) tetheredMovement.currentAngle += whatWillBeAdded;
             else tetheredMovement.currentAngle -= whatWillBeAdded;
         }
         else
         {
-            tetheredMovement.currentAngle += Mathf.Sign(tetheredMovement.currentAngle) * Mathf.Abs(addedAngle) * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)) * 7;
+            tetheredMovement.currentAngle += Mathf.Sign(tetheredMovement.currentAngle) * whatWillBeAdded * 4;//* Mathf.Abs(addedAngle) * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)) * 7;
         }
 
         tetheredMovement.currentRadius = tetheredMovement.maxRadius * (1 - (Mathf.Abs(tetheredMovement.currentAngle) / tetheredMovement.totalRequiredAngle));
@@ -81,6 +82,8 @@ public class TetheredSpiritCharacter : SpiritCharacter
 
         prevDirection = direction;
     }
+
+
     //protected override void FixedUpdate()
     //{
     //    base.FixedUpdate();

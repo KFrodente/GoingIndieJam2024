@@ -913,7 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 323cba172e59f9d429b98c84bb3ceee6, type: 2}
-  defaultDamageType: 48
+  defaultDamageType: 96
   spawnOnTarget: 0
   parentToTarget: 0
 --- !u!114 &917965816486486533
@@ -929,9 +929,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 1886d7c789f242f469fa5c137b453760, type: 2}
-  defaultDamageType: 48
-  spawnOnTarget: 0
-  parentToTarget: 0
+  defaultDamageType: 96
+  spawnOnTarget: 1
+  parentToTarget: 1
 --- !u!114 &-8256740145659277666
 MonoBehaviour:
   m_ObjectHideFlags: 0

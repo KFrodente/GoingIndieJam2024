@@ -10,6 +10,15 @@ public class TetheredDamagable : Damagable
         if (!suicide && dispenser != null) dispenser.Dispense();
         if (IsPlayer && baseCharacter.possessingSpirit != null)
         {
+            if (baseCharacter.isSpirit)
+            { // LOSE!!!
+                AudioManager.instance.doAudio = false;
+                StartCoroutine(TransitionManager.instance.FadeToBlack());
+                StartCoroutine(TransitionManager.instance.SlideUpButton());
+                TransitionManager.instance.TypeText();
+
+                return;
+            }
             baseCharacter.possessingSpirit.Reliquish();
             if (baseCharacter.possessingSpirit.TryGetComponent(out Damagable d))
             {

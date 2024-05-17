@@ -1165,7 +1165,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8980408171277284427}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: dbe173fb04da75a42bc9d66f6fb20ef7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1203,6 +1203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed757d07eed411448824a99f181948bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spiritEjectForce: 100
+  startingHealth: 0
   health: 50
   isHitCounter: 0
   alwaysImmune: 0
@@ -1214,6 +1216,7 @@ MonoBehaviour:
   healthOverBar: {fileID: 8837162859652039251}
   healthUnderBar: {fileID: 4011927565395851499}
   healthLerpSpeed: 20
+  pointsSubtracted: 0
   testDamageAmount: 5
   tetheredDeadBody: {fileID: 0}
   spirit: {fileID: 0}

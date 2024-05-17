@@ -970,6 +970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spiritEjectForce: 100
+  startingHealth: 0
   health: 70
   isHitCounter: 0
   alwaysImmune: 0
@@ -981,6 +983,7 @@ MonoBehaviour:
   healthOverBar: {fileID: 8611961866157389650}
   healthUnderBar: {fileID: 8039591835222744730}
   healthLerpSpeed: 5
+  pointsSubtracted: 0
   testDamageAmount: 5
 --- !u!114 &6718803166621681296
 MonoBehaviour:
@@ -1020,7 +1023,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 8742978284093614969}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: dbe173fb04da75a42bc9d66f6fb20ef7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

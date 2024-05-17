@@ -10,6 +10,7 @@ public class Obelisk : Interactable
     [SerializeField] private GameObject particleActivation;
     private bool activated;
     [SerializeField] private CinemachineVirtualCamera bossRoomCam;
+    [SerializeField] private AudioClip sound;
 
     [SerializeField] private Room room;
     
@@ -30,6 +31,7 @@ public class Obelisk : Interactable
     private void Activate(Transform followPoint)
     {
         activated = true;
+        AudioManager.instance.Play(sound);
         dragonMaker.SpawnDragon();
         if (particleActivation) particleActivation.SetActive(true);
         bossRoomCam.Priority = 100;

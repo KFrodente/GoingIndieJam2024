@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &420008944189954843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8805318469826752041}
+  m_Layer: 0
+  m_Name: chain1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8805318469826752041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420008944189954843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.5, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2531597428278474645}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1274615337179441419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2531597428278474645}
+  - component: {fileID: 2434425762666144854}
+  m_Layer: 0
+  m_Name: Chain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2531597428278474645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274615337179441419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8805318469826752041}
+  - {fileID: 2265058091585555111}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2434425762666144854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274615337179441419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114c05e899443414eb57c0781fd7509b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileData: {fileID: 0}
+  rb: {fileID: 0}
+  timeBeforeActiveDamage: 0
+  onHitEffect:
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0
+  bulletProjectile:
+  - {fileID: 3204321272480393510, guid: ca01cfab1254b82429d7269c2f6e866a, type: 3}
+  patterns:
+  - pattern: {fileID: 11400000, guid: d665b1205a1911f4ca8eb90c4e4924d5, type: 2}
+    totalSpawnTime: 0.1
+    pointDirection: {x: 1, y: 0}
+    delayToNext: 0
+    scale: {x: 1, y: 0.5}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    spawnRandomize: 0
+    spawnWithNextPattern: 0
+    spawnCenterOutwards: 1
+    spawnReverse: 0
+    randomPrefabs: 0
+    flipDirection: 0
+    pointAwayFromSpawner: 0
+    pointAwayFromPosition: 0
+    sameDirection: 1
+    inPointDirection: 0
+    inShootDirection: 0
+    howshoot: 1
+    shootDirection: {x: 0, y: 0}
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 1
+    shootCenterOutwards: 0
+    shootRandomize: 0
+  - pattern: {fileID: 11400000, guid: d665b1205a1911f4ca8eb90c4e4924d5, type: 2}
+    totalSpawnTime: 0.1
+    pointDirection: {x: 1, y: 0}
+    delayToNext: 0
+    scale: {x: 1, y: 0.5}
+    spawnPlacement: {fileID: 8805318469826752041}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    spawnRandomize: 0
+    spawnWithNextPattern: 0
+    spawnCenterOutwards: 1
+    spawnReverse: 0
+    randomPrefabs: 0
+    flipDirection: 0
+    pointAwayFromSpawner: 0
+    pointAwayFromPosition: 0
+    sameDirection: 1
+    inPointDirection: 0
+    inShootDirection: 0
+    howshoot: 1
+    shootDirection: {x: 0, y: 0}
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 1
+    shootCenterOutwards: 0
+    shootRandomize: 0
+  - pattern: {fileID: 11400000, guid: 764130db11aeee44d93fcc59c7570fcb, type: 2}
+    totalSpawnTime: 0.1
+    pointDirection: {x: 1, y: 0}
+    delayToNext: 0
+    scale: {x: 1, y: 0.5}
+    spawnPlacement: {fileID: 2265058091585555111}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 0
+    spawnRandomize: 0
+    spawnWithNextPattern: 0
+    spawnCenterOutwards: 1
+    spawnReverse: 0
+    randomPrefabs: 0
+    flipDirection: 0
+    pointAwayFromSpawner: 0
+    pointAwayFromPosition: 0
+    sameDirection: 1
+    inPointDirection: 0
+    inShootDirection: 0
+    howshoot: 1
+    shootDirection: {x: 0, y: 0}
+    shootDelay: 0
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 1
+    shootCenterOutwards: 0
+    shootRandomize: 0
+  aimOnShoot: 0
+--- !u!1 &5094775350112913772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2265058091585555111}
+  m_Layer: 0
+  m_Name: chain1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2265058091585555111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094775350112913772}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2531597428278474645}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

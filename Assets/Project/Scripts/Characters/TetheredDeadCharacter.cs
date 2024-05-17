@@ -77,8 +77,8 @@ public class TetheredDeadCharacter : BaseCharacter
             tetheredBody.transform.position = transform.position;
             tetheredBody.SetActive(true);
             gameObject.SetActive(false);
-            tetheredBody.GetComponentInChildren<Possessable>().OnInteract(spirit.GetComponent<BaseCharacter>());
             tetheredBody.GetComponent<Damagable>().RefillHealth();
+            tetheredBody.GetComponentInChildren<Possessable>().OnInteract(spirit.GetComponent<BaseCharacter>());
         }
 
         Vector3 chainBodyPos = transform.position;

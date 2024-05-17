@@ -197,7 +197,8 @@ public class Damagable : MonoBehaviour
 
     public virtual void RefillHealth()
     {
-        health = startingHealth * (FloorGenerator.instance.floorNum + 1);
+        //immunityEndTime = 0;
+        Health = startingHealth;
     }
 }
 

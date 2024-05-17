@@ -8,7 +8,7 @@ public class TetheredDamagable : Damagable
     [SerializeField] private GameObject spirit;
     public override void Die(bool suicide = false)
     {
-        if (!suicide && dispenser != null) dispenser.Dispense();
+        //if (!suicide && dispenser != null) dispenser.Dispense();
         if (IsPlayer && baseCharacter.possessingSpirit != null)
         {
             if (baseCharacter.isSpirit)

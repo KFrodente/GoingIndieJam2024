@@ -16,7 +16,7 @@ public class PatternShotWeapon : Weapon
     {
 		float angle = InputUtils.GetAngle(target.GetDirection());
 		if (dontRotateTowardTarget) angle = InputUtils.GetAngle(Vector2.right);
-        
+		if(weaponData.attackSound && AudioManager.instance) AudioManager.instance.Play(weaponData.attackSound);
 		Transform parenttransform = bc.transform;
 		Vector3 spawnposition = parenttransform.position;
 

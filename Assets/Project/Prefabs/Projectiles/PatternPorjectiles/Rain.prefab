@@ -112,7 +112,7 @@ MonoBehaviour:
     inShootDirection: 1
     howshoot: 1
     shootDirection: {x: 0, y: -1}
-    shootDelay: 0.5
+    shootDelay: 0.2
     projectiles: []
     shootReverse: 0
     shootWithNextPattern: 0

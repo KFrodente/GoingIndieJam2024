@@ -85,6 +85,8 @@ MonoBehaviour:
     operation: 0
     value: 0
     duration: 0
+  wallCollision: 1
+  destroyOnWall: 0
   bulletProjectile:
   - {fileID: 3204321272480393510, guid: ca01cfab1254b82429d7269c2f6e866a, type: 3}
   patterns:

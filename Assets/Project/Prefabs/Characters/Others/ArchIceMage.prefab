@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 04a0bb6a781167b4ca4530ee9fd00b35, type: 2}
+  weaponData: {fileID: 11400000, guid: 2e920e42ad551484d8b28955a2dfeda3, type: 2}
   defaultDamageType: 48
   spawnOnTarget: 0
   dontParentToTarget: 0

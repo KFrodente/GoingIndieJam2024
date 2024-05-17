@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: AngryEssence
   m_EditorClassIdentifier: 
   essenceName: Angry
+  essenceDescription: Being angry makes you dangerous. Gives a slight boost to damage
+    and turn speed!
   soulCost: 25
   tier: 3
   statType1: 1

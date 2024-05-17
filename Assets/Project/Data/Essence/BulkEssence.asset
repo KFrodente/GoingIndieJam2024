@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BulkEssence
   m_EditorClassIdentifier: 
   essenceName: Bulk
-  soulCost: 35
-  tier: 3
+  essenceDescription: You've been exercising, I can tell. Makes you deal a lot more
+    damage and move a whole lot faster!
+  soulCost: 55
+  tier: 1
   statType1: 1
   operatorType1: 0
   Value1: 20

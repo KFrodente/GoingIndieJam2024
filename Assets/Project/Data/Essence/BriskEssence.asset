@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BriskEssence
   m_EditorClassIdentifier: 
   essenceName: Brisk
+  essenceDescription: Like the wind! Move slightly faster.
   soulCost: 10
   tier: 4
   statType1: 2

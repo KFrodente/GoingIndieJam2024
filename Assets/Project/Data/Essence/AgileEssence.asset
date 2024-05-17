@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: AgileEssence
   m_EditorClassIdentifier: 
   essenceName: Agile
+  essenceDescription: Makes you insanely agile, giving a great boost to move speed
+    and a slight boost to your damage multiplier!
   soulCost: 40
   tier: 1
   statType1: 2

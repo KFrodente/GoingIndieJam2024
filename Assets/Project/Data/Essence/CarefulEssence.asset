@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: CarefulEssence
   m_EditorClassIdentifier: 
   essenceName: Careful
-  soulCost: 15
-  tier: 3
+  essenceDescription: Maybe a little TOO careful. Penalizes your turn speed and move
+    speed, but increases your attack range mult
+  soulCost: 5
+  tier: 4
   statType1: 4
   operatorType1: 0
   Value1: -20

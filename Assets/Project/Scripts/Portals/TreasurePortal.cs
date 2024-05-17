@@ -61,10 +61,7 @@ public class TreasurePortal : Portal
         StartCoroutine(TransitionManager.instance.FadeOutOfBlack());
 
 
-        if (transform.parent.TryGetComponent(out WalkerGenerator room))
-        {
-            room.SetRoomInactive();
-        }
+
 
         yield return null;
     }

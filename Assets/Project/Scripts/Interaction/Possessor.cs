@@ -18,7 +18,15 @@ public class Possessor : Interactor
     protected virtual void Possess(Interactable i, BaseCharacter c)
     {
         if (!(i is Possessable)) return;
+        if (i.transform.parent.transform.parent != null)
+        {
+            if (i.transform.parent.transform.parent.TryGetComponent(out EnemySpawner ES))
+            {
+                ES.spawnedEnemies--;
+            }
+        }
         i.OnInteract(c);
         // Code for counting Kian
+
     }
 }

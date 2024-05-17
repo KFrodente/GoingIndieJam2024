@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 
     public bool enemiesCleared = false;
 
-    public List<GameObject> spawnedEnemies = new();
+    public int spawnedEnemies = 0;
 
     private void Start()
     {
@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemies(List<Vector2Int> usableSpawnPositions, Vector2 roomOffset)
     {
+        Debug.Log("Should be spawning Enemies");
         if (!enemiesCleared)
         {
             while (roomPoints > 1 && usableSpawnPositions.Count > 0)
@@ -31,11 +32,12 @@ public class EnemySpawner : MonoBehaviour
                 Vector2 pickedPos = usableSpawnPositions[index];
 
 
-                GameObject enemy = Instantiate(GetEnemy(allocatedPoints), pickedPos + roomOffset + (Vector2.one / 2), transform.rotation);
+                Instantiate(GetEnemy(allocatedPoints), pickedPos + roomOffset + (Vector2.one / 2), transform.rotation, transform);
                 usableSpawnPositions.RemoveAt(index);
-                spawnedEnemies.Add(enemy);
+                spawnedEnemies++;
             }
         }
+        StartCoroutine(EnemiesCleared());
     }
 
     private GameObject GetEnemy(int points)
@@ -54,16 +56,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void CheckRoomCleared()
-    {
-        for (int i = 0; i < spawnedEnemies.Count; i++)
-        {
-            if (spawnedEnemies[i] != null)
-            {
-                return;
-            }
-        }
 
-        enemiesCleared = true;
+    private IEnumerator EnemiesCleared()
+    {
+        yield return new WaitUntil(() => spawnedEnemies <= 0);
+
+        gameObject.GetComponent<WalkerGenerator>().SetPortalActivity(true);
     }
 }

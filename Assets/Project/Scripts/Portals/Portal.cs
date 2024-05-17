@@ -15,6 +15,8 @@ public class Portal : Interactable
 
     //Connect ALL portals after creating the portals
 
+    
+
     public override void OnInteract(BaseCharacter character)
     {
         if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Tethered && (!(character is TetheredCharacter))) return;
@@ -44,12 +46,6 @@ public class Portal : Interactable
         yield return new WaitForSecondsRealtime(.35f);
 
         StartCoroutine(TransitionManager.instance.FadeOutOfBlack());
-
-
-        if (transform.parent.TryGetComponent(out WalkerGenerator room)) 
-        {
-            room.SetRoomInactive();
-        }
 
         yield return null;
     }

@@ -84,4 +84,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesCleared: 0
-  spawnedEnemies: []
+  spawnedEnemies: 0

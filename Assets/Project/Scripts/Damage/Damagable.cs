@@ -32,6 +32,8 @@ public class Damagable : MonoBehaviour
     protected float lerpedHealth;
     protected float lerpedHealthTarget;
 
+
+    protected bool pointsSubtracted = false;
     public virtual bool IsPlayer => baseCharacter.possessingSpirit != null || isSpirit;
 
     protected float immunityEndTime = 0;
@@ -156,6 +158,17 @@ public class Damagable : MonoBehaviour
                 if (baseCharacter.possessingSpirit.TryGetComponent(out Rigidbody2D rb))
                 {
                     rb.AddForce(baseCharacter.possessingSpirit.transform.up * 1000, ForceMode2D.Force);
+                }
+            }
+        }
+        else
+        {
+            if (transform.parent != null)
+            {
+                if (transform.parent.TryGetComponent(out EnemySpawner ES) && !pointsSubtracted)
+                {
+                    ES.spawnedEnemies--;
+                    pointsSubtracted = true;
                 }
             }
         }

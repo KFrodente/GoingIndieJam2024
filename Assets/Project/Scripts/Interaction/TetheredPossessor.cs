@@ -22,6 +22,15 @@ public class TetheredPossessor : Possessor
         if (!(i is Possessable)) return;
 
         Debug.Log("SHould have sent over body");
+
+        if (i.transform.parent.transform.parent != null)
+        {
+            if (i.transform.parent.transform.parent.TryGetComponent(out EnemySpawner ES))
+            {
+                ES.spawnedEnemies--;
+            }
+        }
+
         TDC.SetConnectedObject(i.transform.parent.gameObject);
         i.OnInteract(c);
     }

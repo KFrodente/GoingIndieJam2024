@@ -7,9 +7,6 @@ public class WalkerGenerator : Room
 {
     public static int basicRoomProcesses = 5;
 
-    //[SerializeField] private Tile ground;
-    //[SerializeField] private List<Tile> rockTiles = new();
-    //[SerializeField] private List<Tile> dirtTiles = new();
     [SerializeField] private Tile dirt;
     [SerializeField] private RuleTile ground;
     [SerializeField] private Tile portalGround;
@@ -60,7 +57,6 @@ public class WalkerGenerator : Room
 
     public IEnumerator SetRoomActive(BaseCharacter character, Portal connectedPortal, Room currentRoom)
     {
-        previouslyActivated = true;
         int x = 0;
         int y = 0;
 
@@ -82,30 +78,37 @@ public class WalkerGenerator : Room
             x++;
         }
 
-        if (currentRoom.roomType == Type.BASIC)
-            currentRoom.GetComponent<WalkerGenerator>().SetRoomInactive();
+        yield return new WaitForSecondsRealtime(.2f);
 
-        yield return new WaitForSecondsRealtime(.4f);
+        if (!previouslyActivated)
+        {
+            StartFight();
 
-        previouslyActivated = true;
-
-        GetComponent<EnemySpawner>().SpawnEnemies(goodEnemyPositions, roomOffset);
+        }
+        
+        
 
         StartCoroutine(TransitionManager.instance.FadeOutOfBlack());
 
         yield return null;
     }
 
-    public void SetRoomInactive()
+    private void StartFight()
     {
-        //for (int x = 0; x < gridHandler.GetLength(0); x++)
-        //{
-        //    for (int y = 0; y < gridHandler.GetLength(1); y++)
-        //    {
-        //        if (gridHandler[x, y] == Grid.WALL)
-        //            tilemap.SetTile(new Vector3Int(x + (int)roomOffset.x, y + (int)roomOffset.y), null);
-        //    }
-        //}
+            Debug.Log("pls pls");
+            GetComponent<EnemySpawner>().SpawnEnemies(goodEnemyPositions, roomOffset);
+            SetPortalActivity(false);
+
+
+        previouslyActivated = true;
+    }
+
+    public void SetPortalActivity(bool active)
+    {
+        if (topPortal != null) topPortal.gameObject.SetActive(active);
+        if (rightPortal != null) rightPortal.gameObject.SetActive(active);
+        if (bottomPortal != null) bottomPortal.gameObject.SetActive(active);
+        if (leftPortal != null) leftPortal.gameObject.SetActive(active);
     }
 
     private void InitializeGrid()

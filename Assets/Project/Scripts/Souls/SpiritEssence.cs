@@ -1,6 +1,7 @@
 using Stats;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class SpiritEssence : Interactable
@@ -13,6 +14,8 @@ public class SpiritEssence : Interactable
     public SuperTextMesh nameText;
     public SuperTextMesh flavorText;
 
+    private Vector2 characterPos;
+
     private void Awake()
     {
         soulCost = essence.soulCost;
@@ -24,15 +27,20 @@ public class SpiritEssence : Interactable
 
     private void Update()
     {
+        characterPos = BaseCharacter.playerCharacter.transform.position;
+        float distance = Vector2.Distance(characterPos, transform.position);
+        if (distance < 10)
+        {
 
         costText.Text = (soulCost <= 0) ? "" : "Costs: " + soulCost.ToString() + " souls";
         nameText.text = essence.essenceName + " Essence";
         flavorText.Text = essence.essenceDescription;
-        float alpha = 1 - (Vector2.Distance(BaseCharacter.playerCharacter.transform.position, transform.position) / 6) * .6f;
+        float alpha = 1 - (Vector2.Distance(characterPos, transform.position) / 6) * .6f;
             essenceUI.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
             nameText.color = new Color(.01f, .01f, .01f, alpha);
             costText.color = new Color(.01f, .01f, .01f, alpha);
             flavorText.color = new Color(.01f, .01f, .01f, alpha);
+        }
     }
 
     public override void OnInteract(BaseCharacter character)

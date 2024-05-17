@@ -11,7 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/Game.unity
     guid: e5c8f1229a30d37419fdb2fa16418667
-  - enabled: 0
-    path: Assets/Project/Scenes/TestGameScene.unity
-    guid: 6e5e1cc75eb726e4e983a1dbec509282
+  - enabled: 1
+    path: Assets/Project/Scenes/DauntlessTutorial.unity
+    guid: 5f5bca2ad7c5c5545be5909ceec33f74
+  - enabled: 1
+    path: Assets/Project/Scenes/CorvidTutorial.unity
+    guid: 918388fa277a747448f968c04ee62cb7
+  - enabled: 1
+    path: Assets/Project/Scenes/TetheredTutorial.unity
+    guid: 0b131d6cc94a6c0409fda32e8a9e56f2
   m_configObjects: {}

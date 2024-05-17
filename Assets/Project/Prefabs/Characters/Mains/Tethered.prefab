@@ -1216,6 +1216,7 @@ MonoBehaviour:
   healthLerpSpeed: 20
   testDamageAmount: 5
   tetheredDeadBody: {fileID: 0}
+  spirit: {fileID: 0}
 --- !u!114 &8697113959979630645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,8 +1259,8 @@ MonoBehaviour:
   - {fileID: 1695169314987321775}
   - {fileID: 4260541826916412659}
   - {fileID: 4914985286272449387}
-  selectionType: 0
-  weaponUsesBeforeSwap: 
+  selectionType: 1
+  weaponUsesBeforeSwap: 010000000100000001000000
 --- !u!114 &1695169314987321775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,7 +1276,8 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 9dc8ef3a8aa66f549b5917dec6d18ea8, type: 2}
   defaultDamageType: 0
   spawnOnTarget: 0
-  parentToTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0
 --- !u!114 &4260541826916412659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,7 +1293,8 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 6cf470765c64a344eadad768403d27e6, type: 2}
   defaultDamageType: 0
   spawnOnTarget: 0
-  parentToTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0
 --- !u!114 &4914985286272449387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,4 +1310,5 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 6b7cb50f82fddc949ac06bc53743b824, type: 2}
   defaultDamageType: 0
   spawnOnTarget: 0
-  parentToTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0

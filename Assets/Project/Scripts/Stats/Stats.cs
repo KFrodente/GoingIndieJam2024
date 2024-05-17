@@ -1,5 +1,6 @@
 using System;
 using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Stats
 {
@@ -150,13 +151,13 @@ namespace Stats
         public Stats(float dam, float msd, float csd, float tsd, float ar, float asd, float ctsd)
         {
             baseStats = new BaseStats();
-            baseStats.damage = dam;
-            baseStats.moveSpeed = msd;
-            baseStats.chargeSpeed = csd;
-            baseStats.turnSpeed = tsd;
-            baseStats.attackRange = ar;
-            baseStats.attackSpeed = asd;
-            baseStats.chargeTurnSpeed = ctsd;
+            baseStats.damage = Mathf.Clamp(dam, 3, 1000);
+            baseStats.moveSpeed = Mathf.Clamp(msd, 3, 1000);;
+            baseStats.chargeSpeed = Mathf.Clamp(csd, 10, 1000);;
+            baseStats.turnSpeed = Mathf.Clamp(tsd, 0.001f, 1000);;
+            baseStats.attackRange = Mathf.Clamp(ar, 0.001f, 1000);;
+            baseStats.attackSpeed = Mathf.Clamp(asd, 0.001f, 1000);;
+            baseStats.chargeTurnSpeed = Mathf.Clamp(ctsd, 0.001f, 1000);;
         }
     }
     

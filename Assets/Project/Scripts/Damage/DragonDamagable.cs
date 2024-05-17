@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DragonDamagable : Damagable
 {
+    public int collectiveHealth;
     public override void Die(bool suicide = false)
     {
         
@@ -13,5 +14,29 @@ public class DragonDamagable : Damagable
         TransitionManager.instance.TypeText2();
         CharacterSelectManager.selectedCharacter = CharacterSelectManager.Characters.None;
             
+    }
+    public new int Health
+    {
+        get { return health; }
+        set
+        {
+            health = value;
+            if(healthOverBar != null) healthOverBar.value = collectiveHealth / (float)startingHealth;
+            Debug.Log("Correct health Stuff");
+        }
+    }
+
+    public override bool TakeDamage(int damage, ProjectileDamageType type)
+    {
+        collectiveHealth -= damage;
+        DoHealthStuff();
+        //Debug.Log("TAKING DAMAGE: " + collectiveHealth + " | " + damage);
+        
+        return false;
+    }
+
+    private void DoHealthStuff()
+    {
+        if(healthOverBar != null) healthOverBar.value = collectiveHealth / (float)startingHealth;
     }
 }

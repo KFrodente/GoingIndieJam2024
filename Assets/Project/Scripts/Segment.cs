@@ -17,9 +17,9 @@ public class Segment : MonoBehaviour
     private PieceSeparation main;
 
 
-    public float getHealth()
+    public int getHealth()
     {
-        return multD.Health;
+        return multD.startingHealth;
     }
     public void Initialize(float range, float speed, float offset, Segment pieceFollowing, float distance, PieceSeparation main)
     {

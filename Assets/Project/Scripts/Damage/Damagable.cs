@@ -11,7 +11,7 @@ public class Damagable : MonoBehaviour
 {
     [SerializeField] protected float spiritEjectForce = 100;
     [Header("Damage Properties")]
-    protected int startingHealth;
+    public int startingHealth;
     [SerializeField] protected int health = 3;
     [SerializeField] protected bool isHitCounter;
     [SerializeField] protected bool alwaysImmune;
@@ -25,8 +25,8 @@ public class Damagable : MonoBehaviour
 
     // UI
     [Header("UI")]
-    [SerializeField] Slider healthOverBar;
-    [SerializeField] Slider healthUnderBar;
+    [SerializeField] protected Slider healthOverBar;
+    [SerializeField] protected Slider healthUnderBar;
 
     // Health protected vars
     [SerializeField] protected float healthLerpSpeed = 20f;

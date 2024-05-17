@@ -18,7 +18,7 @@ public class MultiWeapon : Weapon
 
 	public bool startedAttack = false;
 
-	public override void InitializeCharacter(BaseCharacter c)
+    public override void InitializeCharacter(BaseCharacter c)
 	{
 		foreach (Weapon weapon in Weapons)
 		{
@@ -31,22 +31,28 @@ public class MultiWeapon : Weapon
 
 	public override bool StartAttack(Target target, BaseCharacter c)
 	{
-		if (!delayOver)
-		{
-			startedAttack = false;
-			return false;
-		}
+
+        if (!delayOver)return false;
+		
 		//savedTarget = target; 
 		//if(prevWeapon) prevWeapon.EndAttack();
-		startedAttack = true;
+
+		StartCoroutine(horribleCoroutine());
 
 		AttackWithCurrentWeapon(target, c);
 		prevWeapon = currentWeapon;
 		lastFireTime = Time.time;
 		PickWeapon();
 
-		return true;
+        return true;
 	}
+
+	private IEnumerator horribleCoroutine()
+	{
+        startedAttack = true;
+        yield return new WaitForSeconds(0.1f);
+        startedAttack = false;
+    }
 
 	private void AttackWithCurrentWeapon(Target t, BaseCharacter c)
 	{
@@ -66,11 +72,13 @@ public class MultiWeapon : Weapon
 		}
 		
 		currentWeapon.StartAttack(t, c);
-	}
+
+    }
 
 	public override void EndAttack()
 	{
-		foreach (Weapon weapon in Weapons)
+
+        foreach (Weapon weapon in Weapons)
 		{
 			weapon.EndAttack();
 		}

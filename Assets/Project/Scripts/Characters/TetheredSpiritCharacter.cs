@@ -8,13 +8,21 @@ public class TetheredSpiritCharacter : SpiritCharacter
     public GameObject tetheredDeadBody;
     public GameObject tetheredBody;
 
+    private TetheredDeadCharacter TDC;
+
+    private void Start()
+    {
+        TDC = tetheredDeadBody.GetComponent<TetheredDeadCharacter>();
+    }
+
     protected override void Update()
     {
         base.Update();
         movement.SetTargetAngle((rb.velocity));
         movement.AngleTowardTargetAngle(999f, this);
 
-        tetheredDeadBody.GetComponent<TetheredDeadCharacter>().SetConnectedObject(gameObject);
+        //if (TDC.connectedObject == null)
+        TDC.SetConnectedObject(gameObject);
 
         //Vector2 offset = (transform.position * 5) - (tetheredDeadBody.transform.position * 5);
         //float distance = offset.magnitude;

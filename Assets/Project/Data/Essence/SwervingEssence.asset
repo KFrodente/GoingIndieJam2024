@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SwervingEssence
   m_EditorClassIdentifier: 
   essenceName: Swerving
+  essenceDescription: Woah watch out! Gain a large boost to turn speed and a small
+    boost to charge speed mult.
   soulCost: 50
   tier: 1
   statType1: 4

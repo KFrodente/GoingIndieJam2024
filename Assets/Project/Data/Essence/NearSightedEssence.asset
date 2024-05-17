@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: NearSightedEssence
   m_EditorClassIdentifier: 
   essenceName: Near-Sighted
+  essenceDescription: You WILL need glasses after this. Lose a slight amount of attack
+    range and turn speed mult, but game some damage.
   soulCost: 15
   tier: 4
   statType1: 5

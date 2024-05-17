@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HulkEssence
   m_EditorClassIdentifier: 
   essenceName: Hulk
+  essenceDescription: Actually does the opposite of what you think it should. Small
+    penalty to your damage mult, but slightly faster turn speed.
   soulCost: 15
   tier: 3
   statType1: 7

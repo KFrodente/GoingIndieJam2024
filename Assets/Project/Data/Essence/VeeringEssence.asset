@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: VeeringEssence
   m_EditorClassIdentifier: 
   essenceName: Veering
-  soulCost: 20
-  tier: 3
+  essenceDescription: You are straying from the path, gain a small boost to your
+    charge speed multiplier to find your way back.
+  soulCost: 10
+  tier: 4
   statType1: 10
   operatorType1: 0
   Value1: 0.7

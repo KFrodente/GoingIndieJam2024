@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CorvidGFX
   - Spectre
+  - ShopMusicPlayer
+  - MainThemePlayer
   layers:
   - Default
   - TransparentFX

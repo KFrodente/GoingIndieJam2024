@@ -14,16 +14,18 @@ public class Obelisk : Interactable
     public override void OnInteract(BaseCharacter character)
     {
         if(activated) return;
-        Activate();
+        Transform fp = character.possessingSpirit.transform;
+        Activate(fp);
 
     }
 
-    private void Activate()
+    private void Activate(Transform followPoint)
     {
         activated = true;
         dragonMaker.SpawnDragon();
         if (particleActivation) particleActivation.SetActive(true);
         bossRoomCam.Priority = 100;
+        bossRoomCam.Follow = followPoint;
     }
 
     

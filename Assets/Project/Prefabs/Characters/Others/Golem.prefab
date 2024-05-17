@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacc1f90d7e84be4cad6f874a31d8756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountRange: {x: 1, y: 2}
+  amountRange: {x: 8, y: 10}
   soulPrefab: {fileID: 3242215970153323200, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
 --- !u!1 &5264747811303998724
 GameObject:
@@ -899,7 +899,8 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: fd7e3ba5b3e275f41a7770ad0db25e35, type: 2}
   defaultDamageType: 1
   spawnOnTarget: 0
-  parentToTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0
 --- !u!114 &1704496609412818287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,7 +916,8 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: fb296e3420f97694c955af38363d5351, type: 2}
   defaultDamageType: 1
   spawnOnTarget: 0
-  parentToTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0
 --- !u!114 &2959343842619051940
 MonoBehaviour:
   m_ObjectHideFlags: 0

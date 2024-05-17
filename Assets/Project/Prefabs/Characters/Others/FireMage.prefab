@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacc1f90d7e84be4cad6f874a31d8756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountRange: {x: 1, y: 2}
+  amountRange: {x: 4, y: 5}
   soulPrefab: {fileID: 3242215970153323200, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
 --- !u!1 &5264747811303998724
 GameObject:

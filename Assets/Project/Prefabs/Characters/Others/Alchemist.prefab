@@ -113,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3622712258089703523}
   - component: {fileID: 8169470628405355318}
+  - component: {fileID: 5845781268100783672}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -187,6 +188,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5845781268100783672
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675375573470031403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4205a1b48cfe76d47b5b224dc53e47b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2953115082942787600
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacc1f90d7e84be4cad6f874a31d8756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountRange: {x: 1, y: 2}
+  amountRange: {x: 8, y: 9}
   soulPrefab: {fileID: 3242215970153323200, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
 --- !u!1 &5264747811303998724
 GameObject:
@@ -677,6 +699,7 @@ GameObject:
   - component: {fileID: 1032848455216467377}
   - component: {fileID: 4893384204910213791}
   - component: {fileID: 3380648635005363441}
+  - component: {fileID: 1507733356166098720}
   m_Layer: 9
   m_Name: Alchemist
   m_TagString: Untagged
@@ -890,6 +913,7 @@ MonoBehaviour:
   - {fileID: 7498817648606547197}
   selectionType: 1
   weaponUsesBeforeSwap: 0300000001000000020000000100000001000000
+  startedAttack: 0
 --- !u!114 &4429422238486517451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,7 +929,8 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 85af904e3d02c1f4aa0b05eb171aee26, type: 2}
   defaultDamageType: 35
   spawnOnTarget: 0
-  parentToTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0
 --- !u!114 &9190933145169605666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,7 +975,8 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: b958c32c1d830004eaf946a5250b740b, type: 2}
   defaultDamageType: 35
   spawnOnTarget: 0
-  parentToTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0
 --- !u!114 &1032848455216467377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,6 +996,7 @@ MonoBehaviour:
   - {fileID: 3380648635005363441}
   selectionType: 0
   weaponUsesBeforeSwap: 
+  startedAttack: 0
 --- !u!114 &4893384204910213791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,7 +1026,22 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 85af904e3d02c1f4aa0b05eb171aee26, type: 2}
   defaultDamageType: 0
   spawnOnTarget: 0
-  parentToTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0
+--- !u!114 &1507733356166098720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae786b622547a7549a188e3132b215f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5845781268100783672}
+  c: {fileID: 303801544410275538}
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

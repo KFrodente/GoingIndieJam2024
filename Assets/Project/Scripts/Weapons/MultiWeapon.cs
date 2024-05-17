@@ -16,6 +16,8 @@ public class MultiWeapon : Weapon
 	private int alternateIndex = 0;
 	private int currentTimesUsed = 0;
 
+	public bool startedAttack = false;
+
 	public override void InitializeCharacter(BaseCharacter c)
 	{
 		foreach (Weapon weapon in Weapons)
@@ -29,9 +31,14 @@ public class MultiWeapon : Weapon
 
 	public override bool StartAttack(Target target, BaseCharacter c)
 	{
-		if (!delayOver) return false;
+		if (!delayOver)
+		{
+			startedAttack = false;
+			return false;
+		}
 		//savedTarget = target; 
 		//if(prevWeapon) prevWeapon.EndAttack();
+		startedAttack = true;
 
 		AttackWithCurrentWeapon(target, c);
 		prevWeapon = currentWeapon;

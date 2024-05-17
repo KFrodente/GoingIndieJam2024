@@ -81,6 +81,8 @@ MonoBehaviour:
   - {fileID: 6048535723004659668, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
   hardEnemies:
   - {fileID: 6048535723004659668, guid: 1b3e7c6f47f2c7d4097712bc49d77566, type: 3}
+  - {fileID: 6048535723004659668, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+  - {fileID: 6048535723004659668, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
 --- !u!114 &1585684234875098319
 MonoBehaviour:
   m_ObjectHideFlags: 0

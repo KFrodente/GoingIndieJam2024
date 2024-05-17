@@ -177,7 +177,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71c85e18ceffdbe40abb20d810abd935, type: 3}
+  m_Sprite: {fileID: 1644482828, guid: 71c85e18ceffdbe40abb20d810abd935, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,7 +198,7 @@ Animator:
   m_GameObject: {fileID: 2675375573470031403}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6df7370ed674323428f5bddb5f7ec056, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacc1f90d7e84be4cad6f874a31d8756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountRange: {x: 1, y: 2}
+  amountRange: {x: 8, y: 9}
   soulPrefab: {fileID: 3242215970153323200, guid: 54ff2471573d92b45a98d0c0fdfc0f34, type: 3}
 --- !u!1 &5264747811303998724
 GameObject:
@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 5377606783720418988}
   - component: {fileID: 1969644216222731332}
   - component: {fileID: -8256740145659277666}
+  - component: {fileID: 5710015681643216711}
   m_Layer: 9
   m_Name: GraveDigger
   m_TagString: Untagged
@@ -935,6 +936,21 @@ MonoBehaviour:
   - {fileID: 1969644216222731332}
   selectionType: 1
   weaponUsesBeforeSwap: 0100000001000000
+  startedAttack: 0
+--- !u!114 &5710015681643216711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9aced228d17e8a419c75b4b41c88b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2525417934905614914}
+  c: {fileID: 303801544410275538}
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

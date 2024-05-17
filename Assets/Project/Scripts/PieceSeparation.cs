@@ -85,7 +85,7 @@ public class PieceSeparation : MonoBehaviour
         Reposition();
         DragonDamager.TakeDamage(brokenSegment.getHealth(), ProjectileDamageType.Acid);
         Debug.Log("Down To: " + segments.Count);
-        if (segments.Count <= 2)
+        if (segments.Count <= 1)
         {
             DragonDamager.Die();
         }

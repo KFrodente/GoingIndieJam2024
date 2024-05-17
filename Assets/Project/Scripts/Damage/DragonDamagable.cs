@@ -38,5 +38,6 @@ public class DragonDamagable : Damagable
     private void DoHealthStuff()
     {
         if(healthOverBar != null) healthOverBar.value = collectiveHealth / (float)startingHealth;
+        lerpedHealthTarget = collectiveHealth;
     }
 }

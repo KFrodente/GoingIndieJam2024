@@ -839,6 +839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spiritEjectForce: 100
+  startingHealth: 0
   health: 130
   isHitCounter: 0
   alwaysImmune: 0
@@ -850,6 +852,7 @@ MonoBehaviour:
   healthOverBar: {fileID: 290528838757789303}
   healthUnderBar: {fileID: 5658632166767207504}
   healthLerpSpeed: 5
+  pointsSubtracted: 0
   testDamageAmount: 5
 --- !u!58 &1533767014830928166
 CircleCollider2D:
@@ -860,7 +863,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 6048535723004659668}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: dbe173fb04da75a42bc9d66f6fb20ef7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

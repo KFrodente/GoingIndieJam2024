@@ -483,6 +483,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a312ab1d534f242a440d3bf61250ff, type: 3}
+--- !u!1001 &185615351
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025352833950134153, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048535723004659668, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
+      propertyPath: m_Name
+      value: GraveDigger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ffcc69f1badd134f868b36b206e8dac, type: 3}
 --- !u!1001 &213607587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2275,6 +2332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DragonSpectre
       objectReference: {fileID: 0}
+    - target: {fileID: 1165588301139305998, guid: 414459b28f43d07438b647b91641fcf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1718189809357902079, guid: 414459b28f43d07438b647b91641fcf6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.64
@@ -2356,3 +2417,4 @@ SceneRoots:
   - {fileID: 893960583}
   - {fileID: 122825758}
   - {fileID: 1399757781528146928}
+  - {fileID: 185615351}

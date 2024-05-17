@@ -133,6 +133,7 @@ public class Damagable : MonoBehaviour
 				StartCoroutine(TransitionManager.instance.FadeToBlack());
 				StartCoroutine(TransitionManager.instance.SlideUpButton());
 				TransitionManager.instance.TypeText2();
+                CharacterSelectManager.selectedCharacter = CharacterSelectManager.Characters.None;
 			}
             if(baseCharacter.isSpirit)
             { // LOSE!!!
@@ -140,6 +141,7 @@ public class Damagable : MonoBehaviour
                 StartCoroutine(TransitionManager.instance.FadeToBlack());
                 StartCoroutine(TransitionManager.instance.SlideUpButton());
                 TransitionManager.instance.TypeText();
+                CharacterSelectManager.selectedCharacter = CharacterSelectManager.Characters.None;
 
                 return;
             }

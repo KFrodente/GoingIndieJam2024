@@ -16,6 +16,8 @@ public class ComboPattern : Pattern
 	[Tooltip("How many bullets shoul be skipped in the base pattern before the added pattern occurs")]
 	[SerializeField] int skippedBullets;
 	int skippedBulletsCount;
+	[Tooltip("If the skipped bullets should start at 0 or bulletcount")]
+	[SerializeField] bool skipFirstbullet;
 	[Tooltip("The direction the added pattern spawns in")]
 	[SerializeField, HideIf("pointAwayFromZero")] Vector2 spawnDirection;
 	[Tooltip("if the added pattern should point away from spawn")]
@@ -36,7 +38,8 @@ public class ComboPattern : Pattern
 			usedDirection = spawnDirection;
 		}
 
-		skippedBulletsCount = 0;
+		skippedBulletsCount = (!skipFirstbullet) ? 0 : skippedBullets;
+		Debug.Log(skippedBulletsCount);
 		for (int i = 0; i < basepositions.Length; i++)
 		{
 			if (!dontSpawnBasePattern)

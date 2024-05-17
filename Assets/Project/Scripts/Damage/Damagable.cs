@@ -177,7 +177,7 @@ public class Damagable : MonoBehaviour
     protected virtual void Hurt()
     {
         if(damageAudioPlayer) damageAudioPlayer.PlayHitSound();
-        GainImmunity(0.5f);
+        GainImmunity(0.15f);
     }
 
     public virtual float GetHealthPercent()

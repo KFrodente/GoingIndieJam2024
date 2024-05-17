@@ -109,4 +109,4 @@ MonoBehaviour:
     shootWithNextPattern: 0
     shootCenterOutwards: 0
     shootRandomize: 0
-  aimOnShoot: 0
+  aimOnShoot: 1

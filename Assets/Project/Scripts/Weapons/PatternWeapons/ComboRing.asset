@@ -15,8 +15,9 @@ MonoBehaviour:
   bulletPrefab: []
   bulletAmount: 4
   basePattern: {fileID: 11400000, guid: 4f64d0f9f7914e44abc047ea568e09ca, type: 2}
-  addedPattern: {fileID: 11400000, guid: c973af9d49d829249861c3b1bd981899, type: 2}
+  addedPattern: {fileID: 11400000, guid: f9aaa424577405646bbe5d4d805fa0b0, type: 2}
   skippedBullets: 0
+  skipFirstbullet: 0
   spawnDirection: {x: 0, y: 0}
   pointAwayFromZero: 1
   pointTowardsZero: 0

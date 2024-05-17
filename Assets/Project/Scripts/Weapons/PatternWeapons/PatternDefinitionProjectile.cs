@@ -9,13 +9,20 @@ using UnityEngine.UIElements;
 
 public class PatternDefinitionProjectile : Projectile
 {
+	private float lifetime = 20;
 	protected override void OnTriggerEnter2D(Collider2D other)
 	{
 	}
 	protected override void Update()
 	{
+		lifetime -= Time.deltaTime;
+		if (lifetime <= 0) Destroy(gameObject);
 	}
-	public override void Initialize(Target target, int damage)
+    private void OnDisable()
+    {
+        Destroy(gameObject);
+    }
+    public override void Initialize(Target target, int damage)
 	{
 		spawnTime = Time.time;
 		this.damage = damage;

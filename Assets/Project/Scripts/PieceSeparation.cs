@@ -33,7 +33,6 @@ public class PieceSeparation : MonoBehaviour
 
     public float GetHealthPercent()
     {
-        Debug.Log(GetRemainingHealth() / totalStartHealth);
         return GetRemainingHealth() / totalStartHealth;
     }
 

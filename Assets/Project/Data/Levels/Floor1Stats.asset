@@ -15,7 +15,7 @@ MonoBehaviour:
   treasureRoomAmount: 2
   minTreasureDistance: 1
   costToEnter: {x: 20, y: 69}
-  shopRoomAmount: 2
+  shopRoomAmount: 3
   minShopDistance: 0
   minBossDistance: 2
   basicRoomAmount: 8

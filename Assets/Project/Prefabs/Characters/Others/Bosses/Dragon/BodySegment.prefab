@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowPart: {fileID: 2363912694195156700}
+  multD: {fileID: -4426100873540873705}
 --- !u!114 &-4426100873540873705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b210c5dd7df549cf99894730dcd3c1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 150
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -155,6 +156,7 @@ MonoBehaviour:
   healthOverBar: {fileID: 0}
   healthUnderBar: {fileID: 0}
   healthLerpSpeed: 20
+  pointsSubtracted: 0
   testDamageAmount: 5
   segment: {fileID: 2492296653263926546}
 --- !u!58 &-1397846713128147734

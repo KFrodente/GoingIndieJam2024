@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSound: {fileID: 8300000, guid: 328b6f6832cce954f83c7b3ed311e4dc, type: 3}
-  killedSound: {fileID: 8300000, guid: 4dbdd6d61c75c7d4c9171b3199ee7340, type: 3}
+  killedSound: {fileID: 8300000, guid: ae233d391d8a3114494b590253be410b, type: 3}
 --- !u!1 &3539219368129139329
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +563,7 @@ MonoBehaviour:
   healthOverBar: {fileID: 0}
   healthUnderBar: {fileID: 0}
   healthLerpSpeed: 5
+  pointsSubtracted: 0
   testDamageAmount: 5
 --- !u!114 &885881355391374328
 MonoBehaviour:

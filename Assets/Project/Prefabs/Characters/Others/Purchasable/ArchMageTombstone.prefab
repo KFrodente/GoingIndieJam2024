@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 730744712, guid: 4c1fe9f569c3a3a4e9e96b1d283a623c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6309,7 +6309,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 3f5333c0d10d4bd4db584e03842be553, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6329,6 +6329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5100344655115470120}
     m_Modifications:
+    - target: {fileID: 303801544410275538, guid: 2dc929af9783581418771b71e2eb1cb0, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 3245317973475034493}
     - target: {fileID: 3025352833950134153, guid: 2dc929af9783581418771b71e2eb1cb0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6377,17 +6381,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3003375948597128664, guid: 2dc929af9783581418771b71e2eb1cb0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6048535723004659668, guid: 2dc929af9783581418771b71e2eb1cb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3245317973475034493}
   m_SourcePrefab: {fileID: 100100000, guid: 2dc929af9783581418771b71e2eb1cb0, type: 3}
+--- !u!1 &326385223872597330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6048535723004659668, guid: 2dc929af9783581418771b71e2eb1cb0, type: 3}
+  m_PrefabInstance: {fileID: 6302570594955741830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3245317973475034493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326385223872597330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ae6d1985cb484fb598852c9b0a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5998912855739651156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 303801544410275538, guid: 2dc929af9783581418771b71e2eb1cb0, type: 3}
   m_PrefabInstance: {fileID: 6302570594955741830}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 326385223872597330}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71e78062c288fe14191ac37e14e56856, type: 3}

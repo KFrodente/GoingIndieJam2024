@@ -14,15 +14,22 @@ public class SpiritEssence : Interactable
     public SuperTextMesh nameText;
     public SuperTextMesh flavorText;
 
+    private SpriteRenderer essenceSpriteRenderer;
+
     private Vector2 characterPos;
 
     private void Awake()
     {
         soulCost = essence.soulCost;
+        essenceSpriteRenderer = essenceUI.GetComponentInChildren<SpriteRenderer>();
 
         //essenceUI.SetActive(false);
         nameText.text = essence.essenceName + " Essence";
         costText.text = "Costs: " + soulCost.ToString() + " souls";
+        essenceSpriteRenderer.color = new Color(1, 1, 1, 0);
+        nameText.color = new Color(.01f, .01f, .01f, 0);
+        costText.color = new Color(.01f, .01f, .01f, 0);
+        flavorText.color = new Color(.01f, .01f, .01f, 0);
     }
 
     private void Update()
@@ -36,7 +43,7 @@ public class SpiritEssence : Interactable
         nameText.text = essence.essenceName + " Essence";
         flavorText.Text = essence.essenceDescription;
         float alpha = 1 - (Vector2.Distance(characterPos, transform.position) / 6) * .6f;
-            essenceUI.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
+            essenceSpriteRenderer.color = new Color(1, 1, 1, alpha);
             nameText.color = new Color(.01f, .01f, .01f, alpha);
             costText.color = new Color(.01f, .01f, .01f, alpha);
             flavorText.color = new Color(.01f, .01f, .01f, alpha);

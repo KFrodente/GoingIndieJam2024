@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: EnragedEssence
   m_EditorClassIdentifier: 
   essenceName: Enraged
+  essenceDescription: <c=ff2142><j>I don't think you're mad enough!</j></c> Gigantic
+    boost to damage, and a slight boost in move speed multiplier and turn speed.
   soulCost: 100
   tier: 0
   statType1: 1

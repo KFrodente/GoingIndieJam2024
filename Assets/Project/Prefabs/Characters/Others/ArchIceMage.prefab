@@ -841,7 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spiritEjectForce: 100
   startingHealth: 0
-  health: 45
+  health: 100
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0

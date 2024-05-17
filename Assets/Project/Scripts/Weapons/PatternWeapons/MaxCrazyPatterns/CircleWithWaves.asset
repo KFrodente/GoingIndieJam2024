@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0da3f7eb935bc4480176094ecc8478, type: 3}
   m_Name: CircleWithWaves
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: []
   bulletAmount: 4
   basePattern: {fileID: 11400000, guid: c973af9d49d829249861c3b1bd981899, type: 2}
   addedPattern: {fileID: 11400000, guid: ec95c720169dc944490695ee72fc09a6, type: 2}
   skippedBullets: 2
+  skipFirstbullet: 0
   spawnDirection: {x: 0, y: 0}
   pointAwayFromZero: 1
   pointTowardsZero: 0

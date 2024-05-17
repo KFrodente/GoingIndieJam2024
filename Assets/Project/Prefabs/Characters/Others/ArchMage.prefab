@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 5812144892071142150}
   - component: {fileID: 7546472309543668719}
   - component: {fileID: 2724347115338293810}
+  - component: {fileID: 4441787430217716112}
   m_Layer: 9
   m_Name: ArchMage
   m_TagString: Untagged
@@ -875,7 +876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spiritEjectForce: 100
   startingHealth: 0
-  health: 45
+  health: 100
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -922,6 +923,7 @@ MonoBehaviour:
   Weapons:
   - {fileID: 5812144892071142150}
   - {fileID: 2724347115338293810}
+  - {fileID: 4441787430217716112}
   selectionType: 0
   weaponUsesBeforeSwap: 
   startedAttack: 0
@@ -939,6 +941,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: ad51df389ebf57548abf8db871b7f907, type: 2}
   defaultDamageType: 0
+  spawnOnTarget: 0
+  dontParentToTarget: 0
+  dontRotateTowardTarget: 0
+--- !u!114 &4441787430217716112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048535723004659668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da7ccd756938b469a7fadb9cabd70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 16799a34a5006e44ca94d596ef56b59f, type: 2}
+  defaultDamageType: 32
   spawnOnTarget: 0
   dontParentToTarget: 0
   dontRotateTowardTarget: 0

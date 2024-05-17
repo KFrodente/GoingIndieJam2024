@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8d271df47655c479c6232b95d43ff4, type: 3}
   m_Name: CircleWaveSine
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  bulletAmount: 20
+  bulletPrefab: []
+  bulletAmount: 10
   amplitude: 1
   frequency: 1
   SineIntervals: 0.2

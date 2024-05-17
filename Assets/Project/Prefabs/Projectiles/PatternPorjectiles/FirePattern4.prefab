@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1274615337179441419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2531597428278474645}
+  - component: {fileID: 2434425762666144854}
+  m_Layer: 0
+  m_Name: FirePattern4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2531597428278474645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274615337179441419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2434425762666144854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274615337179441419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114c05e899443414eb57c0781fd7509b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileData: {fileID: 0}
+  rb: {fileID: 0}
+  timeBeforeActiveDamage: 0
+  onHitEffect:
+    type: 0
+    operation: 0
+    value: 0
+    duration: 0
+  bulletProjectile:
+  - {fileID: 8967351094168391729, guid: b5c5ceed12072bc4ba5e165b5146c48d, type: 3}
+  patterns:
+  - pattern: {fileID: 11400000, guid: c973af9d49d829249861c3b1bd981899, type: 2}
+    totalSpawnTime: 2
+    pointDirection: {x: 0, y: 1}
+    delayToNext: 0
+    scale: {x: 3, y: 3}
+    spawnPlacement: {fileID: 0}
+    positionShootAwayFrom: {fileID: 0}
+    dontParentToSpawner: 1
+    spawnRandomize: 0
+    spawnWithNextPattern: 0
+    spawnCenterOutwards: 0
+    spawnReverse: 0
+    randomPrefabs: 0
+    flipDirection: 1
+    pointAwayFromSpawner: 1
+    pointAwayFromPosition: 0
+    sameDirection: 0
+    inPointDirection: 0
+    inShootDirection: 0
+    howshoot: 2
+    shootDirection: {x: 0, y: 0}
+    shootDelay: 0.5
+    projectiles: []
+    shootReverse: 0
+    shootWithNextPattern: 0
+    shootCenterOutwards: 0
+    shootRandomize: 0
+  aimOnShoot: 1

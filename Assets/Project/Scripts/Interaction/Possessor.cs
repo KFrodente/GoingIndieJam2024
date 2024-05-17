@@ -15,7 +15,7 @@ public class Possessor : Interactor
             
         }
     }
-    protected void Possess(Interactable i, BaseCharacter c)
+    protected virtual void Possess(Interactable i, BaseCharacter c)
     {
         if (!(i is Possessable)) return;
         i.OnInteract(c);

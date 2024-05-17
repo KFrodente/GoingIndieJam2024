@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 07dc10d2066df0647b5990f01e062fbf, type: 2}
-  defaultDamageType: 0
+  defaultDamageType: 34
 --- !u!114 &6140327678613932532
 MonoBehaviour:
   m_ObjectHideFlags: 0

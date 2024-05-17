@@ -7,12 +7,15 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private SuperTextMesh spiritControlText;
     [SerializeField] private SuperTextMesh text2;
     [SerializeField] private SuperTextMesh text3;
+    [SerializeField] private SuperTextMesh text4;
     [SerializeField] private float timeTillUnread;
+    bool tutorialShown;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (!tutorialShown && Input.GetKeyDown(KeyCode.Q))
         {
+            tutorialShown = true;
             spiritControlText.Read();
             StartCoroutine(unreadTimer());
         }
@@ -27,9 +30,13 @@ public class TutorialManager : MonoBehaviour
         text2.Read();
         yield return new WaitForSeconds(timeTillUnread);
         text2.Unread();
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.7f);
         text3.Read();
         yield return new WaitForSeconds(timeTillUnread);
         text3.Unread();
+        yield return new WaitForSeconds(0.9f);
+        text4.Read();
+        yield return new WaitForSeconds(timeTillUnread);
+        text4.Unread();
     }
 }

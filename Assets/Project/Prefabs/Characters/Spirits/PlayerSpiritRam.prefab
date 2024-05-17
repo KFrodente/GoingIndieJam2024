@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 7a975a2fbf48e7d40baa21bd3c5a68d5, type: 2}
-  defaultDamageType: 0
+  defaultDamageType: 33
   charging: 0
   affectRotation: 1
 --- !u!114 &9070913253358314515

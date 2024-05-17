@@ -693,7 +693,6 @@ MonoBehaviour:
   souls: 0
   tetheredDeadBody: {fileID: 0}
   tetheredBody: {fileID: 0}
-  lr: {fileID: 1127677308988390305}
 --- !u!50 &1533784581151307165
 Rigidbody2D:
   serializedVersion: 4
@@ -750,7 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 062537f56fe13f743b4ec14654ef313e, type: 2}
-  defaultDamageType: 1
+  defaultDamageType: 40
 --- !u!114 &2136333112825555855
 MonoBehaviour:
   m_ObjectHideFlags: 0

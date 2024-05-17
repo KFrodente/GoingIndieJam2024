@@ -35,7 +35,7 @@ public class Portal : Interactable
         }
     }
 
-    private IEnumerator Teleport(BaseCharacter character)
+    protected virtual IEnumerator Teleport(BaseCharacter character)
     {
         StartCoroutine(TransitionManager.instance.FadeToBlack());
 

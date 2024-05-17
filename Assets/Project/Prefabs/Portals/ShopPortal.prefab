@@ -639,7 +639,7 @@ MonoBehaviour:
   debugMode: 0
   totalReadTime: 0.00001
   totalUnreadTime: 0.00001
-  currentReadTime: 18.892033
+  currentReadTime: 20.154787
   autoRead: 1
   rememberReadPosition: 1
   autoQuality: 0
@@ -816,9 +816,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2230485690906010833}
-  - component: {fileID: 5099973099592281358}
   - component: {fileID: 3188647402631998667}
   - component: {fileID: 6837647342196263527}
+  - component: {fileID: 2404998199804557575}
   m_Layer: 0
   m_Name: ShopPortal
   m_TagString: Untagged
@@ -843,23 +843,6 @@ Transform:
   - {fileID: 6305111819340979846}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5099973099592281358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3449573642077812805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2caad81e697b9a43b4daccb8841bdb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectedPortal: {fileID: 0}
-  costToEnter: 0
-  paidPrice: 0
-  portalText: {fileID: 8607632526714659518}
-  active: 0
 --- !u!58 &3188647402631998667
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -907,3 +890,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fb0c018aa03e647a4c2645f4eef462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2404998199804557575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449573642077812805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a060a1d4a8a1caa42adb6093ede42cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedPortal: {fileID: 0}
+  costToEnter: 0
+  paidPrice: 0
+  portalText: {fileID: 8607632526714659518}
+  active: 0

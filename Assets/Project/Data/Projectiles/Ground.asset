@@ -17,7 +17,7 @@ MonoBehaviour:
   lifetime: 3
   pierceCount: 99
   type: 4
-  hitParticle: {fileID: 6537183467329547177, guid: 2bc5af0c838f55d4cbb272bd3f4b0d16, type: 3}
+  hitParticle: {fileID: 2774574974223034609, guid: dcb0537d515a0e64ca2e2c4276244ad5, type: 3}
   hitSound: {fileID: 8300000, guid: ae162df2c77bcc14094bef9c8682299c, type: 3}
   despawnParticle: {fileID: 0}
   despawnSound: {fileID: 0}

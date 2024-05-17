@@ -5,6 +5,7 @@ using UnityEngine;
 public class TetheredDamagable : Damagable
 {
     [SerializeField] private GameObject tetheredDeadBody;
+    [SerializeField] private GameObject spirit;
     public override void Die(bool suicide = false)
     {
         if (!suicide && dispenser != null) dispenser.Dispense();
@@ -30,6 +31,7 @@ public class TetheredDamagable : Damagable
             }
         }
         tetheredDeadBody.transform.position = new Vector3(transform.position.x - 0.01f, transform.position.y, 0);
+        tetheredDeadBody.GetComponent<TetheredDeadCharacter>().SetConnectedObject(spirit);
         tetheredDeadBody.SetActive(true);
         gameObject.SetActive(false);
     }

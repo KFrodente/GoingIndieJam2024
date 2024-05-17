@@ -16,6 +16,14 @@ public class Possessable : Interactable
         {
             SwapInputs();
             SetPossession(character as SpiritCharacter);
+            if (transform.parent.transform.parent != null)
+            {
+                if (transform.parent.transform.parent.TryGetComponent(out EnemySpawner spawner))
+                {
+                    spawner.spawnedEnemies--;
+                    transform.parent.GetComponent<Damagable>().pointsSubtracted = true;
+                }
+            }
             if(healthSystem) healthSystem.SetActive(true);
         }
     }

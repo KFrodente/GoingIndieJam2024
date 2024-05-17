@@ -10,6 +10,7 @@ public class Possessor : Interactor
     {
         if (interactables.Count > 0)
         {
+        Debug.Log("possessed");
             Interactable closest = GetClosest();
             Possess(closest, character);
             
@@ -18,6 +19,7 @@ public class Possessor : Interactor
     protected virtual void Possess(Interactable i, BaseCharacter c)
     {
         if (!(i is Possessable)) return;
+
         if (i.transform.parent.transform.parent != null)
         {
             if (i.transform.parent.transform.parent.TryGetComponent(out EnemySpawner ES))

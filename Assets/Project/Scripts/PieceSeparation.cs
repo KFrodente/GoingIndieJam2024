@@ -7,7 +7,7 @@ using UnityEngine;
 public class PieceSeparation : MonoBehaviour
 {
     [Header("Pieces")]
-    [SerializeField] private Segment head;
+    [SerializeField] public Segment head;
     [SerializeField] private Segment tail;
     [SerializeField] private Segment bodyPrefab;
 
@@ -24,10 +24,28 @@ public class PieceSeparation : MonoBehaviour
     [SerializeField] private Transform startingLocation;
 
     private List<Segment> segments = new List<Segment>();
+
+    private float totalStartHealth = 0;
     private void Start()
     {
-        
+        totalStartHealth = GetRemainingHealth();
     }
+
+    public float GetHealthPercent()
+    {
+        return GetRemainingHealth() / totalStartHealth;
+    }
+
+    private float GetRemainingHealth()
+    {
+        float totalHealth = 0;
+        for(int i = 0; i < segments.Count; i++)
+        {
+            totalHealth += segments[i].getHealth();
+        }
+        return totalHealth;
+    }
+    private List<Segment> bodyPieces = new List<Segment>();
 
     [Button]
     public void SpawnDragon()
@@ -35,7 +53,7 @@ public class PieceSeparation : MonoBehaviour
         flyPatterns.head = CreateSegment(head, 0);
         for (int i = 0; i < length - 1; i++)
         {
-            CreateSegment(bodyPrefab, i + 1);
+            bodyPieces.Add(CreateSegment(bodyPrefab, i + 1));
         }
         CreateSegment(tail, length + 1);
     }

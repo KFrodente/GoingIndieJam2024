@@ -5,6 +5,7 @@ using UnityEngine;
 public class Segment : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer flowPart;
+    [SerializeField] private Damagable multD;
     private float range;
     private float speed;
     private Segment pieceFollowing;
@@ -14,6 +15,12 @@ public class Segment : MonoBehaviour
     private float startTime;
 
     private PieceSeparation main;
+
+
+    public float getHealth()
+    {
+        return multD.Health;
+    }
     public void Initialize(float range, float speed, float offset, Segment pieceFollowing, float distance, PieceSeparation main)
     {
         startTime = offset + Time.time;

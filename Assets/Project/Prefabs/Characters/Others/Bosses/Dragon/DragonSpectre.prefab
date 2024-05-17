@@ -56,7 +56,7 @@ MonoBehaviour:
   head: {fileID: 2160604955480289949, guid: 6c959f8937a9a1b40b18d969ad4855d8, type: 3}
   tail: {fileID: 8127760423111761855, guid: 8cae70f7beda9fc4c80aedf5aa838d4c, type: 3}
   bodyPrefab: {fileID: 2492296653263926546, guid: 4c340224bdb566e4781143e5a99c9662, type: 3}
-  length: 17
+  length: 25
   followDistance: 5.17
   vibrationRate: 1.01
   vibrationAmplitude: 0.2
@@ -794,6 +794,7 @@ MonoBehaviour:
   healthOverBar: {fileID: 0}
   healthUnderBar: {fileID: 0}
   healthLerpSpeed: 20
+  pointsSubtracted: 0
   testDamageAmount: 5
 --- !u!1 &1229152386347913249
 GameObject:

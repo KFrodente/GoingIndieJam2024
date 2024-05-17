@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class BaseInput : MonoBehaviour
+public class BaseInput : MonoBehaviour
 {
     public virtual Vector2 GetNormalizedMoveDirection()
     {

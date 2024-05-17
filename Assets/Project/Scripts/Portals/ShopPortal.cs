@@ -22,11 +22,6 @@ public class ShopPortal : Portal
             mainMusicSource.Stop();
             shopMusicSource.Play();
         }
-        else
-        {
-            mainMusicSource.Play();
-            shopMusicSource.Stop();
-        }
     }
 
     //protected override IEnumerator Teleport(BaseCharacter character)

@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 3101417290434732577}
   - component: {fileID: 6338521792786730837}
   - component: {fileID: 3190309456594150095}
-  - component: {fileID: 6617018599365847507}
   - component: {fileID: 7728014611700281225}
+  - component: {fileID: 6371803669962946657}
   m_Layer: 0
   m_Name: DragonSpectre
   m_TagString: Spectre
@@ -62,7 +62,7 @@ MonoBehaviour:
   vibrationAmplitude: 0.2
   vibrationOffset: 0.18
   scaleDownPercent: 0.96
-  DragonDamager: {fileID: 6617018599365847507}
+  DragonDamager: {fileID: 6371803669962946657}
   startingLocation: {fileID: 394684518066268742}
   flyPatterns: {fileID: 7298007781163463062}
 --- !u!114 &7298007781163463062
@@ -611,30 +611,6 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
---- !u!114 &6617018599365847507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165588301139305998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 642aadbed175a5d4f98f5f792c8f210f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  isHitCounter: 0
-  alwaysImmune: 0
-  isSpirit: 0
-  immunities: 0
-  baseCharacter: {fileID: 0}
-  damageAudioPlayer: {fileID: 0}
-  dispenser: {fileID: 0}
-  healthOverBar: {fileID: 0}
-  healthUnderBar: {fileID: 0}
-  healthLerpSpeed: 20
-  testDamageAmount: 5
 --- !u!114 &7728014611700281225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,6 +771,30 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!114 &6371803669962946657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165588301139305998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0271de5e75ee428dbe9380838fc5f7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  isHitCounter: 0
+  alwaysImmune: 0
+  isSpirit: 0
+  immunities: 0
+  baseCharacter: {fileID: 0}
+  damageAudioPlayer: {fileID: 0}
+  dispenser: {fileID: 0}
+  healthOverBar: {fileID: 0}
+  healthUnderBar: {fileID: 0}
+  healthLerpSpeed: 20
+  testDamageAmount: 5
 --- !u!1 &1229152386347913249
 GameObject:
   m_ObjectHideFlags: 0

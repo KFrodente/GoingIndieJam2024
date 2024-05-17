@@ -17,6 +17,10 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected StatEffect onHitEffect;
     protected bool isActive => Time.time - spawnTime > timeBeforeActiveDamage;
 
+    [Header("Wall Info")]
+    [SerializeField] protected bool wallCollision = true;
+    [SerializeField] protected bool destroyOnWall = false;
+
     //[SerializeField] private InvisibleDestroy invisDestroy;
      
      public virtual void Initialize(Target target, int damage)
@@ -44,6 +48,12 @@ public class Projectile : MonoBehaviour
             
             if(projectileData.hitParticle != null) Instantiate(projectileData.hitParticle, transform.position, transform.rotation);
             if(hits > projectileData.pierceCount) Destroy(this.gameObject);
+        }
+
+        if (wallCollision && other.gameObject.layer == LayerMask.NameToLayer("Tilemap"))
+        {
+            if(destroyOnWall) DestroyProjectile();
+            rb.velocity = Vector2.zero;
         }
     }
     

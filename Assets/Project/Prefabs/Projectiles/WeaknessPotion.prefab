@@ -81,6 +81,8 @@ MonoBehaviour:
     operation: 1
     value: 1.5
     duration: 4
+  wallCollision: 0
+  destroyOnWall: 0
   spin: 30
 --- !u!1 &5339358802178693678
 GameObject:

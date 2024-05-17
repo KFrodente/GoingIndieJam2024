@@ -117,6 +117,8 @@ MonoBehaviour:
     operation: 0
     value: 0
     duration: 0
+  wallCollision: 1
+  destroyOnWall: 1
   spin: 30
   healthIncrease: 25
 --- !u!1 &5339358802178693678

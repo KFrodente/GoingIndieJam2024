@@ -170,6 +170,8 @@ MonoBehaviour:
     operation: 0
     value: 0
     duration: 0
+  wallCollision: 0
+  destroyOnWall: 0
 --- !u!95 &931936329259235576
 Animator:
   serializedVersion: 5

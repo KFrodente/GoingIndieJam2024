@@ -5,28 +5,8 @@ using UnityEngine;
 
 public class TetheredSpiritCharacter : SpiritCharacter
 {
-    [SerializeField] private GameObject tetheredDeadBody;
-    [SerializeField] private GameObject tetheredBody;
-    [SerializeField] private LineRenderer lr;
-
-
-    private Vector3 direction;
-    private Vector3 prevDirection = Vector3.up;
-
-    private float prevTotalAngle = 1;
-    private float prevprevTotalAngle = 0;
-    //private Vector3 prevprevDirection = Vector3.up;
-   // private float distance;
-   // private float theta;
-
-    private TetheredMovement tetheredMovement;
-    private float addedAngle;
-
-    private void Start()
-    {
-        //currentRadius = maxRadius;
-        tetheredMovement = movement.GetComponent<TetheredMovement>();
-    }
+    public GameObject tetheredDeadBody;
+    public GameObject tetheredBody;
 
     protected override void Update()
     {
@@ -34,53 +14,55 @@ public class TetheredSpiritCharacter : SpiritCharacter
         movement.SetTargetAngle((rb.velocity));
         movement.AngleTowardTargetAngle(999f, this);
 
-        Vector2 offset = (transform.position * 5) - (tetheredDeadBody.transform.position * 5);
-        float distance = offset.magnitude;
+        tetheredDeadBody.GetComponent<TetheredDeadCharacter>().SetConnectedObject(gameObject);
+
+        //Vector2 offset = (transform.position * 5) - (tetheredDeadBody.transform.position * 5);
+        //float distance = offset.magnitude;
 
 
 
-        direction = offset / distance;
+        //direction = offset / distance;
 
-        addedAngle = Mathf.Sin(InputUtils.GetAngle(direction) - InputUtils.GetAngle(prevDirection));
-        //float prevAddedAngle = Mathf.Sin(InputUtils.GetAngle(prevDirection) - InputUtils.GetAngle(prevprevDirection));
+        //addedAngle = Mathf.Sin(InputUtils.GetAngle(direction) - InputUtils.GetAngle(prevDirection));
+        ////float prevAddedAngle = Mathf.Sin(InputUtils.GetAngle(prevDirection) - InputUtils.GetAngle(prevprevDirection));
 
-        float percentComplete = Mathf.Abs(tetheredMovement.currentAngle) / tetheredMovement.totalRequiredAngle;
+        //float percentComplete = Mathf.Abs(tetheredMovement.currentAngle) / tetheredMovement.totalRequiredAngle;
 
-        float whatWillBeAdded = Mathf.Abs(addedAngle * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)));
-        if (percentComplete <= .6f)
-        {
-            if (addedAngle > 0) tetheredMovement.currentAngle += whatWillBeAdded;
-            else tetheredMovement.currentAngle -= whatWillBeAdded;
-        }
-        else
-        {
-            tetheredMovement.currentAngle += Mathf.Sign(tetheredMovement.currentAngle) * whatWillBeAdded * 4;//* Mathf.Abs(addedAngle) * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)) * 7;
-        }
+        //float whatWillBeAdded = Mathf.Abs(addedAngle * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)));
+        //if (percentComplete <= .6f)
+        //{
+        //    if (addedAngle > 0) tetheredMovement.currentAngle += whatWillBeAdded;
+        //    else tetheredMovement.currentAngle -= whatWillBeAdded;
+        //}
+        //else
+        //{
+        //    tetheredMovement.currentAngle += Mathf.Sign(tetheredMovement.currentAngle) * whatWillBeAdded * 4;//* Mathf.Abs(addedAngle) * (1 + (Vector2.Distance(transform.position, tetheredDeadBody.transform.position) / tetheredMovement.currentRadius)) * 7;
+        //}
 
-        tetheredMovement.currentRadius = tetheredMovement.maxRadius * (1 - (Mathf.Abs(tetheredMovement.currentAngle) / tetheredMovement.totalRequiredAngle));
+        //tetheredMovement.currentRadius = tetheredMovement.maxRadius * (1 - (Mathf.Abs(tetheredMovement.currentAngle) / tetheredMovement.totalRequiredAngle));
 
-        if ((transform.position - tetheredDeadBody.transform.position).magnitude > tetheredMovement.currentRadius)
-        {
-            transform.position = tetheredDeadBody.transform.position + direction * tetheredMovement.currentRadius;
-        }
+        //if ((transform.position - tetheredDeadBody.transform.position).magnitude > tetheredMovement.currentRadius)
+        //{
+        //    transform.position = tetheredDeadBody.transform.position + direction * tetheredMovement.currentRadius;
+        //}
 
-        if (percentComplete >= .9f)
-        {
-            tetheredMovement.currentAngle = 0;
-            tetheredMovement.currentRadius = tetheredMovement.maxRadius;
-            tetheredBody.transform.position = tetheredDeadBody.transform.position;
-            tetheredBody.SetActive(true);
-            tetheredDeadBody.SetActive(false);
-            tetheredBody.GetComponentInChildren<Possessable>().OnInteract(this);
-            tetheredBody.GetComponent<Damagable>().RefillHealth();
-        }
-        Vector3 chainBodyPos = tetheredDeadBody.transform.position;
-        chainBodyPos.y -= 0.4f;
-        lr.SetPosition(1, chainBodyPos);
-        lr.SetPosition(0, transform.position);
-        //lr.SetPosition(1, tetheredDeadBody.transform.position);
+        //if (percentComplete >= .9f)
+        //{
+        //    tetheredMovement.currentAngle = 0;
+        //    tetheredMovement.currentRadius = tetheredMovement.maxRadius;
+        //    tetheredBody.transform.position = tetheredDeadBody.transform.position;
+        //    tetheredBody.SetActive(true);
+        //    tetheredDeadBody.SetActive(false);
+        //    tetheredBody.GetComponentInChildren<Possessable>().OnInteract(this);
+        //    tetheredBody.GetComponent<Damagable>().RefillHealth();
+        //}
+        //Vector3 chainBodyPos = tetheredDeadBody.transform.position;
+        //chainBodyPos.y -= 0.4f;
+        //lr.SetPosition(1, chainBodyPos);
+        //lr.SetPosition(0, transform.position);
+        ////lr.SetPosition(1, tetheredDeadBody.transform.position);
 
-        prevDirection = direction;
+        //prevDirection = direction;
     }
 
 

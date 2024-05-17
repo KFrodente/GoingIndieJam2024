@@ -17,6 +17,8 @@ public class TombBodyInteractable : Interactable
     public SuperTextMesh costText;
     public SuperTextMesh nameText;
     public SuperTextMesh loreText;
+
+    private Vector2 characterPos;
     public override void OnInteract(BaseCharacter character)
     {
         if (bought) return;
@@ -33,6 +35,11 @@ public class TombBodyInteractable : Interactable
 
     private void Update()
     {
+        characterPos = BaseCharacter.playerCharacter.transform.position;
+        float dist = Vector2.Distance(characterPos, transform.position);
+
+        if (dist < 10) 
+        {
         costText.Text = (cost <= 0) ? "" : "Costs: " + cost.ToString() + " souls";
         nameText.Text = name;
         loreText.Text = lore;
@@ -42,5 +49,6 @@ public class TombBodyInteractable : Interactable
         nameText.color = new Color(.01f, .01f, .01f, alpha);
         costText.color = new Color(.01f, .01f, .01f, alpha);
         loreText.color = new Color(.01f, .01f, .01f, alpha);
+        }
     }
 }

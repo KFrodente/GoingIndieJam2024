@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private SuperTextMesh text2;
     [SerializeField] private SuperTextMesh text3;
     [SerializeField] private SuperTextMesh text4;
+    [SerializeField] private SuperTextMesh text5;
     [SerializeField] private float timeTillUnread;
     bool tutorialShown;
 
@@ -26,17 +27,21 @@ public class TutorialManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeTillUnread);
         spiritControlText.Unread();
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         text2.Read();
         yield return new WaitForSeconds(timeTillUnread);
         text2.Unread();
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1f);
         text3.Read();
         yield return new WaitForSeconds(timeTillUnread);
         text3.Unread();
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1f);
         text4.Read();
         yield return new WaitForSeconds(timeTillUnread);
         text4.Unread();
+        yield return new WaitForSeconds(1f);
+        text5.Read();
+        yield return new WaitForSeconds(timeTillUnread);
+        text5.Unread();
     }
 }

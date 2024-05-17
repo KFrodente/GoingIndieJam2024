@@ -34,25 +34,25 @@ public class SpiritEssenceHolder : MonoBehaviour
         else return GetCRankEssence();
     }
 
-    public GameObject GetSSRankEssence()
+    private GameObject GetSSRankEssence()
     {
         return SSRankEssence[Random.Range(0, SSRankEssence.Count)];
     }
 
-    public GameObject GetSRankEssence()
+    private GameObject GetSRankEssence()
     {
         return SRankEssence[Random.Range(0, SRankEssence.Count)];
     }
 
-    public GameObject GetARankEssence()
+    private GameObject GetARankEssence()
     {
         return ARankEssence[Random.Range(0, ARankEssence.Count)];
     }
-    public GameObject GetBRankEssence()
+    private GameObject GetBRankEssence()
     {
         return BRankEssence[Random.Range(0, BRankEssence.Count)];
     }
-    public GameObject GetCRankEssence()
+    private GameObject GetCRankEssence()
     {
         return CRankEssence[Random.Range(0, CRankEssence.Count)];
     }

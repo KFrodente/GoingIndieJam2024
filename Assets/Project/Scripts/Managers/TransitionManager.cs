@@ -40,7 +40,7 @@ public class TransitionManager : MonoBehaviour
         while (blackScreen.color.a < 1)
         {
             blackScreen.color = new Color(0, 0, 0, blackScreen.color.a + .1f);
-            yield return new WaitForSeconds(.01f);
+            yield return new WaitForSecondsRealtime(.01f);
         }
         blackScreen.color = new Color(0, 0, 0, 1);
         yield return null;
@@ -59,7 +59,7 @@ public class TransitionManager : MonoBehaviour
         while (blackScreen.color.a > 0)
         {
             blackScreen.color = new Color(0, 0, 0, blackScreen.color.a - .1f);
-            yield return new WaitForSeconds(.01f);
+            yield return new WaitForSecondsRealtime(.01f);
         }
         blackScreen.color = new Color(0, 0, 0, 0);
         yield return null;

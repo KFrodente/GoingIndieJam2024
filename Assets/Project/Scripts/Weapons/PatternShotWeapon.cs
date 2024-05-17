@@ -14,8 +14,8 @@ public class PatternShotWeapon : Weapon
 
 	protected override void Fire(Target target)
     {
-		float angle = InputUtils.GetAngle(Vector2.right);
-		if (dontRotateTowardTarget) InputUtils.GetAngle(target.GetDirection());
+		float angle = InputUtils.GetAngle(target.GetDirection());
+		if (dontRotateTowardTarget) angle = InputUtils.GetAngle(Vector2.right);
         
 		Transform parenttransform = bc.transform;
 		Vector3 spawnposition = parenttransform.position;

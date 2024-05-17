@@ -15,8 +15,8 @@ MonoBehaviour:
   bulletPrefab: []
   bulletAmount: 20
   points:
-  - {x: -1, y: 5}
-  - {x: 1, y: 5}
+  - {x: -1, y: 0}
+  - {x: 1, y: 0}
   evenAmountBetweenPoints: 1
   addEndcaps: 0
   pointsAreBulletLocations: 0

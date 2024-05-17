@@ -55,7 +55,7 @@ MonoBehaviour:
   bulletProjectile:
   - {fileID: 3204321272480393510, guid: ef30572503089d248bfc635ee35f061c, type: 3}
   patterns:
-  - pattern: {fileID: 11400000, guid: c973af9d49d829249861c3b1bd981899, type: 2}
+  - pattern: {fileID: 11400000, guid: f9aaa424577405646bbe5d4d805fa0b0, type: 2}
     totalSpawnTime: 1
     pointDirection: {x: 1, y: 0}
     delayToNext: 0

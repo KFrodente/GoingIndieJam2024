@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 354525752239778782}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.22, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: -0.015, y: -0.419, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2148093837089998946}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -324621855, guid: a4d55ae0a02e1fd4fa2e7eefc7726c1c, type: 3}
+  m_Sprite: {fileID: 8359226651421023355, guid: 72824b34ed90a7a429fdedd9de8cf9ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 1904659890530874786}
   - component: {fileID: 8641204938217901441}
   m_Layer: 0
-  m_Name: AlchemistTombstone
+  m_Name: LanternTombstone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ Transform:
   m_Children:
   - {fileID: 6622439440669140347}
   - {fileID: 2148093837089998946}
-  - {fileID: 3842540316177127350}
+  - {fileID: 2053168739849441836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1904659890530874786
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 20
-  body: {fileID: 1772190323452241645}
+  body: {fileID: 3581828097964647287}
   textBox: {fileID: 7763615365212486753}
   costText: {fileID: 7651393955317176979}
   nameText: {fileID: 7651393955317176979}
@@ -313,7 +313,7 @@ MonoBehaviour:
   showEventFoldout: 0
   showBetaFoldout: 0
   info:
-  - pos: {x: 2.5117977, y: -0.41, z: 0}
+  - pos: {x: 4.5746098, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -351,13 +351,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 41
-    chMinY: -5
-    chMaxY: 41
+    chMaxX: 33
+    chMinY: -13
+    chMaxY: 45
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 2.7936726, y: -0.41, z: 0}
+  - pos: {x: 4.805235, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -395,13 +395,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 1
+    chMaxX: 25
     chMinY: -1
-    chMaxY: 1
+    chMaxY: 29
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 2.9217978, y: -0.41, z: 0}
+  - pos: {x: 4.9846096, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -439,13 +439,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 25
+    chMaxX: 33
     chMinY: -1
     chMaxY: 29
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 3.1011727, y: -0.41, z: 0}
+  - pos: {x: 5.2152348, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -483,13 +483,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 29
-    chMinY: -5
-    chMaxY: 29
+    chMaxX: 1
+    chMinY: -1
+    chMaxY: 1
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 3.3061726, y: -0.41, z: 0}
+  - pos: {x: 5.34336, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -529,11 +529,11 @@ MonoBehaviour:
     chMinX: -1
     chMaxX: 29
     chMinY: -1
-    chMaxY: 29
+    chMaxY: 45
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 3.5111725, y: -0.41, z: 0}
+  - pos: {x: 5.54836, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -571,13 +571,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 1
-    chMinY: -1
-    chMaxY: 1
+    chMaxX: 13
+    chMinY: -5
+    chMaxY: 41
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 3.6392975, y: -0.41, z: 0}
+  - pos: {x: 5.65086, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -615,13 +615,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 25
+    chMaxX: 29
     chMinY: -1
-    chMaxY: 29
+    chMaxY: 45
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 3.8186727, y: -0.41, z: 0}
+  - pos: {x: 5.8558598, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -658,14 +658,14 @@ MonoBehaviour:
     soundClipData: {fileID: 0}
     IdxIdentifier: 0
     InfoInUse: 0
-    chMinX: -5
-    chMaxX: 25
-    chMinY: -9
-    chMaxY: 41
+    chMinX: -1
+    chMaxX: 1
+    chMinY: -1
+    chMaxY: 1
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 3.9980476, y: -0.41, z: 0}
+  - pos: {x: 5.983985, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -703,13 +703,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 1
-    chMinY: -1
-    chMaxY: 1
+    chMaxX: 21
+    chMinY: -5
+    chMaxY: 41
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 4.1261725, y: -0.41, z: 0}
+  - pos: {x: 6.1377344, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -747,13 +747,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 29
+    chMaxX: 25
     chMinY: -5
     chMaxY: 41
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 4.3311725, y: -0.41, z: 0}
+  - pos: {x: 6.3171096, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -797,7 +797,7 @@ MonoBehaviour:
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 4.4336724, y: -0.41, z: 0}
+  - pos: {x: 6.4196095, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -835,13 +835,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 29
-    chMinY: -5
-    chMaxY: 29
+    chMaxX: 25
+    chMinY: -1
+    chMaxY: 33
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 4.638673, y: -0.41, z: 0}
+  - pos: {x: 6.5989847, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -879,13 +879,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 29
+    chMaxX: 1
     chMinY: -1
-    chMaxY: 45
+    chMaxY: 1
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 4.8436728, y: -0.41, z: 0}
+  - pos: {x: 6.7271094, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -923,13 +923,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 1
+    chMaxX: 29
     chMinY: -1
-    chMaxY: 1
+    chMaxY: 45
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 4.9717975, y: -0.41, z: 0}
+  - pos: {x: 6.9321094, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -967,13 +967,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 25
-    chMinY: -9
-    chMaxY: 29
+    chMaxX: 13
+    chMinY: -5
+    chMaxY: 41
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 5.1511726, y: -0.41, z: 0}
+  - pos: {x: 7.0346093, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -1011,13 +1011,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 25
+    chMaxX: 29
     chMinY: -1
     chMaxY: 29
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 5.3305473, y: -0.41, z: 0}
+  - pos: {x: 7.2396092, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -1055,1382 +1055,18 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 21
+    chMaxX: 29
     chMinY: -5
     chMaxY: 41
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 5.4842973, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 17
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -5
-    chMaxY: 41
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 5.586797, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 18
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 25
-    chMinY: -1
-    chMaxY: 29
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 5.7661724, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 19
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 29
-    chMinY: -5
-    chMaxY: 29
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 5.9711723, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 20
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 1
-    chMinY: -1
-    chMaxY: 1
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 6.099297, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 21
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 37
-    chMinY: -5
-    chMaxY: 29
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 6.355547, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 22
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 29
-    chMinY: -5
-    chMaxY: 33
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 6.560547, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 23
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 29
-    chMinY: -5
-    chMaxY: 29
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 6.765547, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 24
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -5
-    chMaxY: 41
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 6.8680468, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 25
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 29
-    chMinY: -5
-    chMaxY: 33
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 7.0730467, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 26
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 29
-    chMinY: -1
-    chMaxY: 29
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 7.2780466, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 27
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 25
-    chMinY: -5
-    chMaxY: 41
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 7.4574223, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 28
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 7.559922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 29
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 7.662422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 30
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 7.764922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 31
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 7.867422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 32
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 7.969922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 33
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.072422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 34
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.174922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 35
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.277422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 36
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.379922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 37
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.482422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 38
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.584922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 39
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.687422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 40
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.789922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 41
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.892422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 42
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 8.994922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 43
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 9.097422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 44
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 9.199922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 45
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 9.302422, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 46
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
-    chSize: 64
-    submeshChange: 0
-    invoked: 1
-  - pos: {x: 9.404922, y: -0.41, z: 0}
-    offset: {x: 0, y: 0, z: 0}
-    lineSpacing: 1
-    isEndOfParagraph: 0
-    readTime: 0
-    unreadTime: 0
-    line: 0
-    rawIndex: 47
-    indent: 0
-    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
-    size: {x: 0.41, y: 0.41}
-    alignment: 1
-    drawOrder: 0
-    ev: []
-    ev2: []
-    colorData: {fileID: 0}
-    gradientData: {fileID: 0}
-    textureData: {fileID: 0}
-    delayData: {fileID: 0}
-    waveData: {fileID: 0}
-    jitterData: {fileID: 0}
-    readDelay: 0
-    audioClipData: {fileID: 0}
-    stopPreviousSound: 1
-    pitchMode: 0
-    overridePitch: 1
-    minPitch: 0.9
-    maxPitch: 1.2
-    speedReadPitch: 0
-    fontData: {fileID: 0}
-    quadData: {fileID: 0}
-    isQuad: 0
-    quadIndex: -1
-    materialData: {fileID: 0}
-    soundClipData: {fileID: 0}
-    IdxIdentifier: 0
-    InfoInUse: 0
-    chMinX: -1
-    chMaxX: 13
-    chMinY: -1
-    chMaxY: 45
     chSize: 64
     submeshChange: 0
     invoked: 1
   lineHeights:
   - 0.41
   - 0.41
-  _text: A one of kind potion maniach!!!!!!!!!!!!!!!!!!!!
-  drawText: A one of kind potion maniach!!!!!!!!!!!!!!!!!!!!
-  hyphenedText: A one of kind potion maniach!!!!!!!!!!!!!!!!!!!!
+  _text: How did this die?
+  drawText: How did this die?
+  hyphenedText: How did this die?
   font: {fileID: 12800000, guid: 7de3bb9b9dbbcb947ad717d27ee94bf1, type: 3}
   _color32:
     serializedVersion: 2
@@ -2483,23 +1119,23 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   rawTopLeftBounds: {x: 0, y: 0, z: 0}
   rawBottomRightBounds: {x: -12, y: 0.41, z: 0}
-  rawBottomRightTextBounds: {x: 6.9764047, y: -0.41, z: 0}
+  rawBottomRightTextBounds: {x: 2.8507807, y: -0.41, z: 0}
   topLeftBounds: {x: -3.4900002, y: 1.655, z: -0.1}
   topRightBounds: {x: 8.51, y: 1.655, z: -0.1}
   bottomLeftBounds: {x: -3.4900002, y: 1.245, z: -0.1}
   bottomRightBounds: {x: 8.51, y: 1.245, z: -0.1}
   centerBounds: {x: 2.51, y: 1.45, z: -0.1}
-  topLeftTextBounds: {x: -0.9782026, y: 1.655, z: -0.1}
-  topRightTextBounds: {x: 5.998202, y: 1.655, z: -0.1}
-  bottomLeftTextBounds: {x: -0.9782026, y: 1.245, z: -0.1}
-  bottomRightTextBounds: {x: 5.998202, y: 1.245, z: -0.1}
+  topLeftTextBounds: {x: 1.0846095, y: 1.655, z: -0.1}
+  topRightTextBounds: {x: 3.93539, y: 1.655, z: -0.1}
+  bottomLeftTextBounds: {x: 1.0846095, y: 1.245, z: -0.1}
+  bottomRightTextBounds: {x: 3.93539, y: 1.245, z: -0.1}
   centerTextBounds: {x: 2.5099998, y: 1.45, z: 0}
-  finalTopLeftTextBounds: {x: -0.9782026, y: 1.655, z: -0.1}
-  finalTopRightTextBounds: {x: 5.998202, y: 1.655, z: -0.1}
-  finalBottomLeftTextBounds: {x: -0.9782026, y: 1.245, z: -0.1}
-  finalBottomRightTextBounds: {x: 5.998202, y: 1.245, z: -0.1}
+  finalTopLeftTextBounds: {x: 1.0846095, y: 1.655, z: -0.1}
+  finalTopRightTextBounds: {x: 3.93539, y: 1.655, z: -0.1}
+  finalBottomLeftTextBounds: {x: 1.0846095, y: 1.245, z: -0.1}
+  finalBottomRightTextBounds: {x: 3.93539, y: 1.245, z: -0.1}
   finalCenterTextBounds: {x: 2.5099998, y: 1.45, z: 0}
-  unwrappedBottomRightTextBounds: {x: 6.9956236, y: -0.41, z: 0}
+  unwrappedBottomRightTextBounds: {x: 2.8699994, y: -0.41, z: 0}
   onCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2533,9 +1169,9 @@ MonoBehaviour:
   rtl: 0
   _fade: 1
   bestFit: 0
-  latestNumber: 47
+  latestNumber: 16
   currentUnReadTime: 0
-  preParsedText: A one of kind potion maniach!!!!!!!!!!!!!!!!!!!!
+  preParsedText: How did this die?
 --- !u!33 &3279372861615557834
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3519,7 +2155,7 @@ MonoBehaviour:
   showEventFoldout: 0
   showBetaFoldout: 0
   info:
-  - pos: {x: 5.6252346, y: -0.41, z: 0}
+  - pos: {x: 5.330547, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -3557,13 +2193,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 41
+    chMaxX: 33
     chMinY: -5
     chMaxY: 41
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 5.9071097, y: -0.41, z: 0}
+  - pos: {x: 5.561172, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -3601,13 +2237,13 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 13
+    chMaxX: 29
     chMinY: -5
-    chMaxY: 41
+    chMaxY: 33
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 6.0096097, y: -0.41, z: 0}
+  - pos: {x: 5.766172, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -3646,12 +2282,12 @@ MonoBehaviour:
     InfoInUse: 0
     chMinX: -1
     chMaxX: 29
-    chMinY: -1
+    chMinY: -5
     chMaxY: 29
     chSize: 64
     submeshChange: 0
     invoked: 1
-  - pos: {x: 6.2146096, y: -0.41, z: 0}
+  - pos: {x: 5.971172, y: -0.41, z: 0}
     offset: {x: 0, y: 0, z: 0}
     lineSpacing: 1
     isEndOfParagraph: 0
@@ -3689,18 +2325,150 @@ MonoBehaviour:
     IdxIdentifier: 0
     InfoInUse: 0
     chMinX: -1
-    chMaxX: 25
+    chMaxX: 21
     chMinY: -5
     chMaxY: 41
+    chSize: 64
+    submeshChange: 0
+    invoked: 1
+  - pos: {x: 6.124922, y: -0.41, z: 0}
+    offset: {x: 0, y: 0, z: 0}
+    lineSpacing: 1
+    isEndOfParagraph: 0
+    readTime: 0
+    unreadTime: 0
+    line: 0
+    rawIndex: 4
+    indent: 0
+    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
+    size: {x: 0.41, y: 0.41}
+    alignment: 1
+    drawOrder: 0
+    ev: []
+    ev2: []
+    colorData: {fileID: 0}
+    gradientData: {fileID: 0}
+    textureData: {fileID: 0}
+    delayData: {fileID: 0}
+    waveData: {fileID: 0}
+    jitterData: {fileID: 0}
+    readDelay: 0
+    audioClipData: {fileID: 0}
+    stopPreviousSound: 1
+    pitchMode: 0
+    overridePitch: 1
+    minPitch: 0.9
+    maxPitch: 1.2
+    speedReadPitch: 0
+    fontData: {fileID: 0}
+    quadData: {fileID: 0}
+    isQuad: 0
+    quadIndex: -1
+    materialData: {fileID: 0}
+    soundClipData: {fileID: 0}
+    IdxIdentifier: 0
+    InfoInUse: 0
+    chMinX: -1
+    chMaxX: 29
+    chMinY: -1
+    chMaxY: 29
+    chSize: 64
+    submeshChange: 0
+    invoked: 1
+  - pos: {x: 6.3299217, y: -0.41, z: 0}
+    offset: {x: 0, y: 0, z: 0}
+    lineSpacing: 1
+    isEndOfParagraph: 0
+    readTime: 0
+    unreadTime: 0
+    line: 0
+    rawIndex: 5
+    indent: 0
+    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
+    size: {x: 0.41, y: 0.41}
+    alignment: 1
+    drawOrder: 0
+    ev: []
+    ev2: []
+    colorData: {fileID: 0}
+    gradientData: {fileID: 0}
+    textureData: {fileID: 0}
+    delayData: {fileID: 0}
+    waveData: {fileID: 0}
+    jitterData: {fileID: 0}
+    readDelay: 0
+    audioClipData: {fileID: 0}
+    stopPreviousSound: 1
+    pitchMode: 0
+    overridePitch: 1
+    minPitch: 0.9
+    maxPitch: 1.2
+    speedReadPitch: 0
+    fontData: {fileID: 0}
+    quadData: {fileID: 0}
+    isQuad: 0
+    quadIndex: -1
+    materialData: {fileID: 0}
+    soundClipData: {fileID: 0}
+    IdxIdentifier: 0
+    InfoInUse: 0
+    chMinX: -1
+    chMaxX: 21
+    chMinY: -1
+    chMaxY: 29
+    chSize: 64
+    submeshChange: 0
+    invoked: 1
+  - pos: {x: 6.483672, y: -0.41, z: 0}
+    offset: {x: 0, y: 0, z: 0}
+    lineSpacing: 1
+    isEndOfParagraph: 0
+    readTime: 0
+    unreadTime: 0
+    line: 0
+    rawIndex: 6
+    indent: 0
+    drawAnimData: {fileID: 11400000, guid: 79b3a58975db94dc0878c84bf4315875, type: 2}
+    size: {x: 0.41, y: 0.41}
+    alignment: 1
+    drawOrder: 0
+    ev: []
+    ev2: []
+    colorData: {fileID: 0}
+    gradientData: {fileID: 0}
+    textureData: {fileID: 0}
+    delayData: {fileID: 0}
+    waveData: {fileID: 0}
+    jitterData: {fileID: 0}
+    readDelay: 0
+    audioClipData: {fileID: 0}
+    stopPreviousSound: 1
+    pitchMode: 0
+    overridePitch: 1
+    minPitch: 0.9
+    maxPitch: 1.2
+    speedReadPitch: 0
+    fontData: {fileID: 0}
+    quadData: {fileID: 0}
+    isQuad: 0
+    quadIndex: -1
+    materialData: {fileID: 0}
+    soundClipData: {fileID: 0}
+    IdxIdentifier: 0
+    InfoInUse: 0
+    chMinX: -1
+    chMaxX: 29
+    chMinY: -5
+    chMaxY: 29
     chSize: 64
     submeshChange: 0
     invoked: 1
   lineHeights:
   - 0.41
   - 0.41
-  _text: Alch
-  drawText: Alch
-  hyphenedText: Alch
+  _text: Lantern
+  drawText: Lantern
+  hyphenedText: Lantern
   font: {fileID: 12800000, guid: 7de3bb9b9dbbcb947ad717d27ee94bf1, type: 3}
   _color32:
     serializedVersion: 2
@@ -3753,23 +2521,23 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   rawTopLeftBounds: {x: 0, y: 0, z: 0}
   rawBottomRightBounds: {x: -12, y: 0.41, z: 0}
-  rawBottomRightTextBounds: {x: 0.7495312, y: -0.41, z: 0}
+  rawBottomRightTextBounds: {x: 1.3389063, y: -0.41, z: 0}
   topLeftBounds: {x: -3.4900002, y: 2.725, z: -0.1}
   topRightBounds: {x: 8.51, y: 2.725, z: -0.1}
   bottomLeftBounds: {x: -3.4900002, y: 2.315, z: -0.1}
   bottomRightBounds: {x: 8.51, y: 2.315, z: -0.1}
   centerBounds: {x: 2.51, y: 2.52, z: -0.1}
-  topLeftTextBounds: {x: 2.1352344, y: 2.725, z: -0.1}
-  topRightTextBounds: {x: 2.8847656, y: 2.725, z: -0.1}
-  bottomLeftTextBounds: {x: 2.1352344, y: 2.315, z: -0.1}
-  bottomRightTextBounds: {x: 2.8847656, y: 2.315, z: -0.1}
-  centerTextBounds: {x: 2.51, y: 2.52, z: 0}
-  finalTopLeftTextBounds: {x: 2.1352344, y: 2.725, z: -0.1}
-  finalTopRightTextBounds: {x: 2.8847656, y: 2.725, z: -0.1}
-  finalBottomLeftTextBounds: {x: 2.1352344, y: 2.315, z: -0.1}
-  finalBottomRightTextBounds: {x: 2.8847656, y: 2.315, z: -0.1}
-  finalCenterTextBounds: {x: 2.51, y: 2.52, z: 0}
-  unwrappedBottomRightTextBounds: {x: 0.76874995, y: -0.41, z: 0}
+  topLeftTextBounds: {x: 1.8405466, y: 2.725, z: -0.1}
+  topRightTextBounds: {x: 3.179453, y: 2.725, z: -0.1}
+  bottomLeftTextBounds: {x: 1.8405466, y: 2.315, z: -0.1}
+  bottomRightTextBounds: {x: 3.179453, y: 2.315, z: -0.1}
+  centerTextBounds: {x: 2.5099998, y: 2.52, z: 0}
+  finalTopLeftTextBounds: {x: 1.8405466, y: 2.725, z: -0.1}
+  finalTopRightTextBounds: {x: 3.179453, y: 2.725, z: -0.1}
+  finalBottomLeftTextBounds: {x: 1.8405466, y: 2.315, z: -0.1}
+  finalBottomRightTextBounds: {x: 3.179453, y: 2.315, z: -0.1}
+  finalCenterTextBounds: {x: 2.5099998, y: 2.52, z: 0}
+  unwrappedBottomRightTextBounds: {x: 1.3581251, y: -0.41, z: 0}
   onCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3803,9 +2571,9 @@ MonoBehaviour:
   rtl: 0
   _fade: 1
   bestFit: 0
-  latestNumber: 3
+  latestNumber: 6
   currentUnReadTime: 0
-  preParsedText: Alch
+  preParsedText: Lantern
 --- !u!33 &7492395991438771715
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3976,7 +2744,7 @@ Transform:
   - {fileID: 4880120911568517646}
   m_Father: {fileID: 5100344655115470120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2066945866774313023
+--- !u!1001 &3855754494092000677
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -3984,95 +2752,95 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5100344655115470120}
     m_Modifications:
-    - target: {fileID: 303801544410275538, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 303801544410275538, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: input
       value: 
-      objectReference: {fileID: 8265073665779130595}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+      objectReference: {fileID: 6525792640314822050}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6048535723004659668, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 6048535723004659668, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_Name
-      value: Alchemist
+      value: Lantern
       objectReference: {fileID: 0}
-    - target: {fileID: 6048535723004659668, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - target: {fileID: 6048535723004659668, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5406769814313069043, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - {fileID: 3003375948597128664, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6048535723004659668, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6048535723004659668, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8265073665779130595}
-  m_SourcePrefab: {fileID: 100100000, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
---- !u!114 &1772190323452241645 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 303801544410275538, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
-  m_PrefabInstance: {fileID: 2066945866774313023}
+      addedObject: {fileID: 6525792640314822050}
+  m_SourcePrefab: {fileID: 100100000, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
+--- !u!4 &2053168739849441836 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3025352833950134153, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
+  m_PrefabInstance: {fileID: 3855754494092000677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5719557649788272619}
+--- !u!114 &3581828097964647287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 303801544410275538, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
+  m_PrefabInstance: {fileID: 3855754494092000677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382195256622332529}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71e78062c288fe14191ac37e14e56856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &3842540316177127350 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3025352833950134153, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
-  m_PrefabInstance: {fileID: 2066945866774313023}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5719557649788272619 stripped
+--- !u!1 &7382195256622332529 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6048535723004659668, guid: 804fd89da4e9ce14f9514ed64c5941ba, type: 3}
-  m_PrefabInstance: {fileID: 2066945866774313023}
+  m_CorrespondingSourceObject: {fileID: 6048535723004659668, guid: 83959afae7bacbf40b32f0c68a52226a, type: 3}
+  m_PrefabInstance: {fileID: 3855754494092000677}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8265073665779130595
+--- !u!114 &6525792640314822050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5719557649788272619}
+  m_GameObject: {fileID: 7382195256622332529}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 492ae6d1985cb484fb598852c9b0a683, type: 3}

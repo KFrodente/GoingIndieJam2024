@@ -91,10 +91,10 @@ MonoBehaviour:
   patterns:
   - pattern: {fileID: 11400000, guid: eea9a2ade823dd64fa8e2c587b80b4bc, type: 2}
     totalSpawnTime: 1
-    pointDirection: {x: 1, y: 0}
+    pointDirection: {x: 0, y: -1}
     delayToNext: 0
     scale: {x: 5, y: 1}
-    spawnPlacement: {fileID: 9019526490552455410}
+    spawnPlacement: {fileID: 0}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     spawnRandomize: 1
@@ -106,8 +106,8 @@ MonoBehaviour:
     pointAwayFromSpawner: 0
     pointAwayFromPosition: 0
     sameDirection: 0
-    inPointDirection: 0
-    inShootDirection: 1
+    inPointDirection: 1
+    inShootDirection: 0
     howshoot: 1
     shootDirection: {x: 0, y: -1}
     shootDelay: 0.5

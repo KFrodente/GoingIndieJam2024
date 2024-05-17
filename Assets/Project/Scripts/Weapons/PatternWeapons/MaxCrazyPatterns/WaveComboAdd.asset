@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaveComboAdd
   m_EditorClassIdentifier: 
   bulletPrefab: []
-  bulletAmount: 3
+  bulletAmount: 14
   points:
   - {x: 0, y: 0}
   - {x: 0, y: 2}

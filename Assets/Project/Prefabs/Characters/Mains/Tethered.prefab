@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed757d07eed411448824a99f181948bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   isHitCounter: 0
   alwaysImmune: 0
   isSpirit: 0
@@ -1261,6 +1261,7 @@ MonoBehaviour:
   - {fileID: 4914985286272449387}
   selectionType: 1
   weaponUsesBeforeSwap: 010000000100000001000000
+  startedAttack: 0
 --- !u!114 &1695169314987321775
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BigCircle2
   m_EditorClassIdentifier: 
   bulletPrefab: []
-  bulletAmount: 10
+  bulletAmount: 30
   circleRadius: 2
   arcSpawnedOn: 360
   centerArcInDirection: 0

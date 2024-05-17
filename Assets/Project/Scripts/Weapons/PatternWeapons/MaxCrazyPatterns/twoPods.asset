@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: twoPods
   m_EditorClassIdentifier: 
   bulletPrefab: []
-  bulletAmount: 50
-  amplitude: 2.21
+  bulletAmount: 40
+  amplitude: 1.01
   frequency: 2.4
   SineIntervals: 0.4
   distance: 0.2

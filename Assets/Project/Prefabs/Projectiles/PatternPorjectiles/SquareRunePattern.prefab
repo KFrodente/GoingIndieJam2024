@@ -71,15 +71,15 @@ MonoBehaviour:
     flipDirection: 0
     pointAwayFromSpawner: 0
     pointAwayFromPosition: 0
-    sameDirection: 1
+    sameDirection: 0
     inPointDirection: 0
     inShootDirection: 0
-    howshoot: 0
+    howshoot: 1
     shootDirection: {x: 0, y: 0}
-    shootDelay: 0.1
+    shootDelay: 0.4
     projectiles: []
     shootReverse: 0
     shootWithNextPattern: 0
     shootCenterOutwards: 0
-    shootRandomize: 0
-  aimOnShoot: 0
+    shootRandomize: 1
+  aimOnShoot: 1

@@ -67,9 +67,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.08, y: -0.06}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.38
 --- !u!50 &2397933145337248889
 Rigidbody2D:
   serializedVersion: 4
@@ -117,6 +117,8 @@ MonoBehaviour:
     operation: 0
     value: 0
     duration: 0
+  wallCollision: 1
+  destroyOnWall: 1
   spin: 90.01
 --- !u!1 &5339358802178693678
 GameObject:

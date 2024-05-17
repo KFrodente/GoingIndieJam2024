@@ -21,6 +21,7 @@ public class AreaKnockbackWeapon : Weapon
                 movement.ExplodeAway(transform.position, weaponData.knockback);
             }
         }
+        if(weaponData.attackSound && AudioManager.instance) AudioManager.instance.Play(weaponData.attackSound);
         lastFireTime = Time.time;
     }
 }

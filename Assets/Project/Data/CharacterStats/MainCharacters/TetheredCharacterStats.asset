@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TetheredCharacterStats
   m_EditorClassIdentifier: 
   damage: 20
-  moveSpeed: 10
+  moveSpeed: 8
   chargeSpeed: 20
   turnSpeed: 100
   attackRange: 20
@@ -25,5 +25,4 @@ MonoBehaviour:
   turnSpeedMult: 0
   attackRangeMult: 0
   attackSpeedMult: 0
-  healthMult: 0
   chargeTurnSpeedMult: 0

@@ -10,6 +10,17 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject settingsUI;
     private bool paused = false;
 
+    private void Start()
+    {
+        SettingsManager sm = settingsUI.GetComponent<SettingsManager>();
+        SettingsData settingsData = SaveSystem.LoadSettings();
+        if (settingsData != null)
+        {
+            sm.SetVolume(settingsData.volume);
+            sm.SetMusicVolume(settingsData.musicVolume);
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -139,6 +139,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2678032551673041423}
     m_Modifications:
+    - target: {fileID: 1032494703108625755, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 99f16e1000111a341a3f971903eb8e52, type: 3}
     - target: {fileID: 1211172789275232512, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -182,6 +186,18 @@ PrefabInstance:
     - target: {fileID: 2875245903044552693, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
       propertyPath: m_Name
       value: PlayerSpiritCrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000384700147691845, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000384700147691845, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000384700147691845, guid: e1bb33b820f9e3a4cbd5ff098cf43d25, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

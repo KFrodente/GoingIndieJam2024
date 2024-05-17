@@ -21,6 +21,7 @@ public class QuickDashWeapon : DurationWeapon
     }
     protected override void Fire(Target target)
     {
+        if(weaponData.attackSound && AudioManager.instance) AudioManager.instance.Play(weaponData.attackSound);
         bc.movement.Move(transform.up, bc.GetStats().ChargeSpeed, ForceMode2D.Impulse, bc, true);
         bc.damageable.GainImmunity(weaponData.attackDuration);
         lastFireTime = Time.time;

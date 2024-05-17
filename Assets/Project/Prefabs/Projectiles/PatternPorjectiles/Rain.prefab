@@ -84,6 +84,8 @@ MonoBehaviour:
     operation: 0
     value: 0
     duration: 0
+  wallCollision: 1
+  destroyOnWall: 0
   bulletProjectile:
   - {fileID: 3204321272480393510, guid: 21a2d351bc5742641b20e846ae34d87b, type: 3}
   - {fileID: 3204321272480393510, guid: ef30572503089d248bfc635ee35f061c, type: 3}
@@ -94,7 +96,7 @@ MonoBehaviour:
     pointDirection: {x: 0, y: -1}
     delayToNext: 0
     scale: {x: 5, y: 1}
-    spawnPlacement: {fileID: 0}
+    spawnPlacement: {fileID: 9019526490552455410}
     positionShootAwayFrom: {fileID: 0}
     dontParentToSpawner: 0
     spawnRandomize: 1

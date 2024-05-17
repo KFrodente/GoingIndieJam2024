@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damager: {fileID: 3828826034767346045}
-  inWallTime: 1
+  inWallTime: 4
   suffocationTickDelay: 1
 --- !u!1 &5663336638202250715
 GameObject:

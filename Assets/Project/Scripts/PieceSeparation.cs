@@ -28,11 +28,12 @@ public class PieceSeparation : MonoBehaviour
     private float totalStartHealth = 0;
     private void Start()
     {
-        totalStartHealth = GetRemainingHealth();
+        
     }
 
     public float GetHealthPercent()
     {
+        Debug.Log(GetRemainingHealth() / totalStartHealth);
         return GetRemainingHealth() / totalStartHealth;
     }
 
@@ -56,6 +57,7 @@ public class PieceSeparation : MonoBehaviour
             bodyPieces.Add(CreateSegment(bodyPrefab, i + 1));
         }
         CreateSegment(tail, length + 1);
+        totalStartHealth = GetRemainingHealth();
     }
 
     private Segment CreateSegment(Segment type, int position)

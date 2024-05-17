@@ -10,7 +10,11 @@ public class FloatingBar : MonoBehaviour
 
 	void Update()
     {
-        transform.rotation = Camera.main.transform.rotation;
-        transform.position = target.position + offset;
+        if(target)
+        {
+            transform.rotation = Camera.main.transform.rotation;
+            transform.position = target.position + offset;
+
+        }
     }
 }

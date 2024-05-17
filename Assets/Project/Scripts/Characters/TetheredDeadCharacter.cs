@@ -36,6 +36,12 @@ public class TetheredDeadCharacter : BaseCharacter
     protected override void Update()
     {
         base.Update();
+
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
         Vector2 offset = (connectedObject.transform.position) - (transform.position);
         float distance = offset.magnitude;
 

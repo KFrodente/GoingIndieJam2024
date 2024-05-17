@@ -19,6 +19,15 @@ public class TombBodyInteractable : Interactable
     public SuperTextMesh loreText;
 
     private Vector2 characterPos;
+
+    private void Awake()
+    {
+        textBox.color = new Color(1, 1, 1, 0);
+        nameText.color = new Color(.01f, .01f, .01f, 0);
+        costText.color = new Color(.01f, .01f, .01f, 0);
+        loreText.color = new Color(.01f, .01f, .01f, 0);
+    }
+
     public override void OnInteract(BaseCharacter character)
     {
         if (bought) return;

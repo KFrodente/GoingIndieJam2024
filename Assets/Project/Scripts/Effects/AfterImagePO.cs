@@ -12,18 +12,19 @@ public class AfterImagePO : MonoBehaviour
 
     protected Timer timer;
     protected AfterImageEffect objectPool;
-    public void Init(AfterImageEffect pool)
+    public void Init(AfterImageEffect pool, Quaternion rotation)
     {
-        Reset(pool);
+        Reset(pool, rotation);
         timer = new CountdownTimer(activeTime);
         timer.OnTimerStop += () => Disable();
         timer.Start();
     }
 
-    protected void Reset(AfterImageEffect pool)
+    protected void Reset(AfterImageEffect pool, Quaternion rot)
     {
         objectPool = pool;
         transform.position = pool.transform.position;
+        transform.rotation = rot;
         gameObject.SetActive(true);
         afterImage.color = new Color(1f, 1f, 1f, startAlpha);
     }

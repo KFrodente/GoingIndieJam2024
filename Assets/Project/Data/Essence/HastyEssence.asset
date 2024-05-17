@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HastyEssence
   m_EditorClassIdentifier: 
   essenceName: Hasty
+  essenceDescription: Woah... So Hasty. Gives a decent boost to move speed, and a
+    small boost to your damage multiplier.
   soulCost: 35
   tier: 2
   statType1: 2

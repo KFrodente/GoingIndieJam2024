@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: DriftingEssence
   m_EditorClassIdentifier: 
   essenceName: Drifting
+  essenceDescription: So many donuts... Gives a moderate boost to turn speed and
+    move speed.
   soulCost: 30
   tier: 2
   statType1: 4

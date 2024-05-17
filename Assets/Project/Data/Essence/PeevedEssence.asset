@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PeevedEssence
   m_EditorClassIdentifier: 
   essenceName: Peeved
+  essenceDescription: I've never seen someone so slightly annoyed. Gain a tiny boost
+    to damage
   soulCost: 5
   tier: 4
   statType1: 1

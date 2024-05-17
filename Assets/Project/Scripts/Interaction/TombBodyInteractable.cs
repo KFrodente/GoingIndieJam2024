@@ -8,6 +8,9 @@ public class TombBodyInteractable : Interactable
 {
     [SerializeField] public int cost;
     [SerializeField] private BaseCharacter body;
+
+    [SerializeField] private string name;
+    [SerializeField] private string lore;
     private bool bought;
     [Header("UI")]
     [SerializeField] private SpriteRenderer textBox;
@@ -31,6 +34,8 @@ public class TombBodyInteractable : Interactable
     private void Update()
     {
         costText.Text = (cost <= 0) ? "" : "Costs: " + cost.ToString() + " souls";
+        nameText.Text = name;
+        loreText.Text = lore;
 
         float alpha = 1 - (Vector2.Distance(BaseCharacter.playerCharacter.transform.position, transform.position) / 6) * .6f;
         textBox.color = new Color(1, 1, 1, alpha);

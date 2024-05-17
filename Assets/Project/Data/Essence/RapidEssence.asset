@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: RapidEssence
   m_EditorClassIdentifier: 
   essenceName: Rapid
+  essenceDescription: <j>WOAH SLOW YOUR ROLL</j>. Gain a gigantic amount of move
+    speed and a moderate boost to your damage multiplier.
   soulCost: 75
   tier: 0
   statType1: 2

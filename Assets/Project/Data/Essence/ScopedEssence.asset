@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ScopedEssence
   m_EditorClassIdentifier: 
   essenceName: Scoped
+  essenceDescription: Easily see farther away. Gain a moderate boost to attack range,
+    and a tiny boost to your turn speed multiplier.
   soulCost: 15
   tier: 3
   statType1: 5

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: VexedEssence
   m_EditorClassIdentifier: 
   essenceName: Vexed
+  essenceDescription: How did that happen?! gain a small boost to your damage.
   soulCost: 10
   tier: 4
   statType1: 1

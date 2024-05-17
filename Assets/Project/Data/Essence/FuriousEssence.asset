@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: FuriousEssence
   m_EditorClassIdentifier: 
   essenceName: Furious
+  essenceDescription: Don't be mad at me, be mad at them! gives a large boost to
+    damage and a slight boost to your charging turn speed
   soulCost: 50
   tier: 2
   statType1: 1

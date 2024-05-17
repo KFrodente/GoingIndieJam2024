@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CarvingEssence
   m_EditorClassIdentifier: 
   essenceName: Carving
-  essenceDescription: Like a lumberjack! Turn faster and deal more damage! <c=red><j>START
+  essenceDescription: Like a lumberjack! Turn faster and deal more damage! <j>START
     CARVING
   soulCost: 35
   tier: 2

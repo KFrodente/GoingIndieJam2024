@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SteeringEssence
   m_EditorClassIdentifier: 
   essenceName: Steering
+  essenceDescription: Good job, you know how to turn! Gain a moderate boost to turn
+    speed.
   soulCost: 15
   tier: 3
   statType1: 4

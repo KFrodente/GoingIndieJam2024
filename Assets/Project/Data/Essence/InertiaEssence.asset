@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: InertiaEssence
   m_EditorClassIdentifier: 
   essenceName: Inertia
+  essenceDescription: You now understand physics! Greatly increases damage, move
+    speed, and charge speed!
   soulCost: 60
   tier: 1
   statType1: 1

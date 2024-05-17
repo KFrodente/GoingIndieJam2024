@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HoneEssence
   m_EditorClassIdentifier: 
   essenceName: Hone
+  essenceDescription: I see you've trained well, so well that you can recognize the
+    weak point of enemies. Deal 2X damage.
   soulCost: 50
   tier: 2
   statType1: 1

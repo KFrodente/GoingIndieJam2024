@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SeethingEssence
   m_EditorClassIdentifier: 
   essenceName: Seething
+  essenceDescription: You are <j>MAD</j>. Gain a moderate boost to your damage and
+    a small bonus to charge turn speed.
   soulCost: 35
   tier: 2
   statType1: 1

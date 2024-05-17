@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SwiftEssence
   m_EditorClassIdentifier: 
   essenceName: Swift
+  essenceDescription: You are smooth with it. Gain a moderate boost to move speed
+    and a tiny boost to your damage multiplier
   soulCost: 25
   tier: 2
   statType1: 2

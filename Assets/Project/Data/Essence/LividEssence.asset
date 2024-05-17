@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: LividEssence
   m_EditorClassIdentifier: 
   essenceName: Livid
+  essenceDescription: There is no reason to be this mad. Deal loads more damage and
+    gain a slight boost to charge turn speed and move speed multiplier!
   soulCost: 80
   tier: 1
   statType1: 1

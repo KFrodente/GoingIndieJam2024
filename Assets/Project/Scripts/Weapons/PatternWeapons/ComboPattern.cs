@@ -39,7 +39,6 @@ public class ComboPattern : Pattern
 		}
 
 		skippedBulletsCount = (!skipFirstbullet) ? 0 : skippedBullets;
-		Debug.Log(skippedBulletsCount);
 		for (int i = 0; i < basepositions.Length; i++)
 		{
 			if (!dontSpawnBasePattern)

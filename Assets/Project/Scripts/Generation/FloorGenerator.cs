@@ -81,7 +81,7 @@ public class FloorGenerator : MonoBehaviour
             CreateSpecialRooms(shopRooms[Random.Range(0, shopRooms.Count)], 'S', floorStats[floorNum].minShopDistance, Room.Type.SHOP);
         }
 
-        Debug.Log($"rooms dictionary count: {rooms.Count}\n roomObjectDictionary count: {roomObjectDictionary.Count}");
+        //Debug.Log($"rooms dictionary count: {rooms.Count}\n roomObjectDictionary count: {roomObjectDictionary.Count}");
 
         StartCoroutine(DoPortals());
 

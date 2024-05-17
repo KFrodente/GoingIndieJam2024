@@ -63,6 +63,8 @@ public class PieceSeparation : MonoBehaviour
         segments.Remove(brokenSegment);
         brokenSegment.transform.gameObject.SetActive(false);
         Reposition();
+
+        Debug.Log("Down To: " + segments.Count);
         if (segments.Count <= 2)
         {
             DragonDamager.Die();

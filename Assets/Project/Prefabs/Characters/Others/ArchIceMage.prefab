@@ -960,7 +960,7 @@ MonoBehaviour:
   defaultDamageType: 0
   spawnOnTarget: 0
   dontParentToTarget: 0
-  dontRotateTowardTarget: 0
+  dontRotateTowardTarget: 1
 --- !u!1 &7017460489240145287
 GameObject:
   m_ObjectHideFlags: 0

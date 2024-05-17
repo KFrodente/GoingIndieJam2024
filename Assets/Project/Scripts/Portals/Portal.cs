@@ -17,6 +17,8 @@ public class Portal : Interactable
 
     public override void OnInteract(BaseCharacter character)
     {
+        if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Tethered && (!(character is TetheredCharacter))) return;
+
         base.OnInteract(character);
 
         portalText.text = "";

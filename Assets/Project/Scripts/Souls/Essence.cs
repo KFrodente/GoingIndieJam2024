@@ -7,6 +7,7 @@ public class Essence : ScriptableObject
 {
     [Header("Essence Properties")]
     public string essenceName;
+    public string essenceDescription;
     public int soulCost;
     public EssenceTier tier;
 

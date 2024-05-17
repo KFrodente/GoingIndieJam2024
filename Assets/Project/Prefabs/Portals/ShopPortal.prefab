@@ -639,7 +639,7 @@ MonoBehaviour:
   debugMode: 0
   totalReadTime: 0.00001
   totalUnreadTime: 0.00001
-  currentReadTime: 20.154787
+  currentReadTime: 5.302517
   autoRead: 1
   rememberReadPosition: 1
   autoQuality: 0
@@ -817,8 +817,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2230485690906010833}
   - component: {fileID: 3188647402631998667}
-  - component: {fileID: 6837647342196263527}
   - component: {fileID: 2404998199804557575}
+  - component: {fileID: 6837647342196263527}
   m_Layer: 0
   m_Name: ShopPortal
   m_TagString: Untagged
@@ -878,18 +878,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.337
---- !u!114 &6837647342196263527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3449573642077812805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73fb0c018aa03e647a4c2645f4eef462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2404998199804557575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,3 +895,15 @@ MonoBehaviour:
   paidPrice: 0
   portalText: {fileID: 8607632526714659518}
   active: 0
+--- !u!114 &6837647342196263527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449573642077812805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fb0c018aa03e647a4c2645f4eef462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

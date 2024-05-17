@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class Damagable : MonoBehaviour
 {
+    [SerializeField] protected float spiritEjectForce = 100;
     [Header("Damage Properties")]
     protected int startingHealth;
     [SerializeField] protected int health = 3;
@@ -157,7 +158,7 @@ public class Damagable : MonoBehaviour
                 }
                 if (baseCharacter.possessingSpirit.TryGetComponent(out Rigidbody2D rb))
                 {
-                    rb.AddForce(baseCharacter.possessingSpirit.transform.up * 1000, ForceMode2D.Force);
+                    rb.AddForce(baseCharacter.possessingSpirit.transform.up * spiritEjectForce, ForceMode2D.Force);
                 }
             }
         }

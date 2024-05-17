@@ -75,7 +75,7 @@ public class SpiritEssence : Interactable
                 essenceEffect3 = new StatEffect(essence.statType3, essence.operatorType3, essence.Value3);
                 character.characterStats.AddStatModifier(essenceEffect3.GetModifier());
             }
-
+            AudioManager.instance.PlayPickUpSound();
             Destroy(gameObject);
         }
 

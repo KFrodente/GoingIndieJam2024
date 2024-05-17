@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
     public bool doAudio = true;
     public static AudioManager instance;
 
+    [SerializeField] private AudioClip pickUpSound;
+
     public void Play(AudioClip clip)
     {
         if(doAudio) source.PlayOneShot(clip);
@@ -21,5 +23,10 @@ public class AudioManager : MonoBehaviour
     private void OnDestroy()
     {
         instance = null;
+    }
+
+    public void PlayPickUpSound()
+    {
+        Play(pickUpSound);
     }
 }

@@ -956,7 +956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571cdda30eab423787d2393434c99dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statVariables: {fileID: 11400000, guid: 427325f97f08e534bbd5f74b7965a10e, type: 2}
+  statVariables: {fileID: 11400000, guid: f8ff137c5ce1aeb4bb6b24a65368035c, type: 2}
   spiritStatModifiers: {fileID: 0}
 --- !u!114 &6648151417140379923
 MonoBehaviour:

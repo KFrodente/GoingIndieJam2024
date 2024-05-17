@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f9ede18dd62b44baef1a369d011636, type: 3}
+  m_Name: TutorialFloorStats
+  m_EditorClassIdentifier: 
+  treasureRoomAmount: 0
+  minTreasureDistance: 1
+  costToEnter: {x: 23, y: 51}
+  shopRoomAmount: 0
+  minShopDistance: 0
+  minBossDistance: 1
+  basicRoomAmount: 2
+  roomWidth: 200
+  roomHeight: 200
+  fillPercentage: 0.04
+  timesToThicken: 3
+  chanceToThicken: 0.354
+  redirectChance: 0.8
+  removeChance: 0.49
+  createChance: 0.48
+  roomPoints: {x: 4, y: 10}
+  roomOffset: {x: 200, y: 200}

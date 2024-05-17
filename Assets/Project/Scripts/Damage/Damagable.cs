@@ -144,7 +144,7 @@ public class Damagable : MonoBehaviour
                 StartCoroutine(TransitionManager.instance.SlideUpButton());
                 TransitionManager.instance.TypeText();
                 CharacterSelectManager.selectedCharacter = CharacterSelectManager.Characters.None;
-
+                this.enabled = false;
                 return;
             }
             else

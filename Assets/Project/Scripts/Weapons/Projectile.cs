@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [HideInInspector] public bool available;
+
     [SerializeField] protected ProjectileObject projectileData;
     protected int hits;
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected float timeBeforeActiveDamage;
     protected float spawnTime;
-    protected int damage = 0;
+    public int damage = 0;
     protected Target target;
     protected bool initialized;
     [SerializeField] protected StatEffect onHitEffect;
@@ -23,6 +25,13 @@ public class Projectile : MonoBehaviour
 
     //[SerializeField] private InvisibleDestroy invisDestroy;
      
+    public void setAvailability(bool available)
+    {
+        this.available = available;
+
+        gameObject.SetActive(!available);
+    }
+
      public virtual void Initialize(Target target, int damage)
      {
          spawnTime = Time.time;
@@ -67,7 +76,8 @@ public class Projectile : MonoBehaviour
     {
         if (projectileData.despawnParticle) Instantiate(projectileData.despawnParticle, transform.position, transform.rotation);
         if (projectileData.despawnSound) AudioManager.instance.Play(projectileData.despawnSound);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        setAvailability(true);
     }
 }
 

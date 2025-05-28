@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [HideInInspector] public bool available;
+    public bool available;
 
     [SerializeField] protected ProjectileObject projectileData;
     protected int hits;

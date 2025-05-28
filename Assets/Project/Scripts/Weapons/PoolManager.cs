@@ -39,10 +39,10 @@ public class PoolManager : MonoBehaviour
         else
         {
             Projectile spawned = Instantiate(weaponData.projectile, transform.position, rotation);
+            spawned.setAvailability(false);
             spawned.Initialize(target, (int)bc.GetStats().Damage);
             if (weaponData.attackSound && AudioManager.instance) AudioManager.instance.Play(weaponData.attackSound);
             pool.Add(spawned.gameObject);
-            spawned.setAvailability(false);
         }
     }
 

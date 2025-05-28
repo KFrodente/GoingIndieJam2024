@@ -69,20 +69,10 @@ public class FloorGenerator : MonoBehaviour
 
         ConnectBasicRooms();
 
-        CreateSpecialRooms(bossRooms[Random.Range(0, bossRooms.Count)], 'B', floorStats[floorNum].minBossDistance, Room.Type.BOSS);
-
-        for (int i = 0; i < floorStats[floorNum].treasureRoomAmount; i++)
-        {
-            CreateSpecialRooms(treasureRooms[Random.Range(0, treasureRooms.Count)], 't', floorStats[floorNum].minTreasureDistance, Room.Type.TREASURE);
-        }
-
-        for (int i = 0; i < floorStats[floorNum].shopRoomAmount; i++)
-        {
-            CreateSpecialRooms(shopRooms[Random.Range(0, shopRooms.Count)], 'S', floorStats[floorNum].minShopDistance, Room.Type.SHOP);
-        }
-
-        //Debug.Log($"rooms dictionary count: {rooms.Count}\n roomObjectDictionary count: {roomObjectDictionary.Count}");
-
+        MakeBossRoom();
+        MakeTreasureRooms();
+        MakeShopRooms();
+        
         StartCoroutine(DoPortals());
 
     }
@@ -225,27 +215,60 @@ public class FloorGenerator : MonoBehaviour
 
     #endregion
 
+    public void MakeBossRoom(GameObject room = null)
+    {
+        GameObject selectedRoom = (room == null) ? SelectRoom(bossRooms) : room;
+        int minDist = floorStats[floorNum].minTreasureDistance;
+        CreateSpecialRooms(selectedRoom, 'B', floorStats[floorNum].minBossDistance, Room.Type.BOSS);
+    }
+
+    public void MakeTreasureRooms(GameObject room = null)
+    {
+        for (int i = 0; i < floorStats[floorNum].treasureRoomAmount; i++)
+        {
+            GameObject selectedRoom = (room == null) ? SelectRoom(treasureRooms) : room;
+            int minDist = floorStats[floorNum].minTreasureDistance;
+            CreateSpecialRooms(selectedRoom, 't', minDist, Room.Type.TREASURE);
+        }
+    }
+
+    public void MakeShopRooms(GameObject room = null)
+    {
+        for (int i = 0; i < floorStats[floorNum].shopRoomAmount; i++)
+        {
+            GameObject selectedRoom = (room == null) ? SelectRoom(shopRooms) : room;
+            int minDist = floorStats[floorNum].minShopDistance;
+            CreateSpecialRooms(selectedRoom, 'S', minDist, Room.Type.SHOP);
+        }
+    }
+
+    private GameObject SelectRoom(List<GameObject> roomList)
+    {
+        return roomList[Random.Range(0, roomList.Count)];
+    }
+
     private void CreateSpecialRooms(GameObject room, char letter, int minPlaceDistance, Room.Type type)
     {
+
         List<Vector2> usablePositions = new();
         for (int i = 0; i < rooms.Count; i++)
         {
             if (rooms.ElementAt(i).Value == 'b')
             {
                 Vector2 currentRoom = roomObjectDictionary.ElementAt(i).Key;
-                if ((currentRoom + Vector2.up).y >= minPlaceDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.up))
+                if (CheckUsableRoom(currentRoom, Vector2.up, minPlaceDistance))
                 {
                     usablePositions.Add(currentRoom + Vector2.up);
                 }
-                if ((currentRoom + Vector2.right).x >= minPlaceDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.right))
+                if (CheckUsableRoom(currentRoom, Vector2.right, minPlaceDistance))
                 {
                     usablePositions.Add(currentRoom + Vector2.right);
                 }
-                if ((currentRoom + Vector2.down).x >= minPlaceDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.down))
+                if (CheckUsableRoom(currentRoom, Vector2.down, minPlaceDistance))
                 {
                     usablePositions.Add(currentRoom + Vector2.down);
                 }
-                if ((currentRoom + Vector2.left).x >= minPlaceDistance && !roomObjectDictionary.ContainsKey(currentRoom + Vector2.left))
+                if (CheckUsableRoom(currentRoom, Vector2.left, minPlaceDistance))
                 {
                     usablePositions.Add(currentRoom + Vector2.left);
                 }
@@ -256,69 +279,82 @@ public class FloorGenerator : MonoBehaviour
 
         GameObject br = Instantiate(room, new Vector3(floorStats[floorNum].roomOffset.x * pickedPos.x + (floorStats[floorNum].roomOffset.x / 2), floorStats[floorNum].roomOffset.y * pickedPos.y + (floorStats[floorNum].roomOffset.y / 2), 0), transform.rotation);
 
-        br.GetComponent<Room>().roomType = type;
 
-        Room checkedRoom;
+        Room brRoom = br.GetComponent<Room>();
 
-        char checkedChar;
+        brRoom.roomType = type;
 
-        if (rooms.TryGetValue(pickedPos + Vector2.up, out checkedChar))
-        {
-            if (checkedChar == 'b' || checkedChar == 's')
-            {
-                if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
-                {
-                    checkedRoom.connectsDown = true;
-                    checkedRoom.roomConnectedDown = br.GetComponent<Room>();
-                    br.GetComponent<Room>().connectsUp = true;
-                    br.GetComponent<Room>().roomConnectedUp = checkedRoom;
-                }
-            }
-        }
-        else if (rooms.TryGetValue(pickedPos + Vector2.down, out checkedChar))
-        {
-            if (checkedChar == 'b' || checkedChar == 's')
-            {
-                if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
-                {
-                    checkedRoom.connectsUp = true;
-                    checkedRoom.roomConnectedUp = br.GetComponent<Room>();
-                    br.GetComponent<Room>().connectsDown = true;
-                    br.GetComponent<Room>().roomConnectedDown = checkedRoom;
-                }
-            }
-        }
-        else if (rooms.TryGetValue(pickedPos + Vector2.right, out checkedChar))
-        {
-            if (checkedChar == 'b' || checkedChar == 's')
-            {
-                if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
-                {
-                    checkedRoom.connectsLeft = true;
-                    checkedRoom.roomConnectedLeft = br.GetComponent<Room>();
-                    br.GetComponent<Room>().connectsRight = true;
-                    br.GetComponent<Room>().roomConnectedRight = checkedRoom;
-                }
-            }
-        }
-        else if (rooms.TryGetValue(pickedPos + Vector2.left, out checkedChar))
-        {
-            if (checkedChar == 'b' || checkedChar == 's')
-            {
-                if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
-                {
-                    checkedRoom.connectsRight = true;
-                    checkedRoom.roomConnectedRight = br.GetComponent<Room>();
-                    br.GetComponent<Room>().connectsLeft = true;
-                    br.GetComponent<Room>().roomConnectedLeft = checkedRoom;
-                }
-            }
-        }
+
+        //Room checkedRoom;
+
+        //char checkedChar;
+
+        FloorFacade connectionFacade = new FloorFacade(rooms, roomObjectDictionary);
+        connectionFacade.ConnectRoomsAround(pickedPos, brRoom);
+
+
+
+        //if (rooms.TryGetValue(pickedPos + Vector2.up, out checkedChar))
+        //{
+        //    if (checkedChar == 'b' || checkedChar == 's')
+        //    {
+        //        if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.up, out checkedRoom))
+        //        {
+        //            checkedRoom.connectsDown = true;
+        //            checkedRoom.roomConnectedDown = brRoom;
+        //            brRoom.connectsUp = true;
+        //            brRoom.roomConnectedUp = checkedRoom;
+        //        }
+        //    }
+        //}
+        //else if (rooms.TryGetValue(pickedPos + Vector2.down, out checkedChar))
+        //{
+        //    if (checkedChar == 'b' || checkedChar == 's')
+        //    {
+        //        if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.down, out checkedRoom))
+        //        {
+        //            checkedRoom.connectsUp = true;
+        //            checkedRoom.roomConnectedUp = brRoom;
+        //            brRoom.connectsDown = true;
+        //            brRoom.roomConnectedDown = checkedRoom;
+        //        }
+        //    }
+        //}
+        //else if (rooms.TryGetValue(pickedPos + Vector2.right, out checkedChar))
+        //{
+        //    if (checkedChar == 'b' || checkedChar == 's')
+        //    {
+        //        if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.right, out checkedRoom))
+        //        {
+        //            checkedRoom.connectsLeft = true;
+        //            checkedRoom.roomConnectedLeft = brRoom;
+        //            brRoom.connectsRight = true;
+        //            brRoom.roomConnectedRight = checkedRoom;
+        //        }
+        //    }
+        //}
+        //else if (rooms.TryGetValue(pickedPos + Vector2.left, out checkedChar))
+        //{
+        //    if (checkedChar == 'b' || checkedChar == 's')
+        //    {
+        //        if (roomObjectDictionary.TryGetValue(pickedPos + Vector2.left, out checkedRoom))
+        //        {
+        //            checkedRoom.connectsRight = true;
+        //            checkedRoom.roomConnectedRight = brRoom;
+        //            brRoom.connectsLeft = true;
+        //            brRoom.roomConnectedLeft = checkedRoom;
+        //        }
+        //    }
+        //}
 
         rooms.Add(pickedPos, letter);
         roomObjectDictionary.Add(pickedPos, br.GetComponent<Room>());
     }
 
+    private bool CheckUsableRoom(Vector2 currentRoom, Vector2 dir, int minPlaceDist)
+    {
+        return (currentRoom + dir).y >= minPlaceDist && !roomObjectDictionary.ContainsKey(currentRoom + dir);
+    }
 
     private void GeneratePortals()
     {

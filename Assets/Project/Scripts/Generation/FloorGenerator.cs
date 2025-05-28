@@ -46,6 +46,9 @@ public class FloorGenerator : MonoBehaviour
 
     public int floorNum = 0;
 
+
+    private FloorFacade floorFacade;
+
     private void Awake()
     {
         if (instance != null)
@@ -57,6 +60,7 @@ public class FloorGenerator : MonoBehaviour
 
     private void Start()
     {
+        floorFacade = new FloorFacade()
         generateFloor();
     }
 
@@ -69,9 +73,7 @@ public class FloorGenerator : MonoBehaviour
 
         ConnectBasicRooms();
 
-        MakeBossRoom();
-        MakeTreasureRooms();
-        MakeShopRooms();
+        MakeFancyRooms();
         
         StartCoroutine(DoPortals());
 
@@ -214,6 +216,13 @@ public class FloorGenerator : MonoBehaviour
     }
 
     #endregion
+
+    public void MakeFancyRooms(GameObject bossRoom = null, GameObject treasureRoom = null, GameObject shopRoom = null)
+    {
+        MakeBossRoom();
+        MakeTreasureRooms();
+        MakeShopRooms();
+    }
 
     public void MakeBossRoom(GameObject room = null)
     {

@@ -60,7 +60,6 @@ public class FloorGenerator : MonoBehaviour
 
     private void Start()
     {
-        floorFacade = new FloorFacade()
         generateFloor();
     }
 

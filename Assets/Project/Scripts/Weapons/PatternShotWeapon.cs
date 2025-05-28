@@ -44,8 +44,9 @@ public class PatternShotWeapon : Weapon
 		{
 			parenttransform = null;
 		}
+        PoolManager.Instance.CreateBullet(weaponData, transform.position, Quaternion.Euler(0, 0, angle), target, bc);
 
-		Instantiate(weaponData.projectile, spawnposition, Quaternion.Euler(0, 0, angle), parenttransform).GetComponent<Projectile>().Initialize(target, (int)bc.GetStats().Damage);
+        //Instantiate(weaponData.projectile, spawnposition, Quaternion.Euler(0, 0, angle), parenttransform).GetComponent<Projectile>().Initialize(target, (int)bc.GetStats().Damage);
         //e.Initialize(target, (int)bc.GetStats().Damage);
         //e.transform.SetParent(transform);
         lastFireTime = Time.time;

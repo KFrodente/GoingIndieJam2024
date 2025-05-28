@@ -36,8 +36,8 @@ public class Weapon : MonoBehaviour
     protected virtual void Fire(Target target)
     {
         float angle = InputUtils.GetAngle(target.GetDirection());
-        Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(target, (int)bc.GetStats().Damage);
-        if(weaponData.attackSound && AudioManager.instance) AudioManager.instance.Play(weaponData.attackSound);
+        PoolManager.Instance.CreateBullet(weaponData, transform.position, Quaternion.Euler(0, 0, angle), target, bc);
+        
         lastFireTime = Time.time;
     }
 

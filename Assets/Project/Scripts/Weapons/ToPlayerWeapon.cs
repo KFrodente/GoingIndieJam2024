@@ -9,7 +9,9 @@ public class ToPlayerWeapon : Weapon
         target = new Target(TargetType.Character, null, BaseCharacter.playerCharacter.transform, transform, false);
         lastFireTime = Time.time;
         float angle = InputUtils.GetAngle(target.GetDirection());
-        Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(target, (int)bc.GetStats().Damage);
+        PoolManager.Instance.CreateBullet(weaponData, transform.position, Quaternion.Euler(0, 0, angle), target, bc);
+
+        //Instantiate(weaponData.projectile, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<Projectile>().Initialize(target, (int)bc.GetStats().Damage);
         
     }
 

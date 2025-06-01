@@ -10,6 +10,7 @@ public class BasicPortal : Portal
     {
         shopMusicSource = GameObject.FindWithTag("ShopMusicPlayer").GetComponent<AudioSource>();
         mainMusicSource = GameObject.FindWithTag("MainThemePlayer").GetComponent<AudioSource>();
+        state = new PortalUnOpened(this);
     }
     public override void OnInteract(BaseCharacter character)
     {

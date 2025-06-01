@@ -10,12 +10,13 @@ public class ShopPortal : Portal
     {
         shopMusicSource = GameObject.FindWithTag("ShopMusicPlayer").GetComponent<AudioSource>();
         mainMusicSource = GameObject.FindWithTag("MainThemePlayer").GetComponent<AudioSource>();
+        state = new PortalUnOpened(this);
     }
     public override void OnInteract(BaseCharacter character)
     {
         base.OnInteract(character);
 
-
+        //state.EnterPortal(character);
         //if done here it will happen after teleporting has finished
         if(mainMusicSource.isPlaying)
         {

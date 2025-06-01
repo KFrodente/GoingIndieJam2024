@@ -10,41 +10,46 @@ public class TreasurePortal : Portal
     {
         Vector2Int costToEnter = FloorGenerator.instance.floorStats[FloorGenerator.instance.floorNum].costToEnter;
         this.costToEnter = Random.Range(costToEnter.x, costToEnter.y);
-        portalText.text = "<w=seasick>" + this.costToEnter.ToString() + " souls";
+        state = new PortalLocked(this);
     }
 
     public override void OnInteract(BaseCharacter character)
     {
         if (CharacterSelectManager.selectedCharacter == CharacterSelectManager.Characters.Tethered && (!(character is TetheredCharacter))) return;
 
-        SpiritCharacter spirit = character.possessingSpirit;
-        if (!paidPrice)
-        {
-            if (spirit.Souls - this.costToEnter >= 0)
-            {
-                portalText.text = "<w=seasick>Not Entered";
-                spirit.Souls -= this.costToEnter;
-                paidPrice = true;
-                connectedPortal.GetComponentInParent<TreasureRoom>().GenerateSpiritEssence(this.costToEnter);
+        //SpiritCharacter spirit = character.possessingSpirit;
 
-            }
-        }
+        base.OnInteract(character);
 
-        else if(paidPrice)
-        {
-            Debug.Log($"Entered with {spirit.Souls} and paid price is: {paidPrice}");
+        //state.EnterPortal(character);
 
-                portalText.text = "";
-                connectedPortal.portalText.text = "";
-            if (connectedPortal.transform.parent.TryGetComponent(out WalkerGenerator nextRoom))
-            {
-                StartCoroutine(nextRoom.SetRoomActive(character, connectedPortal, GetComponentInParent<Room>()));
-            }
-            else
-            {
-                StartCoroutine(Teleport(character));
-            }
-        }
+        //if (!paidPrice)
+        //{
+        //    if (spirit.Souls - this.costToEnter >= 0)
+        //    {
+        //        portalText.text = "<w=seasick>Not Entered";
+        //        spirit.Souls -= this.costToEnter;
+        //        paidPrice = true;
+        //        connectedPortal.GetComponentInParent<TreasureRoom>().GenerateSpiritEssence(this.costToEnter);
+
+        //    }
+        //}
+
+        //else if(paidPrice)
+        //{
+        //    Debug.Log($"Entered with {spirit.Souls} and paid price is: {paidPrice}");
+
+        //        portalText.text = "";
+        //        connectedPortal.portalText.text = "";
+        //    if (connectedPortal.transform.parent.TryGetComponent(out WalkerGenerator nextRoom))
+        //    {
+        //        StartCoroutine(nextRoom.SetRoomActive(character, connectedPortal, GetComponentInParent<Room>()));
+        //    }
+        //    else
+        //    {
+        //        StartCoroutine(Teleport(character));
+        //    }
+        //}
     }
 
 
